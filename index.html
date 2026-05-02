@@ -1,295 +1,287 @@
 <!DOCTYPE html>
 <html lang="ko" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>K-AI CONET INC. | AI IS ONE</title>
-    <!-- 전술 스타일링 엔진: Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 지휘 통제 엔진: React -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- 미래지향적 폰트 시스템 -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --brand-cyan: #06b6d4;
-            --brand-blue: #3b82f6;
-            --bg-dark: #020617;
-        }
-
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: var(--bg-dark);
-            color: #f1f5f9;
-            margin: 0;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .font-header { font-family: 'Orbitron', sans-serif; }
-
-        /* 글래스모피즘 전술 패널 */
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .text-neon {
-            background: linear-gradient(to right, #06b6d4, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.4));
-        }
-
-        .bg-grid {
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
-            background-size: 30px 30px;
-        }
-
-        .hero-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* 유닛 카드 반응성 */
-        .unit-card {
-            transition: all 0.3s ease;
-        }
-        @media (min-width: 1024px) {
-            .unit-card:hover {
-                transform: translateY(-10px);
-                border-color: var(--brand-cyan);
-                box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.3);
-            }
-        }
-
-        @keyframes scan-radar {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
-        .radar-line {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--brand-cyan), transparent);
-            animation: scan-radar 6s linear infinite;
-            opacity: 0.15;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>K-AI CONET INC. | AI IS ONE</title>
+    <!-- 전술 스타일링 엔진: Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 지휘 통제 엔진: React -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 미래지향적 폰트 시스템 -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-cyan: #06b6d4;
+            --brand-blue: #3b82f6;
+            --bg-dark: #020617;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            margin: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-header { font-family: 'Orbitron', sans-serif; }
+        /* 참모의 전술적 디자인: 글래스모피즘 */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-neon {
+            background: linear-gradient(to right, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.4));
+        }
+        .bg-grid {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .commander-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* 기동성 강화를 위한 호버 효과 */
+        .unit-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @media (min-width: 1024px) {
+            .unit-card:hover {
+                transform: translateY(-12px);
+                border-color: var(--brand-cyan);
+                box-shadow: 0 30px 60px -12px rgba(6, 182, 212, 0.3);
+            }
+        }
+        @keyframes scan-radar {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .radar-line {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--brand-cyan), transparent);
+            animation: scan-radar 5s linear infinite;
+            opacity: 0.1;
+        }
+    </style>
 </head>
-<body class="bg-grid selection:bg-cyan-500 selection:text-white">
-    <div id="root"></div>
-
-    <script type="text/babel">
-        const { useState, useEffect } = React;
-
-        // [참모 보고] 라이브러리 충돌을 섬멸하기 위한 인라인 SVG 전술 아이콘
-        const Icon = ({ name, size = 24, className = "" }) => {
-            const icons = {
-                Network: <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 m-1.82 5.36a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />,
-                Cpu: <><rect x="4" y="4" width="16" height="16" rx="2" /><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3M9 9h6v6H9z"/></>,
-                Shield: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z m-3-10 2 2 4-4" />,
-                File: <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />,
-                Globe: <circle cx="12" cy="12" r="10" />,
-                Mail: <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />,
-                Arrow: <path d="M5 12h14M12 5l7 7-7 7" />
-            };
-            return (
-                <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-                    {icons[name]}
-                    {name === 'Mail' && <rect width="20" height="16" x="2" y="4" rx="2" />}
-                </svg>
-            );
-        };
-
-        const App = () => {
-            const [scrolled, setScrolled] = useState(false);
-
-            useEffect(() => {
-                const handleScroll = () => setScrolled(window.scrollY > 40);
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, []);
-
-            // [전술 데이터] 사령관님의 파일명과 정확히 동기화
-            const strategyPdfName = "K-AI CONET Corporate Strategy - AI is ONE (1) (1).pdf";
-
-            return (
-                <div className="relative min-h-screen">
-                    {/* [전술 네비게이션] 연락처 이동 결함 수리 완료 */}
-                    <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${scrolled ? 'glass-panel py-3 md:py-4 shadow-2xl' : 'bg-transparent py-6 md:py-10'}`}>
-                        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-                            <div className="flex items-center gap-3">
-                                <div className="w-9 h-9 md:w-11 md:h-11 bg-cyan-500 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/40">
-                                    <Icon name="Network" className="text-white" size={22} />
-                                </div>
-                                <div>
-                                    <h1 className="text-lg md:text-2xl font-header font-black tracking-tighter italic text-white leading-none uppercase">K-AI CONET</h1>
-                                    <p className="text-[7px] md:text-[9px] font-bold text-cyan-500 tracking-[0.3em] uppercase mt-1">Intelligence Unified</p>
-                                </div>
-                            </div>
-                            
-                            <div className="flex items-center gap-4 md:gap-12">
-                                <div className="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-widest text-slate-400">
-                                    <a href="#vision" className="hover:text-white transition-colors">Philosophy</a>
-                                    <a href="#solutions" className="hover:text-white transition-colors">Solutions</a>
-                                    <a href="#governance" className="hover:text-white transition-colors">Governance</a>
-                                </div>
-                                {/* [명령 이행] #contact 타겟으로 즉각 기동하도록 수정 */}
-                                <a href="#contact" className="bg-white text-black px-5 py-2 md:px-8 md:py-3 rounded-full hover:bg-cyan-400 transition-all font-black text-[10px] md:text-xs shadow-xl active:scale-95">CONTACT CEO</a>
-                            </div>
-                        </div>
-                    </nav>
-
-                    {/* [히어로 섹션] 사령관님의 철학 선포 */}
-                    <header id="vision" className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-                        <div className="hero-glow"></div>
-                        <div className="radar-line"></div>
-                        
-                        <div className="max-w-6xl w-full text-center z-10 pt-20">
-                            <div className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-[9px] md:text-[10px] font-black tracking-[0.4em] mb-10 md:mb-14 uppercase animate-pulse">
-                                Official NYC Strategic Command 2026
-                            </div>
-                            <h2 className="text-5xl md:text-[9.5rem] font-header font-black tracking-tighter text-white leading-[0.85] mb-10 md:mb-14">
-                                AI IS <br /><span className="text-neon italic uppercase">ONE.</span>
-                            </h2>
-                            <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
-                                <p className="text-lg md:text-3xl text-slate-300 font-light leading-relaxed">
-                                    "글로벌 산업, 무역, 금융이 AI와 블록체인 기술 하나로 매칭되고 연결되는 세상을 구현합니다."
-                                </p>
-                                <div className="h-1 w-24 md:w-40 bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto opacity-50"></div>
-                            </div>
-                            
-                            <div className="mt-14 md:mt-24 flex flex-col sm:flex-row justify-center gap-6 md:gap-10 items-center">
-                                {/* [결함 해결] 전략 PDF 보급로 개방 완료 */}
-                                <a 
-                                    href={`./${strategyPdfName}`} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="w-full sm:w-auto flex items-center justify-center gap-4 bg-white text-black px-10 py-5 md:px-14 md:py-6 rounded-2xl font-black text-base md:text-xl hover:scale-105 transition-all shadow-2xl active:scale-95"
-                                >
-                                    <Icon name="File" className="text-cyan-500" />
-                                    CORE STRATEGY PDF
-                                </a>
-                                <div className="w-full sm:w-auto flex flex-col items-start gap-1 text-left border-l-2 border-white/10 pl-6 md:pl-10">
-                                    <p className="text-[9px] font-black text-slate-500 tracking-widest uppercase">Entity ID</p>
-                                    <p className="text-white font-header font-black italic tracking-widest text-lg md:text-2xl">7877356</p>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-
-                    {/* [솔루션 섹션] 3대 핵심 인프라 */}
-                    <section id="solutions" className="py-24 md:py-48 px-6 md:px-12 bg-[#010409]">
-                        <div className="max-w-7xl mx-auto">
-                            <div className="text-center mb-20 md:mb-32">
-                                <h3 className="text-4xl md:text-6xl font-header font-black italic tracking-tighter text-white uppercase mb-6 leading-none">Core Infrastructure</h3>
-                                <p className="text-slate-500 font-bold tracking-[0.5em] uppercase text-[10px] md:text-xs">Three Pillars of Strategic Dominance</p>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                                {[
-                                    { i: "Cpu", t: "AI Matching", d: "딥러닝 알고리즘을 통한 글로벌 산업 수요 및 공급망의 지능적 최적화 매칭 시스템." },
-                                    { i: "Shield", t: "Blockchain Trust", d: "무역 거래의 무결성을 보장하는 투명한 분산 원장 기술 및 뉴욕 금융 보안 표준 준수." },
-                                    { i: "Network", t: "Prop-Tech NYC", d: "맨해튼 프리미엄 공간 자산을 디지털화하여 전 세계 투자자와 지능적으로 연결하는 허브." }
-                                ].map((unit, i) => (
-                                    <div key={i} className="unit-card p-10 md:p-14 bg-slate-900/40 border border-white/5 rounded-[2.5rem] md:rounded-[3.5rem] backdrop-blur-md group">
-                                        <div className="w-14 h-14 md:w-16 md:h-16 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8 md:mb-12 group-hover:bg-cyan-500 transition-colors duration-500">
-                                            <Icon name={unit.i} className="text-cyan-500 group-hover:text-white transition-colors" size={32} />
-                                        </div>
-                                        <h4 className="text-xl md:text-2xl font-header font-black italic mb-6 uppercase text-white tracking-tighter italic">{unit.t}</h4>
-                                        <p className="text-slate-500 text-xs md:text-sm leading-relaxed font-medium group-hover:text-slate-300 transition-colors">{unit.d}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* [거버넌스 & 지휘통제실] 최종 타겟 지점(id="contact") 설정 */}
-                    <section id="governance" className="py-24 md:py-48 px-4 md:px-8 relative overflow-hidden">
-                        <div className="max-w-7xl mx-auto glass-panel p-8 md:p-24 rounded-[2.5rem] md:rounded-[4.5rem] relative z-10">
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-32 items-start">
-                                <div className="space-y-10 md:space-y-16">
-                                    <div>
-                                        <h3 className="text-4xl md:text-6xl font-header font-black italic tracking-tighter uppercase mb-10 text-white leading-none">Legal <br /><span className="text-neon uppercase italic">Governance</span></h3>
-                                        <p className="text-slate-400 text-base md:text-xl font-light leading-relaxed italic">
-                                            "K-AI CONET, INC.는 뉴욕주(New York State) 공식 인가 법인으로서 미 연방 및 주정부의 규정을 준수합니다."
-                                        </p>
-                                    </div>
-                                    <div className="grid grid-cols-1 gap-4">
-                                        {[
-                                            { l: "Authority", v: "New York Department of State" },
-                                            { l: "NY DOS ID", v: "7877356", c: "text-cyan-400 font-header" },
-                                            { l: "Auth Number", v: "100009995047" },
-                                            { l: "Official Status", v: "CERTIFIED & LIVE", c: "text-green-500 font-black" }
-                                        ].map((info, idx) => (
-                                            <div key={idx} className="flex justify-between items-center p-5 md:p-7 bg-white/[0.02] border border-white/5 rounded-2xl">
-                                                <span className="text-[9px] md:text-[10px] font-black text-slate-600 tracking-[0.2em] uppercase italic">{info.l}</span>
-                                                <span className={`text-[11px] md:text-sm font-bold uppercase ${info.c || 'text-white'}`}>{info.v}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* [결함 해결] 이 섹션(id="contact")이 상단 버튼의 최종 기착지입니다. */}
-                                <div id="contact" className="bg-slate-950 p-10 md:p-20 rounded-[2.5rem] md:rounded-[4rem] border border-white/10 shadow-2xl relative group overflow-hidden scroll-mt-24 md:scroll-mt-32">
-                                    <div className="absolute -top-10 -right-10 w-48 h-48 bg-cyan-500/10 blur-[90px]"></div>
-                                    <h4 className="text-cyan-500 text-[10px] font-black tracking-[0.6em] uppercase mb-12 md:mb-16 italic">Direct Strategic Line</h4>
-                                    <div className="space-y-12 md:space-y-16">
-                                        <div>
-                                            <p className="text-slate-500 text-[9px] md:text-[10px] font-black uppercase mb-4 tracking-[0.3em]">Manhattan Headquarters</p>
-                                            <p className="text-white text-xl md:text-3xl font-bold leading-tight tracking-tight uppercase">142 West 57th Street, <br />New York, NY 10019</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-slate-500 text-[9px] md:text-[10px] font-black uppercase mb-4 tracking-[0.3em]">Strategic Comms</p>
-                                            <a href="mailto:ceo@k-aiconet.com" className="text-white text-xl md:text-3xl font-black italic tracking-[0.05em] hover:text-cyan-400 transition-colors block mb-4 underline decoration-cyan-500 decoration-2 underline-offset-8 active:text-cyan-400">ceo@k-aiconet.com</a>
-                                            <p className="text-cyan-400 font-header text-3xl md:text-5xl font-black italic tracking-widest leading-none">332-254-9709</p>
-                                        </div>
-                                        <div className="pt-10 border-t border-white/5 flex items-center justify-between">
-                                            <p className="text-[10px] font-black text-slate-600 tracking-[0.3em] uppercase italic underline underline-offset-8 decoration-slate-800">WWW.K-AICONET.COM</p>
-                                            <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse shadow-[0_0_20px_#22c55e]"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* [푸터] 작전 종료 및 저작권 명시 */}
-                    <footer className="bg-black py-24 md:py-32 px-8 border-t border-white/5">
-                        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 md:gap-20">
-                            <div className="text-center md:text-left">
-                                <div className="flex items-center gap-4 justify-center md:justify-start mb-8">
-                                    <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded flex items-center justify-center text-black font-header font-black italic text-lg md:text-xl">K</div>
-                                    <span className="font-header font-black italic text-white text-2xl md:text-3xl tracking-tighter uppercase leading-none">K-AI CONET INC.</span>
-                                </div>
-                                <p className="text-[9px] font-bold text-slate-700 tracking-[0.5em] uppercase leading-relaxed max-w-sm italic">
-                                    Architecting Unity through Intelligence <br />
-                                    © 2026 OFFICIAL NYC DIGITAL INFRASTRUCTURE.
-                                </p>
-                            </div>
-                            <div className="flex flex-wrap justify-center gap-10 md:gap-16 text-[9px] font-black tracking-[0.5em] uppercase text-slate-600">
-                                <a href="#philosophy" className="hover:text-cyan-400 transition-colors">Philosophy</a>
-                                <a href="#infrastructure" className="hover:text-cyan-400 transition-colors">Infra</a>
-                                <a href="#governance" className="hover:text-cyan-400 transition-colors">Governance</a>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+<body class="bg-grid">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        // [참모 보고] 라이브러리 충돌을 원천 차단하는 인라인 SVG 전술 아이콘
+        const TacticalIcon = ({ name, size = 24, className = "" }) => {
+            const icons = {
+                Network: <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 m-1.82 5.36a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />,
+                Cpu: <><rect x="4" y="4" width="16" height="16" rx="2" /><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3M9 9h6v6H9z"/></>,
+                Shield: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z m-3-10 2 2 4-4" />,
+                File: <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />,
+                Globe: <circle cx="12" cy="12" r="10" />,
+                Mail: <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />,
+                Phone: <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            };
+            return (
+                <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                    {icons[name]}
+                    {name === 'Mail' && <rect width="20" height="16" x="2" y="4" rx="2" />}
+                </svg>
+            );
+        };
+        const App = () => {
+            const [isScrolled, setIsScrolled] = useState(false);
+            useEffect(() => {
+                const handleScroll = () => setIsScrolled(window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+            // [핵심 전술] 사령관님께서 업로드하신 PDF 파일명과 100% 일치하도록 설정
+            const pdfUrl = "./K-AI CONET Corporate Strategy - AI is ONE (1) (1).pdf";
+            return (
+                <div className="relative min-h-screen">
+                    {/* [전술 네비게이션] 기동성 확보를 위한 부드러운 이동 경로 설정 */}
+                    <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${isScrolled ? 'glass-panel py-4 shadow-xl' : 'bg-transparent py-8'}`}>
+                        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center text-white">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/40">
+                                    <TacticalIcon name="Network" className="text-white" />
+                                </div>
+                                <div>
+                                    <h1 className="text-xl font-header font-black tracking-tighter italic text-white leading-none uppercase">K-AI CONET</h1>
+                                    <p className="text-[8px] font-bold text-cyan-500 tracking-[0.4em] uppercase">Intelligence Unified</p>
+                                </div>
+                            </div>
+                            <div className="hidden lg:flex items-center gap-12 text-[10px] font-black tracking-[0.2em] uppercase text-slate-400">
+                                <a href="#philosophy" className="hover:text-cyan-400 transition-colors">Philosophy</a>
+                                <a href="#infrastructure" className="hover:text-cyan-400 transition-colors">Infrastructure</a>
+                                <a href="#governance" className="hover:text-cyan-400 transition-colors">Governance</a>
+                                {/* [결함 해결] CONTACT CEO 클릭 시 #contact 섹션으로 즉각 기동 */}
+                                <a href="#contact" className="bg-white text-black px-8 py-3 rounded-full hover:bg-cyan-400 transition-all font-black shadow-xl shadow-cyan-500/10">CONTACT CEO</a>
+                            </div>
+                            {/* 모바일용 Contact 버튼 */}
+                            <div className="lg:hidden">
+                                <a href="#contact" className="bg-white text-black px-5 py-2 rounded-full font-black text-[10px]">CONTACT</a>
+                            </div>
+                        </div>
+                    </nav>
+                    {/* [히어로 섹션] 사령관님의 철학 "AI IS ONE" 선포 */}
+                    <section id="philosophy" className="relative min-h-screen flex items-center justify-center px-8 overflow-hidden">
+                        <div className="commander-glow"></div>
+                        <div className="radar-line"></div>
+                        <div className="max-w-6xl w-full text-center z-10">
+                            <div className="inline-block px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-[10px] font-black tracking-[0.5em] mb-12 uppercase animate-pulse">
+                                Official NYC Corporate Portal 2026
+                            </div>
+                            <h2 className="text-6xl md:text-[9.5rem] font-header font-black tracking-tighter text-white leading-[0.85] mb-12">
+                                AI IS <br /><span className="text-neon italic uppercase">ONE.</span>
+                            </h2>
+                            <div className="max-w-4xl mx-auto space-y-10">
+                                <p className="text-xl md:text-3xl text-slate-300 font-light leading-relaxed">
+                                    "글로벌 산업, 무역, 금융이 AI와 블록체인 기술 하나로 매칭되고 연결되는 세상을 구현합니다."
+                                </p>
+                                <div className="h-1 w-32 bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto opacity-50"></div>
+                                <p className="text-slate-500 text-sm md:text-lg leading-relaxed max-w-2xl mx-auto italic font-light">
+                                    K-AI CONET의 'AI is ONE' 철학은 파편화된 세계 경제 요소를 <br className="hidden md:block" />
+                                    지능적 매칭으로 통합하여 하나의 투명한 디지털 신경망으로 연결합니다.
+                                </p>
+                            </div>
+                            <div className="mt-20 flex flex-col sm:flex-row justify-center gap-8 items-center">
+                                {/* [결함 해결] PDF 파일 링크 무결성 확보 */}
+                                <a 
+                                    href={pdfUrl} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-4 bg-white text-black px-12 py-6 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-2xl"
+                                >
+                                    <TacticalIcon name="File" className="text-cyan-500" />
+                                    CORE STRATEGY PDF
+                                </a>
+                                <div className="flex items-center gap-5 px-10 py-6 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm">
+                                    <span className="text-slate-500 text-[10px] font-black tracking-widest uppercase">NY DOS ID</span>
+                                    <span className="text-white font-header font-black italic tracking-widest text-xl">7877356</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    {/* [인프라 섹션] 전술적 3대 인프라 보고 */}
+                    <section id="infrastructure" className="py-40 px-8 bg-[#010409]">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="text-center mb-32">
+                                <h3 className="text-5xl font-header font-black italic tracking-tighter text-white uppercase mb-6 leading-none">
+                                    Tactical <br /><span className="text-cyan-500">Infrastructure</span>
+                                </h3>
+                                <p className="text-slate-500 font-bold tracking-[0.5em] uppercase text-xs">The Three Pillars of Strategic Transformation</p>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                                {[
+                                    { i: "Cpu", t: "AI Matching", d: "딥러닝 알고리즘을 통한 글로벌 산업 수요 및 공급망의 지능적 최적화 매칭. 실시간 데이터 분석으로 전략적 기회를 선점합니다." },
+                                    { i: "Shield", t: "Blockchain Trust", d: "모든 거래의 무결성을 보장하는 투명한 분산 원장 기술. 뉴욕 금융 보안 표준을 준수하는 탈중앙화 신뢰 프로토콜입니다." },
+                                    { i: "Network", t: "Prop-Tech NYC", d: "맨해튼 프리미엄 부동산 자산을 디지털 인프라로 전환. 글로벌 투자자와 NYC 핵심 자산을 지능적으로 연결하는 허브를 구축합니다." }
+                                ].map((item, i) => (
+                                    <div key={i} className="unit-card p-12 bg-slate-900/40 border border-white/5 rounded-[3rem] backdrop-blur-md group">
+                                        <div className="w-16 h-16 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-cyan-500 transition-colors">
+                                            <TacticalIcon name={item.i} className="text-cyan-500 group-hover:text-white" size={32} />
+                                        </div>
+                                        <h4 className="text-2xl font-header font-black italic mb-6 uppercase text-white tracking-tighter">{item.t}</h4>
+                                        <p className="text-slate-500 text-sm leading-relaxed font-light group-hover:text-slate-300 transition-colors">{item.d}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                    {/* [거버넌스 & 연락처 섹션] 전술적 타겟 지점(id="contact") 설정 */}
+                    <section id="governance" className="py-40 px-8 relative overflow-hidden">
+                        <div className="max-w-7xl mx-auto glass-panel p-12 md:p-24 rounded-[4rem] relative z-10">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+                                <div>
+                                    <h3 className="text-4xl md:text-5xl font-header font-black italic tracking-tighter uppercase mb-10 text-white leading-none">Legal <br /><span className="text-cyan-500 text-neon">Governance</span></h3>
+                                    <p className="text-slate-400 text-lg leading-relaxed mb-12 font-light">
+                                        K-AI CONET, INC.는 뉴욕주(New York State) 공식 인가 법인으로서 미 연방 및 주정부의 규정을 철저히 준수하는 투명한 거버넌스를 자랑합니다.
+                                    </p>
+                                    <div className="space-y-4">
+                                        {[
+                                            { l: "Registration", v: "New York Dept. of State" },
+                                            { l: "NY DOS ID", v: "7877356", c: "text-cyan-400 font-header" },
+                                            { l: "Authentication", v: "AUTH No: 100009995047" },
+                                            { l: "EIN Status", v: "ISSUED & VERIFIED", c: "text-green-500 font-black" }
+                                        ].map((info, i) => (
+                                            <div key={i} className="flex justify-between items-center p-6 bg-white/[0.03] border border-white/5 rounded-2xl">
+                                                <span className="text-[10px] font-black text-slate-600 tracking-widest uppercase italic">{info.l}</span>
+                                                <span className={`text-sm font-bold uppercase ${info.c || 'text-white'}`}>{info.v}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                {/* [전술 목표 지점] 연락처 정보 카드 */}
+                                <div id="contact" className="bg-slate-950 p-12 md:p-16 rounded-[3rem] border border-white/10 shadow-2xl relative group overflow-hidden scroll-mt-24">
+                                    <div className="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 blur-[80px]"></div>
+                                    <h4 className="text-cyan-500 text-[10px] font-black tracking-[0.6em] uppercase mb-12 italic">Direct Communication</h4>
+                                    <div className="space-y-12">
+                                        <div className="flex gap-6">
+                                            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center flex-shrink-0">
+                                                <TacticalIcon name="Globe" size={20} className="text-slate-500" />
+                                            </div>
+                                            <div>
+                                                <p className="text-slate-500 text-[10px] font-black uppercase mb-3 tracking-widest text-glow">Headquarters</p>
+                                                <p className="text-white text-2xl font-bold leading-tight tracking-tight uppercase">142 West 57th Street, <br />New York, NY 10019</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-6">
+                                            <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center flex-shrink-0">
+                                                <TacticalIcon name="Mail" size={20} className="text-cyan-500" />
+                                            </div>
+                                            <div>
+                                                <p className="text-slate-500 text-[10px] font-black uppercase mb-3 tracking-widest text-glow">Identity & Contact</p>
+                                                <a href="mailto:ceo@k-aiconet.com" className="text-white text-2xl font-black italic tracking-[0.05em] hover:text-cyan-400 transition-colors block mb-2 underline decoration-cyan-500 decoration-2 underline-offset-8">ceo@k-aiconet.com</a>
+                                                <p className="text-cyan-400 font-header text-3xl font-black italic tracking-widest">332-254-9709</p>
+                                            </div>
+                                        </div>
+                                        <div className="pt-10 border-t border-white/5 flex items-center justify-between">
+                                            <p className="text-[10px] font-black text-slate-600 tracking-[0.2em] uppercase italic underline underline-offset-4 decoration-slate-800 tracking-tighter">WWW.K-AICONET.COM</p>
+                                            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-[0_0_15px_#22c55e]"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    {/* [푸터] 작전 종료 및 기록 보존 */}
+                    <footer className="py-24 px-8 border-t border-white/5 bg-black">
+                        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+                            <div className="text-center md:text-left">
+                                <div className="flex items-center gap-3 justify-center md:justify-start mb-6">
+                                    <div className="w-8 h-8 bg-cyan-500 rounded flex items-center justify-center text-white font-header font-black italic text-lg shadow-[0_0_15px_rgba(6,182,212,0.3)]">K</div>
+                                    <span className="font-header font-black italic text-white text-2xl tracking-tighter uppercase leading-none">K-AI CONET</span>
+                                </div>
+                                <p className="text-[9px] font-bold text-slate-700 tracking-[0.5em] uppercase leading-relaxed max-w-sm">
+                                    Architecting Unity through Intelligence <br />
+                                    © 2026 OFFICIAL NYC HUB. ALL RIGHTS RESERVED.
+                                </p>
+                            </div>
+                            <div className="flex flex-wrap justify-center gap-12 text-[10px] font-black tracking-[0.4em] uppercase text-slate-500">
+                                <a href="#philosophy" className="hover:text-cyan-400 transition-colors">Philosophy</a>
+                                <a href="#infrastructure" className="hover:text-cyan-400 transition-colors">Infra</a>
+                                <a href="#governance" className="hover:text-cyan-400 transition-colors">Governance</a>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
