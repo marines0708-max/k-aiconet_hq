@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-AI CONET — Global AI Trade & Finance Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+Arabic:wght@300;400;700&family=Noto+Sans+Devanagari:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #02050E;
+  --dark: #040916;
+  --dark2: #071020;
+  --dark3: #0A1830;
+  --blue: #1558C0;
+  --blue2: #2A78E8;
+  --blue3: #5AA0FF;
+  --blue4: #90C4FF;
+  --gold: #C4A040;
+  --gold2: #E0BC60;
+  --gold3: #F5DC90;
+  --silver: #A0B8CC;
+  --white: #E8F0FF;
+  --gray: #5A6A88;
+  --gray2: #1E2A3A;
+  --border: rgba(255,255,255,0.05);
+  --blue-border: rgba(26,88,192,0.25);
+  --gold-border: rgba(196,160,64,0.2);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Outfit',sans-serif;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* Cursor */
+.cursor{position:fixed;width:6px;height:6px;background:var(--blue3);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:screen;}
+.cursor-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(90,160,255,0.4);border-radius:50%;pointer-events:none;z-index:9998;transition:all 0.12s ease;}
+
+/* Art background */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 10%, rgba(21,88,192,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 90%, rgba(42,120,232,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(196,160,64,0.04) 0%, transparent 70%),
+    linear-gradient(170deg, #02050E 0%, #04091A 50%, #02050E 100%);
+  pointer-events:none;z-index:0;
+}
+
+/* Animated mesh lines */
+.mesh{
+  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+}
+.mesh-line{
+  position:absolute;background:linear-gradient(90deg,transparent,rgba(26,88,192,0.08),transparent);
+  height:1px;width:100%;animation:meshMove 12s linear infinite;
+}
+@keyframes meshMove{0%{transform:translateY(-100vh)}100%{transform:translateY(100vh)}}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:0 60px;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(2,5,14,0.88);
+  backdrop-filter:blur(28px);
+  border-bottom:1px solid rgba(26,88,192,0.15);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;letter-spacing:1px;
+  display:flex;align-items:center;gap:8px;
+}
+.nav-logo .k{color:var(--blue3);}
+.nav-logo .ai{color:var(--gold2);}
+.nav-logo .conet{color:var(--white);font-weight:300;}
+.nav-logo-dot{width:4px;height:4px;border-radius:50%;background:var(--blue3);box-shadow:0 0 8px var(--blue3);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.nav-center{display:flex;align-items:center;gap:0;}
+
+/* Language switcher in nav */
+.lang-nav{
+  display:flex;align-items:center;gap:3px;
+  background:rgba(26,88,192,0.08);
+  border:1px solid rgba(26,88,192,0.15);
+  border-radius:20px;padding:3px;
+  margin-right:24px;
+}
+.lang-btn{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.5px;
+  color:var(--gray);padding:4px 9px;
+  border-radius:16px;cursor:none;
+  transition:all 0.2s;background:transparent;border:none;
+  font-family:'Outfit',sans-serif;
+}
+.lang-btn:hover{color:var(--blue4);}
+.lang-btn.active{
+  background:var(--blue);color:#fff;
+  box-shadow:0 2px 8px rgba(21,88,192,0.4);
+}
+
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{
+  font-size:11px;font-weight:400;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--gray);text-decoration:none;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--blue4);}
+.nav-cta{
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff;font-size:11px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:10px 22px;border:none;cursor:none;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  transition:all 0.3s;
+}
+.nav-cta:hover{box-shadow:0 8px 24px rgba(42,120,232,0.4);transform:translateY(-1px);}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:0 60px;position:relative;overflow:hidden;
+}
+
+/* Geometric art background */
+.art-bg{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+}
+
+/* Hero grid */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(26,88,192,0.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(26,88,192,0.05) 1px,transparent 1px);
+  background-size:70px 70px;
+  animation:gridDrift 25s linear infinite;
+}
+@keyframes gridDrift{0%{background-position:0 0}100%{background-position:70px 70px}}
+
+/* Orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;animation:orbFloat 10s ease-in-out infinite;}
+.orb1{width:700px;height:700px;background:rgba(21,88,192,0.08);top:-200px;right:-100px;}
+.orb2{width:500px;height:500px;background:rgba(196,160,64,0.05);bottom:-150px;left:100px;animation-delay:-5s;}
+.orb3{width:300px;height:300px;background:rgba(42,120,232,0.07);top:200px;left:-80px;animation-delay:-2s;}
+@keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-40px)}}
+
+/* Cyborg face art */
+.logo-container{
+  position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+  width:560px;height:560px;z-index:2;
+  opacity:0.92;
+}
+.logo-container canvas{
+  display:block;
+}
+
+.hero-content{position:relative;z-index:3;max-width:640px;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--blue-border);
+  background:rgba(21,88,192,0.08);
+  padding:6px 16px;margin-bottom:28px;
+  font-size:10px;font-weight:500;
+  letter-spacing:3px;text-transform:uppercase;color:var(--blue4);
+  animation:fadeUp 1s 0.2s both;
+  clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+}
+.badge-dot{width:5px;height:5px;border-radius:50%;background:var(--blue3);box-shadow:0 0 8px var(--blue3);animation:pulse 2s infinite;}
+
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,6.5vw,82px);
+  font-weight:700;line-height:0.92;
+  letter-spacing:-2px;margin-bottom:22px;
+  animation:fadeUp 1s 0.4s both;
+}
+.hero-title .l1{display:block;color:var(--white);}
+.hero-title .l2{
+  display:block;
+  background:linear-gradient(135deg,var(--blue3),var(--blue4),var(--white));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 30px rgba(90,160,255,0.3));
+}
+.hero-title .l3{display:block;color:var(--gold2);font-style:italic;font-weight:300;font-size:0.75em;}
+
+.hero-desc{
+  font-size:15px;font-weight:300;line-height:1.85;
+  color:var(--gray);max-width:500px;
+  margin-bottom:36px;
+  animation:fadeUp 1s 0.6s both;
+}
+
+.hero-actions{display:flex;gap:14px;align-items:center;animation:fadeUp 1s 0.8s both;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff;font-size:12px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:14px 30px;border:none;cursor:none;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  transition:all 0.3s;
+}
+.btn-primary:hover{box-shadow:0 12px 32px rgba(42,120,232,0.35);transform:translateY(-2px);}
+.btn-secondary{
+  border:1px solid var(--blue-border);color:var(--blue4);
+  font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;
+  padding:14px 30px;background:transparent;cursor:none;
+  transition:all 0.3s;
+}
+.btn-secondary:hover{background:rgba(26,88,192,0.1);}
+
+.hero-stats{
+  display:flex;gap:44px;margin-top:56px;
+  padding-top:36px;border-top:1px solid var(--border);
+  animation:fadeUp 1s 1s both;
+}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;font-weight:700;
+  background:linear-gradient(135deg,var(--blue3),var(--blue4));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.stat-label{font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-top:3px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* TICKER */
+.ticker{
+  background:rgba(21,88,192,0.06);
+  border-top:1px solid var(--blue-border);
+  border-bottom:1px solid var(--blue-border);
+  padding:13px 0;overflow:hidden;position:relative;z-index:2;
+}
+.ticker-track{display:flex;gap:56px;animation:tickerMove 28s linear infinite;white-space:nowrap;}
+@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--blue4);display:flex;align-items:center;gap:10px;}
+.ticker-sep{color:var(--gray2);}
+
+/* SECTIONS */
+section{padding:110px 60px;position:relative;z-index:2;}
+
+.section-eyebrow{
+  font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;
+  color:var(--blue3);margin-bottom:14px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-eyebrow::before{content:'';width:28px;height:1px;background:var(--blue3);}
+
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,4.5vw,60px);
+  font-weight:700;line-height:1.08;
+  letter-spacing:-1px;margin-bottom:18px;
+}
+.section-desc{font-size:15px;font-weight:300;color:var(--gray);line-height:1.85;max-width:520px;}
+
+/* SERVICES */
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(26,88,192,0.1);margin-top:72px;
+}
+.svc{
+  background:var(--dark);padding:44px 36px;
+  position:relative;overflow:hidden;transition:background 0.3s;
+}
+.svc:hover{background:var(--dark2);}
+.svc::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue2),transparent);
+  transform:scaleX(0);transition:transform 0.5s;
+}
+.svc:hover::before{transform:scaleX(1);}
+.svc::after{
+  content:'';position:absolute;bottom:-60px;right:-60px;
+  width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,88,192,0.06),transparent 70%);
+  transition:all 0.5s;
+}
+.svc:hover::after{transform:scale(1.5);}
+.svc-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray2);margin-bottom:28px;letter-spacing:2px;}
+.svc-icon{
+  width:48px;height:48px;margin-bottom:22px;
+  border:1px solid var(--blue-border);
+  background:rgba(21,88,192,0.08);
+  display:flex;align-items:center;justify-content:center;
+  clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+}
+.svc-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;margin-bottom:14px;line-height:1.2;}
+.svc-desc{font-size:13px;font-weight:300;color:var(--gray);line-height:1.85;margin-bottom:22px;}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border:1px solid var(--gray2);color:var(--gray);}
+
+/* VMATCH */
+.vmatch-section{background:linear-gradient(180deg,var(--dark),var(--black));}
+.vmatch-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px;}
+.vmatch-visual{position:relative;height:480px;}
+.vc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.vring{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  border-radius:50%;border:1px solid rgba(26,88,192,0.12);
+  animation:vRing 6s ease-in-out infinite;
+}
+@keyframes vRing{0%,100%{opacity:0.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:0.2;transform:translate(-50%,-50%) scale(1.04)}}
+.vcenter{
+  width:150px;height:150px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(21,88,192,0.2),rgba(42,120,232,0.05));
+  border:1px solid rgba(42,120,232,0.4);
+  display:flex;align-items:center;justify-content:center;z-index:2;position:relative;
+}
+.vcenter-txt{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--blue4);text-align:center;line-height:1.2;}
+.vnode{
+  position:absolute;width:56px;height:56px;
+  background:var(--dark2);border:1px solid var(--blue-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:var(--gold2);text-align:center;
+  clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);
+}
+.vn1{top:10px;left:50%;transform:translateX(-50%)}
+.vn2{top:50%;right:10px;transform:translateY(-50%)}
+.vn3{bottom:10px;left:50%;transform:translateX(-50%)}
+.vn4{top:50%;left:10px;transform:translateY(-50%)}
+.vn5{top:18%;right:18%}
+.vn6{bottom:18%;left:18%}
+
+.vbar-row{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--border);}
+.vbar-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--blue3);width:110px;flex-shrink:0;}
+.vbar-bg{flex:1;height:2px;background:rgba(255,255,255,0.05);}
+.vbar-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--blue3));transition:width 1.5s ease;}
+.vbar-val{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);width:36px;text-align:right;}
+
+.score-box{
+  margin-top:28px;padding:18px;
+  background:rgba(21,88,192,0.06);border:1px solid var(--blue-border);
+}
+.score-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--blue3);letter-spacing:2px;margin-bottom:6px;}
+.score-val{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--blue4);line-height:1;}
+.score-formula{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);margin-top:6px;}
+
+/* WALLET */
+.wallet-showcase{display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center;margin-top:60px;}
+.phone-mock{
+  width:250px;height:500px;
+  background:linear-gradient(160deg,var(--dark2),var(--dark3));
+  border:1px solid var(--blue-border);
+  border-radius:36px;padding:24px;
+  margin:0 auto;position:relative;
+  box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(42,120,232,0.08),inset 0 0 40px rgba(21,88,192,0.04);
+}
+.phone-mock::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:80px;height:3px;background:var(--gray2);border-radius:0 0 3px 3px;
+}
+.phone-mock::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue),var(--gold),transparent);
+  opacity:0.4;
+}
+.pm-lbl{font-size:9px;color:var(--gray);letter-spacing:1.5px;margin-bottom:3px;}
+.pm-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:3px;}
+.pm-sub{font-size:9px;color:var(--blue3);margin-bottom:14px;}
+.pm-chains{display:flex;gap:7px;margin-bottom:14px;}
+.pm-chain{
+  flex:1;background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  border-radius:10px;padding:6px;text-align:center;
+}
+.pm-chain-sym{font-size:11px;font-weight:700;margin-bottom:2px;}
+.pm-chain-usd{font-size:8px;color:var(--gray);}
+.pm-div{height:1px;background:var(--border);margin:10px 0;}
+.pm-asset{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.pm-thumb{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.pm-ainfo{flex:1;}
+.pm-aname{font-size:9px;font-weight:600;margin-bottom:1px;}
+.pm-atype{font-size:8px;color:var(--gray);}
+.pm-aval{font-size:9px;font-weight:700;}
+.pm-apct{font-size:8px;color:#22C55E;margin-top:1px;}
+
+.wf-item{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--border);}
+.wf-icon{
+  width:40px;height:40px;flex-shrink:0;
+  background:rgba(21,88,192,0.08);border:1px solid var(--blue-border);
+  display:flex;align-items:center;justify-content:center;
+  clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);
+}
+.wf-title{font-size:14px;font-weight:600;margin-bottom:5px;}
+.wf-desc{font-size:12px;color:var(--gray);line-height:1.7;}
+
+/* GLOBAL PAYMENTS */
+.pay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(26,88,192,0.08);margin-top:60px;}
+.pay-card{
+  background:var(--dark);padding:28px 20px;text-align:center;
+  transition:background 0.3s;position:relative;overflow:hidden;cursor:none;
+}
+.pay-card:hover{background:var(--dark2);}
+.pay-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue2),transparent);transform:scaleX(0);transition:transform 0.4s;}
+.pay-card:hover::before{transform:scaleX(1);}
+.pay-flag{font-size:30px;margin-bottom:10px;}
+.pay-country{font-size:13px;font-weight:600;margin-bottom:7px;}
+.pay-methods{font-size:10px;color:var(--gray);line-height:1.8;}
+.pay-badge{margin-top:10px;display:inline-block;font-size:9px;padding:2px 8px;background:rgba(21,88,192,0.1);border:1px solid rgba(42,120,232,0.2);color:var(--blue3);letter-spacing:1px;}
+
+/* VISION */
+.vision-section{background:linear-gradient(180deg,var(--black),var(--dark));}
+.vision-tl{margin-top:72px;position:relative;padding-left:36px;}
+.vision-tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--blue),var(--gold),transparent);}
+.vision-item{position:relative;margin-bottom:52px;padding-left:28px;}
+.vision-item::before{content:'';position:absolute;left:-4.5px;top:8px;width:10px;height:10px;background:var(--blue);box-shadow:0 0 14px rgba(42,120,232,0.6);}
+.vision-year{font-family:'DM Mono',monospace;font-size:10px;color:var(--blue3);letter-spacing:2px;margin-bottom:7px;}
+.vision-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:10px;}
+.vision-desc{font-size:13px;color:var(--gray);line-height:1.85;}
+.vision-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px;}
+.vision-tag{font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border:1px solid var(--gray2);color:var(--gray);}
+
+/* PATENTS */
+.patents-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(26,88,192,0.08);margin-top:60px;}
+.patent-card{
+  background:var(--dark);padding:36px;position:relative;overflow:hidden;
+}
+.patent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.patent-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);letter-spacing:2px;margin-bottom:14px;}
+.patent-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:12px;line-height:1.3;}
+.patent-desc{font-size:12px;color:var(--gray);line-height:1.85;margin-bottom:18px;}
+.patent-status{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--blue3);}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--blue3);animation:pulse 2s infinite;}
+
+/* CTA */
+.cta-section{text-align:center;padding:140px 60px;background:linear-gradient(180deg,var(--dark),var(--black));}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7vw,88px);font-weight:700;line-height:1;letter-spacing:-2px;margin-bottom:22px;}
+.cta-blue{background:linear-gradient(135deg,var(--blue3),var(--blue4));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.cta-desc{font-size:17px;font-weight:300;color:var(--gray);max-width:480px;margin:0 auto 44px;line-height:1.75;}
+.cta-btns{display:flex;gap:14px;justify-content:center;}
+
+/* FOOTER */
+footer{padding:56px 60px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:14px;}
+.footer-desc{font-size:12px;color:var(--gray);line-height:1.8;max-width:260px;margin-bottom:20px;}
+.footer-contact{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);line-height:2.2;}
+.fc h4{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue3);margin-bottom:18px;}
+.fc ul{list-style:none;}
+.fc li{font-size:12px;color:var(--gray);margin-bottom:9px;cursor:none;transition:color 0.2s;}
+.fc li:hover{color:var(--white);}
+.footer-btm{padding:22px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:11px;color:var(--gray);font-family:'DM Mono',monospace;}
+.ein{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);border:1px solid var(--gold-border);padding:3px 12px;}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(28px);transition:all 0.9s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--blue);}
+
+/* Multilingual font classes */
+.lang-ko{font-family:'Noto Sans KR',sans-serif;}
+.lang-ja{font-family:'Noto Sans JP',sans-serif;}
+.lang-ar{font-family:'Noto Sans Arabic',sans-serif;direction:rtl;}
+.lang-hi{font-family:'Noto Sans Devanagari',sans-serif;}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Mesh animation -->
+<div class="mesh" id="mesh"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <span class="k">K</span>-<span class="ai">AI</span>&nbsp;<span class="conet">CONET</span>
+    <div class="nav-logo-dot"></div>
+  </div>
+
+  <div class="nav-center">
+    <!-- Language switcher -->
+    <div class="lang-nav">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ko')">KOR</button>
+      <button class="lang-btn" onclick="setLang('es')">ESP</button>
+      <button class="lang-btn" onclick="setLang('hi')">हिं</button>
+      <button class="lang-btn" onclick="setLang('ar')">عر</button>
+      <button class="lang-btn" onclick="setLang('ja')">日</button>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#services" data-t="nav_platform">Platform</a></li>
+      <li><a href="#vmatch" data-t="nav_vmatch">V-Match</a></li>
+      <li><a href="#wallet" data-t="nav_wallet">Wallet</a></li>
+      <li><a href="#vision" data-t="nav_vision">Vision</a></li>
+      <li><a href="#patents" data-t="nav_patents">Patents</a></li>
+    </ul>
+  </div>
+
+  <button class="nav-cta" data-t="nav_cta">Launch App</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:68px;">
+  <div class="hero-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <!-- Cyborg / Holographic Face Art -->
+  <div class="logo-container">
+    <canvas id="logoCanvas" width="560" height="560"></canvas>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <span data-t="hero_badge">World's First AI-Powered Global Trade & Finance Ecosystem</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="l1" data-t="hero_l1">Global Trade.</span>
+      <span class="l2" data-t="hero_l2">AI Finance.</span>
+      <span class="l3" data-t="hero_l3">One Wallet.</span>
+    </h1>
+
+    <p class="hero-desc" data-t="hero_desc">K-AI CONET connects global enterprises, investors, and markets through AI-powered matching, blockchain payments, and real-world asset tokenization — all in one unified ecosystem.</p>
+
+    <div class="hero-actions">
+      <button class="btn-primary" data-t="hero_cta1">Explore Platform →</button>
+      <button class="btn-secondary" data-t="hero_cta2">Watch Demo</button>
+    </div>
+
+    <div class="hero-stats">
+      <div><div class="stat-num">40+</div><div class="stat-label" data-t="stat1">Countries</div></div>
+      <div><div class="stat-num">$32T</div><div class="stat-label" data-t="stat2">Target Market</div></div>
+      <div><div class="stat-num">3sec</div><div class="stat-label" data-t="stat3">AI Match Speed</div></div>
+      <div><div class="stat-num">10</div><div class="stat-label" data-t="stat4">Patents Filed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item" data-t="tick1">Manhattan Real Estate STO <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick2">Gallery Art NFT <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick3">V-Match AI Engine <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick4">40-Country Payments <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick5">Multi-Chain Wallet <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick6">Global B2B Matching <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick7">RWA Tokenization <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick8">K-Culture Investment <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick1">Manhattan Real Estate STO <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick2">Gallery Art NFT <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick3">V-Match AI Engine <span class="ticker-sep">·</span></span>
+    <span class="ticker-item" data-t="tick4">40-Country Payments <span class="ticker-sep">·</span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-eyebrow" data-t="s1_eye">Core Platform</div>
+  <h2 class="section-title" data-t="s1_title">Three Pillars of<br>Global Innovation</h2>
+  <p class="section-desc" data-t="s1_desc">A unified ecosystem connecting global trade, finance, and culture through AI and blockchain technology.</p>
+
+  <div class="services-grid reveal">
+    <div class="svc">
+      <div class="svc-num">01 / 03</div>
+      <div class="svc-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#4AA0FF" stroke-width="1.2"/><path d="M3 12h18M12 3c-2 3-3 6-3 9s1 6 3 9M12 3c2 3 3 6 3 9s-1 6-3 9" stroke="#4AA0FF" stroke-width="0.8"/></svg>
+      </div>
+      <div class="svc-title" data-t="svc1_title">Global AI Trade Matching</div>
+      <p class="svc-desc" data-t="svc1_desc">RAG-powered 6-vector AI engine matches exporters, buyers, and investors across 150+ countries in under 3 seconds. Automated contracts, payments, and dNFT issuance.</p>
+      <div class="svc-tags"><span class="tag">B2B Matching</span><span class="tag">Export Trade</span><span class="tag">Agentic AI</span><span class="tag">dNFT</span></div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">02 / 03</div>
+      <div class="svc-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#4AA0FF" stroke-width="1.2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" stroke="#4AA0FF" stroke-width="1.2"/><circle cx="16" cy="14" r="2" fill="#4AA0FF" opacity="0.6"/></svg>
+      </div>
+      <div class="svc-title" data-t="svc2_title">RWA Finance & Investment</div>
+      <p class="svc-desc" data-t="svc2_desc">Tokenize Manhattan real estate, blue-chip gallery art, and industrial assets as STOs and NFTs. AI-powered investor matching with automated dividend distribution.</p>
+      <div class="svc-tags"><span class="tag">Real Estate STO</span><span class="tag">Art NFT</span><span class="tag">Dividend Auto</span><span class="tag">SEC Reg D/S</span></div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">03 / 03</div>
+      <div class="svc-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#4AA0FF" stroke-width="1.2" fill="rgba(74,160,255,0.1)"/></svg>
+      </div>
+      <div class="svc-title" data-t="svc3_title">K-Culture Fan Economy</div>
+      <p class="svc-desc" data-t="svc3_desc">Transform 100M+ K-Pop, K-Drama, and K-Art fans into investors. IP tokenization, NFT concert tickets, and content STO with automated royalty distribution.</p>
+      <div class="svc-tags"><span class="tag">K-Pop NFT</span><span class="tag">IP Token</span><span class="tag">Fan Investment</span><span class="tag">Royalty Auto</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VMATCH -->
+<section id="vmatch" class="vmatch-section">
+  <div class="section-eyebrow" data-t="s2_eye">AI Engine</div>
+  <h2 class="section-title" data-t="s2_title">V-Match: 6-Vector<br>AI Matching System</h2>
+  <p class="section-desc" data-t="s2_desc">Patent-pending AI engine that simultaneously computes compatibility across 6 dimensions, delivering optimal matches in real-time.</p>
+
+  <div class="vmatch-layout reveal">
+    <div class="vmatch-visual">
+      <div class="vring" style="width:440px;height:440px;animation-delay:2s;"></div>
+      <div class="vring" style="width:340px;height:340px;animation-delay:1s;"></div>
+      <div class="vring" style="width:240px;height:240px;"></div>
+      <div class="vc">
+        <div class="vcenter">
+          <div class="vcenter-txt">V-Match<br>AI</div>
+        </div>
+      </div>
+      <div class="vnode vn1" style="top:18px;left:50%;transform:translateX(-50%)">Industry</div>
+      <div class="vnode vn2" style="top:50%;right:14px;transform:translateY(-50%)">Trade</div>
+      <div class="vnode vn3" style="bottom:18px;left:50%;transform:translateX(-50%)">Finance</div>
+      <div class="vnode vn4" style="top:50%;left:14px;transform:translateY(-50%)">Geo</div>
+      <div class="vnode vn5" style="top:14%;right:14%">Comply</div>
+      <div class="vnode vn6" style="bottom:14%;left:14%">Culture</div>
+    </div>
+
+    <div>
+      <div class="vbar-row"><span class="vbar-lbl">V_i Industry</span><div class="vbar-bg"><div class="vbar-fill" style="width:92%"></div></div><span class="vbar-val">92%</span></div>
+      <div class="vbar-row"><span class="vbar-lbl">V_t Trade</span><div class="vbar-bg"><div class="vbar-fill" style="width:88%"></div></div><span class="vbar-val">88%</span></div>
+      <div class="vbar-row"><span class="vbar-lbl">V_g Geo</span><div class="vbar-bg"><div class="vbar-fill" style="width:95%"></div></div><span class="vbar-val">95%</span></div>
+      <div class="vbar-row"><span class="vbar-lbl">V_c Comply</span><div class="vbar-bg"><div class="vbar-fill" style="width:100%"></div></div><span class="vbar-val">100%</span></div>
+      <div class="vbar-row"><span class="vbar-lbl">V_f Finance</span><div class="vbar-bg"><div class="vbar-fill" style="width:85%"></div></div><span class="vbar-val">85%</span></div>
+      <div class="vbar-row"><span class="vbar-lbl">V_k Culture</span><div class="vbar-bg"><div class="vbar-fill" style="width:91%"></div></div><span class="vbar-val">91%</span></div>
+      <div class="score-box">
+        <div class="score-lbl" data-t="score_lbl">MATCH SCORE</div>
+        <div class="score-val">96.2%</div>
+        <div class="score-formula">S = Σ(w_i × cos(V_A_i, V_B_i)) / Σw_i</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WALLET -->
+<section id="wallet">
+  <div class="section-eyebrow" data-t="s3_eye">K-AI Wallet</div>
+  <h2 class="section-title" data-t="s3_title">ALL IS ONE<br>Multi-Chain Wallet</h2>
+  <p class="section-desc" data-t="s3_desc">One wallet address. Every asset. Every chain. Every currency. The world's first unified RWA blockchain wallet.</p>
+
+  <div class="wallet-showcase reveal">
+    <div>
+      <div class="wf-item">
+        <div class="wf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#4AA0FF" stroke-width="1.2"/></svg></div>
+        <div><div class="wf-title" data-t="wf1_title">Multi-Chain: ETH · SOL · BTC</div><div class="wf-desc" data-t="wf1_desc">Single address manages Ethereum ERC-1400 STOs, Solana NFTs, and Bitcoin simultaneously with cross-chain atomic swaps.</div></div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#4AA0FF" stroke-width="1.2"/><path d="M12 8v4l3 3" stroke="#4AA0FF" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+        <div><div class="wf-title" data-t="wf2_title">Automated Dividend Distribution</div><div class="wf-desc" data-t="wf2_desc">Smart contracts automatically distribute rental income, art sale revenue, and trading profits proportionally to token holders.</div></div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M12 3c-2 3-3 6-3 9s1 6 3 9M12 3c2 3 3 6 3 9s-1 6-3 9" stroke="#4AA0FF" stroke-width="1.2"/></svg></div>
+        <div><div class="wf-title" data-t="wf3_title">40-Country Payment Integration</div><div class="wf-desc" data-t="wf3_desc">NaverPay, UPI, PIX, SEPA, Apple Pay, KakaoPay and more — local currencies instantly converted to invest in global assets.</div></div>
+      </div>
+      <div class="wf-item">
+        <div class="wf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#4AA0FF" stroke-width="1.2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#4AA0FF" stroke-width="1.2"/></svg></div>
+        <div><div class="wf-title" data-t="wf4_title">On-Chain KYC/AML Compliance</div><div class="wf-desc" data-t="wf4_desc">Soulbound Token credentials enable SEC Reg D/S compliance with automated investor verification — once, forever.</div></div>
+      </div>
+    </div>
+
+    <div class="phone-mock">
+      <div style="height:20px;"></div>
+      <div class="pm-lbl" data-t="pm_total">TOTAL RWA VALUE</div>
+      <div class="pm-val">$24.85M</div>
+      <div class="pm-sub">✦ ALL IS ONE · ETH · SOL · BTC</div>
+      <div class="pm-chains">
+        <div class="pm-chain"><div class="pm-chain-sym" style="color:#627EEA">Ξ ETH</div><div class="pm-chain-usd">$48.2K</div></div>
+        <div class="pm-chain"><div class="pm-chain-sym" style="color:#9945FF">◎ SOL</div><div class="pm-chain-usd">$186K</div></div>
+        <div class="pm-chain"><div class="pm-chain-sym" style="color:#F7931A">₿ BTC</div><div class="pm-chain-usd">$26.4K</div></div>
+      </div>
+      <div class="pm-div"></div>
+      <div class="pm-asset"><div class="pm-thumb" style="background:rgba(26,88,192,0.1)">🏢</div><div class="pm-ainfo"><div class="pm-aname">Midtown Tower STO</div><div class="pm-atype">Manhattan RE · ERC-1400</div></div><div style="text-align:right"><div class="pm-aval">$12.4M</div><div class="pm-apct">▲ +8.4%</div></div></div>
+      <div class="pm-asset"><div class="pm-thumb" style="background:rgba(139,92,246,0.1)">🎨</div><div class="pm-ainfo"><div class="pm-aname">Basquiat NFT Series</div><div class="pm-atype">Gallery Art · Metaplex</div></div><div style="text-align:right"><div class="pm-aval">$5.2M</div><div class="pm-apct">▲ +15.2%</div></div></div>
+      <div class="pm-asset"><div class="pm-thumb" style="background:rgba(196,160,64,0.1)">🎫</div><div class="pm-ainfo"><div class="pm-aname">NYC Black Pass</div><div class="pm-atype">Membership NFT · K-AI</div></div><div style="text-align:right"><div class="pm-aval">$400K</div><div class="pm-apct">▲ +22%</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL PAYMENTS -->
+<section style="padding:80px 60px;background:linear-gradient(180deg,var(--dark),var(--black));">
+  <div class="section-eyebrow" data-t="s4_eye">Global Reach</div>
+  <h2 class="section-title" data-t="s4_title">40+ Countries,<br>One Platform</h2>
+
+  <div class="pay-grid reveal">
+    <div class="pay-card"><div class="pay-flag">🇰🇷</div><div class="pay-country" data-t="pc_kr">Korea</div><div class="pay-methods">NaverPay · KakaoPay<br>Samsung Pay · Toss</div><div class="pay-badge">KRW → USDC</div></div>
+    <div class="pay-card"><div class="pay-flag">🇺🇸</div><div class="pay-country" data-t="pc_us">USA</div><div class="pay-methods">Apple Pay · Stripe<br>Google Pay · PayPal</div><div class="pay-badge">USD → USDC</div></div>
+    <div class="pay-card"><div class="pay-flag">🇮🇳</div><div class="pay-country" data-t="pc_in">India</div><div class="pay-methods">UPI · Paytm<br>PhonePe · RuPay</div><div class="pay-badge">INR → USDC</div></div>
+    <div class="pay-card"><div class="pay-flag">🇧🇷</div><div class="pay-country" data-t="pc_br">Brazil</div><div class="pay-methods">PIX · Mercado Pago<br>Boleto Bancário</div><div class="pay-badge">BRL → USDC</div></div>
+    <div class="pay-card"><div class="pay-flag">🇪🇺</div><div class="pay-country" data-t="pc_eu">Europe</div><div class="pay-methods">SEPA · Revolut<br>Klarna · Open Banking</div><div class="pay-badge">EUR → USDC</div></div>
+    <div class="pay-card"><div class="pay-flag">🇯🇵</div><div class="pay-country" data-t="pc_jp">Japan</div><div class="pay-methods">PayPay · LINE Pay<br>Rakuten Pay</div><div class="pay-badge">JPY → USDC</div></div>
+    <div class="pay-card"><div class="pay-flag">🇸🇬</div><div class="pay-country" data-t="pc_sg">Singapore</div><div class="pay-methods">PayNow · GrabPay<br>DBS PayLah</div><div class="pay-badge">SGD → USDC</div></div>
+    <div class="pay-card"><div class="pay-flag">🇦🇪</div><div class="pay-country" data-t="pc_ae">UAE</div><div class="pay-methods">Apple Pay<br>eFawateercom · Halal</div><div class="pay-badge">AED → USDC</div></div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision" class="vision-section">
+  <div class="section-eyebrow" data-t="s5_eye">Future Vision</div>
+  <h2 class="section-title" data-t="s5_title">Building the Future<br>of Global Finance</h2>
+  <p class="section-desc" data-t="s5_desc">A phased roadmap from patent protection to global market leadership.</p>
+
+  <div class="vision-tl reveal">
+    <div class="vision-item">
+      <div class="vision-year">2026 Q2 — NOW</div>
+      <div class="vision-title" data-t="v1_title">Foundation & IP Protection</div>
+      <div class="vision-desc" data-t="v1_desc">USPTO patent filings completed. KIPO Korea patents in process. EIN 35-2958214 registered. Mercury Bank account opening. K-AI Wallet beta prototype launched.</div>
+      <div class="vision-tags"><span class="vision-tag">USPTO Filed</span><span class="vision-tag">EIN: 35-2958214</span><span class="vision-tag">Beta Ready</span></div>
+    </div>
+    <div class="vision-item">
+      <div class="vision-year">2026 Q3–Q4</div>
+      <div class="vision-title" data-t="v2_title">Platform Launch & Series A</div>
+      <div class="vision-desc" data-t="v2_desc">K-AI Wallet public beta. V-Match B2B platform launch targeting Korean exhibition industry (13,000+ companies). Series A funding $3M–$5M. NaverPay & Stripe integration complete.</div>
+      <div class="vision-tags"><span class="vision-tag">Public Beta</span><span class="vision-tag">Series A</span><span class="vision-tag">10K Users</span></div>
+    </div>
+    <div class="vision-item">
+      <div class="vision-year">2027</div>
+      <div class="vision-title" data-t="v3_title">Global Expansion & RWA Scale</div>
+      <div class="vision-desc" data-t="v3_desc">Manhattan real estate STO launches. Gallery art NFT marketplace live. 10-country payment integration. 100,000 users. K-Culture fan investment platform targeting 100M K-Pop fans.</div>
+      <div class="vision-tags"><span class="vision-tag">RWA Live</span><span class="vision-tag">100K Users</span><span class="vision-tag">K-Culture</span></div>
+    </div>
+    <div class="vision-item">
+      <div class="vision-year">2028–2030</div>
+      <div class="vision-title" data-t="v4_title">Global Market Leadership</div>
+      <div class="vision-desc" data-t="v4_desc">40+ country payment network complete. $1B AUM in tokenized RWA. CBDC integration. IPO preparation. Global B2B trade volume exceeding $10B. Enterprise valuation $2B+.</div>
+      <div class="vision-tags"><span class="vision-tag">$1B AUM</span><span class="vision-tag">IPO Ready</span><span class="vision-tag">$2B+ Value</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PATENTS -->
+<section id="patents">
+  <div class="section-eyebrow" data-t="s6_eye">Intellectual Property</div>
+  <h2 class="section-title" data-t="s6_title">Patent Portfolio</h2>
+  <p class="section-desc" data-t="s6_desc">World-first innovations protected by USPTO and KIPO patent filings.</p>
+
+  <div class="patents-row reveal">
+    <div class="patent-card">
+      <div class="patent-num">USPTO · KAIC-001 · April 2026</div>
+      <div class="patent-title" data-t="p1_title">K-AI Wallet: AI-Powered RWA Multi-Chain Blockchain Wallet System</div>
+      <div class="patent-desc" data-t="p1_desc">World's first unified wallet combining Manhattan real estate STOs, gallery art NFTs, and membership passes with AI investor matching and automated dividend distribution across ETH, SOL, and BTC networks.</div>
+      <div class="patent-status"><div class="sdot"></div><span data-t="p1_status">USPTO Delivered · April 22, 2026</span></div>
+    </div>
+    <div class="patent-card">
+      <div class="patent-num">USPTO · KAIC-002 · April 2026</div>
+      <div class="patent-title" data-t="p2_title">V-Match: Blockchain-Integrated Multi-Vector AI B2B Matching System</div>
+      <div class="patent-desc" data-t="p2_desc">RAG-powered 6-vector AI matching engine for global B2B trade exhibitions with real-time dNFT issuance, smart contract escrow payment, and RWA investment linkage via Agentic AI automation.</div>
+      <div class="patent-status"><div class="sdot"></div><span data-t="p2_status">USPTO Filed · April 2026</span></div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<!-- PARTNERS & BANKING -->
+<section style="padding:70px 60px;background:linear-gradient(180deg,var(--black),var(--dark));">
+  <div class="section-eyebrow" data-t="s_partners">Trusted Partners</div>
+  <h2 class="section-title" style="font-size:clamp(28px,3.5vw,48px);" data-t="s_partners_title">Infrastructure & Banking</h2>
+  <p class="section-desc" data-t="s_partners_desc">K-AI CONET is built on world-class financial and technology infrastructure.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(26,88,192,0.08);margin-top:48px;" class="reveal">
+
+    <!-- Mercury Bank -->
+    <div style="background:var(--dark);padding:36px 28px;position:relative;overflow:hidden;transition:background 0.3s;text-align:center;" onmouseover="this.style.background='var(--dark2)'" onmouseout="this.style.background='var(--dark)'">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#1558C0,transparent);opacity:0.7;"></div>
+      <!-- Mercury Bank SVG Logo -->
+      <div style="width:52px;height:52px;margin:0 auto 16px;background:rgba(21,88,192,0.1);border:1px solid rgba(21,88,192,0.25);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <circle cx="15" cy="15" r="12" fill="none" stroke="#4A9EF8" stroke-width="1.2"/>
+          <path d="M8 15 Q15 8 22 15 Q15 22 8 15Z" fill="rgba(74,158,248,0.3)" stroke="#4A9EF8" stroke-width="0.8"/>
+          <circle cx="15" cy="15" r="3.5" fill="#4A9EF8" opacity="0.8"/>
+          <line x1="15" y1="3" x2="15" y2="7" stroke="#4A9EF8" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="15" y1="23" x2="15" y2="27" stroke="#4A9EF8" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;margin-bottom:6px;color:var(--white);">Mercury Bank</div>
+      <div style="font-size:10px;color:var(--gray);line-height:1.7;margin-bottom:10px;">U.S. Business Banking<br>Remote Account Opening</div>
+      <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(30,168,112,0.1);border:1px solid rgba(30,168,112,0.25);border-radius:20px;padding:3px 10px;">
+        <div style="width:5px;height:5px;border-radius:50%;background:#1EA870;box-shadow:0 0 5px #1EA870;animation:pulse 2s infinite;"></div>
+        <span style="font-size:9px;color:#1EA870;letter-spacing:1px;font-weight:600;">ACTIVE ✓</span>
+      </div>
+    </div>
+
+    <!-- IRS / EIN -->
+    <div style="background:var(--dark);padding:36px 28px;position:relative;overflow:hidden;transition:background 0.3s;text-align:center;" onmouseover="this.style.background='var(--dark2)'" onmouseout="this.style.background='var(--dark)'">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.6;"></div>
+      <div style="width:52px;height:52px;margin:0 auto 16px;background:rgba(196,160,64,0.1);border:1px solid rgba(196,160,64,0.25);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <rect x="4" y="6" width="22" height="18" rx="2" stroke="#C4A245" stroke-width="1.2" fill="rgba(196,162,69,0.1)"/>
+          <line x1="8" y1="11" x2="22" y2="11" stroke="#C4A245" stroke-width="0.8" opacity="0.7"/>
+          <line x1="8" y1="15" x2="18" y2="15" stroke="#C4A245" stroke-width="0.8" opacity="0.6"/>
+          <line x1="8" y1="19" x2="14" y2="19" stroke="#C4A245" stroke-width="0.8" opacity="0.5"/>
+          <path d="M19 17 L22 20 L26 14" stroke="#1EA870" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;margin-bottom:6px;color:var(--white);">IRS — EIN</div>
+      <div style="font-size:10px;color:var(--gray);line-height:1.7;margin-bottom:10px;">Federal Tax ID<br>K-AI CONET, Inc.</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);background:rgba(196,160,64,0.08);border:1px solid rgba(196,160,64,0.2);border-radius:6px;padding:3px 10px;display:inline-block;">35-2958214</div>
+    </div>
+
+    <!-- USPTO -->
+    <div style="background:var(--dark);padding:36px 28px;position:relative;overflow:hidden;transition:background 0.3s;text-align:center;" onmouseover="this.style.background='var(--dark2)'" onmouseout="this.style.background='var(--dark)'">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#5AA0FF,transparent);opacity:0.7;"></div>
+      <div style="width:52px;height:52px;margin:0 auto 16px;background:rgba(90,160,255,0.08);border:1px solid rgba(90,160,255,0.22);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <polygon points="15,3 18,10 26,10 20,15 22,23 15,18 8,23 10,15 4,10 12,10" fill="rgba(90,160,255,0.2)" stroke="#5AA0FF" stroke-width="1"/>
+          <circle cx="15" cy="14" r="3" fill="#5AA0FF" opacity="0.7"/>
+        </svg>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;margin-bottom:6px;color:var(--white);">USPTO</div>
+      <div style="font-size:10px;color:var(--gray);line-height:1.7;margin-bottom:10px;">2 Patents Filed<br>K-AI Wallet · V-Match AI</div>
+      <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(90,160,255,0.08);border:1px solid rgba(90,160,255,0.2);border-radius:20px;padding:3px 10px;">
+        <div style="width:5px;height:5px;border-radius:50%;background:#5AA0FF;box-shadow:0 0 5px #5AA0FF;animation:pulse 2s infinite;"></div>
+        <span style="font-size:9px;color:#5AA0FF;letter-spacing:1px;">PENDING ✓</span>
+      </div>
+    </div>
+
+    <!-- KIPO -->
+    <div style="background:var(--dark);padding:36px 28px;position:relative;overflow:hidden;transition:background 0.3s;text-align:center;" onmouseover="this.style.background='var(--dark2)'" onmouseout="this.style.background='var(--dark)'">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.5;"></div>
+      <div style="width:52px;height:52px;margin:0 auto 16px;background:rgba(196,160,64,0.08);border:1px solid rgba(196,160,64,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <circle cx="15" cy="15" r="10" fill="none" stroke="#C4A245" stroke-width="1"/>
+          <path d="M10 15 Q15 7 20 15 Q15 23 10 15" fill="rgba(196,162,69,0.15)" stroke="#C4A245" stroke-width="0.8"/>
+          <text x="11" y="19" font-size="9" font-weight="700" fill="#C4A245" font-family="sans-serif">KR</text>
+        </svg>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;margin-bottom:6px;color:var(--white);">KIPO 특허청</div>
+      <div style="font-size:10px;color:var(--gray);line-height:1.7;margin-bottom:10px;">Korea Patent Office<br>접수번호: 4-1-2026-5152091</div>
+      <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(196,160,64,0.08);border:1px solid rgba(196,160,64,0.2);border-radius:20px;padding:3px 10px;">
+        <div style="width:5px;height:5px;border-radius:50%;background:#C4A245;box-shadow:0 0 5px #C4A245;animation:pulse 2s infinite;"></div>
+        <span style="font-size:9px;color:var(--gold2);letter-spacing:1px;">FILED ✓</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DEVELOPMENT INVESTMENT -->
+<section style="padding:100px 60px;background:var(--dark);">
+  <div class="section-eyebrow" data-t="dev_eye">Investment Required</div>
+  <h2 class="section-title" data-t="dev_title">Development<br>Investment Plan</h2>
+  <p class="section-desc" data-t="dev_desc">From MVP launch to global enterprise platform — a phased investment strategy designed for maximum ROI.</p>
+
+  <!-- 3단계 카드 -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(26,88,192,0.1);margin-top:60px;" class="reveal">
+
+    <!-- Phase 1 MVP -->
+    <div style="background:var(--dark2);padding:44px 36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue2),transparent);"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--blue3);letter-spacing:2px;margin-bottom:16px;">PHASE 1</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:6px;line-height:1.2;" data-t="p1_name">MVP Launch</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--blue3);margin-bottom:4px;">$200K</div>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:24px;" data-t="p1_range">~ $300K · 6–8 Months</div>
+      <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p1_f1">K-AI Wallet Beta (ETH)</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p1_f2">V-Match Web Platform</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p1_f3">Smart Contract Core</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p1_f4">KYC/AML Basic</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p1_f5">Korea Dev Team × 5</span></div>
+      </div>
+      <div style="background:rgba(26,111,212,0.08);border:1px solid rgba(26,111,212,0.2);padding:10px 14px;border-radius:4px;">
+        <div style="font-size:10px;color:var(--blue3);letter-spacing:1px;margin-bottom:3px;" data-t="funding_src">FUNDING SOURCE</div>
+        <div style="font-size:12px;color:var(--silver);" data-t="p1_fund">Angel Investors · TIPS Government Grant</div>
+      </div>
+    </div>
+
+    <!-- Phase 2 Full -->
+    <div style="background:linear-gradient(160deg,#060D20,#091428);padding:44px 36px;position:relative;overflow:hidden;border:1px solid rgba(196,160,64,0.15);">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),transparent);"></div>
+      <div style="position:absolute;top:16px;right:16px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-size:8px;font-weight:700;letter-spacing:1.5px;padding:3px 10px;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);" data-t="recommended">RECOMMENDED</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);letter-spacing:2px;margin-bottom:16px;">PHASE 2</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:6px;line-height:1.2;" data-t="p2_name">Full Release</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--gold2);margin-bottom:4px;">$570K</div>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:24px;" data-t="p2_range">~ $950K · 12–18 Months</div>
+      <div style="height:1px;background:var(--gold-border);margin-bottom:20px;"></div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p2_f1">iOS + Android App</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p2_f2">ETH · SOL · BTC Multi-Chain</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p2_f3">RAG AI Engine Advanced</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p2_f4">40-Country Payments</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p2_f5">dNFT · RWA Marketplace</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p2_f6">SEC Compliance Full</span></div>
+      </div>
+      <div style="background:rgba(196,160,64,0.06);border:1px solid rgba(196,160,64,0.2);padding:10px 14px;border-radius:4px;">
+        <div style="font-size:10px;color:var(--gold2);letter-spacing:1px;margin-bottom:3px;" data-t="funding_src2">FUNDING SOURCE</div>
+        <div style="font-size:12px;color:var(--silver);" data-t="p2_fund">Series A $3M–$5M Fundraising</div>
+      </div>
+    </div>
+
+    <!-- Phase 3 Enterprise -->
+    <div style="background:var(--dark2);padding:44px 36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#8B5CF6,transparent);"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:#A78BFA;letter-spacing:2px;margin-bottom:16px;">PHASE 3</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:6px;line-height:1.2;" data-t="p3_name">Enterprise</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:#A78BFA;margin-bottom:4px;">$1M+</div>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:24px;" data-t="p3_range">~ $1.5M · 18–24 Months</div>
+      <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p3_f1">CBDC Central Bank Integration</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p3_f2">K-Culture Fan Platform</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p3_f3">Global B2B Full Automation</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p3_f4">PCT Patent 150 Countries</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:12px;color:var(--silver);" data-t="p3_f5">IPO Ready · Valuation $2B+</span></div>
+      </div>
+      <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);padding:10px 14px;border-radius:4px;">
+        <div style="font-size:10px;color:#A78BFA;letter-spacing:1px;margin-bottom:3px;" data-t="funding_src3">FUNDING SOURCE</div>
+        <div style="font-size:12px;color:var(--silver);" data-t="p3_fund">Series B · Strategic Partners</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI 요약 바 -->
+  <div style="margin-top:48px;background:linear-gradient(135deg,rgba(21,88,192,0.08),rgba(196,160,64,0.05));border:1px solid rgba(26,88,192,0.15);padding:36px 48px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;" class="reveal">
+    <div style="text-align:center;">
+      <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-t="roi_total_lbl">Total Investment</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--blue3);">$1.5M</div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px;" data-t="roi_total_sub">Phase 1~3 Total</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-t="roi_patent_lbl">Patent Value</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold2);">$8.5B</div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px;" data-t="roi_patent_sub">10 Patents Optimistic Est.</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-t="roi_val_lbl">Target Valuation</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:#A78BFA;">$2B+</div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px;" data-t="roi_val_sub">2030 Target</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-t="roi_roi_lbl">Investment ROI</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:#1EA870;">1,300×</div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px;" data-t="roi_roi_sub">All-Time Best Return</div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- 3단계 카드 -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(26,88,192,0.1);margin-top:60px;" class="reveal">
+
+    <!-- Phase 1 MVP -->
+    <div style="background:var(--dark2);padding:44px 36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue2),transparent);"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--blue3);letter-spacing:2px;margin-bottom:16px;">PHASE 1</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:6px;line-height:1.2;">MVP Launch</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--blue3);margin-bottom:4px;">$200K</div>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:24px;">~ $300K · 6–8 Months</div>
+      <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">K-AI Wallet Beta (ETH)</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">V-Match Web Platform</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">Smart Contract Core</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">KYC/AML Basic</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(26,111,212,0.15);border:1px solid rgba(26,111,212,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#4A9EF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">Korea Dev Team × 5</span>
+        </div>
+      </div>
+      <div style="background:rgba(26,111,212,0.08);border:1px solid rgba(26,111,212,0.2);padding:10px 14px;border-radius:4px;">
+        <div style="font-size:10px;color:var(--blue3);letter-spacing:1px;margin-bottom:3px;">FUNDING SOURCE</div>
+        <div style="font-size:12px;color:var(--silver);">Angel Investors · TIPS 정부지원</div>
+      </div>
+    </div>
+
+    <!-- Phase 2 Full -->
+    <div style="background:linear-gradient(160deg,#060D20,#091428);padding:44px 36px;position:relative;overflow:hidden;border:1px solid rgba(196,160,64,0.15);">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),transparent);"></div>
+      <!-- 추천 배지 -->
+      <div style="position:absolute;top:16px;right:16px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;font-size:8px;font-weight:700;letter-spacing:1.5px;padding:3px 10px;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);">RECOMMENDED</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold2);letter-spacing:2px;margin-bottom:16px;">PHASE 2</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:6px;line-height:1.2;">Full Release</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--gold2);margin-bottom:4px;">$570K</div>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:24px;">~ $950K · 12–18 Months</div>
+      <div style="height:1px;background:var(--gold-border);margin-bottom:20px;"></div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">iOS + Android 앱 완성</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">ETH · SOL · BTC 멀티체인</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">RAG AI 엔진 고도화</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">40개국 결제 완전 연동</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">dNFT · RWA 마켓플레이스</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(196,160,64,0.12);border:1px solid rgba(196,160,64,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#C4A245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">SEC 컴플라이언스 완성</span>
+        </div>
+      </div>
+      <div style="background:rgba(196,160,64,0.06);border:1px solid rgba(196,160,64,0.2);padding:10px 14px;border-radius:4px;">
+        <div style="font-size:10px;color:var(--gold2);letter-spacing:1px;margin-bottom:3px;">FUNDING SOURCE</div>
+        <div style="font-size:12px;color:var(--silver);">Series A $3M–$5M 투자 유치</div>
+      </div>
+    </div>
+
+    <!-- Phase 3 Enterprise -->
+    <div style="background:var(--dark2);padding:44px 36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#8B5CF6,transparent);"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:#A78BFA;letter-spacing:2px;margin-bottom:16px;">PHASE 3</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:6px;line-height:1.2;">Enterprise</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:#A78BFA;margin-bottom:4px;">$1M+</div>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:24px;">~ $1.5M · 18–24 Months</div>
+      <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">CBDC 중앙은행 연동</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">K-Culture 팬덤 플랫폼</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">글로벌 B2B 완전 자동화</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">PCT 국제특허 150개국</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:20px;height:20px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:12px;color:var(--silver);">IPO 준비 · 기업가치 $2B+</span>
+        </div>
+      </div>
+      <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);padding:10px 14px;border-radius:4px;">
+        <div style="font-size:10px;color:#A78BFA;letter-spacing:1px;margin-bottom:3px;">FUNDING SOURCE</div>
+        <div style="font-size:12px;color:var(--silver);">Series B · Strategic Partners</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI 요약 바 -->
+  <div style="margin-top:48px;background:linear-gradient(135deg,rgba(21,88,192,0.08),rgba(196,160,64,0.05));border:1px solid rgba(26,88,192,0.15);padding:36px 48px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;" class="reveal">
+    <div style="text-align:center;">
+      <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-t="roi_total_lbl">Total Investment</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--blue3);">$1.5M</div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px;" data-t="roi_total_sub">Phase 1~3 Total</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-t="roi_patent_lbl">Patent Value</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold2);">$8.5B</div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px;" data-t="roi_patent_sub">10 Patents Optimistic Est.</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-t="roi_val_lbl">Target Valuation</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:#A78BFA;">$2B+</div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px;" data-t="roi_val_sub">2030 Target</div>
+    </div>
+    <div style="text-align:center;border-left:1px solid var(--border);">
+      <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;" data-t="roi_roi_lbl">Investment ROI</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:#1EA870;">1,300×</div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px;" data-t="roi_roi_sub">All-Time Best Return</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHITEPAPER EMAIL GATE -->
+<section id="whitepaper" style="padding:100px 60px;background:var(--black);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(21,88,192,0.07),transparent);pointer-events:none;"></div>
+
+  <div style="max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:2;">
+    <div class="section-eyebrow" style="justify-content:center;">Whitepaper</div>
+    <h2 class="section-title" style="font-size:clamp(32px,4vw,56px);" data-t="wp_title">Download Our<br>Whitepaper</h2>
+    <p class="section-desc" style="margin:0 auto 48px;text-align:center;" data-t="wp_desc">Get the complete K-AI CONET technical whitepaper — AI matching architecture, RWA tokenization, blockchain infrastructure, and 2030 vision.</p>
+
+    <!-- 백서 미리보기 카드 -->
+    <div style="background:linear-gradient(135deg,#060D20,#091428);border:1px solid rgba(196,160,64,0.2);padding:36px;margin-bottom:40px;position:relative;overflow:hidden;" class="reveal">
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),transparent);opacity:0.7;"></div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;text-align:left;">
+        <!-- PDF 아이콘 -->
+        <div style="width:72px;height:90px;background:linear-gradient(160deg,rgba(21,88,192,0.3),rgba(21,88,192,0.1));border:1px solid rgba(26,88,192,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;flex-shrink:0;">
+          <div style="position:absolute;top:0;right:0;width:18px;height:18px;background:var(--blue);clip-path:polygon(0 0,100% 100%,0 100%);"></div>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="margin-bottom:6px;">
+            <rect x="4" y="2" width="16" height="20" rx="2" stroke="#4A9EF8" stroke-width="1.2" fill="rgba(26,111,212,0.1)"/>
+            <line x1="7" y1="8" x2="17" y2="8" stroke="#4A9EF8" stroke-width="0.8" opacity="0.7"/>
+            <line x1="7" y1="11" x2="17" y2="11" stroke="#4A9EF8" stroke-width="0.8" opacity="0.6"/>
+            <line x1="7" y1="14" x2="13" y2="14" stroke="#4A9EF8" stroke-width="0.8" opacity="0.5"/>
+            <line x1="7" y1="17" x2="15" y2="17" stroke="#C4A245" stroke-width="0.8" opacity="0.6"/>
+          </svg>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--blue3);letter-spacing:1px;">PDF</div>
+        </div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:6px;" data-t="wp_doc_title">K-AI CONET — ALL IS ONE</div>
+          <div style="font-size:12px;color:var(--gray);margin-bottom:12px;" data-t="wp_doc_sub">Global AI Trade · RWA Finance · Blockchain Ecosystem · 2026–2030</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:9px;padding:2px 8px;border:1px solid var(--blue-border);color:var(--blue3);letter-spacing:1px;">AI TECHNOLOGY</span>
+            <span style="font-size:9px;padding:2px 8px;border:1px solid var(--gold-border);color:var(--gold2);letter-spacing:1px;">RWA TOKENIZATION</span>
+            <span style="font-size:9px;padding:2px 8px;border:1px solid rgba(139,92,246,0.2);color:#A78BFA;letter-spacing:1px;">BLOCKCHAIN</span>
+            <span style="font-size:9px;padding:2px 8px;border:1px solid var(--border);color:var(--gray);letter-spacing:1px;">PATENTS × 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이메일 게이트 폼 -->
+    <div style="background:var(--dark2);border:1px solid var(--blue-border);padding:36px 40px;" class="reveal" id="wpForm">
+      <div style="font-size:14px;font-weight:600;margin-bottom:6px;" data-t="wp_form_title">Get Instant Access</div>
+      <div style="font-size:12px;color:var(--gray);margin-bottom:24px;" data-t="wp_form_sub">Enter your details to receive the whitepaper directly to your inbox.</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <input id="wpName" type="text" placeholder="Full Name" data-ph="wp_ph_name"
+          style="background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--white);padding:12px 16px;font-size:13px;font-family:'Outfit',sans-serif;outline:none;transition:border 0.3s;width:100%;"
+          onfocus="this.style.borderColor='rgba(26,88,192,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.05)'"/>
+        <input id="wpCompany" type="text" placeholder="Company / Organization" data-ph="wp_ph_company"
+          style="background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--white);padding:12px 16px;font-size:13px;font-family:'Outfit',sans-serif;outline:none;transition:border 0.3s;width:100%;"
+          onfocus="this.style.borderColor='rgba(26,88,192,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.05)'"/>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:12px;">
+        <input id="wpEmail" type="email" placeholder="Email Address" data-ph="wp_ph_email"
+          style="background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--white);padding:12px 16px;font-size:13px;font-family:'Outfit',sans-serif;outline:none;transition:border 0.3s;width:100%;"
+          onfocus="this.style.borderColor='rgba(26,88,192,0.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.05)'"/>
+        <button onclick="submitWhitepaper()" id="wpBtn"
+          style="background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:12px 28px;border:none;cursor:pointer;white-space:nowrap;transition:all 0.3s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);"
+          onmouseover="this.style.boxShadow='0 8px 24px rgba(42,120,232,0.4)'" onmouseout="this.style.boxShadow='none'"
+          data-t="wp_btn">Download →</button>
+      </div>
+
+      <!-- 인베스터 타입 선택 -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+        <div style="font-size:11px;color:var(--gray);margin-right:4px;line-height:2;" data-t="wp_iam">I am:</div>
+        <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+          <input type="radio" name="wpType" value="investor" style="accent-color:var(--blue);" checked/>
+          <span style="font-size:11px;color:var(--silver);" data-t="wp_t1">Investor</span>
+        </label>
+        <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+          <input type="radio" name="wpType" value="partner" style="accent-color:var(--blue);"/>
+          <span style="font-size:11px;color:var(--silver);" data-t="wp_t2">Business Partner</span>
+        </label>
+        <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+          <input type="radio" name="wpType" value="developer" style="accent-color:var(--blue);"/>
+          <span style="font-size:11px;color:var(--silver);" data-t="wp_t3">Developer</span>
+        </label>
+        <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+          <input type="radio" name="wpType" value="media" style="accent-color:var(--blue);"/>
+          <span style="font-size:11px;color:var(--silver);" data-t="wp_t4">Media / Press</span>
+        </label>
+      </div>
+
+      <div style="font-size:10px;color:var(--gray);opacity:0.7;" data-t="wp_privacy">
+        🔒 Your information is secure. We respect your privacy and will never share your data.
+      </div>
+    </div>
+
+    <!-- 성공 메시지 (숨김) -->
+    <div id="wpSuccess" style="display:none;background:rgba(30,168,112,0.08);border:1px solid rgba(30,168,112,0.25);padding:36px 40px;text-align:center;">
+      <div style="font-size:32px;margin-bottom:12px;">✅</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:8px;" data-t="wp_success_title">Thank you!</div>
+      <div style="font-size:13px;color:var(--gray);" data-t="wp_success_msg">The whitepaper has been sent to your email. Please check your inbox.</div>
+    </div>
+
+    <!-- 통계 -->
+    <div style="display:flex;justify-content:center;gap:40px;margin-top:32px;padding-top:28px;border-top:1px solid var(--border);">
+      <div style="text-align:center;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--blue3);" id="dlCount">247</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:2px;letter-spacing:1.5px;" data-t="wp_downloads">DOWNLOADS</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--gold2);">38</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:2px;letter-spacing:1.5px;" data-t="wp_investors">INVESTORS</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#A78BFA;">24</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:2px;letter-spacing:1.5px;" data-t="wp_countries">COUNTRIES</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title"><span class="cta-blue" data-t="cta_l1">ALL IS ONE.</span><br><span data-t="cta_l2">Join the Future.</span></h2>
+  <p class="cta-desc" data-t="cta_desc">One platform. One wallet. One vision. The world's most advanced AI trade and finance ecosystem, starting now.</p>
+  <div class="cta-btns">
+    <button class="btn-primary" data-t="cta_btn1">Get Early Access →</button>
+    <button class="btn-secondary" data-t="cta_btn2">Investor Relations</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo"><span style="color:var(--blue3)">K</span>-<span style="color:var(--gold2)">AI</span> CONET</div>
+    <p class="footer-desc" data-t="footer_desc">The world's first AI-powered global trade, finance, and culture investment ecosystem — connecting 40+ countries through blockchain and artificial intelligence.</p>
+    <div class="footer-contact">
+      www.k-aiconet.com<br>
+      marines0708@gmail.com<br>
+      +1 332-254-9709<br>
+      142 W 57th St, New York, NY 10019
+    </div>
+  </div>
+  <div class="fc"><h4 data-t="fc1_h">Platform</h4><ul><li data-t="fc1_1">K-AI Wallet</li><li data-t="fc1_2">V-Match AI</li><li data-t="fc1_3">RWA Marketplace</li><li data-t="fc1_4">Global Payments</li><li data-t="fc1_5">K-Culture NFT</li></ul></div>
+  <div class="fc"><h4 data-t="fc2_h">Company</h4><ul><li data-t="fc2_1">About K-AI CONET</li><li data-t="fc2_2">Patent Portfolio</li><li data-t="fc2_3">Investor Relations</li><li data-t="fc2_4">Press & Media</li><li data-t="fc2_5">Careers</li></ul></div>
+  <div class="fc"><h4 data-t="fc3_h">Legal</h4><ul><li data-t="fc3_1">Terms of Service</li><li data-t="fc3_2">Privacy Policy</li><li data-t="fc3_3">SEC Compliance</li><li data-t="fc3_4">KYC/AML Policy</li><li data-t="fc3_5">Risk Disclosure</li></ul></div>
+</footer>
+<div class="footer-btm">
+  <div class="footer-copy">© 2026 K-AI CONET, Inc. All rights reserved. · New York, USA</div>
+  <div class="ein">EIN: 35-2958214</div>
+</div>
+
+<script>
+// ===== MULTILINGUAL =====
+const T = {
+  en:{
+    nav_platform:"Platform",nav_vmatch:"V-Match",nav_wallet:"Wallet",nav_vision:"Vision",nav_patents:"Patents",nav_cta:"Launch App",
+    hero_badge:"World's First AI-Powered Global Trade & Finance Ecosystem",
+    hero_l1:"Global Trade.",hero_l2:"AI Finance.",hero_l3:"One Wallet.",
+    hero_desc:"K-AI CONET connects global enterprises, investors, and markets through AI-powered matching, blockchain payments, and real-world asset tokenization — all in one unified ecosystem.",
+    hero_cta1:"Explore Platform →",hero_cta2:"Watch Demo",
+    stat1:"Countries",stat2:"Target Market",stat3:"AI Match Speed",stat4:"Patents Filed",
+    tick1:"Manhattan Real Estate STO",tick2:"Gallery Art NFT",tick3:"V-Match AI Engine",tick4:"40-Country Payments",tick5:"Multi-Chain Wallet",tick6:"Global B2B Matching",tick7:"RWA Tokenization",tick8:"K-Culture Investment",
+    s1_eye:"Core Platform",s1_title:"Three Pillars of Global Innovation",s1_desc:"A unified ecosystem connecting global trade, finance, and culture through AI and blockchain technology.",
+    svc1_title:"Global AI Trade Matching",svc1_desc:"RAG-powered 6-vector AI engine matches exporters, buyers, and investors across 150+ countries in under 3 seconds.",
+    svc2_title:"RWA Finance & Investment",svc2_desc:"Tokenize Manhattan real estate, blue-chip gallery art, and industrial assets as STOs and NFTs.",
+    svc3_title:"K-Culture Fan Economy",svc3_desc:"Transform 100M+ K-Pop fans into investors. IP tokenization, NFT concert tickets with automated royalty distribution.",
+    s2_eye:"AI Engine",s2_title:"V-Match: 6-Vector AI Matching System",s2_desc:"Patent-pending AI engine computing compatibility across 6 dimensions in real-time.",
+    score_lbl:"MATCH SCORE",
+    s3_eye:"K-AI Wallet",s3_title:"ALL IS ONE Multi-Chain Wallet",s3_desc:"One wallet address. Every asset. Every chain. Every currency.",
+    wf1_title:"Multi-Chain: ETH · SOL · BTC",wf1_desc:"Single address manages Ethereum ERC-1400 STOs, Solana NFTs, and Bitcoin with cross-chain atomic swaps.",
+    wf2_title:"Automated Dividend Distribution",wf2_desc:"Smart contracts automatically distribute rental income and art sale revenue to token holders.",
+    wf3_title:"40-Country Payment Integration",wf3_desc:"NaverPay, UPI, PIX, SEPA, Apple Pay and more — local currencies instantly converted.",
+    wf4_title:"On-Chain KYC/AML Compliance",wf4_desc:"Soulbound Token credentials enable SEC Reg D/S compliance — once, forever.",
+    pm_total:"TOTAL RWA VALUE",
+    s4_eye:"Global Reach",s4_title:"40+ Countries, One Platform",
+    pc_kr:"Korea",pc_us:"USA",pc_in:"India",pc_br:"Brazil",pc_eu:"Europe",pc_jp:"Japan",pc_sg:"Singapore",pc_ae:"UAE",
+    s5_eye:"Future Vision",s5_title:"Building the Future of Global Finance",s5_desc:"A phased roadmap from patent protection to global market leadership.",
+    v1_title:"Foundation & IP Protection",v1_desc:"USPTO patent filings completed. KIPO Korea patents in process. EIN 35-2958214 registered. K-AI Wallet beta prototype launched.",
+    v2_title:"Platform Launch & Series A",v2_desc:"K-AI Wallet public beta. V-Match B2B platform launch. Series A funding $3M–$5M. NaverPay & Stripe integration complete.",
+    v3_title:"Global Expansion & RWA Scale",v3_desc:"Manhattan real estate STO launches. Gallery art NFT marketplace live. 100,000 users. K-Culture fan investment platform.",
+    v4_title:"Global Market Leadership",v4_desc:"40+ country payment network. $1B AUM in tokenized RWA. CBDC integration. IPO preparation. Valuation $2B+.",
+    s6_eye:"Intellectual Property",s6_title:"Patent Portfolio",s6_desc:"World-first innovations protected by USPTO and KIPO patent filings.",
+    p1_title:"K-AI Wallet: AI-Powered RWA Multi-Chain Blockchain Wallet System",p1_desc:"World's first unified wallet combining Manhattan real estate STOs, gallery art NFTs, and membership passes with AI investor matching.",p1_status:"USPTO Delivered · April 22, 2026",
+    p2_title:"V-Match: Blockchain-Integrated Multi-Vector AI B2B Matching System",p2_desc:"RAG-powered 6-vector AI matching engine for global B2B trade exhibitions with real-time dNFT issuance and smart contract payment.",p2_status:"USPTO Filed · April 2026",
+    cta_l1:"ALL IS ONE.",cta_l2:"Join the Future.",cta_desc:"One platform. One wallet. One vision. The world's most advanced AI trade and finance ecosystem.",
+    cta_btn1:"Get Early Access →",cta_btn2:"Investor Relations",
+    footer_desc:"The world's first AI-powered global trade, finance, and culture investment ecosystem.",
+    fc1_h:"Platform",fc1_1:"K-AI Wallet",fc1_2:"V-Match AI",fc1_3:"RWA Marketplace",fc1_4:"Global Payments",fc1_5:"K-Culture NFT",
+    fc2_h:"Company",fc2_1:"About K-AI CONET",fc2_2:"Patent Portfolio",fc2_3:"Investor Relations",fc2_4:"Press & Media",fc2_5:"Careers",
+    fc3_h:"Legal",fc3_1:"Terms of Service",fc3_2:"Privacy Policy",fc3_3:"SEC Compliance",fc3_4:"KYC/AML Policy",fc3_5:"Risk Disclosure",
+    dev_eye:"Investment Required",dev_title:"Development Investment Plan",dev_desc:"From MVP launch to global enterprise platform — a phased investment strategy designed for maximum ROI.",
+    p1_name:"MVP Launch",p1_range:"~ $300K · 6–8 Months",p1_f1:"K-AI Wallet Beta (ETH)",p1_f2:"V-Match Web Platform",p1_f3:"Smart Contract Core",p1_f4:"KYC/AML Basic",p1_f5:"Korea Dev Team × 5",funding_src:"FUNDING SOURCE",p1_fund:"Angel Investors · TIPS Government Grant",
+    recommended:"RECOMMENDED",p2_name:"Full Release",p2_range:"~ $950K · 12–18 Months",p2_f1:"iOS + Android App",p2_f2:"ETH · SOL · BTC Multi-Chain",p2_f3:"RAG AI Engine Advanced",p2_f4:"40-Country Payments",p2_f5:"dNFT · RWA Marketplace",p2_f6:"SEC Compliance Full",funding_src2:"FUNDING SOURCE",p2_fund:"Series A $3M–$5M Fundraising",
+    p3_name:"Enterprise",p3_range:"~ $1.5M · 18–24 Months",p3_f1:"CBDC Central Bank Integration",p3_f2:"K-Culture Fan Platform",p3_f3:"Global B2B Full Automation",p3_f4:"PCT Patent 150 Countries",p3_f5:"IPO Ready · Valuation $2B+",funding_src3:"FUNDING SOURCE",p3_fund:"Series B · Strategic Partners",
+    roi_total_lbl:"Total Investment",roi_total_sub:"Phase 1~3 Total",roi_patent_lbl:"Patent Value",roi_patent_sub:"10 Patents Optimistic Est.",roi_val_lbl:"Target Valuation",roi_val_sub:"2030 Target",roi_roi_lbl:"Investment ROI",roi_roi_sub:"All-Time Best Return",
+    wp_title:"Download Our Whitepaper",wp_desc:"Get the complete K-AI CONET technical whitepaper — AI matching architecture, RWA tokenization, blockchain infrastructure, and 2030 vision.",wp_doc_title:"K-AI CONET — ALL IS ONE",wp_doc_sub:"Global AI Trade · RWA Finance · Blockchain Ecosystem · 2026–2030",wp_form_title:"Get Instant Access",wp_form_sub:"Enter your details to receive the whitepaper directly to your inbox.",wp_ph_name:"Full Name",wp_ph_company:"Company / Organization",wp_ph_email:"Email Address",wp_btn:"Download →",wp_iam:"I am:",wp_t1:"Investor",wp_t2:"Business Partner",wp_t3:"Developer",wp_t4:"Media / Press",wp_privacy:"🔒 Your information is secure. We respect your privacy and will never share your data.",wp_success_title:"Thank you!",wp_success_msg:"The whitepaper has been sent to your email. Please check your inbox.",wp_downloads:"DOWNLOADS",wp_investors:"INVESTORS",wp_countries:"COUNTRIES",
+  },
+  ko:{
+    nav_platform:"플랫폼",nav_vmatch:"V-매칭",nav_wallet:"월렛",nav_vision:"비전",nav_patents:"특허",nav_cta:"앱 시작",
+    hero_badge:"세계 최초 AI 기반 글로벌 무역 · 금융 생태계",
+    hero_l1:"글로벌 무역.",hero_l2:"AI 금융.",hero_l3:"하나의 월렛.",
+    hero_desc:"K-AI CONET은 AI 매칭, 블록체인 결제, 실물 자산 토큰화를 통해 전 세계 기업, 투자자, 시장을 단일 통합 생태계로 연결합니다.",
+    hero_cta1:"플랫폼 탐색 →",hero_cta2:"데모 보기",
+    stat1:"국가",stat2:"목표 시장",stat3:"AI 매칭 속도",stat4:"특허 출원",
+    tick1:"맨해튼 부동산 STO",tick2:"갤러리 아트 NFT",tick3:"V-Match AI 엔진",tick4:"40개국 결제",tick5:"멀티체인 월렛",tick6:"글로벌 B2B 매칭",tick7:"RWA 토큰화",tick8:"K-컬처 투자",
+    s1_eye:"핵심 플랫폼",s1_title:"글로벌 혁신의 세 기둥",s1_desc:"AI와 블록체인 기술로 글로벌 무역, 금융, 문화를 연결하는 통합 생태계입니다.",
+    svc1_title:"글로벌 AI 무역 매칭",svc1_desc:"RAG 기반 6벡터 AI 엔진이 150개국 이상의 수출업체, 바이어, 투자자를 3초 이내에 정밀 매칭합니다.",
+    svc2_title:"RWA 금융 · 투자",svc2_desc:"맨해튼 부동산, 블루칩 갤러리 아트, 산업 자산을 STO와 NFT로 토큰화합니다.",
+    svc3_title:"K-컬처 팬덤 경제",svc3_desc:"1억명 이상의 K-팝 팬을 투자자로 전환합니다. IP 토큰화, NFT 콘서트 티켓, 자동 로열티 분배.",
+    s2_eye:"AI 엔진",s2_title:"V-Match: 6벡터 AI 매칭 시스템",s2_desc:"특허 출원 중인 AI 엔진으로 6개 차원에서 실시간으로 최적 매칭을 계산합니다.",
+    score_lbl:"매칭 점수",
+    s3_eye:"K-AI 월렛",s3_title:"ALL IS ONE 멀티체인 월렛",s3_desc:"하나의 지갑 주소. 모든 자산. 모든 체인. 모든 통화.",
+    wf1_title:"멀티체인: ETH · SOL · BTC",wf1_desc:"단일 주소로 이더리움 ERC-1400 STO, 솔라나 NFT, 비트코인을 동시에 관리합니다.",
+    wf2_title:"배당금 자동 분배",wf2_desc:"스마트 컨트랙트가 임대수익과 아트 판매수익을 토큰 보유자에게 자동으로 분배합니다.",
+    wf3_title:"40개국 결제 통합",wf3_desc:"네이버페이, UPI, PIX, SEPA, 애플페이 등 현지 통화를 즉시 환전해 글로벌 자산에 투자합니다.",
+    wf4_title:"온체인 KYC/AML 컴플라이언스",wf4_desc:"소울바운드 토큰 자격증명으로 SEC Reg D/S 준수를 자동화합니다 — 한 번만, 영구적으로.",
+    pm_total:"총 RWA 자산 가치",
+    s4_eye:"글로벌 도달",s4_title:"40개국+, 하나의 플랫폼",
+    pc_kr:"한국",pc_us:"미국",pc_in:"인도",pc_br:"브라질",pc_eu:"유럽",pc_jp:"일본",pc_sg:"싱가포르",pc_ae:"UAE",
+    s5_eye:"미래 비전",s5_title:"글로벌 금융의 미래를 만들다",s5_desc:"특허 보호부터 글로벌 시장 리더십까지 단계별 로드맵입니다.",
+    v1_title:"기반 구축 · IP 보호",v1_desc:"USPTO 특허 출원 완료. KIPO 한국 특허 진행 중. EIN 35-2958214 등록. K-AI 월렛 베타 출시.",
+    v2_title:"플랫폼 출시 · 시리즈 A",v2_desc:"K-AI 월렛 공개 베타. V-Match B2B 플랫폼 출시. 시리즈 A $300만~500만. 네이버페이·Stripe 연동.",
+    v3_title:"글로벌 확장 · RWA 스케일",v3_desc:"맨해튼 부동산 STO 출시. 갤러리 아트 NFT 마켓플레이스. 사용자 10만명. K-컬처 팬덤 투자 플랫폼.",
+    v4_title:"글로벌 시장 리더십",v4_desc:"40개국+ 결제 네트워크. RWA 토큰화 AUM $10억. CBDC 연동. IPO 준비. 기업가치 $20억+.",
+    s6_eye:"지식재산권",s6_title:"특허 포트폴리오",s6_desc:"USPTO와 KIPO 특허 출원으로 보호되는 세계 최초 혁신 기술들입니다.",
+    p1_title:"K-AI 월렛: AI 기반 RWA 멀티체인 블록체인 지갑 시스템",p1_desc:"맨해튼 부동산 STO, 갤러리 아트 NFT, 멤버십 패스를 AI 투자자 매칭과 자동 배당 분배와 결합한 세계 최초 통합 지갑.",p1_status:"USPTO 수령 확인 · 2026년 4월 22일",
+    p2_title:"V-Match: 블록체인 통합 멀티벡터 AI B2B 매칭 시스템",p2_desc:"글로벌 B2B 무역 전시를 위한 RAG 기반 6벡터 AI 매칭 엔진. 실시간 dNFT 발행, 스마트 컨트랙트 에스크로 결제.",p2_status:"USPTO 출원 · 2026년 4월",
+    cta_l1:"ALL IS ONE.",cta_l2:"미래에 합류하세요.",cta_desc:"하나의 플랫폼. 하나의 월렛. 하나의 비전. 세계에서 가장 앞선 AI 무역·금융 생태계.",
+    cta_btn1:"얼리 액세스 신청 →",cta_btn2:"투자자 관계",
+    footer_desc:"AI와 블록체인으로 40개국 이상을 연결하는 세계 최초 글로벌 무역·금융·문화 투자 생태계입니다.",
+    fc1_h:"플랫폼",fc1_1:"K-AI 월렛",fc1_2:"V-Match AI",fc1_3:"RWA 마켓플레이스",fc1_4:"글로벌 결제",fc1_5:"K-컬처 NFT",
+    fc2_h:"회사",fc2_1:"K-AI CONET 소개",fc2_2:"특허 포트폴리오",fc2_3:"투자자 관계",fc2_4:"언론·미디어",fc2_5:"채용",
+    fc3_h:"법적고지",fc3_1:"이용약관",fc3_2:"개인정보처리방침",fc3_3:"SEC 컴플라이언스",fc3_4:"KYC/AML 정책",fc3_5:"위험 공시",
+    dev_eye:"투자 계획",dev_title:"개발 투자 계획",dev_desc:"MVP 출시부터 글로벌 엔터프라이즈 플랫폼까지 — 최대 ROI를 위한 단계별 투자 전략입니다.",
+    p1_name:"MVP 출시",p1_range:"~ $300K · 6~8개월",p1_f1:"K-AI 월렛 베타 (ETH)",p1_f2:"V-Match 웹 플랫폼",p1_f3:"스마트 컨트랙트 코어",p1_f4:"KYC/AML 기본",p1_f5:"한국 개발팀 × 5명",funding_src:"투자 출처",p1_fund:"엔젤 투자자 · TIPS 정부지원금",
+    recommended:"추천",p2_name:"정식 출시",p2_range:"~ $950K · 12~18개월",p2_f1:"iOS + Android 앱 완성",p2_f2:"ETH · SOL · BTC 멀티체인",p2_f3:"RAG AI 엔진 고도화",p2_f4:"40개국 결제 연동",p2_f5:"dNFT · RWA 마켓플레이스",p2_f6:"SEC 컴플라이언스 완성",funding_src2:"투자 출처",p2_fund:"시리즈 A $300만~500만 유치",
+    p3_name:"엔터프라이즈",p3_range:"~ $150만 · 18~24개월",p3_f1:"CBDC 중앙은행 연동",p3_f2:"K-컬처 팬덤 플랫폼",p3_f3:"글로벌 B2B 완전 자동화",p3_f4:"PCT 국제특허 150개국",p3_f5:"IPO 준비 · 기업가치 $20억+",funding_src3:"투자 출처",p3_fund:"시리즈 B · 전략적 파트너",
+    roi_total_lbl:"총 투자",roi_total_sub:"Phase 1~3 합계",roi_patent_lbl:"특허 가치",roi_patent_sub:"10개 특허 낙관적 추정",roi_val_lbl:"목표 기업가치",roi_val_sub:"2030년 목표",roi_roi_lbl:"투자 ROI",roi_roi_sub:"역대 최고 수익률",
+    wp_title:"백서 다운로드",wp_desc:"K-AI CONET 완전한 기술 백서를 받으세요 — AI 매칭 아키텍처, RWA 토큰화, 블록체인 인프라, 2030 비전.",wp_doc_title:"K-AI CONET — ALL IS ONE",wp_doc_sub:"글로벌 AI 무역 · RWA 금융 · 블록체인 생태계 · 2026–2030",wp_form_title:"즉시 다운로드",wp_form_sub:"이메일 주소를 입력하시면 백서를 즉시 보내드립니다.",wp_ph_name:"이름",wp_ph_company:"회사명",wp_ph_email:"이메일 주소",wp_btn:"다운로드 →",wp_iam:"저는:",wp_t1:"투자자",wp_t2:"비즈니스 파트너",wp_t3:"개발자",wp_t4:"미디어/언론",wp_privacy:"🔒 개인정보는 안전하게 보호됩니다. 제3자에게 공유하지 않습니다.",wp_success_title:"감사합니다!",wp_success_msg:"백서가 이메일로 발송되었습니다. 받은 편지함을 확인해주세요.",wp_downloads:"다운로드",wp_investors:"투자자",wp_countries:"국가",
+  },
+  es:{
+    nav_platform:"Plataforma",nav_vmatch:"V-Match",nav_wallet:"Billetera",nav_vision:"Visión",nav_patents:"Patentes",nav_cta:"Iniciar App",
+    hero_badge:"El Primer Ecosistema Global de Comercio y Finanzas con IA del Mundo",
+    hero_l1:"Comercio Global.",hero_l2:"Finanzas IA.",hero_l3:"Una Billetera.",
+    hero_desc:"K-AI CONET conecta empresas globales, inversores y mercados a través de coincidencias impulsadas por IA, pagos blockchain y tokenización de activos del mundo real.",
+    hero_cta1:"Explorar Plataforma →",hero_cta2:"Ver Demo",
+    stat1:"Países",stat2:"Mercado Objetivo",stat3:"Velocidad IA",stat4:"Patentes",
+    tick1:"Bienes Raíces Manhattan STO",tick2:"Arte NFT de Galería",tick3:"Motor AI V-Match",tick4:"Pagos 40 Países",tick5:"Billetera Multi-Cadena",tick6:"Matching B2B Global",tick7:"Tokenización RWA",tick8:"Inversión K-Culture",
+    s1_eye:"Plataforma Core",s1_title:"Tres Pilares de Innovación Global",s1_desc:"Un ecosistema unificado que conecta comercio, finanzas y cultura global mediante IA y blockchain.",
+    svc1_title:"Matching de Comercio Global con IA",svc1_desc:"Motor IA de 6 vectores RAG que conecta exportadores, compradores e inversores en 150+ países en menos de 3 segundos.",
+    svc2_title:"Finanzas e Inversión RWA",svc2_desc:"Tokenice bienes raíces en Manhattan, arte de galería y activos industriales como STOs y NFTs.",
+    svc3_title:"Economía Fan K-Culture",svc3_desc:"Convierte 100M+ fans de K-Pop en inversores. Tokenización IP, entradas NFT de conciertos con distribución automática de regalías.",
+    s2_eye:"Motor IA",s2_title:"V-Match: Sistema IA Multi-Vector 6D",s2_desc:"Motor IA patentado que calcula compatibilidad en 6 dimensiones simultáneamente en tiempo real.",
+    score_lbl:"PUNTUACIÓN DE COINCIDENCIA",
+    s3_eye:"Billetera K-AI",s3_title:"Billetera Multi-Cadena ALL IS ONE",s3_desc:"Una dirección. Todos los activos. Todas las cadenas. Todas las monedas.",
+    wf1_title:"Multi-Cadena: ETH · SOL · BTC",wf1_desc:"Una dirección gestiona STOs Ethereum ERC-1400, NFTs Solana y Bitcoin con swaps atómicos entre cadenas.",
+    wf2_title:"Distribución Automática de Dividendos",wf2_desc:"Contratos inteligentes distribuyen automáticamente ingresos de alquiler y ventas de arte entre tenedores de tokens.",
+    wf3_title:"Integración de Pago 40 Países",wf3_desc:"NaverPay, UPI, PIX, SEPA, Apple Pay y más — monedas locales convertidas instantáneamente.",
+    wf4_title:"Cumplimiento KYC/AML On-Chain",wf4_desc:"Credenciales Soulbound Token habilitan cumplimiento SEC Reg D/S — una vez, para siempre.",
+    pm_total:"VALOR TOTAL RWA",
+    s4_eye:"Alcance Global",s4_title:"40+ Países, Una Plataforma",
+    pc_kr:"Corea",pc_us:"EE.UU.",pc_in:"India",pc_br:"Brasil",pc_eu:"Europa",pc_jp:"Japón",pc_sg:"Singapur",pc_ae:"EAU",
+    s5_eye:"Visión Futura",s5_title:"Construyendo el Futuro de las Finanzas Globales",s5_desc:"Una hoja de ruta por fases desde la protección de patentes hasta el liderazgo del mercado global.",
+    v1_title:"Fundación y Protección IP",v1_desc:"Solicitudes de patentes USPTO completadas. Patentes KIPO en proceso. EIN 35-2958214 registrado. Beta de K-AI Wallet lanzada.",
+    v2_title:"Lanzamiento y Serie A",v2_desc:"Beta pública de K-AI Wallet. Lanzamiento plataforma V-Match B2B. Financiación Serie A $3M–$5M.",
+    v3_title:"Expansión Global y Escala RWA",v3_desc:"STO de bienes raíces Manhattan. Marketplace NFT de arte. 100,000 usuarios. Plataforma inversión fans K-Culture.",
+    v4_title:"Liderazgo de Mercado Global",v4_desc:"Red de pago 40+ países. $1B AUM en RWA tokenizado. Integración CBDC. Preparación OPV. Valoración $2B+.",
+    s6_eye:"Propiedad Intelectual",s6_title:"Cartera de Patentes",s6_desc:"Innovaciones mundiales únicas protegidas por solicitudes de patentes USPTO y KIPO.",
+    p1_title:"K-AI Wallet: Sistema Blockchain Multi-Cadena RWA con IA",p1_desc:"Primera billetera unificada del mundo que combina STOs de bienes raíces Manhattan, NFTs de arte de galería con matching de inversores IA.",p1_status:"USPTO Entregado · 22 de Abril, 2026",
+    p2_title:"V-Match: Sistema IA B2B Multi-Vector Integrado en Blockchain",p2_desc:"Motor IA de 6 vectores RAG para exposiciones comerciales B2B globales con emisión de dNFT en tiempo real.",p2_status:"USPTO Presentado · Abril 2026",
+    cta_l1:"TODO ES UNO.",cta_l2:"Únete al Futuro.",cta_desc:"Una plataforma. Una billetera. Una visión. El ecosistema de comercio y finanzas IA más avanzado del mundo.",
+    cta_btn1:"Acceso Anticipado →",cta_btn2:"Relaciones con Inversores",
+    footer_desc:"El primer ecosistema mundial de inversión en comercio, finanzas y cultura global impulsado por IA.",
+    fc1_h:"Plataforma",fc1_1:"K-AI Wallet",fc1_2:"V-Match AI",fc1_3:"Mercado RWA",fc1_4:"Pagos Globales",fc1_5:"K-Culture NFT",
+    fc2_h:"Empresa",fc2_1:"Sobre K-AI CONET",fc2_2:"Cartera de Patentes",fc2_3:"Relaciones Inversores",fc2_4:"Prensa y Medios",fc2_5:"Empleos",
+    fc3_h:"Legal",fc3_1:"Términos de Servicio",fc3_2:"Política de Privacidad",fc3_3:"Cumplimiento SEC",fc3_4:"Política KYC/AML",fc3_5:"Divulgación de Riesgos",
+    dev_eye:"Inversión Requerida",dev_title:"Plan de Inversión en Desarrollo",dev_desc:"Desde el lanzamiento MVP hasta la plataforma empresarial global — una estrategia de inversión por fases para el máximo ROI.",
+    p1_name:"Lanzamiento MVP",p1_range:"~ $300K · 6–8 Meses",p1_f1:"K-AI Wallet Beta (ETH)",p1_f2:"Plataforma Web V-Match",p1_f3:"Contrato Inteligente Core",p1_f4:"KYC/AML Básico",p1_f5:"Equipo Dev Korea × 5",funding_src:"FUENTE DE FONDOS",p1_fund:"Inversores Ángel · Subvención Gubernamental TIPS",
+    recommended:"RECOMENDADO",p2_name:"Lanzamiento Completo",p2_range:"~ $950K · 12–18 Meses",p2_f1:"App iOS + Android",p2_f2:"ETH · SOL · BTC Multi-Cadena",p2_f3:"Motor IA RAG Avanzado",p2_f4:"Pagos 40 Países",p2_f5:"dNFT · Mercado RWA",p2_f6:"Cumplimiento SEC Completo",funding_src2:"FUENTE DE FONDOS",p2_fund:"Serie A $3M–$5M Recaudación",
+    p3_name:"Empresarial",p3_range:"~ $1.5M · 18–24 Meses",p3_f1:"Integración CBDC Banco Central",p3_f2:"Plataforma Fan K-Culture",p3_f3:"Automatización Global B2B",p3_f4:"Patente PCT 150 Países",p3_f5:"Listo para OPV · Valoración $2B+",funding_src3:"FUENTE DE FONDOS",p3_fund:"Serie B · Socios Estratégicos",
+    roi_total_lbl:"Inversión Total",roi_total_sub:"Total Fase 1~3",roi_patent_lbl:"Valor Patentes",roi_patent_sub:"10 Patentes Est. Optimista",roi_val_lbl:"Valoración Objetivo",roi_val_sub:"Objetivo 2030",roi_roi_lbl:"ROI Inversión",roi_roi_sub:"El Mejor Retorno de la Historia",
+    wp_title:"Descargar Whitepaper",wp_desc:"Obtenga el whitepaper técnico completo de K-AI CONET — arquitectura de IA, tokenización RWA, infraestructura blockchain y visión 2030.",wp_doc_title:"K-AI CONET — ALL IS ONE",wp_doc_sub:"Comercio Global AI · Finanzas RWA · Blockchain · 2026–2030",wp_form_title:"Acceso Instantáneo",wp_form_sub:"Ingrese sus datos para recibir el whitepaper directamente en su correo.",wp_ph_name:"Nombre Completo",wp_ph_company:"Empresa",wp_ph_email:"Correo Electrónico",wp_btn:"Descargar →",wp_iam:"Soy:",wp_t1:"Inversor",wp_t2:"Socio Comercial",wp_t3:"Desarrollador",wp_t4:"Medios / Prensa",wp_privacy:"🔒 Su información está segura. Respetamos su privacidad.",wp_success_title:"¡Gracias!",wp_success_msg:"El whitepaper ha sido enviado a su correo. Por favor revise su bandeja de entrada.",wp_downloads:"DESCARGAS",wp_investors:"INVERSORES",wp_countries:"PAÍSES",
+  },
+  hi:{
+    nav_platform:"प्लेटफ़ॉर्म",nav_vmatch:"V-मैच",nav_wallet:"वॉलेट",nav_vision:"दृष्टि",nav_patents:"पेटेंट",nav_cta:"ऐप लॉन्च",
+    hero_badge:"विश्व का पहला AI-संचालित वैश्विक व्यापार और वित्त पारिस्थितिकी तंत्र",
+    hero_l1:"वैश्विक व्यापार.",hero_l2:"AI वित्त.",hero_l3:"एक वॉलेट.",
+    hero_desc:"K-AI CONET AI मिलान, ब्लॉकचेन भुगतान और वास्तविक दुनिया की संपत्ति टोकनाइज़ेशन के माध्यम से वैश्विक उद्यमों, निवेशकों और बाजारों को जोड़ता है।",
+    hero_cta1:"प्लेटफ़ॉर्म एक्सप्लोर करें →",hero_cta2:"डेमो देखें",
+    stat1:"देश",stat2:"लक्ष्य बाज़ार",stat3:"AI मिलान गति",stat4:"पेटेंट दाखिल",
+    tick1:"मैनहटन रियल एस्टेट STO",tick2:"गैलरी आर्ट NFT",tick3:"V-Match AI इंजन",tick4:"40-देश भुगतान",tick5:"मल्टी-चेन वॉलेट",tick6:"ग्लोबल B2B मिलान",tick7:"RWA टोकनाइज़ेशन",tick8:"K-कल्चर निवेश",
+    s1_eye:"मुख्य प्लेटफ़ॉर्म",s1_title:"वैश्विक नवाचार के तीन स्तंभ",s1_desc:"AI और ब्लॉकचेन तकनीक के माध्यम से वैश्विक व्यापार, वित्त और संस्कृति को जोड़ने वाला एकीकृत पारिस्थितिकी तंत्र।",
+    svc1_title:"वैश्विक AI व्यापार मिलान",svc1_desc:"RAG-संचालित 6-वेक्टर AI इंजन 150+ देशों में निर्यातकों, खरीदारों और निवेशकों को 3 सेकंड से कम में मिलाता है।",
+    svc2_title:"RWA वित्त और निवेश",svc2_desc:"मैनहटन रियल एस्टेट, ब्लू-चिप गैलरी आर्ट को STO और NFT के रूप में टोकनाइज़ करें।",
+    svc3_title:"K-कल्चर फैन अर्थव्यवस्था",svc3_desc:"100M+ K-Pop प्रशंसकों को निवेशकों में बदलें। IP टोकनाइज़ेशन, NFT कंसर्ट टिकट।",
+    s2_eye:"AI इंजन",s2_title:"V-Match: 6-वेक्टर AI मिलान प्रणाली",s2_desc:"पेटेंट-लंबित AI इंजन जो वास्तविक समय में 6 आयामों में अनुकूलता की गणना करता है।",
+    score_lbl:"मिलान स्कोर",
+    s3_eye:"K-AI वॉलेट",s3_title:"ALL IS ONE मल्टी-चेन वॉलेट",s3_desc:"एक वॉलेट पता। हर संपत्ति। हर चेन। हर मुद्रा।",
+    wf1_title:"मल्टी-चेन: ETH · SOL · BTC",wf1_desc:"एकल पता Ethereum ERC-1400 STO, Solana NFT और Bitcoin का एक साथ प्रबंधन करता है।",
+    wf2_title:"स्वचालित लाभांश वितरण",wf2_desc:"स्मार्ट कॉन्ट्रैक्ट किराया आय और कला बिक्री राजस्व को टोकन धारकों को स्वचालित रूप से वितरित करते हैं।",
+    wf3_title:"40-देश भुगतान एकीकरण",wf3_desc:"NaverPay, UPI, PIX, SEPA और अधिक — स्थानीय मुद्राएं तुरंत परिवर्तित।",
+    wf4_title:"ऑन-चेन KYC/AML अनुपालन",wf4_desc:"सोलबाउंड टोकन क्रेडेंशियल SEC Reg D/S अनुपालन सक्षम करते हैं — एक बार, हमेशा के लिए।",
+    pm_total:"कुल RWA मूल्य",
+    s4_eye:"वैश्विक पहुंच",s4_title:"40+ देश, एक प्लेटफ़ॉर्म",
+    pc_kr:"कोरिया",pc_us:"अमेरिका",pc_in:"भारत",pc_br:"ब्राज़ील",pc_eu:"यूरोप",pc_jp:"जापान",pc_sg:"सिंगापुर",pc_ae:"UAE",
+    s5_eye:"भविष्य की दृष्टि",s5_title:"वैश्विक वित्त का भविष्य बनाना",s5_desc:"पेटेंट संरक्षण से वैश्विक बाजार नेतृत्व तक चरणबद्ध रोडमैप।",
+    v1_title:"नींव और IP संरक्षण",v1_desc:"USPTO पेटेंट आवेदन पूर्ण। KIPO कोरिया पेटेंट प्रक्रिया में। EIN 35-2958214 पंजीकृत।",
+    v2_title:"प्लेटफ़ॉर्म लॉन्च और Series A",v2_desc:"K-AI वॉलेट पब्लिक बीटा। V-Match B2B प्लेटफ़ॉर्म लॉन्च। Series A $3M–$5M।",
+    v3_title:"वैश्विक विस्तार और RWA स्केल",v3_desc:"मैनहटन रियल एस्टेट STO लॉन्च। गैलरी आर्ट NFT मार्केटप्लेस। 1 लाख उपयोगकर्ता।",
+    v4_title:"वैश्विक बाजार नेतृत्व",v4_desc:"40+ देश भुगतान नेटवर्क। $1B AUM। CBDC एकीकरण। IPO तैयारी। मूल्यांकन $2B+।",
+    s6_eye:"बौद्धिक संपदा",s6_title:"पेटेंट पोर्टफोलियो",s6_desc:"USPTO और KIPO पेटेंट आवेदनों द्वारा संरक्षित विश्व-प्रथम नवाचार।",
+    p1_title:"K-AI वॉलेट: AI-संचालित RWA मल्टी-चेन ब्लॉकचेन वॉलेट सिस्टम",p1_desc:"मैनहटन रियल एस्टेट STO, गैलरी आर्ट NFT को AI निवेशक मिलान के साथ जोड़ने वाला विश्व का पहला एकीकृत वॉलेट।",p1_status:"USPTO डिलीवर · 22 अप्रैल, 2026",
+    p2_title:"V-Match: ब्लॉकचेन-एकीकृत मल्टी-वेक्टर AI B2B मिलान प्रणाली",p2_desc:"वास्तविक समय dNFT जारी करने के साथ वैश्विक B2B व्यापार प्रदर्शनियों के लिए RAG-संचालित AI मिलान इंजन।",p2_status:"USPTO दाखिल · अप्रैल 2026",
+    cta_l1:"सब एक है।",cta_l2:"भविष्य में शामिल हों।",cta_desc:"एक प्लेटफ़ॉर्म। एक वॉलेट। एक दृष्टि। दुनिया का सबसे उन्नत AI व्यापार और वित्त पारिस्थितिकी तंत्र।",
+    cta_btn1:"अर्ली एक्सेस प्राप्त करें →",cta_btn2:"निवेशक संबंध",
+    footer_desc:"AI और ब्लॉकचेन के माध्यम से 40+ देशों को जोड़ने वाला विश्व का पहला वैश्विक व्यापार, वित्त और संस्कृति निवेश पारिस्थितिकी तंत्र।",
+    fc1_h:"प्लेटफ़ॉर्म",fc1_1:"K-AI वॉलेट",fc1_2:"V-Match AI",fc1_3:"RWA मार्केटप्लेस",fc1_4:"वैश्विक भुगतान",fc1_5:"K-Culture NFT",
+    fc2_h:"कंपनी",fc2_1:"K-AI CONET के बारे में",fc2_2:"पेटेंट पोर्टफोलियो",fc2_3:"निवेशक संबंध",fc2_4:"प्रेस और मीडिया",fc2_5:"करियर",
+    fc3_h:"कानूनी",fc3_1:"सेवा की शर्तें",fc3_2:"गोपनीयता नीति",fc3_3:"SEC अनुपालन",fc3_4:"KYC/AML नीति",fc3_5:"जोखिम प्रकटीकरण",
+    dev_eye:"निवेश आवश्यक",dev_title:"विकास निवेश योजना",dev_desc:"MVP लॉन्च से वैश्विक एंटरप्राइज प्लेटफ़ॉर्म तक — अधिकतम ROI के लिए चरणबद्ध निवेश रणनीति।",
+    p1_name:"MVP लॉन्च",p1_range:"~ $300K · 6–8 महीने",p1_f1:"K-AI वॉलेट बीटा (ETH)",p1_f2:"V-Match वेब प्लेटफ़ॉर्म",p1_f3:"स्मार्ट कॉन्ट्रैक्ट कोर",p1_f4:"KYC/AML बेसिक",p1_f5:"कोरिया डेव टीम × 5",funding_src:"फंडिंग स्रोत",p1_fund:"एंजेल निवेशक · TIPS सरकारी अनुदान",
+    recommended:"अनुशंसित",p2_name:"पूर्ण लॉन्च",p2_range:"~ $950K · 12–18 महीने",p2_f1:"iOS + Android ऐप",p2_f2:"ETH · SOL · BTC मल्टी-चेन",p2_f3:"RAG AI इंजन उन्नत",p2_f4:"40 देश भुगतान",p2_f5:"dNFT · RWA मार्केटप्लेस",p2_f6:"SEC अनुपालन पूर्ण",funding_src2:"फंडिंग स्रोत",p2_fund:"Series A $3M–$5M फंडरेजिंग",
+    p3_name:"एंटरप्राइज",p3_range:"~ $1.5M · 18–24 महीने",p3_f1:"CBDC केंद्रीय बैंक एकीकरण",p3_f2:"K-Culture फैन प्लेटफ़ॉर्म",p3_f3:"ग्लोबल B2B पूर्ण स्वचालन",p3_f4:"PCT पेटेंट 150 देश",p3_f5:"IPO तैयार · मूल्यांकन $2B+",funding_src3:"फंडिंग स्रोत",p3_fund:"Series B · रणनीतिक साझेदार",
+    roi_total_lbl:"कुल निवेश",roi_total_sub:"Phase 1~3 कुल",roi_patent_lbl:"पेटेंट मूल्य",roi_patent_sub:"10 पेटेंट आशावादी अनुमान",roi_val_lbl:"लक्ष्य मूल्यांकन",roi_val_sub:"2030 लक्ष्य",roi_roi_lbl:"निवेश ROI",roi_roi_sub:"सर्वकालिक सर्वश्रेष्ठ रिटर्न",
+    wp_title:"व्हाइटपेपर डाउनलोड",wp_desc:"K-AI CONET का पूर्ण तकनीकी व्हाइटपेपर प्राप्त करें — AI मिलान वास्तुकला, RWA टोकनाइज़ेशन, ब्लॉकचेन इंफ्रास्ट्रक्चर और 2030 विज़न।",wp_doc_title:"K-AI CONET — ALL IS ONE",wp_doc_sub:"ग्लोबल AI ट्रेड · RWA फाइनेंस · ब्लॉकचेन · 2026–2030",wp_form_title:"तुरंत एक्सेस पाएं",wp_form_sub:"व्हाइटपेपर सीधे अपने इनबॉक्स में प्राप्त करने के लिए विवरण दर्ज करें।",wp_ph_name:"पूरा नाम",wp_ph_company:"कंपनी",wp_ph_email:"ईमेल पता",wp_btn:"डाउनलोड →",wp_iam:"मैं हूं:",wp_t1:"निवेशक",wp_t2:"व्यापार भागीदार",wp_t3:"डेवलपर",wp_t4:"मीडिया",wp_privacy:"🔒 आपकी जानकारी सुरक्षित है। हम आपकी गोपनीयता का सम्मान करते हैं।",wp_success_title:"धन्यवाद!",wp_success_msg:"व्हाइटपेपर आपके ईमेल पर भेज दिया गया है।",wp_downloads:"डाउनलोड",wp_investors:"निवेशक",wp_countries:"देश",
+  },
+  ar:{
+    nav_platform:"المنصة",nav_vmatch:"V-ماتش",nav_wallet:"المحفظة",nav_vision:"الرؤية",nav_patents:"براءات الاختراع",nav_cta:"تشغيل التطبيق",
+    hero_badge:"أول نظام بيئي عالمي للتجارة والتمويل بالذكاء الاصطناعي في العالم",
+    hero_l1:"تجارة عالمية.",hero_l2:"تمويل بالذكاء الاصطناعي.",hero_l3:"محفظة واحدة.",
+    hero_desc:"يربط K-AI CONET الشركات والمستثمرين والأسواق العالمية من خلال المطابقة بالذكاء الاصطناعي ومدفوعات البلوكشين وتوكيناز الأصول الحقيقية.",
+    hero_cta1:"استكشاف المنصة →",hero_cta2:"مشاهدة العرض",
+    stat1:"دولة",stat2:"السوق المستهدف",stat3:"سرعة الذكاء الاصطناعي",stat4:"براءات مقدمة",
+    tick1:"عقارات مانهاتن STO",tick2:"فن النفت للمعارض",tick3:"محرك V-Match AI",tick4:"مدفوعات 40 دولة",tick5:"محفظة متعددة السلاسل",tick6:"مطابقة B2B العالمية",tick7:"توكيناز RWA",tick8:"استثمار K-Culture",
+    s1_eye:"النظام الأساسي",s1_title:"ثلاثة ركائز للابتكار العالمي",s1_desc:"نظام بيئي موحد يربط التجارة والتمويل والثقافة العالمية عبر الذكاء الاصطناعي والبلوكشين.",
+    svc1_title:"مطابقة التجارة العالمية بالذكاء الاصطناعي",svc1_desc:"محرك ذكاء اصطناعي RAG بـ6 متجهات يطابق المصدرين والمشترين والمستثمرين في 150+ دولة خلال 3 ثوانٍ.",
+    svc2_title:"تمويل واستثمار RWA",svc2_desc:"رمز العقارات في مانهاتن وفن المعارض الراقي والأصول الصناعية كـ STOs و NFTs.",
+    svc3_title:"اقتصاد المشجعين K-Culture",svc3_desc:"تحويل أكثر من 100 مليون مشجع K-Pop إلى مستثمرين. ترميز IP وتذاكر NFT للحفلات.",
+    s2_eye:"محرك الذكاء الاصطناعي",s2_title:"V-Match: نظام مطابقة ذكاء اصطناعي 6 أبعاد",s2_desc:"محرك ذكاء اصطناعي معلق براءة اختراع يحسب التوافق عبر 6 أبعاد في الوقت الفعلي.",
+    score_lbl:"نقاط التطابق",
+    s3_eye:"محفظة K-AI",s3_title:"محفظة متعددة السلاسل ALL IS ONE",s3_desc:"عنوان واحد. كل الأصول. كل السلاسل. كل العملات.",
+    wf1_title:"متعدد السلاسل: ETH · SOL · BTC",wf1_desc:"عنوان واحد يدير Ethereum ERC-1400 STOs وـ NFTs سولانا وبيتكوين مع مبادلات ذرية.",
+    wf2_title:"توزيع الأرباح التلقائي",wf2_desc:"العقود الذكية تقوم تلقائياً بتوزيع دخل الإيجار وعائدات بيع الفن على حاملي الرموز.",
+    wf3_title:"تكامل المدفوعات في 40 دولة",wf3_desc:"NaverPay وUPI وPIX وSEPA وApple Pay والمزيد — العملات المحلية تُحوَّل فوراً.",
+    wf4_title:"الامتثال KYC/AML على السلسلة",wf4_desc:"بيانات اعتماد Soulbound Token تمكّن الامتثال لـ SEC Reg D/S — مرة واحدة، إلى الأبد.",
+    pm_total:"إجمالي قيمة RWA",
+    s4_eye:"الوصول العالمي",s4_title:"+40 دولة، منصة واحدة",
+    pc_kr:"كوريا",pc_us:"الولايات المتحدة",pc_in:"الهند",pc_br:"البرازيل",pc_eu:"أوروبا",pc_jp:"اليابان",pc_sg:"سنغافورة",pc_ae:"الإمارات",
+    s5_eye:"الرؤية المستقبلية",s5_title:"بناء مستقبل التمويل العالمي",s5_desc:"خارطة طريق مرحلية من حماية براءات الاختراع إلى القيادة العالمية للسوق.",
+    v1_title:"الأساس وحماية الملكية الفكرية",v1_desc:"تقديم براءات USPTO مكتمل. براءات KIPO قيد التقدم. EIN 35-2958214 مسجل.",
+    v2_title:"إطلاق المنصة والجولة A",v2_desc:"Beta عام لمحفظة K-AI. إطلاق منصة V-Match B2B. تمويل الجولة A $3M–$5M.",
+    v3_title:"التوسع العالمي وتوسيع RWA",v3_desc:"إطلاق STO العقارات في مانهاتن. سوق NFT للفن. 100,000 مستخدم. منصة استثمار K-Culture.",
+    v4_title:"القيادة العالمية للسوق",v4_desc:"شبكة دفع 40+ دولة. $1B AUM في RWA المُرمَّز. تكامل CBDC. تحضير IPO. تقييم +$2B.",
+    s6_eye:"الملكية الفكرية",s6_title:"محفظة براءات الاختراع",s6_desc:"ابتكارات فريدة عالمياً محمية بتقديمات براءات USPTO وKIPO.",
+    p1_title:"K-AI Wallet: نظام بلوكشين متعدد السلاسل RWA بالذكاء الاصطناعي",p1_desc:"أول محفظة موحدة في العالم تجمع STOs عقارات مانهاتن وNFTs فن المعارض مع مطابقة مستثمرين بالذكاء الاصطناعي.",p1_status:"تم استلام USPTO · 22 أبريل 2026",
+    p2_title:"V-Match: نظام مطابقة B2B بالذكاء الاصطناعي متعدد المتجهات مدمج بالبلوكشين",p2_desc:"محرك مطابقة RAG بـ6 متجهات للمعارض التجارية B2B العالمية مع إصدار dNFT في الوقت الفعلي.",p2_status:"تقديم USPTO · أبريل 2026",
+    cta_l1:"الكل واحد.",cta_l2:"انضم إلى المستقبل.",cta_desc:"منصة واحدة. محفظة واحدة. رؤية واحدة. أكثر النظم البيئية للتجارة والتمويل بالذكاء الاصطناعي تقدماً.",
+    cta_btn1:"احصل على وصول مبكر →",cta_btn2:"علاقات المستثمرين",
+    footer_desc:"أول نظام بيئي عالمي للاستثمار في التجارة والتمويل والثقافة مدعوم بالذكاء الاصطناعي.",
+    fc1_h:"المنصة",fc1_1:"K-AI Wallet",fc1_2:"V-Match AI",fc1_3:"سوق RWA",fc1_4:"المدفوعات العالمية",fc1_5:"K-Culture NFT",
+    fc2_h:"الشركة",fc2_1:"عن K-AI CONET",fc2_2:"محفظة براءات الاختراع",fc2_3:"علاقات المستثمرين",fc2_4:"الصحافة والإعلام",fc2_5:"الوظائف",
+    fc3_h:"القانونية",fc3_1:"شروط الخدمة",fc3_2:"سياسة الخصوصية",fc3_3:"امتثال SEC",fc3_4:"سياسة KYC/AML",fc3_5:"الإفصاح عن المخاطر",
+    dev_eye:"الاستثمار المطلوب",dev_title:"خطة الاستثمار في التطوير",dev_desc:"من إطلاق MVP إلى المنصة العالمية — استراتيجية استثمار مرحلية لتحقيق أقصى عائد على الاستثمار.",
+    p1_name:"إطلاق MVP",p1_range:"~ $300K · 6–8 أشهر",p1_f1:"K-AI Wallet بيتا (ETH)",p1_f2:"منصة V-Match الويب",p1_f3:"العقد الذكي الأساسي",p1_f4:"KYC/AML أساسي",p1_f5:"فريق تطوير كوريا × 5",funding_src:"مصدر التمويل",p1_fund:"المستثمرون الملائكيون · منحة TIPS الحكومية",
+    recommended:"موصى به",p2_name:"الإطلاق الكامل",p2_range:"~ $950K · 12–18 شهراً",p2_f1:"تطبيق iOS + Android",p2_f2:"ETH · SOL · BTC متعدد السلاسل",p2_f3:"محرك RAG AI المتقدم",p2_f4:"مدفوعات 40 دولة",p2_f5:"dNFT · سوق RWA",p2_f6:"امتثال SEC كامل",funding_src2:"مصدر التمويل",p2_fund:"السلسلة A $3M–$5M جمع تبرعات",
+    p3_name:"المؤسسات",p3_range:"~ $1.5M · 18–24 شهراً",p3_f1:"تكامل CBDC البنك المركزي",p3_f2:"منصة مشجعي K-Culture",p3_f3:"أتمتة B2B العالمية الكاملة",p3_f4:"براءة اختراع PCT 150 دولة",p3_f5:"جاهز لـ IPO · تقييم $2B+",funding_src3:"مصدر التمويل",p3_fund:"السلسلة B · شركاء استراتيجيون",
+    roi_total_lbl:"إجمالي الاستثمار",roi_total_sub:"إجمالي المراحل 1~3",roi_patent_lbl:"قيمة البراءات",roi_patent_sub:"10 براءات تقدير متفائل",roi_val_lbl:"التقييم المستهدف",roi_val_sub:"هدف 2030",roi_roi_lbl:"العائد على الاستثمار",roi_roi_sub:"أفضل عائد في التاريخ",
+    wp_title:"تحميل الورقة البيضاء",wp_desc:"احصل على الورقة البيضاء التقنية الكاملة لـ K-AI CONET — هندسة مطابقة الذكاء الاصطناعي، توكيناز RWA، البنية التحتية للبلوكشين، ورؤية 2030.",wp_doc_title:"K-AI CONET — الكل واحد",wp_doc_sub:"تجارة AI العالمية · تمويل RWA · البلوكشين · 2026–2030",wp_form_title:"الوصول الفوري",wp_form_sub:"أدخل بياناتك لاستلام الورقة البيضاء مباشرة في بريدك الإلكتروني.",wp_ph_name:"الاسم الكامل",wp_ph_company:"الشركة",wp_ph_email:"البريد الإلكتروني",wp_btn:"تحميل →",wp_iam:"أنا:",wp_t1:"مستثمر",wp_t2:"شريك تجاري",wp_t3:"مطور",wp_t4:"إعلام / صحافة",wp_privacy:"🔒 معلوماتك آمنة. نحترم خصوصيتك ولن نشارك بياناتك أبدًا.",wp_success_title:"شكراً!",wp_success_msg:"تم إرسال الورقة البيضاء إلى بريدك الإلكتروني.",wp_downloads:"التنزيلات",wp_investors:"المستثمرون",wp_countries:"الدول",
+  },
+  ja:{
+    nav_platform:"プラットフォーム",nav_vmatch:"V-マッチ",nav_wallet:"ウォレット",nav_vision:"ビジョン",nav_patents:"特許",nav_cta:"アプリ起動",
+    hero_badge:"世界初のAI搭載グローバル貿易・金融エコシステム",
+    hero_l1:"グローバル貿易。",hero_l2:"AI金融。",hero_l3:"ひとつのウォレット。",
+    hero_desc:"K-AI CONETは、AIマッチング、ブロックチェーン決済、現実世界の資産トークン化を通じて、グローバル企業、投資家、市場をひとつの統合エコシステムで繋ぎます。",
+    hero_cta1:"プラットフォームを探索 →",hero_cta2:"デモを見る",
+    stat1:"国",stat2:"目標市場",stat3:"AIマッチング速度",stat4:"特許出願",
+    tick1:"マンハッタン不動産STO",tick2:"ギャラリーアートNFT",tick3:"V-Match AIエンジン",tick4:"40カ国決済",tick5:"マルチチェーンウォレット",tick6:"グローバルB2Bマッチング",tick7:"RWAトークン化",tick8:"K-Culture投資",
+    s1_eye:"コアプラットフォーム",s1_title:"グローバルイノベーションの三本柱",s1_desc:"AIとブロックチェーン技術によってグローバル貿易、金融、文化を繋ぐ統合エコシステム。",
+    svc1_title:"グローバルAI貿易マッチング",svc1_desc:"RAG搭載6ベクトルAIエンジンが150カ国以上の輸出業者、バイヤー、投資家を3秒以内にマッチング。",
+    svc2_title:"RWA金融・投資",svc2_desc:"マンハッタン不動産、ブルーチップギャラリーアート、産業資産をSTOとNFTとしてトークン化。",
+    svc3_title:"K-Cultureファン経済",svc3_desc:"1億人以上のK-Popファンを投資家に変換。IPトークン化、NFTコンサートチケット、ロイヤリティ自動分配。",
+    s2_eye:"AIエンジン",s2_title:"V-Match: 6ベクトルAIマッチングシステム",s2_desc:"6次元でリアルタイムに互換性を計算する特許出願中のAIエンジン。",
+    score_lbl:"マッチングスコア",
+    s3_eye:"K-AIウォレット",s3_title:"ALL IS ONE マルチチェーンウォレット",s3_desc:"ひとつのウォレットアドレス。あらゆる資産。あらゆるチェーン。あらゆる通貨。",
+    wf1_title:"マルチチェーン: ETH · SOL · BTC",wf1_desc:"単一アドレスでEthereum ERC-1400 STO、Solana NFT、Bitcoinをクロスチェーンアトミックスワップで管理。",
+    wf2_title:"配当の自動分配",wf2_desc:"スマートコントラクトが賃料収入とアート販売収益をトークン保有者に自動的に分配。",
+    wf3_title:"40カ国決済統合",wf3_desc:"NaverPay、UPI、PIX、SEPA、Apple Payなど — 現地通貨を即座にグローバル資産に変換。",
+    wf4_title:"オンチェーンKYC/AMLコンプライアンス",wf4_desc:"ソウルバウンドトークン認証でSEC Reg D/Sコンプライアンスを有効化 — 一度だけ、永久に。",
+    pm_total:"RWA総資産価値",
+    s4_eye:"グローバルリーチ",s4_title:"40カ国以上、ひとつのプラットフォーム",
+    pc_kr:"韓国",pc_us:"米国",pc_in:"インド",pc_br:"ブラジル",pc_eu:"ヨーロッパ",pc_jp:"日本",pc_sg:"シンガポール",pc_ae:"UAE",
+    s5_eye:"将来のビジョン",s5_title:"グローバル金融の未来を構築する",s5_desc:"特許保護からグローバル市場リーダーシップまでの段階的ロードマップ。",
+    v1_title:"基盤構築とIP保護",v1_desc:"USPTO特許出願完了。KIPO韓国特許進行中。EIN 35-2958214登録済み。K-AIウォレットベータ版リリース。",
+    v2_title:"プラットフォーム開始とシリーズA",v2_desc:"K-AIウォレット公開ベータ。V-Match B2Bプラットフォーム開始。シリーズA資金調達$3M–$5M。",
+    v3_title:"グローバル拡大とRWAスケール",v3_desc:"マンハッタン不動産STO開始。ギャラリーアートNFTマーケットプレイス。ユーザー10万人。K-Cultureファン投資プラットフォーム。",
+    v4_title:"グローバル市場リーダーシップ",v4_desc:"40カ国以上の決済ネットワーク。$1B AUM。CBDC統合。IPO準備。企業評価額$2B以上。",
+    s6_eye:"知的財産",s6_title:"特許ポートフォリオ",s6_desc:"USPTOとKIPOの特許出願で保護された世界初の革新技術。",
+    p1_title:"K-AIウォレット: AI搭載RWAマルチチェーンブロックチェーンウォレットシステム",p1_desc:"マンハッタン不動産STO、ギャラリーアートNFT、メンバーシップパスをAI投資家マッチングと配当自動分配で組み合わせた世界初の統合ウォレット。",p1_status:"USPTO受領確認 · 2026年4月22日",
+    p2_title:"V-Match: ブロックチェーン統合マルチベクトルAI B2Bマッチングシステム",p2_desc:"リアルタイムdNFT発行とスマートコントラクトエスクロー決済を備えたグローバルB2B展示会向けRAG搭載AIマッチングエンジン。",p2_status:"USPTO出願 · 2026年4月",
+    cta_l1:"ALL IS ONE。",cta_l2:"未来に参加する。",cta_desc:"ひとつのプラットフォーム。ひとつのウォレット。ひとつのビジョン。世界最先端のAI貿易・金融エコシステム。",
+    cta_btn1:"早期アクセスを取得 →",cta_btn2:"投資家関係",
+    footer_desc:"AIとブロックチェーンで40カ国以上を繋ぐ世界初のグローバル貿易・金融・文化投資エコシステム。",
+    fc1_h:"プラットフォーム",fc1_1:"K-AIウォレット",fc1_2:"V-Match AI",fc1_3:"RWAマーケットプレイス",fc1_4:"グローバル決済",fc1_5:"K-Culture NFT",
+    fc2_h:"会社",fc2_1:"K-AI CONETについて",fc2_2:"特許ポートフォリオ",fc2_3:"投資家関係",fc2_4:"プレス・メディア",fc2_5:"採用情報",
+    fc3_h:"法務",fc3_1:"利用規約",fc3_2:"プライバシーポリシー",fc3_3:"SECコンプライアンス",fc3_4:"KYC/AMポリシー",fc3_5:"リスク開示",
+    dev_eye:"投資概要",dev_title:"開発投資計画",dev_desc:"MVPローンチからグローバルエンタープライズプラットフォームまで — 最大ROIのための段階的投資戦略。",
+    p1_name:"MVPローンチ",p1_range:"~ $300K · 6–8ヶ月",p1_f1:"K-AIウォレットベータ (ETH)",p1_f2:"V-Matchウェブプラットフォーム",p1_f3:"スマートコントラクトコア",p1_f4:"KYC/AML基本",p1_f5:"韓国開発チーム × 5名",funding_src:"資金調達源",p1_fund:"エンジェル投資家 · TIPS政府補助金",
+    recommended:"推奨",p2_name:"正式リリース",p2_range:"~ $950K · 12–18ヶ月",p2_f1:"iOS + Androidアプリ完成",p2_f2:"ETH · SOL · BTCマルチチェーン",p2_f3:"RAG AIエンジン高度化",p2_f4:"40カ国決済連動",p2_f5:"dNFT · RWAマーケットプレイス",p2_f6:"SECコンプライアンス完成",funding_src2:"資金調達源",p2_fund:"シリーズA $3M–$5M調達",
+    p3_name:"エンタープライズ",p3_range:"~ $1.5M · 18–24ヶ月",p3_f1:"CBDC中央銀行連動",p3_f2:"K-Cultureファンプラットフォーム",p3_f3:"グローバルB2B完全自動化",p3_f4:"PCT国際特許150カ国",p3_f5:"IPO準備 · 企業評価$2B+",funding_src3:"資金調達源",p3_fund:"シリーズB · 戦略的パートナー",
+    roi_total_lbl:"総投資額",roi_total_sub:"Phase 1~3合計",roi_patent_lbl:"特許価値",roi_patent_sub:"10特許楽観的推定",roi_val_lbl:"目標企業評価",roi_val_sub:"2030年目標",roi_roi_lbl:"投資ROI",roi_roi_sub:"史上最高収益率",
+    wp_title:"ホワイトペーパーダウンロード",wp_desc:"K-AI CONETの完全な技術ホワイトペーパーを入手 — AIマッチング、RWAトークン化、ブロックチェーンインフラ、2030ビジョン。",wp_doc_title:"K-AI CONET — ALL IS ONE",wp_doc_sub:"グローバルAI貿易 · RWA金融 · ブロックチェーン · 2026–2030",wp_form_title:"即時アクセス",wp_form_sub:"メールアドレスを入力してホワイトペーパーを受け取ってください。",wp_ph_name:"お名前",wp_ph_company:"会社名",wp_ph_email:"メールアドレス",wp_btn:"ダウンロード →",wp_iam:"私は:",wp_t1:"投資家",wp_t2:"ビジネスパートナー",wp_t3:"開発者",wp_t4:"メディア / プレス",wp_privacy:"🔒 お客様の情報は安全に保護されます。プライバシーを尊重します。",wp_success_title:"ありがとうございます！",wp_success_msg:"ホワイトペーパーをメールで送信しました。受信トレイをご確認ください。",wp_downloads:"ダウンロード",wp_investors:"投資家",wp_countries:"国",
+  }
+};
+
+const fontMap = {en:'Outfit',ko:'Noto Sans KR',es:'Outfit',hi:'Noto Sans Devanagari',ar:'Noto Sans Arabic',ja:'Noto Sans JP'};
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = T[lang];
+  const f = fontMap[lang];
+  const isAr = lang === 'ar';
+
+  // Update lang buttons
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Update all elements with data-t
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if(t[key] !== undefined) {
+      el.textContent = t[key];
+      el.style.fontFamily = f + ', sans-serif';
+      el.style.direction = isAr ? 'rtl' : 'ltr';
+    }
+  });
+
+  // Update body font direction
+  document.body.style.direction = isAr ? 'rtl' : 'ltr';
+
+  // Update input placeholders
+  updatePlaceholders(lang);
+}
+
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx - 3 + 'px';
+  cursor.style.top = my - 3 + 'px';
+});
+
+function animRing() {
+  rx += (mx - rx - 14) * 0.1;
+  ry += (my - ry - 14) * 0.1;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+// Mesh lines
+const mesh = document.getElementById('mesh');
+for(let i = 0; i < 6; i++) {
+  const line = document.createElement('div');
+  line.className = 'mesh-line';
+  line.style.animationDelay = (i * 3.5) + 's';
+  line.style.animationDuration = (18 + i * 4) + 's';
+  line.style.top = (i * 16) + '%';
+  line.style.opacity = 0.4 + (i * 0.06);
+  mesh.appendChild(line);
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== K-AI CONET LOGO ANIMATION =====
+(function(){
+  const canvas = document.getElementById('logoCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = 560, H = 560;
+  canvas.width = W; canvas.height = H;
+  const CX = W/2, CY = H/2;
+  const TILT = -42 * Math.PI / 180;
+  const RX = 218, RY = 65, SR = 105;
+  const TAIL_LEN = 2.85, TAIL_STEPS = 200;
+  const SPEED_BLUE = 0.022, SPEED_GOLD = -0.018;
+  let angleBlue = 0, angleGold = Math.PI;
+
+  const stars = Array.from({length:60}, () => ({
+    x: Math.random()*W, y: Math.random()*H,
+    r: Math.random()*0.8+0.2, op: Math.random()*0.45+0.25
+  }));
+
+  function getPoint(t) {
+    const lx = RX * Math.cos(t), ly = RY * Math.sin(t);
+    return {
+      x: CX + lx*Math.cos(TILT) - ly*Math.sin(TILT),
+      y: CY + lx*Math.sin(TILT) + ly*Math.cos(TILT),
+      front: ly > 0
+    };
+  }
+
+  function drawTail(head, dir, cH, cT, wMax, isFront) {
+    for(let i=0; i<TAIL_STEPS; i++){
+      const t0 = head - dir*(TAIL_LEN* i   /TAIL_STEPS);
+      const t1 = head - dir*(TAIL_LEN*(i+1)/TAIL_STEPS);
+      const p0 = getPoint(t0), p1 = getPoint(t1);
+      const bF = p0.front && p1.front;
+      const bB = !p0.front && !p1.front;
+      if(isFront && !bF) continue;
+      if(!isFront && !bB) continue;
+      const ratio = 1 - i/TAIL_STEPS;
+      const alpha = isFront ? Math.pow(ratio,1.3) : Math.pow(ratio,1.3)*0.32;
+      const lw = wMax * Math.pow(ratio,0.65) + 0.3;
+      const r0=parseInt(cH.slice(1,3),16),g0=parseInt(cH.slice(3,5),16),b0=parseInt(cH.slice(5,7),16);
+      const r1=parseInt(cT.slice(1,3),16),g1=parseInt(cT.slice(3,5),16),b1=parseInt(cT.slice(5,7),16);
+      const r=Math.round(r0*ratio+r1*(1-ratio));
+      const g=Math.round(g0*ratio+g1*(1-ratio));
+      const b=Math.round(b0*ratio+b1*(1-ratio));
+      ctx.beginPath();
+      ctx.moveTo(p0.x, p0.y); ctx.lineTo(p1.x, p1.y);
+      ctx.strokeStyle=`rgba(${r},${g},${b},${alpha.toFixed(3)})`;
+      ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
+    }
+  }
+
+  function drawOrbitGuide(){
+    ctx.beginPath();
+    for(let i=0;i<=360;i++){
+      const p=getPoint(i/360*Math.PI*2);
+      i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle='rgba(20,55,120,0.14)';
+    ctx.lineWidth=0.5; ctx.stroke();
+  }
+
+  function drawSphere(){
+    // outer glow
+    const glow=ctx.createRadialGradient(CX,CY,SR*.4,CX,CY,SR*1.5);
+    glow.addColorStop(0,'rgba(18,65,180,0.18)');
+    glow.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.beginPath(); ctx.arc(CX,CY,SR*1.5,0,Math.PI*2);
+    ctx.fillStyle=glow; ctx.fill();
+    // body
+    const grad=ctx.createRadialGradient(CX-SR*.26,CY-SR*.26,SR*.04,CX,CY,SR);
+    grad.addColorStop(0,'#3A68C0'); grad.addColorStop(.3,'#1A3468');
+    grad.addColorStop(.65,'#0A1830'); grad.addColorStop(1,'#040E1E');
+    ctx.beginPath(); ctx.arc(CX,CY,SR,0,Math.PI*2);
+    ctx.fillStyle=grad; ctx.fill();
+    // border
+    ctx.beginPath(); ctx.arc(CX,CY,SR,0,Math.PI*2);
+    ctx.strokeStyle='rgba(40,90,190,0.4)'; ctx.lineWidth=1; ctx.stroke();
+    // sheen
+    const sheen=ctx.createRadialGradient(CX-SR*.28,CY-SR*.28,0,CX,CY,SR);
+    sheen.addColorStop(0,'rgba(130,180,230,0.22)');
+    sheen.addColorStop(.5,'rgba(80,140,220,0.04)');
+    sheen.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.beginPath(); ctx.arc(CX,CY,SR,0,Math.PI*2);
+    ctx.fillStyle=sheen; ctx.fill();
+  }
+
+  function drawText(){
+    // K-AI CONET — metallic blue
+    ctx.save();
+    const grad=ctx.createLinearGradient(0,CY-18,0,CY+2);
+    grad.addColorStop(0,'#EAF5FF');
+    grad.addColorStop(.4,'#88BEFF');
+    grad.addColorStop(.7,'#C8E0FF');
+    grad.addColorStop(1,'#4878C0');
+    ctx.font='bold 22px Georgia,serif';
+    ctx.letterSpacing='2px';
+    ctx.fillStyle=grad;
+    ctx.textAlign='center';
+    ctx.fillText('K-AI CONET', CX, CY-8);
+    // divider
+    const dg=ctx.createLinearGradient(CX-75,0,CX+75,0);
+    dg.addColorStop(0,'transparent');
+    dg.addColorStop(.3,'#C8900A');
+    dg.addColorStop(.7,'#F0D040');
+    dg.addColorStop(1,'transparent');
+    ctx.strokeStyle=dg; ctx.lineWidth=0.9;
+    ctx.beginPath(); ctx.moveTo(CX-75,CY+1); ctx.lineTo(CX+75,CY+1); ctx.stroke();
+    // ALL IS ONE
+    const gg=ctx.createLinearGradient(CX-40,0,CX+40,0);
+    gg.addColorStop(0,'#F8E870'); gg.addColorStop(.5,'#C89010'); gg.addColorStop(1,'#F0D040');
+    ctx.font='9px Georgia,serif';
+    ctx.fillStyle=gg;
+    ctx.fillText('ALL IS ONE', CX, CY+14);
+    // blue line
+    ctx.strokeStyle='rgba(56,112,192,0.5)'; ctx.lineWidth=0.5;
+    ctx.beginPath(); ctx.moveTo(CX-68,CY+19); ctx.lineTo(CX+68,CY+19); ctx.stroke();
+    // tagline
+    ctx.font='5.8px Georgia,serif';
+    ctx.fillStyle='rgba(88,136,192,0.88)';
+    ctx.fillText('INTELLIGENCE WITHOUT BOUNDARIES', CX, CY+31);
+    ctx.restore();
+  }
+
+  function render(){
+    ctx.clearRect(0,0,W,H);
+    // bg transparent — inherits page bg
+    stars.forEach(s=>{
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(192,216,240,${s.op})`; ctx.fill();
+    });
+    drawOrbitGuide();
+    // back tails
+    drawTail(angleBlue,+1,'#50A0FF','#0A1840',4.5,false);
+    drawTail(angleGold,-1,'#F5C820','#3A1800',4.0,false);
+    // sphere
+    drawSphere();
+    drawText();
+    // front tails
+    drawTail(angleBlue,+1,'#70B8FF','#0A1840',4.5,true);
+    drawTail(angleGold,-1,'#F8D828','#3A1800',4.0,true);
+
+    angleBlue=(angleBlue+SPEED_BLUE)%(Math.PI*2);
+    angleGold=((angleGold+SPEED_GOLD)+Math.PI*2)%(Math.PI*2);
+    requestAnimationFrame(render);
+  }
+  render();
+})();
+
+// ===== WHITEPAPER FORM =====
+function submitWhitepaper() {
+  const name = document.getElementById('wpName').value.trim();
+  const email = document.getElementById('wpEmail').value.trim();
+  const company = document.getElementById('wpCompany').value.trim();
+  const type = document.querySelector('input[name="wpType"]:checked')?.value || 'investor';
+
+  if(!name) { document.getElementById('wpName').style.borderColor='rgba(239,68,68,0.6)'; return; }
+  if(!email || !email.includes('@')) { document.getElementById('wpEmail').style.borderColor='rgba(239,68,68,0.6)'; return; }
+
+  // 버튼 로딩 상태
+  const btn = document.getElementById('wpBtn');
+  btn.textContent = '...';
+  btn.style.opacity = '0.7';
+
+  // 투자자 정보 저장 (localStorage)
+  const leads = JSON.parse(localStorage.getItem('wpLeads') || '[]');
+  leads.push({ name, email, company, type, date: new Date().toISOString(), lang: currentLang });
+  localStorage.setItem('wpLeads', JSON.stringify(leads));
+
+  // 다운로드 카운터 증가
+  const cnt = document.getElementById('dlCount');
+  if(cnt) cnt.textContent = parseInt(cnt.textContent) + 1;
+
+  // 성공 메시지 표시
+  setTimeout(() => {
+    document.getElementById('wpForm').style.display = 'none';
+    document.getElementById('wpSuccess').style.display = 'block';
+
+    // 실제 PDF가 있으면 여기서 다운로드 트리거
+    // window.open('/whitepaper/k-aiconet-whitepaper-2026.pdf', '_blank');
+  }, 800);
+}
+
+// placeholder 번역 업데이트 (setLang 함수 내에서 호출)
+function updatePlaceholders(lang) {
+  const t = T[lang];
+  if(!t) return;
+  const inputs = {
+    'wpName': 'wp_ph_name',
+    'wpEmail': 'wp_ph_email',
+    'wpCompany': 'wp_ph_company'
+  };
+  Object.entries(inputs).forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    if(el && t[key]) el.placeholder = t[key];
+  });
+}
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  if(window.scrollY > 60) {
+    nav.style.background = 'rgba(2,5,14,0.96)';
+    nav.style.borderBottomColor = 'rgba(26,88,192,0.2)';
+  } else {
+    nav.style.background = 'rgba(2,5,14,0.88)';
+    nav.style.borderBottomColor = 'rgba(26,88,192,0.15)';
+  }
+});
+</script>
+</body>
+</html>
