@@ -84,7 +84,23 @@ nav{
 .nav-wordmark span{color:var(--cyan);}
 
 .nav-langs{display:flex;gap:4px;}
-.lang-pill{padding:3px 7px;border-radius:3px;font-size:9.5px;font-weight:600;letter-spacing:.5px;cursor:pointer;transition:all .2s;color:var(--muted);border:1px solid transparent;text-decoration:none;}
+.lang-pill{
+  padding:4px 8px;border-radius:3px;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;
+  cursor:pointer;transition:all .2s;
+  color:rgba(100,180,255,.55);
+  border:1px solid transparent;
+  text-decoration:none;
+  font-family:'DM Mono',monospace;
+  text-transform:uppercase;
+}
+.lang-pill:hover{color:#fff;border-color:rgba(0,200,255,.3);background:rgba(0,200,255,.06);}
+.lang-pill.active{
+  background:rgba(0,200,255,.12);
+  border-color:rgba(0,200,255,.4);
+  color:#00C8FF;
+  box-shadow:0 0 8px rgba(0,200,255,.2);
+}
 .lang-pill.active{background:rgba(0,200,255,.12);border-color:rgba(0,200,255,.25);color:var(--cyan);}
 .lang-pill:hover{color:var(--text);}
 
@@ -541,12 +557,12 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
   </div>
 <div class="nav-langs">
     <a href="#" class="lang-pill active">EN</a>
-    <a href="index_kr.html" class="lang-pill">한국</a>
-    <a href="index_es.html" class="lang-pill">ESP</a>
-    <a href="index_hi.html" class="lang-pill">हिं</a>
-    <a href="index_ar.html" class="lang-pill">عر</a>
-    <a href="index_ja.html" class="lang-pill">日</a>
-    <a href="index_zh.html" class="lang-pill">中</a>
+    <a href="index_kr.html" class="lang-pill">KR</a>
+    <a href="index_es.html" class="lang-pill">ES</a>
+    <a href="index_hi.html" class="lang-pill">HI</a>
+    <a href="index_ar.html" class="lang-pill">AR</a>
+    <a href="index_ja.html" class="lang-pill">JA</a>
+    <a href="index_zh.html" class="lang-pill">ZH</a>
   </div>
   <div class="nav-links">
     <a href="#platform" onclick="sc(event,'platform')">Platform</a>
@@ -865,7 +881,7 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
           <circle cx="16.25" cy="13.25" r=".8" fill="#00FF9D"/>
         </svg>
       </div>
-      <div><h4>$USAI Token</h4><p>Native utility token for 50% fee discount, gas sponsorship, escrow settlement. Total supply 100,000,000 $USAI. KIPO patent 10-2026-0079874.</p></div>
+      <div><h4>$USAI Token</h4><p>Native utility token for 50% fee discount, gas sponsorship, escrow settlement. Total supply 10,000,000,000 $USAI. KIPO patent 10-2026-0079874.</p></div>
     </div>
     <div class="w-card">
       <div class="w-icon">
@@ -1049,7 +1065,12 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 <footer>
   <div class="f-logo">K-AI CONET GROUP</div>
   <div class="f-copy">© 2026 K-AI CONET GROUP · ALL IS ONE · EIN 35-2958028 · New York, USA</div>
-  <div class="f-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">AML Policy</a></div>
+  <div class="f-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">AML Policy</a>
+    <a href="https://kaiconetwyoming.com" target="_blank" style="color:var(--cyan);border:1px solid rgba(0,200,255,.3);padding:2px 8px;border-radius:3px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;">⚡ WYOMING LLC</a>
+  </div>
 </footer>
 
 <!-- MODALS -->
