@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>K-AI CONET Co., Ltd. — Busan</title>
-<meta name="description" content="K-AI CONET Co., Ltd. 부산법인 | AI & Blockchain Technology">
+<title>K-AI CONET — Global AI Trade & Finance Platform</title>
+<meta name="description" content="K-AI CONET — AI Matching Engine & Multi-Chain Blockchain Wallet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -16,10 +16,7 @@
     font-family: 'Inter', sans-serif;
     color: #fff;
   }
-  .wrap {
-    text-align: center;
-    animation: fadeIn 0.6s ease;
-  }
+  .wrap { text-align: center; animation: fadeIn 0.6s ease; }
   .logo {
     font-size: 13px;
     letter-spacing: 4px;
@@ -28,37 +25,37 @@
     margin-bottom: 16px;
   }
   .spinner {
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     border: 2px solid rgba(0,200,255,0.15);
     border-top-color: rgba(0,200,255,0.7);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
     margin: 0 auto 16px;
   }
-  .msg {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.35);
-    text-transform: uppercase;
-  }
+  .msg { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.35); text-transform: uppercase; }
   @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="logo">K-AI CONET · BUSAN</div>
+  <div class="logo">K-AI CONET</div>
   <div class="spinner"></div>
   <div class="msg">Loading...</div>
 </div>
 <script>
   (function() {
     var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-    var isKorean = lang === 'ko' || lang.startsWith('ko-');
-    var target = isKorean
-      ? 'k-aiconet-busan-FINAL.html'
-      : 'k-aiconet-busan-EN.html';
+    var map = {
+      'ko': 'index_kr.html',
+      'ar': 'index_ar.html',
+      'es': 'index_es.html',
+      'hi': 'index_hi.html',
+      'ja': 'index_ja.html',
+      'zh': 'index_zh.html'
+    };
+    var prefix = lang.split('-')[0];
+    var target = map[prefix] || map[lang] || 'index_kr.html';
     setTimeout(function() {
       window.location.replace(target);
     }, 400);
