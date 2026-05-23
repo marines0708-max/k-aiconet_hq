@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>$USAI Coin & USAI Wallet · Investor Brochure 2026 · K-AI CONET GROUP</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --abyss:#010C1A;--deep:#041428;--mid:#062040;--pacific:#0A3A6B;
+  --bright:#1278D0;--hae:#2596E8;--foam:#40B4F5;
+  --gold:#C8970A;--gold-lt:#F0C95A;--teal:#1EC9B7;--coral:#E85D3A;
+  --white:#FFFFFF;--mu:rgba(255,255,255,.58);--hint:rgba(255,255,255,.32);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter','Noto Sans KR',sans-serif;color:#fff;background:var(--abyss);overflow-x:hidden;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:.2;}50%{opacity:.9;}}
+@keyframes shimmer{0%{transform:translateX(-120%);}100%{transform:translateX(120%);}}
+@keyframes coinSpin{0%{transform:rotateY(0deg);}100%{transform:rotateY(360deg);}}
+@keyframes gradFlow{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+@keyframes blink{0%,100%{opacity:.2;}50%{opacity:1;}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 52px;background:rgba(1,12,26,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(37,150,232,.1);}
+.nav-logo{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:#fff;letter-spacing:2px;text-decoration:none;}
+.nav-logo span{color:var(--foam);}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-tag{font-family:'Orbitron',sans-serif;font-size:8.5px;letter-spacing:1.5px;padding:5px 14px;border:1px solid rgba(200,151,10,.4);border-radius:50px;color:var(--gold-lt);background:rgba(200,151,10,.07);}
+.nav-links{display:flex;gap:22px;list-style:none;}
+.nav-links a{font-size:11.5px;color:var(--mu);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--foam);}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:96vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;padding:80px 2rem 60px;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%,rgba(18,120,208,.22) 0%,transparent 58%),
+    radial-gradient(ellipse 60% 50% at 80% 20%,rgba(30,201,183,.12) 0%,transparent 52%),
+    radial-gradient(ellipse 70% 70% at 50% 110%,rgba(10,58,107,.7) 0%,transparent 62%),
+    linear-gradient(162deg,#010C1A 0%,#031525 35%,#071E38 62%,#0A2848 100%);
+}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,150,232,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(37,150,232,.032) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.hero-content{position:relative;z-index:2;max-width:900px;}
+.h-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 20px;border:1px solid rgba(200,151,10,.35);border-radius:50px;font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;color:var(--gold-lt);background:rgba(200,151,10,.08);margin-bottom:1.8rem;animation:fadeUp .8s ease;}
+.h-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold-lt);animation:blink 1.4s ease-in-out infinite;}
+.h-title{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,6vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem;animation:fadeUp 1s ease .1s both;}
+.h-title .c-foam{color:var(--foam);}
+.h-title .c-gold{background:linear-gradient(135deg,var(--gold-lt),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.h-sub{font-size:clamp(1rem,2vw,1.25rem);color:var(--mu);line-height:1.75;margin-bottom:2rem;animation:fadeUp 1s ease .2s both;}
+/* Big coin supply display */
+.coin-supply{
+  display:inline-block;padding:1.4rem 3rem;border-radius:16px;margin:1.5rem 0;
+  background:linear-gradient(135deg,rgba(200,151,10,.18),rgba(240,201,90,.08));
+  border:1.5px solid rgba(200,151,10,.4);
+  animation:fadeUp 1s ease .25s both;
+}
+.cs-num{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:900;color:var(--gold-lt);line-height:1;}
+.cs-label{font-size:.8rem;color:rgba(200,151,10,.7);letter-spacing:.15em;margin-top:.4rem;}
+.cs-sub{font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.1em;margin-top:.2rem;}
+
+.h-pills{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:1.8rem 0;animation:fadeUp 1s ease .3s both;}
+.hpill{display:inline-flex;align-items:center;gap:.45rem;padding:7px 16px;border-radius:8px;border:1px solid rgba(37,150,232,.2);background:rgba(6,33,63,.45);font-size:.76rem;color:#fff;font-weight:500;}
+.hpill.g{border-color:rgba(200,151,10,.28);background:rgba(40,30,5,.35);}
+.hpill.t{border-color:rgba(30,201,183,.28);background:rgba(5,42,36,.35);}
+
+/* Stats bar */
+.stats-row{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;animation:fadeUp 1s ease .38s both;}
+.st{text-align:center;}
+.st-n{font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:900;color:var(--foam);line-height:1;}
+.st-l{font-size:.68rem;color:var(--hint);margin-top:.28rem;letter-spacing:.08em;}
+.st.gold .st-n{color:var(--gold-lt);}
+.st.teal .st-n{color:var(--teal);}
+
+/* SECTION */
+section{padding:6rem 2rem;}
+.container{max-width:1080px;margin:0 auto;}
+.s-label{font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.25em;color:var(--foam);margin-bottom:.6rem;}
+.s-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:.85rem;}
+.s-sub{font-size:.93rem;color:var(--mu);line-height:1.9;max-width:600px;margin-bottom:2.4rem;}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(37,150,232,.2),rgba(200,151,10,.14),transparent);}
+.btn-m{display:inline-block;padding:.88rem 2.2rem;border-radius:50px;background:linear-gradient(135deg,var(--bright),var(--foam));color:#fff;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(18,120,208,.4);transition:all .3s;position:relative;overflow:hidden;}
+.btn-m::after{content:'';position:absolute;top:0;left:-120%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);animation:shimmer 2.8s ease-in-out infinite;}
+.btn-m:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(18,120,208,.55);}
+.btn-g{display:inline-block;padding:.88rem 2.2rem;border-radius:50px;border:1.5px solid rgba(200,151,10,.48);color:var(--gold-lt);font-weight:600;font-size:.85rem;text-decoration:none;background:transparent;cursor:pointer;transition:all .3s;margin-left:1rem;}
+.btn-g:hover{background:rgba(200,151,10,.1);}
+
+/* ── WHAT IS ── */
+#what{background:linear-gradient(180deg,var(--abyss) 0%,var(--deep) 100%);}
+.what-box{padding:2.5rem;border-radius:18px;background:linear-gradient(135deg,rgba(6,33,63,.5),rgba(10,58,107,.2));border:1px solid rgba(37,150,232,.2);margin-bottom:2rem;position:relative;overflow:hidden;}
+.what-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bright),var(--foam),var(--teal));border-radius:18px 18px 0 0;}
+.wb-icon{font-size:2.5rem;margin-bottom:1rem;display:block;}
+.wb-title{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.8rem;}
+.wb-desc{font-size:.88rem;color:var(--mu);line-height:1.9;}
+.wb-desc strong{color:#fff;}
+.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.wf-card{padding:1.8rem;border-radius:14px;border:1px solid rgba(37,150,232,.12);background:rgba(6,33,63,.28);transition:all .4s;}
+.wf-card:hover{border-color:rgba(37,150,232,.38);transform:translateY(-5px);}
+.wf-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.wf-title{font-weight:700;font-size:.9rem;color:#fff;margin-bottom:.5rem;}
+.wf-desc{font-size:.78rem;color:var(--hint);line-height:1.78;}
+
+/* ── COIN TOKEN ── */
+#token{background:var(--deep);}
+.token-hero{text-align:center;margin-bottom:3.5rem;}
+/* Big visual token display */
+.token-visual{
+  display:flex;align-items:center;justify-content:center;gap:3rem;
+  margin-bottom:3rem;flex-wrap:wrap;
+}
+.coin-display{
+  width:200px;height:200px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(200,151,10,.35),rgba(240,201,90,.15),rgba(200,151,10,.25));
+  border:3px solid rgba(200,151,10,.6);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 0 60px rgba(200,151,10,.25),inset 0 0 40px rgba(200,151,10,.1);
+  animation:floatY 4s ease-in-out infinite;
+  position:relative;
+}
+.coin-display::before{
+  content:'';position:absolute;inset:-8px;border-radius:50%;
+  border:1px solid rgba(200,151,10,.2);animation:pulse 2s ease-in-out infinite;
+}
+.coin-sym{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:900;color:var(--gold-lt);line-height:1;}
+.coin-name{font-size:.7rem;color:rgba(200,151,10,.7);letter-spacing:.15em;margin-top:.3rem;}
+.coin-amt{font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:700;color:var(--gold-lt);margin-top:.5rem;}
+
+.token-specs{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:600px;}
+.ts-item{padding:1.2rem 1.5rem;border-radius:12px;background:rgba(200,151,10,.07);border:1px solid rgba(200,151,10,.18);display:flex;justify-content:space-between;align-items:center;}
+.ts-key{font-size:.75rem;color:rgba(200,151,10,.65);letter-spacing:.06em;}
+.ts-val{font-family:'Orbitron',sans-serif;font-size:.82rem;font-weight:700;color:var(--gold-lt);}
+
+/* Token allocation donut visual */
+.alloc-section{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.5rem;}
+.alloc-chart{position:relative;width:240px;height:240px;margin:0 auto;}
+.alloc-list{display:flex;flex-direction:column;gap:.85rem;}
+.al-item{display:flex;align-items:center;gap:.9rem;}
+.al-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+.al-label{font-size:.82rem;color:var(--mu);flex:1;}
+.al-pct{font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:700;color:#fff;}
+.al-amt{font-size:.7rem;color:var(--hint);}
+
+/* ── HOW IT WORKS ── */
+#how{background:linear-gradient(180deg,var(--deep),#041E38);}
+.how-intro{text-align:center;margin-bottom:3rem;}
+.step-flow{display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr 32px 1fr 32px 1fr;align-items:center;gap:.3rem;margin-bottom:2.5rem;}
+.step{padding:1.5rem 1rem;border-radius:14px;border:1px solid rgba(37,150,232,.13);background:rgba(6,33,63,.32);text-align:center;transition:all .35s;}
+.step:hover{border-color:rgba(37,150,232,.42);transform:translateY(-5px);}
+.step-ico{width:44px;height:44px;margin:0 auto .7rem;display:block;}
+.step-num{font-family:'Orbitron',sans-serif;font-size:.56rem;color:rgba(37,150,232,.48);letter-spacing:.15em;margin-bottom:.35rem;}
+.step-t{font-size:.8rem;font-weight:600;color:#fff;margin-bottom:.2rem;}
+.step-d{font-size:.68rem;color:var(--hint);line-height:1.6;}
+.step-arr{color:rgba(37,150,232,.3);font-size:1.2rem;text-align:center;}
+
+/* Comparison table */
+.compare{border-radius:16px;overflow:hidden;border:1px solid rgba(37,150,232,.15);margin-top:2rem;}
+.compare-header{display:grid;grid-template-columns:1fr 1fr 1fr;background:rgba(6,33,63,.6);}
+.ch-cell{padding:1rem 1.5rem;font-family:'Orbitron',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--foam);border-bottom:1px solid rgba(37,150,232,.15);}
+.ch-cell.g{color:var(--gold-lt);}
+.compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid rgba(37,150,232,.07);}
+.compare-row:last-child{border-bottom:none;}
+.cr-cell{padding:.85rem 1.5rem;font-size:.8rem;color:var(--mu);}
+.cr-cell.label{color:var(--hint);font-size:.76rem;}
+.cr-cell.bad{color:rgba(232,93,58,.7);}
+.cr-cell.good{color:var(--teal);font-weight:600;}
+
+/* ── SECURITY ── */
+#security{background:#041E38;}
+.sec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;}
+.sec-card{padding:1.8rem 1.2rem;border-radius:14px;border:1px solid rgba(37,150,232,.12);background:rgba(6,33,63,.28);text-align:center;transition:all .35s;}
+.sec-card:hover{border-color:rgba(37,150,232,.38);transform:translateY(-5px);}
+.sec-ico{width:48px;height:48px;margin:0 auto .9rem;}
+.sec-t{font-weight:700;font-size:.86rem;color:#fff;margin-bottom:.4rem;}
+.sec-d{font-size:.74rem;color:var(--hint);line-height:1.7;}
+.sec-badge{display:inline-block;margin-top:.6rem;padding:3px 9px;border-radius:50px;font-size:.62rem;font-weight:700;background:rgba(30,201,183,.12);color:var(--teal);border:1px solid rgba(30,201,183,.25);}
+
+/* ── GLOBAL ── */
+#global{background:linear-gradient(180deg,#041E38,var(--deep));}
+.globe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.region-card{padding:1.4rem;border-radius:12px;border:1px solid rgba(37,150,232,.1);background:rgba(6,33,63,.25);transition:all .3s;}
+.region-card:hover{border-color:rgba(37,150,232,.35);}
+.rc-flag{font-size:1.4rem;margin-bottom:.5rem;display:block;}
+.rc-name{font-weight:600;font-size:.82rem;color:#fff;margin-bottom:.3rem;}
+.rc-countries{font-size:.72rem;color:var(--hint);line-height:1.7;}
+.rc-priority{display:inline-block;margin-top:.4rem;padding:2px 8px;border-radius:50px;font-size:.6rem;background:rgba(37,150,232,.12);color:var(--foam);border:1px solid rgba(37,150,232,.22);}
+.lang-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;justify-content:center;}
+.lang-pill{padding:6px 14px;border-radius:50px;background:rgba(6,33,63,.4);border:1px solid rgba(37,150,232,.15);font-size:.75rem;color:var(--mu);}
+
+/* ── ROADMAP ── */
+#roadmap{background:var(--deep);}
+.road-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;}
+.road-card{padding:1.8rem;border-radius:14px;position:relative;overflow:hidden;transition:all .35s;}
+.road-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;}
+.road-card.done{border:1px solid rgba(30,201,183,.25);background:rgba(5,42,36,.2);}
+.road-card.done::before{background:linear-gradient(90deg,var(--teal),#7DFFD4);}
+.road-card.now{border:1px solid rgba(37,150,232,.3);background:rgba(6,33,63,.4);}
+.road-card.now::before{background:linear-gradient(90deg,var(--bright),var(--foam));}
+.road-card.next{border:1px solid rgba(200,151,10,.22);background:rgba(40,30,5,.15);}
+.road-card.next::before{background:linear-gradient(90deg,var(--gold),var(--gold-lt));}
+.road-card.future{border:1px solid rgba(37,150,232,.1);background:rgba(6,33,63,.2);}
+.road-card.future::before{background:rgba(37,150,232,.3);}
+.road-phase{font-family:'Orbitron',sans-serif;font-size:.62rem;letter-spacing:.15em;margin-bottom:.5rem;}
+.road-card.done .road-phase{color:var(--teal);}
+.road-card.now .road-phase{color:var(--foam);}
+.road-card.next .road-phase{color:var(--gold-lt);}
+.road-card.future .road-phase{color:rgba(37,150,232,.5);}
+.road-title{font-weight:700;font-size:.88rem;color:#fff;margin-bottom:.8rem;}
+.road-items{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.road-items li{font-size:.74rem;color:var(--hint);display:flex;align-items:flex-start;gap:.5rem;line-height:1.55;}
+.road-items li::before{content:'▸';color:rgba(37,150,232,.5);flex-shrink:0;}
+.road-card.done .road-items li::before{content:'✓';color:var(--teal);}
+
+/* ── INVESTMENT ── */
+#invest{background:linear-gradient(180deg,var(--deep),#041E38);}
+.invest-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.inv-table{border-radius:14px;overflow:hidden;border:1px solid rgba(200,151,10,.18);margin-bottom:1.5rem;}
+.inv-row{display:flex;justify-content:space-between;padding:.9rem 1.4rem;border-bottom:1px solid rgba(200,151,10,.08);}
+.inv-row:last-child{border-bottom:none;}
+.inv-row.header{background:rgba(200,151,10,.1);}
+.inv-key{font-size:.78rem;color:rgba(200,151,10,.65);}
+.inv-val{font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;color:var(--gold-lt);}
+.revenue-table{border-radius:14px;overflow:hidden;border:1px solid rgba(37,150,232,.15);}
+.rev-header{display:grid;grid-template-columns:80px 1fr 1fr 1fr;background:rgba(6,33,63,.6);padding:.8rem 1.2rem;}
+.rev-hcell{font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;color:var(--foam);letter-spacing:.08em;}
+.rev-row{display:grid;grid-template-columns:80px 1fr 1fr 1fr;padding:.75rem 1.2rem;border-bottom:1px solid rgba(37,150,232,.07);}
+.rev-row:last-child{border-bottom:none;}
+.rev-cell{font-size:.78rem;color:var(--mu);}
+.rev-cell.year{font-family:'Orbitron',sans-serif;color:var(--foam);font-weight:600;}
+.rev-cell.rev{color:var(--teal);font-weight:600;}
+
+/* ── CORPORATE ── */
+#corp{background:#041E38;}
+.corp-parent{padding:2rem 2.5rem;border-radius:18px;background:linear-gradient(135deg,rgba(18,120,208,.12),rgba(6,33,63,.5));border:1px solid rgba(37,150,232,.22);position:relative;overflow:hidden;margin-bottom:1.5rem;}
+.corp-parent::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bright),var(--foam),var(--teal));border-radius:18px 18px 0 0;}
+.cp-title{font-family:'Orbitron',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.25rem;}
+.cp-role{font-size:.72rem;color:var(--foam);letter-spacing:.07em;margin-bottom:.6rem;}
+.cp-desc{font-size:.79rem;color:var(--hint);line-height:1.72;}
+.cp-badges{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.8rem;}
+.cpb{padding:3px 10px;border-radius:50px;font-size:.62rem;font-weight:600;}
+.cpb-b{background:rgba(37,150,232,.14);color:var(--foam);border:1px solid rgba(37,150,232,.24);}
+.cpb-t{background:rgba(30,201,183,.11);color:var(--teal);border:1px solid rgba(30,201,183,.2);}
+.cpb-g{background:rgba(200,151,10,.1);color:var(--gold-lt);border:1px solid rgba(200,151,10,.2);}
+.corp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
+.corp-card{padding:1.6rem;border-radius:14px;border:1px solid rgba(37,150,232,.1);background:rgba(2,11,24,.45);transition:all .35s;}
+.corp-card:hover{border-color:rgba(37,150,232,.35);transform:translateY(-4px);}
+.corp-card.feat{border-color:rgba(200,151,10,.28);background:rgba(40,30,5,.18);}
+.cc-ico{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;border:1px solid;}
+.cc-ico.b{background:rgba(37,150,232,.1);border-color:rgba(37,150,232,.22);}
+.cc-ico.g{background:rgba(200,151,10,.09);border-color:rgba(200,151,10,.2);}
+.cc-ico.s{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);}
+.cc-nm{font-family:'Orbitron',sans-serif;font-size:.7rem;font-weight:700;color:#fff;margin-bottom:.18rem;line-height:1.4;}
+.corp-card.feat .cc-nm{color:var(--gold-lt);}
+.cc-role{font-size:.66rem;color:var(--foam);font-weight:600;letter-spacing:.04em;margin-bottom:.5rem;}
+.corp-card.feat .cc-role{color:var(--gold);}
+.cc-desc{font-size:.72rem;color:var(--hint);line-height:1.65;}
+
+/* ── FOUNDER ── */
+#founder{background:var(--deep);}
+.founder-card{display:grid;grid-template-columns:200px 1fr;gap:3rem;align-items:start;padding:2.5rem;border-radius:18px;background:linear-gradient(135deg,rgba(6,33,63,.5),rgba(10,58,107,.2));border:1px solid rgba(37,150,232,.18);}
+.founder-avatar{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,var(--pacific),var(--bright));display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:2.5rem;font-weight:900;color:rgba(255,255,255,.9);border:3px solid rgba(37,150,232,.4);margin:0 auto;}
+.founder-name{font-family:'Orbitron',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
+.founder-title{font-size:.78rem;color:var(--foam);letter-spacing:.08em;margin-bottom:1rem;}
+.founder-bio{font-size:.82rem;color:var(--mu);line-height:1.85;margin-bottom:1.2rem;}
+.founder-tags{display:flex;flex-wrap:wrap;gap:.45rem;}
+.ftag{padding:4px 12px;border-radius:50px;font-size:.68rem;background:rgba(37,150,232,.12);color:var(--foam);border:1px solid rgba(37,150,232,.22);}
+
+/* ── PATENT ── */
+#patent{background:linear-gradient(180deg,var(--deep),var(--abyss));}
+.patent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
+.pat-card{padding:1.6rem;border-radius:14px;border:1px solid rgba(200,151,10,.18);background:rgba(40,30,5,.12);transition:all .35s;}
+.pat-card:hover{border-color:rgba(200,151,10,.4);}
+.pat-ico{width:44px;height:44px;margin-bottom:.8rem;}
+.pat-nm{font-weight:700;font-size:.85rem;color:var(--gold-lt);margin-bottom:.3rem;}
+.pat-num{font-family:'Orbitron',sans-serif;font-size:.62rem;color:rgba(200,151,10,.55);letter-spacing:.06em;margin-bottom:.5rem;}
+.pat-desc{font-size:.74rem;color:var(--hint);line-height:1.65;}
+
+/* ── CTA ── */
+#cta{background:var(--abyss);text-align:center;padding:5rem 2rem;}
+.cta-box{max-width:700px;margin:0 auto;padding:3.5rem;border-radius:24px;background:linear-gradient(135deg,rgba(6,33,63,.5),rgba(10,58,107,.25));border:1px solid rgba(37,150,232,.2);}
+.cta-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;margin-bottom:.8rem;}
+.cta-sub{font-size:.9rem;color:var(--mu);line-height:1.8;margin-bottom:2rem;}
+.contact-rows{display:flex;flex-direction:column;gap:.7rem;margin:1.8rem 0;text-align:left;max-width:420px;margin-left:auto;margin-right:auto;}
+.cr{display:flex;align-items:center;gap:.7rem;font-size:.84rem;color:var(--mu);}
+.cr strong{color:#fff;}
+
+/* FOOTER */
+footer{padding:2rem 52px;border-top:1px solid rgba(37,150,232,.07);display:flex;align-items:center;justify-content:space-between;font-size:.68rem;color:rgba(255,255,255,.2);}
+
+
+/* Enhanced digital aesthetics */
+.what-grid .wf-card { position: relative; }
+.what-grid .wf-card::after { 
+  content: ''; position: absolute; 
+  top: 0; right: 0; width: 60px; height: 60px;
+  background: radial-gradient(circle, rgba(37,150,232,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.token-specs .ts-item { transition: all .25s; }
+.token-specs .ts-item:hover { border-color: rgba(200,151,10,.4); background: rgba(200,151,10,.1); }
+.compare-row:hover { background: rgba(37,150,232,.04); }
+.alloc-list .al-item { padding: .4rem 0; border-bottom: 1px solid rgba(37,150,232,.06); }
+.founder-bio { border-left: 2px solid rgba(37,150,232,.25); padding-left: 1rem; }
+/* Chart animation */
+@keyframes barGrow { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(1); } }
+
+/* Print friendly */
+@media print{nav{display:none;}section{padding:3rem 1rem;}body{background:#fff;color:#000;}}
+@media(max-width:960px){
+  nav{padding:1rem 1.4rem;}.nav-links{display:none;}
+  .what-grid,.step-flow,.sec-grid,.globe-grid,.road-grid,.invest-grid,.corp-grid,.patent-grid,.alloc-section,.founder-card{grid-template-columns:1fr;}
+  .step-arr{display:none;}
+  footer{flex-direction:column;gap:.5rem;text-align:center;padding:1.4rem;}
+  .token-visual{flex-direction:column;}
+}
+
+.rc-flag{display:block;margin-bottom:.5rem;}
+svg.rc-flag{width:28px;height:28px;}
+
+
+.corp-card[onclick]:hover { border-color: rgba(37,150,232,.55) !important; box-shadow: 0 0 24px rgba(37,150,232,.2); }
+.corp-card[onclick]::after { content: '↗ OPEN'; position: absolute; top: .7rem; right: .9rem; font-size: .58rem; color: rgba(37,150,232,.5); font-family: 'Orbitron',sans-serif; letter-spacing: .1em; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">$<span>USAI</span> · K-AI CONET</a>
+  <ul class="nav-links">
+    <li><a href="#what">About</a></li>
+    <li><a href="#token">Coin</a></li>
+    <li><a href="#how">Platform</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#invest">Invest</a></li>
+    <li><a href="#corp">Entities</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-tag">INVESTOR BROCHURE 2026</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="h-badge"><span class="h-badge-dot"></span>K-AI CONET GROUP · ALL IS ONE · 2026</div>
+    <h1 class="h-title">
+      <span class="c-foam">USAI Wallet</span> &amp;<br>
+      <span class="c-gold">$USAI Coin</span>
+    </h1>
+    <p class="h-sub">AI Trade Matching · Iris Biometrics · Blockchain Payments — all in one app.<br><strong style="color:#fff;">The Global Trade Super-App Platform</strong></p>
+
+    <!-- BIG SUPPLY DISPLAY -->
+    <div class="coin-supply">
+      <div class="cs-num">10 Billion</div>
+      <div class="cs-label">$USAI TOTAL SUPPLY · 10,000,000,000</div>
+      <div class="cs-sub">Issued by K-AI CONET WYOMING LLC · Utility Trade Payment Coin</div>
+    </div>
+
+    <div class="h-pills">
+      <div class="hpill">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="3.5" cy="7" r="2.5" fill="#2596E8"/><circle cx="10.5" cy="3.5" r="2.5" fill="#40B4F5"/><circle cx="10.5" cy="10.5" r="2.5" fill="#40B4F5"/><line x1="6" y1="6" x2="8.5" y2="4.5" stroke="#2596E8" stroke-width=".9"/><line x1="6" y1="8" x2="8.5" y2="9.5" stroke="#2596E8" stroke-width=".9"/></svg>
+        V-Match AI Trade Matching
+      </div>
+      <div class="hpill t">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#1EC9B7" stroke-width="1.1"/><circle cx="7" cy="7" r="2.5" stroke="#1EC9B7" stroke-width=".8" fill="rgba(30,201,183,.2)"/><line x1="7" y1="2" x2="7" y2="4.5" stroke="#1EC9B7" stroke-width=".8"/><line x1="7" y1="9.5" x2="7" y2="12" stroke="#1EC9B7" stroke-width=".8"/><line x1="2" y1="7" x2="4.5" y2="7" stroke="#1EC9B7" stroke-width=".8"/><line x1="9.5" y1="7" x2="12" y2="7" stroke="#1EC9B7" stroke-width=".8"/></svg>
+        Iris Biometric Contracts
+      </div>
+      <div class="hpill g">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3.5" width="3.5" height="7" rx="1" stroke="#C8970A" stroke-width=".9" fill="rgba(200,151,10,.15)"/><rect x="5.5" y="1.5" width="3" height="11" rx="1" stroke="#C8970A" stroke-width=".9" fill="rgba(200,151,10,.15)"/><rect x="9.5" y="5" width="3.5" height="7" rx="1" stroke="#C8970A" stroke-width=".9" fill="rgba(200,151,10,.15)"/></svg>
+        Blockchain Escrow Payments
+      </div>
+      <div class="hpill">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 10.5 L12 10.5 L13 12.5 L1 12.5Z" stroke="#2596E8" stroke-width=".8" fill="rgba(37,150,232,.1)"/><rect x="3" y="6.5" width="8" height="4" rx=".5" stroke="#2596E8" stroke-width=".8" fill="rgba(37,150,232,.06)"/><line x1="7" y1="3" x2="7" y2="7" stroke="#40B4F5" stroke-width="1.1"/><line x1="4" y1="5" x2="10" y2="5" stroke="#40B4F5" stroke-width=".7"/></svg>
+        Busan Port Global Logistics
+      </div>
+      <div class="hpill">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#40B4F5" stroke-width="1.1"/><path d="M7 2.5 C7 2.5 9.5 4.5 9.5 7 C9.5 9.5 7 11.5 7 11.5 C7 11.5 4.5 9.5 4.5 7 C4.5 4.5 7 2.5 7 2.5Z" stroke="#40B4F5" stroke-width=".8" fill="none"/><line x1="1.5" y1="7" x2="12.5" y2="7" stroke="#40B4F5" stroke-width=".7"/></svg>
+        54+ Countries Global Coverage
+      </div>
+      <div class="hpill t">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="4" width="10" height="8" rx="2" stroke="#1EC9B7" stroke-width="1"/><path d="M5 4 L5 2.5 C5 1.7 5.7 1 6.5 1 L7.5 1 C8.3 1 9 1.7 9 2.5 L9 4" stroke="#1EC9B7" stroke-width="1"/><circle cx="7" cy="8" r="1.5" fill="#1EC9B7" opacity=".8"/></svg>
+        AES-256 Military-Grade Security
+      </div>
+    </div>
+
+    <a href="#what" class="btn-m">EXPLORE BROCHURE</a>
+    <a href="#cta" class="btn-g">INVEST INQUIRY</a>
+
+    <div class="stats-row">
+      <div class="st gold"><div class="st-n">10B</div><div class="st-l">$USAI Total Supply</div></div>
+      <div class="st"><div class="st-n">54+</div><div class="st-l">Countries Covered</div></div>
+      <div class="st teal"><div class="st-n">98%</div><div class="st-l">AI Matching Accuracy</div></div>
+      <div class="st"><div class="st-n">7</div><div class="st-l">Supported Languages</div></div>
+      <div class="st gold"><div class="st-n">PAT.</div><div class="st-l">USPTO · KIPO Filed</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT IS -->
+<section id="what">
+<div class="container">
+  <div class="s-label">What Is This?</div>
+  <h2 class="s-title">USAI Wallet — Simply Explained</h2>
+
+  <!-- One-line summary box -->
+  <div class="what-box" style="margin-bottom:2rem;">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:.8rem;display:block;"><circle cx="16" cy="13" r="8" stroke="#F0C95A" stroke-width="1.3" fill="rgba(200,151,10,.1)"/><path d="M12 13 C12 10.2 13.8 8 16 8 C18.2 8 20 10.2 20 13 C20 15.2 18.8 16.8 17.5 17.5 L17.5 20 L14.5 20 L14.5 17.5 C13.2 16.8 12 15.2 12 13Z" fill="rgba(200,151,10,.18)" stroke="#F0C95A" stroke-width=".9"/><line x1="14.5" y1="20" x2="17.5" y2="20" stroke="#F0C95A" stroke-width="1.1"/><line x1="15" y1="22" x2="17" y2="22" stroke="rgba(200,151,10,.6)" stroke-width="1"/></svg>
+    <div class="wb-title">One-line summary — Built for these people</div>
+    <div class="wb-desc">
+      <strong>"How do I find overseas buyers for my products?"</strong> → AI finds the best buyer in 3 seconds<br>
+      <strong>"Contracts are complex and expensive"</strong> → Sign AI-generated contracts with one iris scan<br>
+      <strong>"International transfers are slow and costly"</strong> → Blockchain delivers instantly at under 1% fee<br>
+      <strong>"What is $USAI?"</strong> → A utility coin used inside USAI Wallet for trade payments and fee discounts
+    </div>
+  </div>
+
+  <div class="what-grid">
+    <div class="wf-card">
+      <div class="wf-icon" style="background:rgba(37,150,232,.12);border:1px solid rgba(37,150,232,.22);">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="6" cy="13" r="4" fill="#2596E8"/><circle cx="20" cy="6" r="4" fill="#40B4F5"/><circle cx="20" cy="20" r="4" fill="#40B4F5"/><line x1="10" y1="11.5" x2="16" y2="7.5" stroke="#2596E8" stroke-width="1.4"/><line x1="10" y1="14.5" x2="16" y2="18.5" stroke="#2596E8" stroke-width="1.4"/><circle cx="13" cy="13" r="2" fill="rgba(37,150,232,.3)" stroke="#40B4F5" stroke-width=".8"/></svg>
+      </div>
+      <div class="wf-title">V-Match AI Trade Matching</div>
+      <div class="wf-desc">Say "I want to export K-Beauty to Nigeria" by voice, and the AI analyzes 6 vectors — industry, scale, credit, region — to recommend the best buyer in 3 seconds. What used to take 6–8 weeks now takes days.</div>
+    </div>
+    <div class="wf-card" style="cursor:pointer;" onclick="showWalletChoice()" title="USAI Wallet Demo">
+      <div class="wf-icon" style="background:rgba(30,201,183,.1);border:1px solid rgba(30,201,183,.22);">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="10" stroke="#1EC9B7" stroke-width="1.4"/><circle cx="13" cy="13" r="4.5" stroke="#1EC9B7" stroke-width="1" fill="rgba(30,201,183,.2)"/><line x1="13" y1="4" x2="13" y2="8.5" stroke="#1EC9B7" stroke-width="1"/><line x1="13" y1="17.5" x2="13" y2="22" stroke="#1EC9B7" stroke-width="1"/><line x1="4" y1="13" x2="8.5" y2="13" stroke="#1EC9B7" stroke-width="1"/><line x1="17.5" y1="13" x2="22" y2="13" stroke="#1EC9B7" stroke-width="1"/></svg>
+      </div>
+      <div class="wf-title">Iris-Verified Contracts & Payments</div>
+      <div class="wf-desc">A 3-second eye scan verifies identity via 266 iris feature points. Sign the trade contract and authorize blockchain payment in one motion. No paper contracts, no fax, no notarization.</div>
+    </div>
+    <div class="wf-card">
+      <div class="wf-icon" style="background:rgba(200,151,10,.1);border:1px solid rgba(200,151,10,.22);">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="6" cy="13" r="3.5" stroke="#C8970A" stroke-width="1.2" fill="rgba(200,151,10,.15)"/><circle cx="20" cy="13" r="3.5" stroke="#C8970A" stroke-width="1.2" fill="rgba(200,151,10,.15)"/><line x1="9.5" y1="13" x2="16.5" y2="13" stroke="#C8970A" stroke-width="1.3" stroke-dasharray="2 2"/><text x="13" y="8" font-family="monospace" font-size="6" fill="#F0C95A" text-anchor="middle" font-weight="bold">$USAI</text></svg>
+      </div>
+      <div class="wf-title">$USAI Blockchain Payments</div>
+      <div class="wf-desc">Settle international trade payments instantly with 5 currencies — $USAI · BTC · ETH · SOL · USDT. Smart-contract escrow releases payment only on delivery confirmation — zero fraud risk.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TOKEN -->
+<section id="token">
+<div class="container">
+  <div class="token-hero">
+    <div class="s-label">$USAI Coin</div>
+    <h2 class="s-title">$USAI Coin — A Complete Understanding</h2>
+    <p class="s-sub" style="margin:0 auto 2rem;">A new standard for trade payments · Utility Coin · Real use, not speculation</p>
+  </div>
+
+  <div class="token-visual">
+    <!-- Coin display -->
+    <div>
+      <div class="coin-display" style="margin:0 auto 1.5rem;">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom:.3rem;"><circle cx="24" cy="24" r="22" stroke="rgba(200,151,10,.5)" stroke-width="1.5" fill="rgba(200,151,10,.1)"/><circle cx="24" cy="24" r="16" stroke="rgba(200,151,10,.3)" stroke-width="1" fill="none" stroke-dasharray="3 3"/><text x="24" y="22" font-family="monospace" font-size="7" fill="rgba(200,151,10,.6)" text-anchor="middle">$</text><text x="24" y="32" font-family="'Orbitron',monospace" font-size="9" fill="#F0C95A" text-anchor="middle" font-weight="700">USAI</text><circle cx="38" cy="12" r="4" fill="rgba(200,151,10,.2)" stroke="rgba(200,151,10,.5)" stroke-width=".8"><animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/></circle></svg>
+        <div class="coin-name">USAI COIN</div>
+        <div class="coin-amt">10 Billion Issued</div>
+      </div>
+      <p style="text-align:center;font-size:.75rem;color:var(--hint);">Issued by K-AI CONET WYOMING LLC</p>
+    </div>
+
+    <!-- Specs -->
+    <div class="token-specs">
+      <div class="ts-item"><span class="ts-key">Total Supply</span><span class="ts-val">10,000,000,000</span></div>
+      <div class="ts-item"><span class="ts-key">10,000,000,000</span><span class="ts-val">$USAI</span></div>
+      <div class="ts-item"><span class="ts-key">Token Standard</span><span class="ts-val">ERC-20</span></div>
+      <div class="ts-item"><span class="ts-key">Blockchain</span><span class="ts-val">Ethereum</span></div>
+      <div class="ts-item"><span class="ts-key">Token Type</span><span class="ts-val">Utility</span></div>
+      <div class="ts-item"><span class="ts-key">Further Issuance</span><span class="ts-val">None (Fixed)</span></div>
+      <div class="ts-item"><span class="ts-key">Issuing Entity</span><span class="ts-val">Wyoming LLC</span></div>
+      <div class="ts-item"><span class="ts-key">Regulatory</span><span class="ts-val">Reg D+S</span></div>
+    </div>
+  </div>
+
+  <!-- $USAI Use Cases -->
+  <div style="background:rgba(200,151,10,.07);border:1px solid rgba(200,151,10,.2);border-radius:16px;padding:2rem;margin-bottom:2rem;">
+    <h3 style="font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:700;color:var(--gold-lt);margin-bottom:1.2rem;">$USAI Coin — Use Cases</h3>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+      <div style="text-align:center;padding:1rem;background:rgba(200,151,10,.06);border-radius:10px;border:1px solid rgba(200,151,10,.15);">
+        <div style="font-size:1.6rem;margin-bottom:.5rem;">💳</div>
+        <div style="font-size:.78rem;font-weight:600;color:var(--gold-lt);margin-bottom:.3rem;">Trade Payment</div>
+        <div style="font-size:.7rem;color:var(--hint);">Means of international trade settlement</div>
+      </div>
+      <div style="text-align:center;padding:1rem;background:rgba(200,151,10,.06);border-radius:10px;border:1px solid rgba(200,151,10,.15);">
+        <div style="font-size:1.6rem;margin-bottom:.5rem;">🏷️</div>
+        <div style="font-size:.78rem;font-weight:600;color:var(--gold-lt);margin-bottom:.3rem;">Fee Discount</div>
+        <div style="font-size:.7rem;color:var(--hint);">Discounted platform fees when paying with $USAI</div>
+      </div>
+      <div style="text-align:center;padding:1rem;background:rgba(200,151,10,.06);border-radius:10px;border:1px solid rgba(200,151,10,.15);">
+        <div style="font-size:1.6rem;margin-bottom:.5rem;">🔒</div>
+        <div style="font-size:.78rem;font-weight:600;color:var(--gold-lt);margin-bottom:.3rem;">Escrow Collateral</div>
+        <div style="font-size:.7rem;color:var(--hint);">Used as smart-contract guarantee deposit</div>
+      </div>
+      <div style="text-align:center;padding:1rem;background:rgba(200,151,10,.06);border-radius:10px;border:1px solid rgba(200,151,10,.15);">
+        <div style="font-size:1.6rem;margin-bottom:.5rem;">📊</div>
+        <div style="font-size:.78rem;font-weight:600;color:var(--gold-lt);margin-bottom:.3rem;">Staking</div>
+        <div style="font-size:.7rem;color:var(--hint);">Priority trading access for long-term holders</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Token allocation -->
+  <h3 style="font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:700;color:var(--foam);margin-bottom:1.2rem;letter-spacing:.12em;">10 Billion Allocation Structure</h3>
+  <div class="alloc-section">
+    <!-- SVG donut chart -->
+    <div class="alloc-chart">
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" width="240" height="240">
+        <!-- Donut segments (cx=120,cy=120,r=85,stroke-width=40) -->
+        <!-- circumference = 2*pi*85 = 534.07 -->
+        <!-- Founder 45% = 240.33 -->
+        <circle cx="120" cy="120" r="85" fill="none" stroke="rgba(37,150,232,.15)" stroke-width="40"/>
+        <!-- Ecosystem 30% = 160.2, offset 0 -->
+        <circle cx="120" cy="120" r="85" fill="none" stroke="rgba(30,201,183,.75)" stroke-width="40"
+          stroke-dasharray="160.2 373.87" stroke-dashoffset="0" transform="rotate(-90 120 120)"/>
+        <!-- Founder 45% = 240.33, offset -160.2 -->
+        <circle cx="120" cy="120" r="85" fill="none" stroke="rgba(37,150,232,.75)" stroke-width="40"
+          stroke-dasharray="240.33 293.74" stroke-dashoffset="-160.2" transform="rotate(-90 120 120)"/>
+        <!-- Seed 15% = 80.1, offset -400.53 -->
+        <circle cx="120" cy="120" r="85" fill="none" stroke="rgba(200,151,10,.8)" stroke-width="40"
+          stroke-dasharray="80.1 453.97" stroke-dashoffset="-400.53" transform="rotate(-90 120 120)"/>
+        <!-- Team 10% = 53.4, offset -480.63 -->
+        <circle cx="120" cy="120" r="85" fill="none" stroke="rgba(232,93,58,.75)" stroke-width="40"
+          stroke-dasharray="53.4 480.67" stroke-dashoffset="-480.63" transform="rotate(-90 120 120)"/>
+        <!-- Center -->
+        <circle cx="120" cy="120" r="62" fill="rgba(4,20,40,.95)"/>
+        <text x="120" y="112" font-family="'Orbitron',monospace" font-size="13" fill="#F0C95A" text-anchor="middle" font-weight="700">$USAI</text>
+        <text x="120" y="128" font-family="monospace" font-size="9" fill="rgba(240,201,90,.6)" text-anchor="middle">10B</text>
+        <text x="120" y="142" font-family="monospace" font-size="7.5" fill="rgba(255,255,255,.3)" text-anchor="middle">Total Supply</text>
+      </svg>
+    </div>
+    <div class="alloc-list">
+      <div class="al-item">
+        <div class="al-dot" style="background:rgba(37,150,232,.75);"></div>
+        <div class="al-label">Founder (IL KANG)</div>
+        <div>
+          <div class="al-pct">45% <span style="color:var(--hint);font-size:.7rem;font-family:sans-serif;font-weight:400;">= 4.5B</span></div>
+          <div class="al-amt">4,500,000,000 $USAI</div>
+        </div>
+      </div>
+      <div class="al-item">
+        <div class="al-dot" style="background:rgba(30,201,183,.75);"></div>
+        <div class="al-label">Ecosystem · Airdrop · Community</div>
+        <div>
+          <div class="al-pct">30% <span style="color:var(--hint);font-size:.7rem;font-family:sans-serif;font-weight:400;">= 3.0B</span></div>
+          <div class="al-amt">3,000,000,000 $USAI</div>
+        </div>
+      </div>
+      <div class="al-item">
+        <div class="al-dot" style="background:rgba(200,151,10,.8);"></div>
+        <div class="al-label">Seed Investors</div>
+        <div>
+          <div class="al-pct">15% <span style="color:var(--hint);font-size:.7rem;font-family:sans-serif;font-weight:400;">= 1.5B</span></div>
+          <div class="al-amt">1,500,000,000 $USAI</div>
+        </div>
+      </div>
+      <div class="al-item">
+        <div class="al-dot" style="background:rgba(232,93,58,.75);"></div>
+        <div class="al-label">Team & Advisors</div>
+        <div>
+          <div class="al-pct">10% <span style="color:var(--hint);font-size:.7rem;font-family:sans-serif;font-weight:400;">= 1.0B</span></div>
+          <div class="al-amt">1,000,000,000 $USAI</div>
+        </div>
+      </div>
+      <div style="margin-top:.8rem;padding:1rem;background:rgba(200,151,10,.07);border:1px solid rgba(200,151,10,.18);border-radius:10px;">
+        <div style="font-size:.72rem;color:rgba(200,151,10,.65);margin-bottom:.3rem;">Note</div>
+        <div style="font-size:.74rem;color:var(--hint);line-height:1.65;">$USAI is fixed at <strong style="color:var(--gold-lt);">10 Billion (10,000,000,000)</strong> with no further issuance. Issued by <strong style="color:var(--gold-lt);">K-AI CONET WYOMING LLC</strong>. The Korean entity is not involved in token issuance.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+<div class="container">
+  <div class="how-intro">
+    <div class="s-label">How It Works</div>
+    <h2 class="s-title">The 5-Step Trade Process</h2>
+    <p class="s-sub" style="margin:0 auto;">Complete what once took 6–8 weeks in just a few days</p>
+  </div>
+
+  <div class="step-flow">
+    <div class="step">
+      <svg class="step-ico" viewBox="0 0 44 44" fill="none"><rect x="6" y="6" width="32" height="32" rx="6" stroke="#2596E8" stroke-width="1.4" fill="rgba(37,150,232,.07)"/><circle cx="22" cy="18" r="5" stroke="#40B4F5" stroke-width="1.2"/><path d="M13 34 C13 28 31 28 31 34" stroke="#40B4F5" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <div class="step-num">STEP 01</div>
+      <div class="step-t">Register</div>
+      <div class="step-d">Join as Seller or Buyer. Register iris & fingerprint.</div>
+    </div>
+    <div class="step-arr">→</div>
+    <div class="step">
+      <svg class="step-ico" viewBox="0 0 44 44" fill="none"><circle cx="12" cy="22" r="5" fill="#2596E8"/><circle cx="32" cy="13" r="5" fill="#40B4F5"/><circle cx="32" cy="31" r="5" fill="#40B4F5"/><line x1="17" y1="20" x2="27" y2="15" stroke="#2596E8" stroke-width="1.4"/><line x1="17" y1="24" x2="27" y2="29" stroke="#2596E8" stroke-width="1.4"/><circle cx="22" cy="22" r="3" fill="rgba(37,150,232,.3)" stroke="#40B4F5" stroke-width=".9"/></svg>
+      <div class="step-num">STEP 02</div>
+      <div class="step-t">AI Match</div>
+      <div class="step-d">Voice input → V-Match AI recommends best partner in 3 seconds</div>
+    </div>
+    <div class="step-arr">→</div>
+    <div class="step">
+      <svg class="step-ico" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="20" r="9" stroke="#1EC9B7" stroke-width="1.4" fill="rgba(30,201,183,.08)"/><circle cx="22" cy="20" r="4" stroke="#1EC9B7" stroke-width="1" fill="rgba(30,201,183,.2)"/><line x1="22" y1="10" x2="22" y2="14" stroke="#1EC9B7" stroke-width="1.2"/><line x1="22" y1="26" x2="22" y2="30" stroke="#1EC9B7" stroke-width="1.2"/><line x1="12" y1="20" x2="16" y2="20" stroke="#1EC9B7" stroke-width="1.2"/><line x1="28" y1="20" x2="32" y2="20" stroke="#1EC9B7" stroke-width="1.2"/><path d="M15 32 L29 32" stroke="#1EC9B7" stroke-width="1" stroke-linecap="round"/></svg>
+      <div class="step-num">STEP 03</div>
+      <div class="step-t">Iris Contract</div>
+      <div class="step-d">AI auto-generates contract → 3-second iris signature</div>
+    </div>
+    <div class="step-arr">→</div>
+    <div class="step">
+      <svg class="step-ico" viewBox="0 0 44 44" fill="none"><path d="M8 30 L36 30 L38 36 L6 36Z" stroke="#40B4F5" stroke-width="1.3" fill="rgba(37,150,232,.07)"/><rect x="10" y="22" width="24" height="9" rx="1" stroke="#40B4F5" stroke-width="1.1" fill="rgba(37,150,232,.05)"/><line x1="22" y1="10" x2="22" y2="24" stroke="#40B4F5" stroke-width="1.4"/><line x1="16" y1="15" x2="28" y2="15" stroke="#40B4F5" stroke-width="1.1"/><rect x="14" y="24" width="5" height="5" rx=".5" fill="rgba(200,151,10,.4)"/><rect x="21" y="24" width="5" height="5" rx=".5" fill="rgba(37,150,232,.35)"/></svg>
+      <div class="step-num">STEP 04</div>
+      <div class="step-t">Busan Port Shipping</div>
+      <div class="step-d">Busan Port customs & container loading. Real-time tracking.</div>
+    </div>
+    <div class="step-arr">→</div>
+    <div class="step">
+      <svg class="step-ico" viewBox="0 0 44 44" fill="none"><rect x="10" y="6" width="24" height="32" rx="4" stroke="#F0C95A" stroke-width="1.4" fill="rgba(200,151,10,.07)"/><circle cx="12" cy="14" r="3" stroke="#F0C95A" stroke-width="1" fill="none"/><circle cx="32" cy="14" r="3" stroke="#F0C95A" stroke-width="1" fill="none"/><line x1="15" y1="14" x2="29" y2="14" stroke="#C8970A" stroke-width="1" stroke-dasharray="2 2"/><text x="22" y="27" font-family="monospace" font-size="7" fill="#F0C95A" text-anchor="middle" font-weight="bold">$USAI</text><path d="M16 32 L20 36 L28 28" stroke="#1EC9B7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-num">STEP 05</div>
+      <div class="step-t">Escrow Payment</div>
+      <div class="step-d">Delivery confirmed → $USAI auto-paid via blockchain</div>
+    </div>
+  </div>
+
+  <!-- Compare table -->
+  <h3 style="font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;color:var(--foam);letter-spacing:.12em;margin-bottom:1rem;">Traditional Trade vs. USAI Wallet</h3>
+  <div class="compare">
+    <div class="compare-header">
+      <div class="ch-cell">Item</div>
+      <div class="ch-cell">Traditional Trade</div>
+      <div class="ch-cell g">USAI Wallet ✓</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell label">Buyer Sourcing</div>
+      <div class="cr-cell bad">6–8 weeks</div>
+      <div class="cr-cell good">AI in 3 seconds</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell label">Contracting</div>
+      <div class="cr-cell bad">Paper · Fax · Notary</div>
+      <div class="cr-cell good">Iris signature in 3s</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell label">Payment Fees</div>
+      <div class="cr-cell bad">5–8% intermediary fees</div>
+      <div class="cr-cell good">Under 1%</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell label">Int'l Transfer</div>
+      <div class="cr-cell bad">3–5 days</div>
+      <div class="cr-cell good">Blockchain instant</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell label">Fraud Risk</div>
+      <div class="cr-cell bad">High (advance payment scams)</div>
+      <div class="cr-cell good">Escrow · zero risk</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell label">Language Barrier</div>
+      <div class="cr-cell bad">Translator required</div>
+      <div class="cr-cell good">AI 7-language real-time</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell label">Total Duration</div>
+      <div class="cr-cell bad">6–8 weeks</div>
+      <div class="cr-cell good">Days, completed</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECURITY -->
+<section id="security">
+<div class="container">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div class="s-label">Security</div>
+    <h2 class="s-title">4-Layer Biometric Security</h2>
+    <p class="s-sub" style="margin:0 auto;">World's first iris recognition + blockchain smart-contract integration (USPTO Filed)</p>
+  </div>
+  <div class="sec-grid">
+    <div class="sec-card">
+      <svg class="sec-ico" viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="6" stroke="#2596E8" stroke-width="1.4" fill="rgba(37,150,232,.07)"/><text x="24" y="32" font-family="monospace" font-size="16" fill="#40B4F5" text-anchor="middle" font-weight="bold">PIN</text><line x1="14" y1="36" x2="34" y2="36" stroke="rgba(37,150,232,.3)" stroke-width=".8"/></svg>
+      <div class="sec-t">PIN Authentication</div>
+      <div class="sec-d">6-digit AES-256 encrypted PIN. Default authentication. Account locks after 5 failed attempts.</div>
+      <span class="sec-badge">AES-256</span>
+    </div>
+    <div class="sec-card">
+      <svg class="sec-ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="#1EC9B7" stroke-width="1.4" fill="rgba(30,201,183,.07)"/><path d="M16 30 C16 22 32 22 32 30" stroke="#1EC9B7" stroke-width="1.2" stroke-linecap="round" fill="none"/><ellipse cx="24" cy="20" rx="5" ry="6" stroke="#1EC9B7" stroke-width="1.2"/></svg>
+      <div class="sec-t">Fingerprint</div>
+      <div class="sec-d">40-point feature analysis. On-device AI. 0.3-second recognition. Standard daily login.</div>
+      <span class="sec-badge">40 Points</span>
+    </div>
+    <div class="sec-card">
+      <svg class="sec-ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#40B4F5" stroke-width="1.4" fill="rgba(37,150,232,.07)"/><circle cx="24" cy="24" r="7" stroke="#40B4F5" stroke-width="1.2" fill="rgba(37,150,232,.15)"/><circle cx="24" cy="24" r="2.5" fill="#40B4F5"/><line x1="24" y1="8" x2="24" y2="14" stroke="rgba(37,150,232,.5)" stroke-width="1"/><line x1="24" y1="34" x2="24" y2="40" stroke="rgba(37,150,232,.5)" stroke-width="1"/><line x1="8" y1="24" x2="14" y2="24" stroke="rgba(37,150,232,.5)" stroke-width="1"/><line x1="34" y1="24" x2="40" y2="24" stroke="rgba(37,150,232,.5)" stroke-width="1"/></svg>
+      <div class="sec-t">Iris Recognition</div>
+      <div class="sec-d"><strong style="color:#fff;">266 feature points</strong>. Dedicated to contract signing & payments. World-class security. Tamper-proof.</div>
+      <span class="sec-badge">266 Points · USPTO</span>
+    </div>
+    <div class="sec-card">
+      <svg class="sec-ico" viewBox="0 0 48 48" fill="none"><path d="M24 10 C20 14 12 16 12 24 C12 32 17 38 24 40 C31 38 36 32 36 24 C36 16 28 14 24 10Z" stroke="#F0C95A" stroke-width="1.3" fill="rgba(200,151,10,.07)"/><path d="M18 24 Q24 20 30 24 Q24 28 18 24Z" stroke="#F0C95A" stroke-width="1" fill="rgba(200,151,10,.18)"/></svg>
+      <div class="sec-t">Voice Auth</div>
+      <div class="sec-d">"Open USAI" voice-pattern authentication. AI real-time translation chat. 7 languages.</div>
+      <span class="sec-badge">AI Voice</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GLOBAL -->
+<section id="global">
+<div class="container">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div class="s-label">Global Vision</div>
+    <h2 class="s-title">Global Coverage — 5 Oceans, 6 Continents</h2>
+    <p class="s-sub" style="margin:0 auto;">Over 54 countries · ★ Priority launch markets</p>
+  </div>
+  <div class="globe-grid">
+    <div class="region-card">
+      <svg class="rc-flag" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#40B4F5" stroke-width="1.2" fill="rgba(37,150,232,.08)"/><path d="M14 4 C14 4 17 8 17 14 C17 20 14 24 14 24 C14 24 11 20 11 14 C11 8 14 4 14 4Z" stroke="#40B4F5" stroke-width=".8" fill="none"/><line x1="2" y1="14" x2="26" y2="14" stroke="#40B4F5" stroke-width=".8"/><path d="M4.5 9 L23.5 9" stroke="rgba(37,150,232,.4)" stroke-width=".6"/><path d="M4.5 19 L23.5 19" stroke="rgba(37,150,232,.4)" stroke-width=".6"/><circle cx="14" cy="14" r="2.5" fill="rgba(37,150,232,.3)" stroke="#40B4F5" stroke-width=".7"/></svg>
+      <div class="rc-name">Africa</div>
+      <div class="rc-countries">Nigeria★ · Kenya★ · South Africa · Egypt · Ghana · Ethiopia · Libya</div>
+      <span class="rc-priority">Priority launch markets</span>
+    </div>
+    <div class="region-card">
+      <svg class="rc-flag" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="8" y="12" width="12" height="12" rx="1" stroke="#40B4F5" stroke-width="1" fill="rgba(37,150,232,.08)"/><path d="M10 12 L10 8 C10 6 12 5 14 5 C16 5 18 6 18 8 L18 12" stroke="#40B4F5" stroke-width="1" fill="none"/><path d="M12 5 C12 5 14 3 16 5" stroke="#40B4F5" stroke-width="1" fill="none" stroke-linecap="round"/><line x1="14" y1="3" x2="14" y2="2" stroke="#F0C95A" stroke-width="1.2"/><circle cx="14" cy="1.5" r="1" fill="#F0C95A"/><rect x="11" y="17" width="3" height="7" rx=".5" fill="rgba(37,150,232,.2)"/><rect x="15" y="17" width="2" height="5" rx=".5" fill="rgba(37,150,232,.15)"/><line x1="5" y1="24" x2="23" y2="24" stroke="rgba(37,150,232,.4)" stroke-width=".8"/></svg>
+      <div class="rc-name">Middle East</div>
+      <div class="rc-countries">Saudi Arabia★ · UAE · Qatar · Jordan · Syria · Iran · Iraq</div>
+      <span class="rc-priority">Halal Trade Hub</span>
+    </div>
+    <div class="region-card">
+      <svg class="rc-flag" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#1EC9B7" stroke-width="1.2" fill="rgba(30,201,183,.07)"/><path d="M14 3.5 C14 3.5 18.5 8 18.5 14 C18.5 20 14 24.5 14 24.5 C14 24.5 9.5 20 9.5 14 C9.5 8 14 3.5 14 3.5Z" stroke="#1EC9B7" stroke-width=".8" fill="none"/><line x1="2" y1="14" x2="26" y2="14" stroke="#1EC9B7" stroke-width=".8"/><line x1="3.5" y1="9.5" x2="24.5" y2="9.5" stroke="rgba(30,201,183,.4)" stroke-width=".6"/><line x1="3.5" y1="18.5" x2="24.5" y2="18.5" stroke="rgba(30,201,183,.4)" stroke-width=".6"/><circle cx="14" cy="14" r="2" fill="rgba(30,201,183,.3)" stroke="#1EC9B7" stroke-width=".7"/></svg>
+      <div class="rc-name">Asia</div>
+      <div class="rc-countries">Japan★ · Thailand★ · Vietnam★ · India★ · Nepal · Pakistan</div>
+      <span class="rc-priority">Largest K-Culture Market</span>
+    </div>
+    <div class="region-card">
+      <svg class="rc-flag" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#F0C95A" stroke-width="1.2" fill="rgba(200,151,10,.07)"/><path d="M8 8 L14 6 L20 8 L22 14 L20 20 L14 22 L8 20 L6 14 Z" stroke="#F0C95A" stroke-width=".8" fill="none"/><circle cx="14" cy="14" r="2" fill="rgba(200,151,10,.3)" stroke="#F0C95A" stroke-width=".7"/><line x1="2" y1="14" x2="26" y2="14" stroke="rgba(200,151,10,.3)" stroke-width=".5"/></svg>
+      <div class="rc-name">Europe</div>
+      <div class="rc-countries">Ukraine★ · Poland · Germany · Spain · France · Italy</div>
+      <span class="rc-priority">Reconstruction Opportunity</span>
+    </div>
+    <div class="region-card">
+      <svg class="rc-flag" width="28" height="28" viewBox="0 0 28 28" fill="none"><line x1="14" y1="24" x2="14" y2="3" stroke="#40B4F5" stroke-width="1.2"/><rect x="14" y="3" width="10" height="6" rx=".5" fill="rgba(37,150,232,.2)" stroke="#40B4F5" stroke-width=".8"/><rect x="14" y="11" width="7" height="5" rx=".5" fill="rgba(37,150,232,.15)" stroke="#40B4F5" stroke-width=".6"/><line x1="6" y1="24" x2="22" y2="24" stroke="rgba(37,150,232,.5)" stroke-width="1.2"/><path d="M11 24 L11 18 C11 16.3 12.3 15 14 15" stroke="#40B4F5" stroke-width=".8" fill="none"/><rect x="6" y="17" width="5" height="7" rx=".5" fill="rgba(37,150,232,.12)" stroke="rgba(37,150,232,.3)" stroke-width=".6"/></svg>
+      <div class="rc-name">North America</div>
+      <div class="rc-countries">USA★ · Canada · Mexico★</div>
+      <span class="rc-priority">New York HQ</span>
+    </div>
+    <div class="region-card">
+      <svg class="rc-flag" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#1EC9B7" stroke-width="1.2" fill="rgba(30,201,183,.07)"/><path d="M6 10 C8 8 11 9 12 12 C13 15 10 18 12 21" stroke="#1EC9B7" stroke-width=".9" fill="none" stroke-linecap="round"/><path d="M14 7 C16 9 18 8 19 11 C20 14 18 17 19 20" stroke="#1EC9B7" stroke-width=".9" fill="none" stroke-linecap="round"/><circle cx="14" cy="14" r="1.5" fill="#1EC9B7"/></svg>
+      <div class="rc-name">Latin America</div>
+      <div class="rc-countries">Brazil★ · Colombia★ · Chile★ · Argentina★ · Costa Rica★</div>
+      <span class="rc-priority">Emerging Growth Markets</span>
+    </div>
+    <div class="region-card">
+      <svg class="rc-flag" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M2 22 L8 10 L14 16 L18 8 L24 14 L26 22 Z" stroke="#F0C95A" stroke-width="1" fill="rgba(200,151,10,.07)"/><path d="M8 10 L14 16" stroke="rgba(200,151,10,.4)" stroke-width=".6"/><circle cx="18" cy="8" r="1.5" fill="rgba(200,151,10,.5)"/><line x1="2" y1="22" x2="26" y2="22" stroke="rgba(200,151,10,.5)" stroke-width=".8"/></svg>
+      <div class="rc-name">Central Asia</div>
+      <div class="rc-countries">Kazakhstan · Uzbekistan · Kyrgyzstan · Tajikistan</div>
+      <span class="rc-priority">Silk Road 2.0</span>
+    </div>
+    <div class="region-card">
+      <svg class="rc-flag" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 22 L24 22 L26 26 L2 26Z" stroke="#40B4F5" stroke-width=".9" fill="rgba(37,150,232,.1)"/><rect x="6" y="14" width="16" height="9" rx="1" stroke="#40B4F5" stroke-width=".9" fill="rgba(37,150,232,.06)"/><rect x="9" y="10" width="5" height="6" stroke="#40B4F5" stroke-width=".8" fill="rgba(37,150,232,.06)"/><line x1="14" y1="4" x2="14" y2="12" stroke="#40B4F5" stroke-width="1.2"/><line x1="10" y1="7" x2="18" y2="7" stroke="#40B4F5" stroke-width="1"/><circle cx="22" cy="5" r="2" fill="rgba(37,150,232,.0)" stroke="#40B4F5" stroke-width=".8"><animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/></circle><circle cx="22" cy="5" r="1" fill="#40B4F5"><animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/></circle></svg>
+      <div class="rc-name">Korea Hub</div>
+      <div class="rc-countries">Busan Port shipping hub · K-Culture export center · Seoul AI Web Festival</div>
+      <span class="rc-priority">Global Origin</span>
+    </div>
+  </div>
+  <div class="lang-row" style="margin-top:2rem;">
+    <span class="lang-pill">Korean</span>
+    <span class="lang-pill">English</span>
+    <span class="lang-pill">العربية</span>
+    <span class="lang-pill">Swahili</span>
+    <span class="lang-pill">हिन्दी</span>
+    <span class="lang-pill">Español</span>
+    <span class="lang-pill">日本語</span>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+<div class="container">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div class="s-label">Roadmap</div>
+    <h2 class="s-title">Development Roadmap</h2>
+    <p class="s-sub" style="margin:0 auto;">Phase 1 Complete → 2030 Global No.1 Trade Super-App</p>
+  </div>
+  <div class="road-grid">
+    <div class="road-card done">
+      <div class="road-phase">PHASE 1 · COMPLETED</div>
+      <div class="road-title">Foundation Complete</div>
+      <ul class="road-items">
+        <li>USAI Wallet prototype completed</li>
+        <li>4-layer biometric authentication implemented</li>
+        <li>V-Match AI Trade Matching</li>
+        <li>AI translation chat in 7 languages</li>
+        <li>Entities established in 3 countries</li>
+        <li>USPTO · KIPO patents filed</li>
+      </ul>
+    </div>
+    <div class="road-card now">
+      <div class="road-phase">PHASE 2 · H2 2026</div>
+      <div class="road-title">Official Launch & Token Issuance</div>
+      <ul class="road-items">
+        <li>k-aiconet.com global deployment</li>
+        <li><strong style="color:var(--gold-lt);">$USAI 10B ERC-20 mainnet</strong></li>
+        <li>MetaMask integration live</li>
+        <li>iOS · Android apps launched</li>
+        <li>Seed round $5M target</li>
+        <li>Seoul AI Web Festival held</li>
+      </ul>
+    </div>
+    <div class="road-card next">
+      <div class="road-phase">PHASE 3 · 2027~2028</div>
+      <div class="road-title">Global Expansion</div>
+      <ul class="road-items">
+        <li>V-Match AI 2.0 upgrade</li>
+        <li>RWA real estate tokenization</li>
+        <li>Partnerships in 40 countries</li>
+        <li>Series A $20M</li>
+        <li>UN international agency partnerships</li>
+      </ul>
+    </div>
+    <div class="road-card future">
+      <div class="road-phase">PHASE 4 · 2030+</div>
+      <div class="road-title">Conquering All Continents</div>
+      <ul class="road-items">
+        <li>200+ countries worldwide</li>
+        <li>2M+ cumulative users</li>
+        <li>Global No.1 AI Trade Super-App</li>
+        <li>$1B+ market cap target</li>
+        <li>$USAI exchange listings</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INVESTMENT -->
+<section id="invest">
+<div class="container">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div class="s-label">Investment</div>
+    <h2 class="s-title">Investment Structure & Revenue Forecast</h2>
+    <p class="s-sub" style="margin:0 auto;">Seed Round · Reg D 506(c) + Reg S</p>
+  </div>
+  <div class="invest-grid">
+    <div>
+      <h3 style="font-family:'Orbitron',sans-serif;font-size:.78rem;font-weight:700;color:var(--gold-lt);letter-spacing:.12em;margin-bottom:1rem;">Seed Round Terms</h3>
+      <div class="inv-table">
+        <div class="inv-row header"><span class="inv-key">Item</span><span class="inv-val" style="font-size:.72rem;color:var(--gold-lt);">Details</span></div>
+        <div class="inv-row"><span class="inv-key">Target Raise</span><span class="inv-val">$5,000,000</span></div>
+        <div class="inv-row"><span class="inv-key">Pre-Money Valuation</span><span class="inv-val">$28.3M</span></div>
+        <div class="inv-row"><span class="inv-key">Equity Offered</span><span class="inv-val">15%</span></div>
+        <div class="inv-row"><span class="inv-key">Minimum Investment</span><span class="inv-val">$50,000</span></div>
+        <div class="inv-row"><span class="inv-key">Structure</span><span class="inv-val" style="font-size:.7rem;">Reg D 506(c) + Reg S</span></div>
+        <div class="inv-row"><span class="inv-key">$USAI Total Supply</span><span class="inv-val" style="color:var(--gold-lt);">10 Billion</span></div>
+      </div>
+      <h3 style="font-family:'Orbitron',sans-serif;font-size:.78rem;font-weight:700;color:var(--foam);letter-spacing:.12em;margin:.8rem 0 1rem;">Patent Portfolio</h3>
+      <div class="pat-grid" style="display:flex;flex-direction:column;gap:.6rem;">
+        <div style="padding:.8rem 1rem;border-radius:10px;background:rgba(200,151,10,.07);border:1px solid rgba(200,151,10,.18);">
+          <div style="font-size:.7rem;color:rgba(200,151,10,.65);margin-bottom:.2rem;">USPTO Provisional</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:.72rem;color:var(--gold-lt);">KAIC-2026-001</div>
+          <div style="font-size:.68rem;color:var(--hint);">K-AI Wallet · Iris + Blockchain Payments</div>
+        </div>
+        <div style="padding:.8rem 1rem;border-radius:10px;background:rgba(37,150,232,.07);border:1px solid rgba(37,150,232,.15);">
+          <div style="font-size:.7rem;color:rgba(37,150,232,.65);margin-bottom:.2rem;">KIPO Filed</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:.72rem;color:var(--foam);">10-2026-0079874</div>
+          <div style="font-size:.68rem;color:var(--hint);">V-Match AI Engine</div>
+        </div>
+        <div style="padding:.8rem 1rem;border-radius:10px;background:rgba(37,150,232,.07);border:1px solid rgba(37,150,232,.15);">
+          <div style="font-size:.7rem;color:rgba(37,150,232,.65);margin-bottom:.2rem;">KIPO Filed</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:.72rem;color:var(--foam);">1-1-2026-0535673-01</div>
+          <div style="font-size:.68rem;color:var(--hint);">K-AI Wallet</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:'Orbitron',sans-serif;font-size:.78rem;font-weight:700;color:var(--teal);letter-spacing:.12em;margin-bottom:1rem;">Revenue Forecast (2026–2030)</h3>
+      <div class="revenue-table">
+        <div class="rev-header">
+          <div class="rev-hcell">Year</div>
+          <div class="rev-hcell">Revenue</div>
+          <div class="rev-hcell">Users</div>
+          <div class="rev-hcell">Key Events</div>
+        </div>
+        <div class="rev-row">
+          <div class="rev-cell year">2026</div>
+          <div class="rev-cell rev">$1.2M</div>
+          <div class="rev-cell">5,000</div>
+          <div class="rev-cell" style="font-size:.7rem;">Official Launch · Seed</div>
+        </div>
+        <div class="rev-row">
+          <div class="rev-cell year">2027</div>
+          <div class="rev-cell rev">$8.5M</div>
+          <div class="rev-cell">50,000</div>
+          <div class="rev-cell" style="font-size:.7rem;">App Launch · 20 Countries</div>
+        </div>
+        <div class="rev-row">
+          <div class="rev-cell year">2028</div>
+          <div class="rev-cell rev">$24M</div>
+          <div class="rev-cell">200,000</div>
+          <div class="rev-cell" style="font-size:.7rem;">Series A · RWA</div>
+        </div>
+        <div class="rev-row">
+          <div class="rev-cell year">2029</div>
+          <div class="rev-cell rev">$68M</div>
+          <div class="rev-cell">800,000</div>
+          <div class="rev-cell" style="font-size:.7rem;">Series B · 40 Countries</div>
+        </div>
+        <div class="rev-row" style="background:rgba(30,201,183,.04);">
+          <div class="rev-cell year" style="color:var(--teal);">2030</div>
+          <div class="rev-cell" style="color:var(--teal);font-weight:700;">$150M+</div>
+          <div class="rev-cell" style="color:var(--teal);">2 Million</div>
+          <div class="rev-cell" style="font-size:.7rem;color:var(--teal);">Global No.1</div>
+        </div>
+      </div>
+      <!-- Revenue chart SVG -->
+      <div style="margin-top:1.2rem;padding:1.4rem;background:rgba(6,33,63,.3);border-radius:14px;border:1px solid rgba(37,150,232,.12);">
+        <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;color:var(--foam);letter-spacing:.12em;margin-bottom:1rem;">Revenue Growth Chart (USD)</div>
+        <svg viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <defs>
+            <linearGradient id="barG26" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#40B4F5"/><stop offset="100%" stop-color="#1278D0" stop-opacity=".6"/></linearGradient>
+            <linearGradient id="barG27" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#40B4F5"/><stop offset="100%" stop-color="#1278D0" stop-opacity=".6"/></linearGradient>
+            <linearGradient id="barG28" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#40B4F5"/><stop offset="100%" stop-color="#1278D0" stop-opacity=".6"/></linearGradient>
+            <linearGradient id="barG29" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1EC9B7"/><stop offset="100%" stop-color="#0E9E8A" stop-opacity=".6"/></linearGradient>
+            <linearGradient id="barG30" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0C95A"/><stop offset="100%" stop-color="#C8970A" stop-opacity=".7"/></linearGradient>
+            <linearGradient id="areaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#40B4F5" stop-opacity=".25"/><stop offset="100%" stop-color="#40B4F5" stop-opacity="0"/></linearGradient>
+          </defs>
+          <!-- Grid lines -->
+          <line x1="40" y1="20" x2="40" y2="150" stroke="rgba(37,150,232,.15)" stroke-width=".8"/>
+          <line x1="40" y1="20" x2="415" y2="20" stroke="rgba(37,150,232,.08)" stroke-width=".6"/>
+          <line x1="40" y1="57" x2="415" y2="57" stroke="rgba(37,150,232,.08)" stroke-width=".6"/>
+          <line x1="40" y1="94" x2="415" y2="94" stroke="rgba(37,150,232,.08)" stroke-width=".6"/>
+          <line x1="40" y1="131" x2="415" y2="131" stroke="rgba(37,150,232,.08)" stroke-width=".6"/>
+          <line x1="40" y1="150" x2="415" y2="150" stroke="rgba(37,150,232,.2)" stroke-width=".8"/>
+          <!-- Y-axis labels -->
+          <text x="35" y="24" font-family="monospace" font-size="8" fill="rgba(37,150,232,.5)" text-anchor="end">$150M</text>
+          <text x="35" y="61" font-family="monospace" font-size="8" fill="rgba(37,150,232,.5)" text-anchor="end">$100M</text>
+          <text x="35" y="98" font-family="monospace" font-size="8" fill="rgba(37,150,232,.5)" text-anchor="end">$50M</text>
+          <text x="35" y="135" font-family="monospace" font-size="8" fill="rgba(37,150,232,.5)" text-anchor="end">$10M</text>
+          <text x="35" y="154" font-family="monospace" font-size="8" fill="rgba(37,150,232,.5)" text-anchor="end">$0</text>
+          <!-- Area fill under line -->
+          <!-- data: 2026=$1.2M→148, 2027=$8.5M→143, 2028=$24M→131, 2029=$68M→105, 2030=$150M→20 -->
+          <path d="M90,148 C140,143 190,131 240,105 C290,80 340,50 380,20 L380,150 L90,150 Z" fill="url(#areaG)"/>
+          <!-- BARS -->
+          <!-- 2026 $1.2M -->
+          <rect x="72" y="147" width="36" height="3" rx="2" fill="url(#barG26)">
+            <animate attributeName="y" values="150;147" dur=".8s" fill="freeze"/>
+            <animate attributeName="height" values="0;3" dur=".8s" fill="freeze"/>
+          </rect>
+          <text x="90" y="143" font-family="monospace" font-size="7.5" fill="#40B4F5" text-anchor="middle">$1.2M</text>
+          <!-- 2027 $8.5M -->
+          <rect x="142" y="136" width="36" height="14" rx="2" fill="url(#barG27)">
+            <animate attributeName="y" values="150;136" dur="1s" fill="freeze"/>
+            <animate attributeName="height" values="0;14" dur="1s" fill="freeze"/>
+          </rect>
+          <text x="160" y="131" font-family="monospace" font-size="7.5" fill="#40B4F5" text-anchor="middle">$8.5M</text>
+          <!-- 2028 $24M -->
+          <rect x="212" y="118" width="36" height="32" rx="2" fill="url(#barG28)">
+            <animate attributeName="y" values="150;118" dur="1.2s" fill="freeze"/>
+            <animate attributeName="height" values="0;32" dur="1.2s" fill="freeze"/>
+          </rect>
+          <text x="230" y="113" font-family="monospace" font-size="7.5" fill="#40B4F5" text-anchor="middle">$24M</text>
+          <!-- 2029 $68M -->
+          <rect x="282" y="88" width="36" height="62" rx="2" fill="url(#barG29)">
+            <animate attributeName="y" values="150;88" dur="1.4s" fill="freeze"/>
+            <animate attributeName="height" values="0;62" dur="1.4s" fill="freeze"/>
+          </rect>
+          <text x="300" y="83" font-family="monospace" font-size="7.5" fill="#1EC9B7" text-anchor="middle">$68M</text>
+          <!-- 2030 $150M+ -->
+          <rect x="362" y="20" width="36" height="130" rx="2" fill="url(#barG30)">
+            <animate attributeName="y" values="150;20" dur="1.6s" fill="freeze"/>
+            <animate attributeName="height" values="0;130" dur="1.6s" fill="freeze"/>
+          </rect>
+          <text x="380" y="15" font-family="monospace" font-size="7.5" fill="#F0C95A" text-anchor="middle">$150M+</text>
+          <!-- Trend line -->
+          <path d="M90,148 L160,136 L230,118 L300,88 L380,20" stroke="rgba(64,180,245,.55)" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
+          <!-- Data points on line -->
+          <circle cx="90" cy="148" r="3.5" fill="#40B4F5"/>
+          <circle cx="160" cy="136" r="3.5" fill="#40B4F5"/>
+          <circle cx="230" cy="118" r="3.5" fill="#40B4F5"/>
+          <circle cx="300" cy="88" r="3.5" fill="#1EC9B7"/>
+          <circle cx="380" cy="20" r="4.5" fill="#F0C95A"><animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/></circle>
+          <!-- X-axis labels -->
+          <text x="90" y="163" font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.5)" text-anchor="middle">2026</text>
+          <text x="160" y="163" font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.5)" text-anchor="middle">2027</text>
+          <text x="230" y="163" font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.5)" text-anchor="middle">2028</text>
+          <text x="300" y="163" font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.5)" text-anchor="middle">2029</text>
+          <text x="380" y="163" font-family="monospace" font-size="8.5" fill="rgba(255,255,255,.5)" text-anchor="middle">2030</text>
+          <!-- Legend -->
+          <rect x="41" y="170" width="10" height="6" rx="1" fill="#40B4F5"/>
+          <text x="56" y="177" font-family="monospace" font-size="7" fill="rgba(255,255,255,.45)">Revenue (USD)</text>
+          <circle cx="130" cy="173" r="3" fill="none" stroke="rgba(64,180,245,.55)" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <line x1="123" y1="173" x2="137" y2="173" stroke="rgba(64,180,245,.55)" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <text x="142" y="177" font-family="monospace" font-size="7" fill="rgba(255,255,255,.45)">Growth Trend</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CORPORATE -->
+<section id="corp">
+<div class="container">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div class="s-label">Corporate Structure</div>
+    <h2 class="s-title">K-AI CONET Global Corporate Structure</h2>
+    <p class="s-sub" style="margin:0 auto;">US Parent + Korean Subsidiary · Three-country global structure</p>
+  </div>
+  <div class="corp-parent">
+    <div class="cp-title">K-AI CONET GROUP — US Parent</div>
+    <div class="cp-role">Global Revenue Hub · Patent IP · Marketing · AI Web Festival</div>
+    <div class="cp-desc">
+      <strong style="color:rgba(255,255,255,.72);">Wyoming LLC</strong> (EIN 35-2958028) — Core revenue, K-AI Wallet USPTO patent, <strong style="color:var(--gold-lt);">$USAI 10B issuance hub</strong><br>
+      <strong style="color:rgba(255,255,255,.72);">New York INC</strong> (EIN 35-2958214) — Product launches, marketing, New York AI Web Festival operations
+    </div>
+    <div class="cp-badges">
+      <span class="cpb cpb-b">USPTO Patent Held</span>
+      <span class="cpb cpb-g">$USAI 10B Issued</span>
+      <span class="cpb cpb-t">NY AI Web Festival</span>
+      <span class="cpb cpb-b">Global Revenue Hub</span>
+    </div>
+  </div>
+  <div class="corp-grid">
+    <div class="corp-card feat">
+      <div class="cc-ico g">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M3 20 L20 20 L22 24 L1 24Z" stroke="#C8970A" stroke-width=".9" fill="rgba(200,151,10,.1)"/><rect x="5" y="12" width="12" height="9" rx=".5" stroke="#C8970A" stroke-width=".8" fill="rgba(200,151,10,.06)"/><rect x="7" y="8" width="4" height="6" stroke="#F0C95A" stroke-width=".7" fill="rgba(200,151,10,.06)"/><rect x="20" y="6" width="4" height="16" rx="1" stroke="#C8970A" stroke-width=".8" fill="rgba(200,151,10,.08)"/><circle cx="22" cy="4.5" r="1.8" fill="#F0C95A"><animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/></circle></svg>
+      </div>
+      <div class="cc-nm">K-AI CONET Co., Ltd.</div>
+      <div class="cc-role">AI Development · Logistics · K-Culture · Seoul Festival</div>
+      <div class="cc-desc">
+        Business Reg. 692-86-02873<br>
+        Corp. Reg. 146223 · Founded 2022.08.25
+      </div>
+    </div>
+    <div class="corp-card">
+      <div class="cc-ico b">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><line x1="1" y1="22" x2="25" y2="22" stroke="rgba(37,150,232,.4)" stroke-width=".8"/><rect x="2" y="15" width="4" height="7" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/><rect x="7" y="11" width="4" height="11" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/><rect x="12" y="7" width="3" height="15" fill="rgba(37,150,232,.22)" stroke="#40B4F5" stroke-width=".6"/><rect x="16" y="11" width="4" height="11" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/><rect x="21" y="8" width="3" height="14" fill="rgba(37,150,232,.18)" stroke="#2596E8" stroke-width=".6"/><line x1="13.5" y1="4" x2="13.5" y2="7" stroke="#40B4F5" stroke-width=".8"/><circle cx="13.5" cy="3" r="1.3" fill="#40B4F5"><animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/></circle></svg>
+      </div>
+      <div class="cc-nm">K-AI CONET INC</div>
+      <div class="cc-role">Marketing · NY Festival · Product Launches</div>
+      <div class="cc-desc">
+        142 West 57th Street, 11th Floor<br>
+        New York, NY 10019<br>
+        DOS ID 7877356 · EIN 35-2958214<br>
+        Founded 2026.04.02
+      </div>
+    </div>
+    <div class="corp-card" style="cursor:pointer;" onclick="window.open('kaiconetwyoming_FINAL.html','_blank')" title="Open Wyoming LLC site">
+      <div class="cc-ico s">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="5" y="8" width="16" height="14" rx="3" stroke="rgba(141,212,245,.55)" stroke-width="1" fill="rgba(141,212,245,.05)"/><circle cx="13" cy="15" r="4" stroke="rgba(141,212,245,.5)" stroke-width=".9" fill="rgba(141,212,245,.08)"/><circle cx="13" cy="15" r="1.8" fill="rgba(141,212,245,.3)"/><text x="13" y="5.5" font-family="monospace" font-size="5.5" fill="rgba(141,212,245,.6)" text-anchor="middle" font-weight="bold">IP</text><path d="M3 8 L6.5 4 L10 8" stroke="rgba(141,212,245,.28)" stroke-width=".7" fill="none"/></svg>
+      </div>
+      <div class="cc-nm">K-AI CONET WYOMING LLC</div>
+      <div class="cc-role">Patent IP · $USAI Issuance · Revenue Hub</div>
+      <div class="cc-desc">
+        1621 Central Ave, Cheyenne<br>
+        WY 82001, USA<br>
+        EIN 35-2958028 · Founded 2026.04.12<br>
+        <strong style="color:var(--gold-lt);">$USAI 10B Issuing Entity</strong>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOUNDER -->
+<section id="founder">
+<div class="container">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div class="s-label">Founder</div>
+    <h2 class="s-title">About the Founder</h2>
+  </div>
+  <div class="founder-card">
+    <div>
+      <div class="founder-avatar">IL</div>
+    </div>
+    <div>
+      <div class="founder-name">IL KANG</div>
+      <div class="founder-title">Founder &amp; CEO · K-AI CONET GROUP</div>
+      <div class="founder-bio">
+        Founder of K-AI CONET, the global AI trade platform. A pioneer in fusing the digital content industry with Web3 technology, IL KANG has built a global business network bridging Korea and the United States.<br><br>
+        Board Director of Seoul Web Fest (2015–2024). Founded and trademark-registered the New York AI Web Festival and Seoul AI Web Festival. Realizing the vision that "the world is one market" through the fusion of AI, blockchain, and global trade.
+      </div>
+      <div class="founder-tags">
+        <span class="ftag">Seoul Web Fest 2015–2024</span>
+        <span class="ftag">Founder · NY AI Web Festival</span>
+        <span class="ftag">Founder · Seoul AI Web Festival</span>
+        <span class="ftag">Entities in 3 Countries</span>
+        <span class="ftag">USPTO · KIPO Patents Filed</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA / CONTACT -->
+<section id="cta">
+<div class="container">
+  <div class="cta-box">
+    <div class="cta-title">Investor Inquiry</div>
+    <div class="cta-sub">
+      Join the global AI trade revolution with K-AI CONET.<br>
+      Seed Round $5M · $USAI 10B · Coverage across 5 oceans, 6 continents
+    </div>
+    <!-- Big supply reminder -->
+    <div style="display:inline-block;padding:1rem 2rem;border-radius:12px;background:rgba(200,151,10,.12);border:1px solid rgba(200,151,10,.3);margin-bottom:1.5rem;">
+      <div style="font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:900;color:var(--gold-lt);">$USAI 10 Billion Supply</div>
+      <div style="font-size:.72rem;color:rgba(200,151,10,.6);margin-top:.2rem;">10,000,000,000 · K-AI CONET WYOMING LLC · Fixed Supply</div>
+    </div>
+    <div class="contact-rows">
+      <div class="cr">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="#40B4F5" stroke-width="1"/><path d="M1 5 L8 9 L15 5" stroke="#40B4F5" stroke-width="1"/></svg>
+        <strong>ceo@k-aiconet.com</strong>
+      </div>
+      <div class="cr">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="4" y="1" width="8" height="14" rx="2" stroke="#40B4F5" stroke-width="1"/><circle cx="8" cy="12" r="1" fill="#40B4F5"/></svg>
+        <span>☎️ +1 332-254-9709 &nbsp;|&nbsp;  +82 10-4353-2505</span>
+      </div>
+      <div class="cr">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5 C4.5 1.5 1.5 4.5 1.5 8 C1.5 12.5 8 15 8 15 C8 15 14.5 12.5 14.5 8 C14.5 4.5 11.5 1.5 8 1.5Z" stroke="#40B4F5" stroke-width="1"/><circle cx="8" cy="7.5" r="2" stroke="#40B4F5" stroke-width=".8"/></svg>
+        <span>🏢 142 West 57th St, 11F, New York, NY 10019</span>
+      </div>
+      
+      <div class="cr">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#40B4F5" stroke-width="1"/><line x1="5" y1="8" x2="11" y2="8" stroke="#40B4F5" stroke-width=".9"/><path d="M8 1.5 C8 1.5 11 4.5 11 8 C11 11.5 8 14.5 8 14.5 C8 14.5 5 11.5 5 8 C5 4.5 8 1.5 8 1.5Z" stroke="#40B4F5" stroke-width=".8" fill="none"/></svg>
+        <span>k-aiconet.com</span>
+      </div>
+    </div>
+    <a href="mailto:ceo@k-aiconet.com" class="btn-m">Email Inquiry</a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div>© 2026 K-AI CONET GROUP · USAI Wallet Brochure · $USAI 10B Issued · K-AI CONET WYOMING LLC</div>
+  <div>This document is provided for informational purposes only and does not constitute an investment offer. Professional consultation is recommended before any actual investment.</div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';}});},{threshold:.07});
+document.querySelectorAll('.wf-card,.step,.sec-card,.region-card,.road-card,.corp-card,.pat-card,.al-item').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='all .55s ease';obs.observe(el);
+});
+</script>
+
+<!-- USAI Wallet Demo Modal -->
+<div id="walletModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(1,12,26,.92);backdrop-filter:blur(16px);align-items:center;justify-content:center;">
+  <div style="background:linear-gradient(145deg,rgba(6,33,63,.98),rgba(10,58,107,.85));border:1px solid rgba(37,150,232,.35);border-radius:24px;padding:2.8rem;max-width:520px;width:92%;text-align:center;position:relative;">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1278D0,#40B4F5,#1EC9B7);border-radius:24px 24px 0 0;"></div>
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" style="margin:0 auto 1rem;display:block;">
+      <circle cx="26" cy="26" r="24" fill="rgba(37,150,232,.12)" stroke="rgba(37,150,232,.35)" stroke-width="1.2"/>
+      <rect x="16" y="14" width="20" height="26" rx="4" stroke="#40B4F5" stroke-width="1.4" fill="rgba(37,150,232,.1)"/>
+      <rect x="19" y="18" width="14" height="9" rx="1.5" fill="rgba(37,150,232,.2)" stroke="#40B4F5" stroke-width=".7"/>
+      <circle cx="26" cy="34" r="2.5" fill="#40B4F5"/>
+      <path d="M22 23 L24 25 L30 19" stroke="#1EC9B7" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    <div style="font-family:'Orbitron',sans-serif;font-size:.68rem;letter-spacing:.22em;color:rgba(64,180,245,.65);margin-bottom:.6rem;">USAI WALLET · DEMO</div>
+    <h3 style="font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.4rem;">Choose App Demo Version</h3>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:1.5rem;">AI Trade Matching · Iris Auth · Blockchain Payments · $USAI 10 Billion</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;">
+      <button onclick="window.open('USAI_Wallet_v7_KCulture.html','_blank');closeWalletModal();"
+        style="padding:1rem 1.8rem;border-radius:14px;background:linear-gradient(135deg,#1278D0,#40B4F5);color:#fff;font-weight:700;font-size:.88rem;border:none;cursor:pointer;min-width:175px;">
+        <div>🇰🇷 Korean Demo</div>
+        <div style="font-size:.65rem;opacity:.7;margin-top:.2rem;">Korean Version</div>
+      </button>
+      <button onclick="window.open('USAI_Wallet_v6_EN1_IRIS_TX.html','_blank');closeWalletModal();"
+        style="padding:1rem 1.8rem;border-radius:14px;background:linear-gradient(135deg,#0E9E8A,#1EC9B7);color:#fff;font-weight:700;font-size:.88rem;border:none;cursor:pointer;min-width:175px;">
+        <div>🇺🇸 English Demo</div>
+        <div style="font-size:.65rem;opacity:.7;margin-top:.2rem;">English Version</div>
+      </button>
+    </div>
+    <button onclick="closeWalletModal()"
+      style="background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.35);padding:.5rem 1.8rem;border-radius:50px;cursor:pointer;font-size:.75rem;">
+      Close
+    </button>
+  </div>
+</div>
+<script>
+function showWalletChoice(){document.getElementById('walletModal').style.display='flex';}
+function closeWalletModal(){document.getElementById('walletModal').style.display='none';}
+document.addEventListener('DOMContentLoaded',function(){
+  var m=document.getElementById('walletModal');
+  if(m)m.addEventListener('click',function(e){if(e.target===this)closeWalletModal();});
+});
+</script>
+
+</body>
+</html>
