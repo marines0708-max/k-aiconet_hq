@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>K-AI CONET — Global AI Trade & Finance Platform</title>
+<title>K-AI CONET INC — New York</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:#04080F;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Inter',sans-serif;color:#fff;}
@@ -17,15 +17,16 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="logo">K-AI CONET</div>
+  <div class="logo">K-AI CONET · NEW YORK</div>
   <div class="spinner"></div>
   <div class="msg">Loading...</div>
 </div>
 <script>
 (function(){
   var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
-  var isKorean=lang==='ko'||lang.startsWith('ko-');
-  var target=isKorean?'k-aiconet-busan-FINAL.html':'k-aiconet-busan-EN.html';
+  var prefix=lang.split('-')[0];
+  var map={'ko':'index_kr.html','ar':'index_ar.html','es':'index_es.html','hi':'index_hi.html','ja':'index_ja.html','zh':'index_zh.html'};
+  var target=map[prefix]||'index_en.html';
   setTimeout(function(){window.location.replace(target);},400);
 })();
 </script>
