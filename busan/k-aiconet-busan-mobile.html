@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>K-AI CONET Co.,Ltd — Busan</title>
+<meta name="description" content="K-AI CONET 부산법인 | AI·블록체인 글로벌 무역 플랫폼">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #04080F;
+  --bg2: #061526;
+  --blue: #2596E8;
+  --cyan: #40B4F5;
+  --gold: #C8970A;
+  --mu: rgba(255,255,255,0.5);
+  --hint: rgba(255,255,255,0.35);
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:#fff; font-family:'Inter',sans-serif; font-size:15px; line-height:1.6; overflow-x:hidden; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1.2rem; background:rgba(4,8,15,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(37,150,232,0.12); }
+.nav-logo { font-family:'Orbitron',sans-serif; font-size:0.75rem; letter-spacing:2px; color:#fff; }
+.nav-logo span { color:var(--cyan); }
+.lang-btn { font-size:0.7rem; padding:4px 10px; border:1px solid rgba(37,150,232,0.4); border-radius:20px; color:var(--cyan); cursor:pointer; background:transparent; }
+
+/* HERO */
+#hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 1.4rem 60px; background:radial-gradient(ellipse at 50% 30%, rgba(37,150,232,0.12) 0%, transparent 70%); position:relative; overflow:hidden; }
+.stars-bg { position:absolute; inset:0; background-image:radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%), radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.35) 0%, transparent 100%), radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,0.25) 0%, transparent 100%), radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.3) 0%, transparent 100%); pointer-events:none; }
+.eyebrow { font-size:0.6rem; letter-spacing:2.5px; color:rgba(37,150,232,0.55); text-transform:uppercase; margin-bottom:1.2rem; padding:5px 14px; border:1px solid rgba(37,150,232,0.2); border-radius:20px; display:inline-block; }
+.h-title { font-family:'Orbitron',sans-serif; font-size:1.8rem; line-height:1.25; font-weight:700; margin-bottom:1rem; word-break:keep-all; }
+.h-title .c1 { color:#fff; }
+.h-title .c2 { color:var(--cyan); }
+.h-title .c3 { color:var(--gold); font-style:italic; }
+.h-sub { font-size:0.88rem; color:var(--mu); line-height:1.7; margin-bottom:1.6rem; word-break:keep-all; }
+.vpills { display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:center; margin-bottom:1.8rem; }
+.vp { font-size:0.68rem; padding:5px 10px; border-radius:20px; border:1px solid rgba(37,150,232,0.3); color:rgba(255,255,255,0.7); }
+.vp.t { border-color:rgba(200,151,10,0.35); color:rgba(255,220,100,0.8); }
+.vp.g { border-color:rgba(30,201,183,0.35); color:rgba(30,201,183,0.8); }
+.hbtns { display:flex; flex-direction:column; gap:0.8rem; width:100%; max-width:280px; }
+.btn-m { display:block; padding:0.9rem; border-radius:50px; background:linear-gradient(135deg,#1278D0,#40B4F5); color:#fff; font-weight:700; font-size:0.88rem; text-decoration:none; text-align:center; }
+.btn-g { display:block; padding:0.85rem; border-radius:50px; border:1px solid rgba(37,150,232,0.4); color:var(--cyan); font-size:0.85rem; text-decoration:none; text-align:center; }
+.stats-strip { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-top:2.5rem; padding-top:2rem; border-top:1px solid rgba(37,150,232,0.12); width:100%; }
+.stat { text-align:center; }
+.sn { font-family:'Orbitron',sans-serif; font-size:1.6rem; color:var(--cyan); font-weight:700; }
+.sl { font-size:0.65rem; color:var(--hint); letter-spacing:1px; margin-top:0.2rem; }
+
+/* SECTIONS */
+section { padding:3.5rem 1.2rem; }
+.sec-label { font-size:0.6rem; letter-spacing:3px; color:rgba(37,150,232,0.5); text-transform:uppercase; margin-bottom:0.6rem; }
+.sec-title { font-size:1.4rem; font-weight:700; line-height:1.3; margin-bottom:0.8rem; word-break:keep-all; }
+.sec-sub { font-size:0.85rem; color:var(--mu); line-height:1.7; margin-bottom:2rem; word-break:keep-all; }
+.divider { height:1px; background:linear-gradient(90deg,transparent,rgba(37,150,232,0.2),transparent); margin:0; }
+
+/* WHAT CARDS */
+.wcard { background:rgba(6,33,63,0.4); border:1px solid rgba(37,150,232,0.15); border-radius:14px; padding:1.4rem; margin-bottom:1rem; cursor:pointer; }
+.wcard.t { border-color:rgba(200,151,10,0.2); }
+.wcard.g { border-color:rgba(30,201,183,0.2); }
+.wcard-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:0.8rem; font-size:1.2rem; }
+.wcard-icon.b { background:rgba(37,150,232,0.12); }
+.wcard-icon.t { background:rgba(200,151,10,0.12); }
+.wcard-icon.g { background:rgba(30,201,183,0.12); }
+.wcard-title { font-size:0.95rem; font-weight:700; margin-bottom:0.4rem; }
+.wcard-desc { font-size:0.78rem; color:var(--mu); line-height:1.6; margin-bottom:0.8rem; word-break:keep-all; }
+.wtags { display:flex; flex-wrap:wrap; gap:0.3rem; }
+.wtag { font-size:0.62rem; padding:3px 8px; border-radius:10px; }
+.wtag.tb { background:rgba(37,150,232,0.12); color:rgba(37,150,232,0.8); }
+.wtag.tt { background:rgba(200,151,10,0.12); color:rgba(200,151,10,0.8); }
+.wtag.tg { background:rgba(30,201,183,0.12); color:rgba(30,201,183,0.8); }
+
+/* STEPS */
+.steps { display:flex; flex-direction:column; gap:0; }
+.step { display:flex; gap:1rem; padding:1rem 0; border-left:2px solid rgba(37,150,232,0.2); margin-left:0.8rem; padding-left:1.2rem; position:relative; }
+.step::before { content:''; position:absolute; left:-5px; top:1.2rem; width:8px; height:8px; border-radius:50%; background:var(--cyan); }
+.step-num { font-size:0.6rem; color:var(--cyan); letter-spacing:1px; margin-bottom:0.2rem; }
+.step-title { font-size:0.9rem; font-weight:700; margin-bottom:0.2rem; }
+.step-desc { font-size:0.78rem; color:var(--mu); }
+
+/* PLATFORM LIST */
+.pl-item { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 0; border-bottom:1px solid rgba(37,150,232,0.08); }
+.pl-t { font-size:0.88rem; font-weight:600; margin-bottom:0.2rem; }
+.pl-d { font-size:0.7rem; color:var(--hint); }
+.pl-badge { font-size:0.6rem; padding:3px 8px; border-radius:10px; white-space:nowrap; margin-left:0.5rem; }
+.bon { background:rgba(30,201,183,0.12); color:rgba(30,201,183,0.8); }
+.bdev { background:rgba(37,150,232,0.12); color:rgba(37,150,232,0.8); }
+.bplan { background:rgba(200,151,10,0.12); color:rgba(200,151,10,0.8); }
+
+/* FESTIVAL */
+.fest-card { background:rgba(6,33,63,0.4); border-radius:14px; overflow:hidden; margin-bottom:1rem; }
+.fest-img { width:100%; height:180px; object-fit:cover; display:block; }
+.fest-body { padding:1.2rem; }
+.fest-title { font-size:1rem; font-weight:700; margin-bottom:0.4rem; }
+.fest-date { font-size:0.75rem; color:var(--cyan); margin-bottom:0.6rem; }
+.fest-desc { font-size:0.78rem; color:var(--mu); line-height:1.6; }
+
+/* GROUP */
+.gcard { background:rgba(6,33,63,0.3); border-radius:14px; padding:1.4rem; margin-bottom:1rem; }
+.gcard.gold { border:1px solid rgba(200,151,10,0.25); }
+.gcard.blue { border:1px solid rgba(37,150,232,0.22); }
+.gcard.light { border:1px solid rgba(141,212,245,0.18); }
+.gcard-name { font-size:0.95rem; font-weight:700; margin-bottom:0.2rem; }
+.gcard-role { font-size:0.7rem; margin-bottom:0.8rem; }
+.gcard-role.gold { color:rgba(200,151,10,0.85); }
+.gcard-role.blue { color:rgba(37,150,232,0.85); }
+.gcard-role.light { color:rgba(141,212,245,0.75); }
+.gcard-info { font-size:0.75rem; color:var(--hint); line-height:1.8; }
+
+/* CONTACT */
+.contact-card { background:rgba(6,33,63,0.2); border:1px solid rgba(37,150,232,0.14); border-radius:16px; padding:1.8rem 1.2rem; text-align:center; }
+.contact-avatar { width:52px; height:52px; border-radius:50%; border:1px solid rgba(37,150,232,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+.contact-name { font-weight:700; font-size:1rem; margin-bottom:0.2rem; }
+.contact-title { font-size:0.75rem; color:var(--cyan); margin-bottom:1.2rem; }
+.cr { display:flex; align-items:center; justify-content:center; gap:0.5rem; font-size:0.82rem; color:var(--mu); margin-bottom:0.5rem; }
+.cr strong { color:#fff; }
+.divline { height:1px; background:rgba(37,150,232,0.15); margin:1rem 0; }
+.email-btn { display:block; margin-top:1.4rem; padding:0.85rem; border-radius:50px; background:linear-gradient(135deg,#1278D0,#40B4F5); color:#fff; font-weight:700; font-size:0.88rem; text-decoration:none; text-align:center; }
+
+/* FOOTER */
+footer { background:rgba(4,8,15,0.95); border-top:1px solid rgba(37,150,232,0.1); padding:1.2rem; text-align:center; font-size:0.65rem; color:var(--hint); line-height:2; }
+
+/* POSTER MODAL */
+.modal { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.92); overflow-y:auto; }
+.modal.open { display:flex; flex-direction:column; }
+.modal-top { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.2rem; border-bottom:1px solid rgba(255,255,255,0.1); }
+.modal-close { font-size:1.4rem; color:#fff; cursor:pointer; background:none; border:none; }
+.modal img { width:100%; display:block; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">K-<span>AI</span> CONET</div>
+  <button class="lang-btn" onclick="toggleLang()">🌐 <span id="langLabel">EN</span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="stars-bg"></div>
+  <div class="eyebrow">BUSAN · NEW YORK · WYOMING · GLOBAL AI PLATFORM</div>
+  <h1 class="h-title">
+    <span class="c1" id="h1a">AI로 연결하는</span><br>
+    <span class="c2" id="h1b">글로벌 무역</span> &amp; <span class="c3" id="h1c">블록체인 결제</span>
+  </h1>
+  <p class="h-sub" id="hsub">K-AI CONET는 AI 매칭 엔진과 멀티체인 월렛으로<br>한국 공급자와 전 세계 바이어를 직접 연결하고 결제까지 해결합니다</p>
+  <div class="vpills">
+    <div class="vp" id="vp1">V-Match AI 무역 매칭</div>
+    <div class="vp t" id="vp2">K-AI Wallet 블록체인 결제</div>
+    <div class="vp g" id="vp3">K-컬쳐 글로벌 수출</div>
+    <div class="vp" id="vp4">부산항 물류·무역</div>
+    <div class="vp g" id="vp5">Seoul/NY AI Web Festival</div>
+  </div>
+  <div class="hbtns">
+    <a href="#what" class="btn-m" id="btn1">우리가 하는 일 보기</a>
+    <a href="#contact" class="btn-g" id="btn2">파트너십 문의</a>
+  </div>
+  <div class="stats-strip">
+    <div class="stat"><div class="sn">3</div><div class="sl">글로벌 법인</div></div>
+    <div class="stat"><div class="sn">2</div><div class="sl">AI Web Festival</div></div>
+    <div class="stat"><div class="sn" style="font-size:1.1rem;">특허</div><div class="sl">USPTO·KIPO</div></div>
+    <div class="stat"><div class="sn" style="font-size:1.1rem;">TM</div><div class="sl">상표등록 완료</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT WE DO -->
+<section id="what">
+  <div class="sec-label" id="wlabel">What We Do</div>
+  <h2 class="sec-title" id="wtitle">K-AI CONET,<br>무엇을 하는 회사인가요?</h2>
+  <p class="sec-sub" id="wsub">AI·블록체인·Web3 기술로 글로벌 무역·결제·K-컬쳐를 하나로 연결하는 AI 플랫폼 기업입니다</p>
+
+  <div class="wcard b" onclick="openModal('vmatch')">
+    <div class="wcard-icon b">🔗</div>
+    <div class="wcard-title" id="wc1t">V-Match AI Engine<br>글로벌 무역 매칭</div>
+    <div class="wcard-desc" id="wc1d">한국 공급자와 전 세계 바이어를 AI가 자동으로 최적 매칭합니다. 6개 벡터로 분석, 수개월 걸리던 해외 바이어 발굴을 즉시 처리합니다.</div>
+    <div class="wtags"><span class="wtag tb">6-Vector AI 분석</span><span class="wtag tb">B2B 자동 매칭</span><span class="wtag tb">KIPO 특허출원</span></div>
+  </div>
+
+  <div class="wcard t" onclick="openModal('wallet')">
+    <div class="wcard-icon t">💎</div>
+    <div class="wcard-title" id="wc2t">K-AI Wallet<br>블록체인 결제 시스템</div>
+    <div class="wcard-desc" id="wc2d">무역 대금을 블록체인 기반으로 안전하게 결제하는 멀티체인 지갑. 이더리움·폴리곤 지원, 실시간 국제 송금, $USAI 토큰으로 수수료 할인.</div>
+    <div class="wtags"><span class="wtag tt">멀티체인 결제</span><span class="wtag tt">스마트 컨트랙트</span><span class="wtag tt">USPTO 특허출원</span></div>
+  </div>
+
+  <div class="wcard g" onclick="openModal('kculture')">
+    <div class="wcard-icon g">🌏</div>
+    <div class="wcard-title" id="wc3t">K-컬쳐 글로벌 무역<br>수출 플랫폼</div>
+    <div class="wcard-desc" id="wc3d">K-드라마·K-뷰티·K-푸드 등 한국 콘텐츠와 상품을 세계 시장으로 수출합니다. 부산항 선적·통관 → AI 매칭 → 블록체인 결제까지 원스톱 처리.</div>
+    <div class="wtags"><span class="wtag tg">K-컬쳐 수출</span><span class="wtag tg">부산항 물류</span><span class="wtag tg">원스톱 무역</span></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="sec-label">Platform</div>
+  <h2 class="sec-title" id="htitle">어떻게 작동하나요?</h2>
+  <p class="sec-sub" id="hsub2">셀러 등록부터 글로벌 블록체인 결제까지 — 원스톱 AI 무역 플랫폼</p>
+  <div class="steps">
+    <div class="step"><div><div class="step-num">STEP 01</div><div class="step-title" id="s1t">셀러·바이어 등록</div><div class="step-desc" id="s1d">한국 공급자 또는 글로벌 바이어로 가입</div></div></div>
+    <div class="step"><div><div class="step-num">STEP 02</div><div class="step-title" id="s2t">V-Match AI 매칭</div><div class="step-desc" id="s2d">6-Vector AI가 최적 파트너 자동 연결</div></div></div>
+    <div class="step"><div><div class="step-num">STEP 03</div><div class="step-title" id="s3t">계약·부산항 선적</div><div class="step-desc" id="s3d">계약 체결 후 부산항 통관·선적 처리</div></div></div>
+    <div class="step"><div><div class="step-num">STEP 04</div><div class="step-title" id="s4t">블록체인 결제</div><div class="step-desc" id="s4d">K-AI Wallet 안전한 국제 송금 완료</div></div></div>
+  </div>
+  <div style="margin-top:2rem;">
+    <div class="pl-item"><div><div class="pl-t">V-Match AI Engine</div><div class="pl-d">KIPO 10-2026-0079874</div></div><span class="pl-badge bdev">개발 중</span></div>
+    <div class="pl-item"><div><div class="pl-t">K-AI Wallet</div><div class="pl-d">USPTO KAIC-2026-001</div></div><span class="pl-badge bdev">개발 중</span></div>
+    <div class="pl-item"><div><div class="pl-t">K-AI CONET 플랫폼</div><div class="pl-d">MetaMask 연동 · 글로벌 무역 포털</div></div><span class="pl-badge bon">운영 중</span></div>
+    <div class="pl-item" style="border:none;"><div><div class="pl-t">$USAI Token</div><div class="pl-d">유틸리티 토큰 · Reg D 506(c)</div></div><span class="pl-badge bplan">로드맵</span></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FESTIVAL -->
+<section id="festival">
+  <div class="sec-label">Festival</div>
+  <h2 class="sec-title" id="ftitle">AI Web Festival</h2>
+  <p class="sec-sub" id="fsub">AI·Web3·K-컬쳐가 만나는 글로벌 네트워킹 이벤트</p>
+
+  <div class="fest-card" onclick="openModal('ny-poster')">
+    <img src="NYAIWF_2026_Art_Poster.png" alt="New York AI Web Festival 2026" class="fest-img">
+    <div class="fest-body">
+      <div class="fest-title">🗽 New York AI Web Festival 2026</div>
+      <div class="fest-date">Sat. Oct 03, 2026 · 7:00 PM · Manhattan, NYC</div>
+      <div class="fest-desc">AP Space &amp; Café Wha?, Greenwich Village · B2B Networking · AI · Web3 · Capital</div>
+    </div>
+  </div>
+
+  <div class="fest-card" onclick="openModal('seoul-poster')">
+    <img src="SAIWF_2027_Digital_Poster.png" alt="Seoul AI Web Festival 2027" class="fest-img">
+    <div class="fest-body">
+      <div class="fest-title">🇰🇷 Seoul AI Web Festival 2027</div>
+      <div class="fest-date">Sat. May 08, 2027 · 7:00 PM · Lotte World Tower</div>
+      <div class="fest-desc">Signiel Seoul · 76F Studio · Songpa-gu, Seoul · $USAI Wallet Launch Night</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GROUP STRUCTURE -->
+<section id="group">
+  <div class="sec-label">Group Structure</div>
+  <h2 class="sec-title" id="gtitle">K-AI CONET<br>글로벌 법인 구조</h2>
+  <p class="sec-sub" id="gsub">미국 모법인 + 한국 자회사로 구성된 글로벌 3각 체계</p>
+
+  <div class="gcard gold">
+    <div class="gcard-name">주식회사 케이에이아이코넷</div>
+    <div class="gcard-role gold">AI 개발 · 물류 · K-컬처 · Seoul Festival</div>
+    <div class="gcard-info">
+      사업자등록번호 692-86-02873<br>
+      법인등기번호 146223<br>
+      설립 2022.08.25<br>
+      <span style="color:rgba(200,151,10,0.6);font-size:0.72rem;">© 2026 K-AI CONET Co.,Ltd · Busan, Korea</span><br>
+      <span style="color:rgba(255,255,255,0.3);font-size:0.68rem;">Subsidiary of K-AI CONET Group USA</span>
+    </div>
+  </div>
+
+  <div class="gcard blue">
+    <div class="gcard-name">K-AI CONET INC</div>
+    <div class="gcard-role blue">마케팅 · NY 페스티벌 · 제품 런칭</div>
+    <div class="gcard-info">New York C-Corp<br>Mercury Bank · 142 W 57th St, 11F, New York, NY 10019<br>DOS ID 7877356 · EIN 35-2958214 · 설립 2026.04.02</div>
+  </div>
+
+  <div class="gcard light">
+    <div class="gcard-name">K-AI CONET WYOMING LLC</div>
+    <div class="gcard-role light">특허 IP · $USAI 발행 · 수익 허브</div>
+    <div class="gcard-info">Wyoming LLC · 1621 Central Ave, Cheyenne WY 82001<br>EIN 35-2958028 · 설립 2026.04.12<br><span style="color:var(--gold);font-size:0.75rem;">$USAI 100억개 발행 법인</span></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">Contact</div>
+  <h2 class="sec-title" id="ctitle">파트너십 문의하기</h2>
+  <div class="contact-card">
+    <div class="contact-avatar">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="rgba(64,180,245,0.7)" stroke-width="1.2"/><path d="M3 19c0-4 3.6-7 8-7s8 3 8 7" stroke="rgba(64,180,245,0.7)" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+    <div class="contact-name">IL KANG (강일)</div>
+    <div class="contact-title">Founder &amp; CEO · K-AI CONET Co.,Ltd</div>
+    <div class="divline"></div>
+    <div class="cr"><strong>ceo@k-aiconet.com</strong></div>
+    <div class="cr">+1 332-254-9709 &nbsp;|&nbsp; +82 10-4353-2505</div>
+    <div class="cr">Fax: +1 320-300-3070</div>
+    <div class="cr">142 West 57th St, 11F, New York, NY 10019</div>
+    <a href="mailto:ceo@k-aiconet.com" class="email-btn" id="ebtn">이메일 문의하기</a>
+  </div>
+</section>
+
+<footer>
+  <div>142 West 57th St, 11F, New York, NY 10019</div>
+  <div>© 2026 K-AI CONET Co.,Ltd · Busan, Korea — Subsidiary of K-AI CONET Group USA</div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal" id="modal-vmatch">
+  <div class="modal-top"><span>V-Match AI Engine</span><button class="modal-close" onclick="closeModal('vmatch')">✕</button></div>
+  <iframe src="USAI_Wallet_v6_EN1_IRIS_TX.html" style="flex:1;border:none;width:100%;"></iframe>
+</div>
+<div class="modal" id="modal-wallet">
+  <div class="modal-top"><span>K-AI Wallet</span><button class="modal-close" onclick="closeModal('wallet')">✕</button></div>
+  <iframe src="USAI_Wallet_v7_KCulture.html" style="flex:1;border:none;width:100%;"></iframe>
+</div>
+<div class="modal" id="modal-kculture">
+  <div class="modal-top"><span>K-컬쳐 브로셔</span><button class="modal-close" onclick="closeModal('kculture')">✕</button></div>
+  <iframe src="USAI_Wallet_Brochure_2026_v3.html" style="flex:1;border:none;width:100%;"></iframe>
+</div>
+<div class="modal" id="modal-ny-poster">
+  <div class="modal-top"><span>NY AI Web Festival 2026</span><button class="modal-close" onclick="closeModal('ny-poster')">✕</button></div>
+  <img src="NYAIWF_2026_Art_Poster.png" alt="NY poster" style="width:100%;display:block;">
+</div>
+<div class="modal" id="modal-seoul-poster">
+  <div class="modal-top"><span>Seoul AI Web Festival 2027</span><button class="modal-close" onclick="closeModal('seoul-poster')">✕</button></div>
+  <img src="SAIWF_2027_Digital_Poster.png" alt="Seoul poster" style="width:100%;display:block;">
+</div>
+
+<script>
+// 언어 전환
+var isKR = true;
+var texts = {
+  h1a: ['AI로 연결하는', 'Connecting the World via'],
+  h1b: ['글로벌 무역', 'Global Trade'],
+  h1c: ['블록체인 결제', 'Blockchain Payment'],
+  hsub: ['K-AI CONET는 AI 매칭 엔진과 멀티체인 월렛으로\n한국 공급자와 전 세계 바이어를 직접 연결하고 결제까지 해결합니다',
+         'K-AI CONET connects Korean suppliers with global buyers\nthrough AI matching and multi-chain blockchain payment.'],
+  vp1:['V-Match AI 무역 매칭','V-Match AI Trade Matching'],
+  vp2:['K-AI Wallet 블록체인 결제','K-AI Wallet Blockchain Payment'],
+  vp3:['K-컬쳐 글로벌 수출','K-Culture Global Export'],
+  vp4:['부산항 물류·무역','Busan Port Logistics'],
+  vp5:['Seoul/NY AI Web Festival','Seoul/NY AI Web Festival'],
+  btn1:['우리가 하는 일 보기','What We Do'],
+  btn2:['파트너십 문의','Contact Us'],
+  wtitle:['K-AI CONET,\n무엇을 하는 회사인가요?','What Does\nK-AI CONET Do?'],
+  wsub:['AI·블록체인·Web3 기술로 글로벌 무역·결제·K-컬쳐를 하나로 연결하는 AI 플랫폼 기업입니다',
+        'An AI platform company connecting global trade, payments, and K-Culture through AI, blockchain, and Web3.'],
+  wc1t:['V-Match AI Engine\n글로벌 무역 매칭','V-Match AI Engine\nGlobal Trade Matching'],
+  wc1d:['한국 공급자와 전 세계 바이어를 AI가 자동으로 최적 매칭합니다. 6개 벡터로 분석, 수개월 걸리던 해외 바이어 발굴을 즉시 처리합니다.',
+        'AI automatically matches Korean suppliers with global buyers using 6-vector analysis, replacing months of manual search.'],
+  wc2t:['K-AI Wallet\n블록체인 결제 시스템','K-AI Wallet\nBlockchain Payment System'],
+  wc2d:['무역 대금을 블록체인 기반으로 안전하게 결제하는 멀티체인 지갑. 이더리움·폴리곤 지원, 실시간 국제 송금.',
+        'A multi-chain wallet for secure blockchain-based trade payments. Supports Ethereum, Polygon, and real-time international transfers.'],
+  wc3t:['K-컬쳐 글로벌 무역\n수출 플랫폼','K-Culture Global Trade\nExport Platform'],
+  wc3d:['K-드라마·K-뷰티·K-푸드 등 한국 콘텐츠와 상품을 세계 시장으로 수출합니다. 부산항 선적·통관 → AI 매칭 → 블록체인 결제까지 원스톱 처리.',
+        'Exports Korean content and products (K-Drama, K-Beauty, K-Food) worldwide. One-stop: Busan port logistics → AI matching → blockchain payment.'],
+  htitle:['어떻게 작동하나요?','How Does It Work?'],
+  hsub2:['셀러 등록부터 글로벌 블록체인 결제까지 — 원스톱 AI 무역 플랫폼','From seller registration to global blockchain payment — One-Stop AI Trade Platform'],
+  s1t:['셀러·바이어 등록','Seller·Buyer Registration'],
+  s1d:['한국 공급자 또는 글로벌 바이어로 가입','Sign up as Korean supplier or global buyer'],
+  s2t:['V-Match AI 매칭','V-Match AI Matching'],
+  s2d:['6-Vector AI가 최적 파트너 자동 연결','6-Vector AI auto-connects optimal partners'],
+  s3t:['계약·부산항 선적','Contract · Busan Port Shipping'],
+  s3d:['계약 체결 후 부산항 통관·선적 처리','Contract signed, customs & shipping via Busan Port'],
+  s4t:['블록체인 결제','Blockchain Payment'],
+  s4d:['K-AI Wallet 안전한 국제 송금 완료','Secure international payment via K-AI Wallet'],
+  ftitle:['AI Web Festival','AI Web Festival'],
+  fsub:['AI·Web3·K-컬쳐가 만나는 글로벌 네트워킹 이벤트','Global networking where AI, Web3, and K-Culture converge'],
+  gtitle:['K-AI CONET\n글로벌 법인 구조','K-AI CONET\nGlobal Corporate Structure'],
+  gsub:['미국 모법인 + 한국 자회사로 구성된 글로벌 3각 체계','Global tri-entity structure: US parent companies + Korean subsidiary'],
+  ctitle:['파트너십 문의하기','Contact Us'],
+  ebtn:['이메일 문의하기','Send Email Inquiry'],
+  langLabel:['EN','KR']
+};
+
+function toggleLang(){
+  isKR = !isKR;
+  var idx = isKR ? 0 : 1;
+  Object.keys(texts).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.innerHTML = texts[id][idx].replace(/\n/g,'<br>');
+  });
+}
+
+// 모달
+function openModal(id){
+  document.getElementById('modal-'+id).classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(id){
+  document.getElementById('modal-'+id).classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
+</body>
+</html>
