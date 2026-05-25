@@ -25,8 +25,15 @@
 (function(){
   var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
   var prefix=lang.split('-')[0];
-  var map={'ko':'index_kr.html','ar':'index_ar.html','es':'index_es.html','hi':'index_hi.html','ja':'index_ja.html','zh':'index_zh.html'};
-  var target=map[prefix]||'index_en.html';
+  var map={
+    'ko':'https://k-aiconet.com/index_kr.html',
+    'ar':'https://k-aiconet.com/index_ar.html',
+    'es':'https://k-aiconet.com/index_es.html',
+    'hi':'https://k-aiconet.com/index_hi.html',
+    'ja':'https://k-aiconet.com/index_ja.html',
+    'zh':'https://k-aiconet.com/index_zh.html'
+  };
+  var target=map[prefix]||'https://k-aiconet.com/index_en.html';
   setTimeout(function(){window.location.replace(target);},400);
 })();
 </script>
