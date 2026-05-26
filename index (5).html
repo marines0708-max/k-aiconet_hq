@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>K-AI CONET GROUP — Global AI Trade & Blockchain Payment Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#020810;--bg2:#030D1A;
+  --cyan:#00C8FF;--foam:#40B4F5;
+  --gold:#C8A84B;--gold2:#F5D06E;
+  --teal:#1EC9B7;--purple:#9B6DFF;
+  --mu:rgba(160,200,255,.55);
+}
+html{scroll-behavior:smooth;background:var(--bg);}
+body{font-family:'Inter',sans-serif;color:#fff;overflow-x:hidden;min-height:100vh;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 80%,rgba(0,100,200,.15) 0%,transparent 55%),
+    radial-gradient(ellipse 55% 45% at 85% 15%,rgba(30,201,183,.1) 0%,transparent 50%),
+    linear-gradient(160deg,#010810 0%,#021020 40%,#041828 70%,#061E32 100%);}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,200,255,.3)}50%{box-shadow:0 0 0 12px rgba(0,200,255,.0)}}
+
+/* GRID BG */
+.bg-grid{position:fixed;inset:0;background-image:linear-gradient(rgba(0,200,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,255,.018) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(2,8,16,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,200,255,.08);}
+.nav-logo{font-family:'Orbitron',sans-serif;font-size:.95rem;font-weight:700;color:var(--gold2);letter-spacing:.12em;}
+.nav-logo span{color:var(--cyan);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.nav-lang{font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:.1em;padding:5px 10px;border-radius:6px;border:1px solid rgba(0,200,255,.15);color:var(--mu);text-decoration:none;transition:all .2s;}
+.nav-lang:hover,.nav-lang.active{color:var(--cyan);border-color:rgba(0,200,255,.4);background:rgba(0,200,255,.06);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 20px;border:1px solid rgba(200,168,75,.28);border-radius:40px;font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:.2em;color:var(--gold2);background:rgba(200,168,75,.06);margin-bottom:1.8rem;}
+.hero-dot{width:5px;height:5px;border-radius:50%;background:var(--gold2);animation:blink 1.5s ease-in-out infinite;flex-shrink:0;}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5.5vw,4rem);font-weight:900;line-height:1.08;margin-bottom:1rem;}
+.hero h1 .t1{color:var(--foam);}
+.hero h1 .t2{background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero h1 .t3{color:#fff;}
+.hero-sub{font-size:clamp(.88rem,2vw,1.05rem);color:var(--mu);line-height:1.88;margin-bottom:1rem;max-width:620px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:3rem;}
+.chip{font-family:'Orbitron',sans-serif;font-size:.54rem;letter-spacing:.11em;border-radius:20px;padding:6px 14px;border:1px solid;}
+.cc{color:var(--cyan);border-color:rgba(0,200,255,.22);background:rgba(0,200,255,.04);}
+.cg{color:var(--gold2);border-color:rgba(200,168,75,.22);background:rgba(200,168,75,.04);}
+.ct{color:var(--teal);border-color:rgba(30,201,183,.22);background:rgba(30,201,183,.04);}
+
+/* MAIN CARDS */
+.hub{padding:0 24px 80px;position:relative;z-index:1;max-width:1100px;margin:0 auto;}
+.hub-title{font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:.22em;color:var(--cyan);text-align:center;margin-bottom:2rem;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+
+/* 카드 스타일 */
+.hub-card{border-radius:22px;border:1px solid;padding:2rem;position:relative;overflow:hidden;transition:all .35s;cursor:pointer;text-decoration:none;display:block;}
+.hub-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:currentColor;opacity:.4;}
+.hub-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.4);}
+.hub-card::after{content:'→';position:absolute;bottom:1.5rem;right:1.8rem;font-size:1.2rem;opacity:.4;transition:all .3s;}
+.hub-card:hover::after{opacity:1;transform:translateX(4px);}
+
+/* 카드별 컬러 */
+.card-main{border-color:rgba(200,168,75,.25);background:linear-gradient(135deg,rgba(200,168,75,.07) 0%,rgba(0,200,255,.04) 100%);color:var(--gold2);grid-column:1/-1;}
+.card-wy{border-color:rgba(0,200,255,.2);background:rgba(0,200,255,.04);color:var(--cyan);}
+.card-ny{border-color:rgba(200,168,75,.2);background:rgba(200,168,75,.04);color:var(--gold2);}
+.card-kr{border-color:rgba(155,109,255,.2);background:rgba(155,109,255,.04);color:var(--purple);}
+.card-bro{border-color:rgba(30,201,183,.2);background:rgba(30,201,183,.04);color:var(--teal);}
+.card-fest{border-color:rgba(37,150,232,.2);background:rgba(37,150,232,.04);color:var(--foam);}
+
+.card-tag{font-family:'Orbitron',sans-serif;font-size:.56rem;letter-spacing:.18em;margin-bottom:.8rem;opacity:.85;}
+.card-ico{font-size:2rem;margin-bottom:.9rem;}
+.card-h{font-family:'Orbitron',sans-serif;font-size:clamp(.95rem,2vw,1.25rem);font-weight:700;color:#fff;margin-bottom:.6rem;line-height:1.25;}
+.card-p{font-size:.78rem;color:var(--mu);line-height:1.72;}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:1rem;}
+.ctag{font-size:.57rem;padding:3px 9px;border-radius:20px;border:1px solid currentColor;opacity:.7;}
+
+/* STATS */
+.stats-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:3rem;}
+.stat{background:rgba(255,255,255,.025);border:1px solid rgba(0,200,255,.09);border-radius:14px;padding:14px 22px;text-align:center;min-width:110px;}
+.sn{font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:900;color:var(--gold2);}
+.sl{font-size:.6rem;color:var(--mu);margin-top:3px;}
+
+/* FOOTER */
+footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.05);padding:28px 24px;text-align:center;}
+.ft-logo{font-family:'Orbitron',sans-serif;font-size:.82rem;font-weight:700;color:var(--gold);margin-bottom:.7rem;letter-spacing:.1em;}
+.ft-copy{font-size:.6rem;color:rgba(255,255,255,.18);line-height:1.75;}
+
+@media(max-width:640px){
+  nav{padding:0 20px;}
+  .nav-right{gap:4px;}
+  .nav-lang{font-size:.48rem;padding:4px 7px;}
+  .card-main{grid-column:1;}
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">K-AI <span>CONET</span></div>
+  <div class="nav-right">
+    <a class="nav-lang active" href="/index.html">EN</a>
+    <a class="nav-lang" href="/index_kr.html">KR</a>
+    <a class="nav-lang" href="/index_es.html">ES</a>
+    <a class="nav-lang" href="/index_hi.html">HI</a>
+    <a class="nav-lang" href="/index_ar.html">AR</a>
+    <a class="nav-lang" href="/index_ja.html">JA</a>
+    <a class="nav-lang" href="/index_zh.html">ZH</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge"><span class="hero-dot"></span>K-AI CONET GROUP · ALL IS ONE · 2026</div>
+  <h1>
+    <span class="t1">USAI Wallet</span> &amp; <span class="t2">$USAI Coin</span><br>
+    <span class="t3" style="font-size:70%;">Global Trade Matching &amp; Payment Platform</span>
+  </h1>
+  <p class="hero-sub">
+    AI Trade Matching · Iris Biometric · Blockchain Payment · All in One<br>
+    <strong style="color:#fff;">2 Nations · 3 Global Entities · USPTO Patent Pending</strong>
+  </p>
+  <div class="hero-chips">
+    <span class="chip cc">V-MATCH AI ENGINE</span>
+    <span class="chip cg">$USAI UTILITY COIN</span>
+    <span class="chip cc">IRIS BIOMETRIC</span>
+    <span class="chip ct">SMART ESCROW</span>
+    <span class="chip cg">GENIUS ACT COMPLIANT</span>
+    <span class="chip cc">ARMA · DIGITAL STANDARD</span>
+  </div>
+  <div class="stats-row">
+    <div class="stat"><div class="sn">6</div><div class="sl">AI Match Vectors</div></div>
+    <div class="stat"><div class="sn">5</div><div class="sl">Supported Coins</div></div>
+    <div class="stat"><div class="sn" style="color:var(--cyan);">4-Layer</div><div class="sl">Biometric Security</div></div>
+    <div class="stat"><div class="sn" style="color:var(--teal);">54+</div><div class="sl">Countries</div></div>
+    <div class="stat"><div class="sn" style="color:var(--purple);">2030</div><div class="sl">NASDAQ IPO Target</div></div>
+  </div>
+</div>
+
+<!-- HUB CARDS -->
+<div class="hub">
+  <div class="hub-title">ENTER THE PLATFORM · 플랫폼 바로가기</div>
+  <div class="cards">
+
+    <!-- 브로셔 메인 -->
+    <a class="hub-card card-main" href="/USAI_Wallet_Brochure_2026_v9_EN.html">
+      <div class="card-tag">★ BUSINESS BROCHURE 2026</div>
+      <div class="card-ico">📋</div>
+      <div class="card-h">USAI Wallet Business Brochure</div>
+      <div class="card-p">Complete platform overview — $USAI Utility Coin · V-Match AI · Smart Escrow · ARMA Digital Standard Vision · 4-Phase IPO Roadmap · Chung Ju-yung Turtle Ship Founder Story</div>
+      <div class="card-tags">
+        <span class="ctag">EN Brochure</span>
+        <span class="ctag">Full Vision</span>
+        <span class="ctag">Investor Ready</span>
+      </div>
+    </a>
+
+    <!-- 브로셔 KR -->
+    <a class="hub-card card-bro" href="/USAI_Wallet_Brochure_2026_v9_KR.html">
+      <div class="card-tag">비즈니스 브로셔 · 한국어</div>
+      <div class="card-ico">📋</div>
+      <div class="card-h">USAI Wallet 브로셔 (한국어)</div>
+      <div class="card-p">$USAI 유틸리티 코인 · V-Match AI · ARMA 금본위제→디지털 본위제 · 고 정주영 현대그룹 회장님 거북선 비전 · 4단계 나스닥 IPO 로드맵</div>
+      <div class="card-tags">
+        <span class="ctag">KR 브로셔</span>
+        <span class="ctag">완전판</span>
+      </div>
+    </a>
+
+    <!-- 와이오밍 -->
+    <a class="hub-card card-wy" href="/kaiconetwyoming-FINAL.html">
+      <div class="card-tag">🇺🇸 WYOMING LLC · Revenue &amp; IP Hub</div>
+      <div class="card-ico">⚡</div>
+      <div class="card-h">K-AI CONET WYOMING LLC</div>
+      <div class="card-p">$USAI Coin Issuer · USPTO Patent Holder · Core Revenue &amp; IP Entity · Original ID: 2026-001948696 · EIN: 35-2958028</div>
+      <div class="card-tags">
+        <span class="ctag">$USAI Issuer</span>
+        <span class="ctag">USPTO Patent</span>
+        <span class="ctag">Revenue Hub</span>
+      </div>
+    </a>
+
+    <!-- 뉴욕 -->
+    <a class="hub-card card-ny" href="/index.html">
+      <div class="card-tag">🗽 NEW YORK INC · Marketing &amp; Events</div>
+      <div class="card-ico">🌆</div>
+      <div class="card-h">K-AI CONET INC (New York)</div>
+      <div class="card-p">Product Launch · Marketing · NY AI Web Festival 2026 · 142 W 57th St, 11th Floor, New York, NY 10019 · DOS ID: 7877356</div>
+      <div class="card-tags">
+        <span class="ctag">NY AI Web Fest</span>
+        <span class="ctag">Marketing</span>
+        <span class="ctag">Launch</span>
+      </div>
+    </a>
+
+    <!-- 부산 KR -->
+    <a class="hub-card card-kr" href="/k-aiconet-busan-FINAL.html">
+      <div class="card-tag">🇰🇷 KOREA Co. · 개발 법인</div>
+      <div class="card-ico">🏗️</div>
+      <div class="card-h">주식회사 케이에이아이코넷</div>
+      <div class="card-p">제품 개발 전담 법인 · 부산 사하구 · Seoul AI Web Festival 주관 · 사업자: 692-86-02873 · 법인등기: 146223</div>
+      <div class="card-tags">
+        <span class="ctag">제품 개발</span>
+        <span class="ctag">Seoul Festival</span>
+        <span class="ctag">부산 거점</span>
+      </div>
+    </a>
+
+    <!-- 부산 EN -->
+    <a class="hub-card card-kr" href="/k-aiconet-busan-EN.html">
+      <div class="card-tag">🇰🇷 KOREA Co. · Development Entity</div>
+      <div class="card-ico">🏗️</div>
+      <div class="card-h">K-AI CONET Co., Ltd. (Busan)</div>
+      <div class="card-p">Product Development Entity · Busan, Korea · Seoul AI Web Festival organizer · BRN: 692-86-02873</div>
+      <div class="card-tags">
+        <span class="ctag">Development</span>
+        <span class="ctag">Seoul Festival</span>
+        <span class="ctag">Korea Base</span>
+      </div>
+    </a>
+
+    <!-- NY AI Web Fest -->
+    <a class="hub-card card-fest" href="/nyaiwf_art_poster.html">
+      <div class="card-tag">🎪 NEW YORK AI WEB FESTIVAL 2026</div>
+      <div class="card-ico">🗽</div>
+      <div class="card-h">New York AI Web Festival 2026</div>
+      <div class="card-p">Sat. Oct 03, 2026 · 7:00 PM · AP Space, Manhattan NYC + Café Wha?, Greenwich Village · $USAI Wallet Launch Night · Invitation Only</div>
+      <div class="card-tags">
+        <span class="ctag">Oct 03, 2026</span>
+        <span class="ctag">Manhattan NYC</span>
+        <span class="ctag">Invitation Only</span>
+      </div>
+    </a>
+
+    <!-- Seoul AI Web Fest -->
+    <a class="hub-card card-fest" href="/saiwf_digital_poster.html">
+      <div class="card-tag">🎪 SEOUL AI WEB FESTIVAL 2027</div>
+      <div class="card-ico">🌏</div>
+      <div class="card-h">Seoul AI Web Festival 2027</div>
+      <div class="card-p">Sat. May 08, 2027 · 7:00 PM · Signiel Seoul, 76F Studio · Lotte World Tower, Songpa-gu, Seoul · $USAI Wallet Global Debut · Invitation Only</div>
+      <div class="card-tags">
+        <span class="ctag">May 08, 2027</span>
+        <span class="ctag">Lotte World Tower</span>
+        <span class="ctag">Invitation Only</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">K-AI CONET GROUP · ALL IS ONE</div>
+  <div class="ft-copy">
+    © 2026 K-AI CONET GROUP · $USAI Utility Trade Payment Coin · K-AI CONET WYOMING LLC<br>
+    142 W 57th St, 11th Floor · New York, NY 10019 · ceo@k-aiconet.com · www.k-aiconet.com<br>
+    USPTO Patent Pending · GENIUS Act · CLARITY Act · ARMA · 2 Nations · 3 Entities
+  </div>
+</footer>
+</body>
+</html>
