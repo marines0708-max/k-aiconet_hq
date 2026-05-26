@@ -330,17 +330,10 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
     <li><a href="#biz" data-kr="사업 분야" data-en="Business">사업 분야</a></li>
     <li><a href="#festival" data-kr="페스티벌" data-en="Festival">페스티벌</a></li>
     <li><a href="#group" data-kr="그룹 구조" data-en="Group Structure">그룹 구조</a></li>
+    <li style="margin-left:8px;"><a href="/USAI_Wallet_Brochure_2026_v9_KR.html" style="background:rgba(200,168,75,.15);border:1px solid rgba(200,168,75,.35);border-radius:8px;padding:5px 12px;color:#F5D06E!important;font-weight:700;font-size:.75rem;">📋 브로셔</a></li>
     <li><a href="#contact" class="nav-cta" data-kr="문의" data-en="Contact">문의</a></li>
   
-  <li style="border-left:1px solid rgba(255,255,255,.1);padding-left:12px;margin-left:4px;">
-    <a href="/USAI_Wallet_Brochure_2026_v9_KR.html" style="color:#F5D06E!important;font-weight:700;">📋 브로셔 KR</a>
-  </li>
-  <li>
-    <a href="/USAI_Wallet_Brochure_2026_v9_EN.html" style="color:#F5D06E!important;font-weight:700;">📋 Brochure EN</a>
-  </li>
-  <li>
-    <a href="/kaiconetwyoming-FINAL.html" style="color:#40B4F5!important;">🇺🇸 Wyoming</a>
-  </li>
+  
   </ul>
 </nav>
 <!-- EN Version Link -->
@@ -1258,7 +1251,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
     <p class="ss" style="margin:0 auto;">부산 법인이 한국 운영 총괄 · 정관 Chapter 8 (Articles 38–40)</p>
   </div>
   <div class="fest-2col">
-    <div class="fc" data-poster="SAIWF_2027_Digital_Poster.png" data-title="SEOUL AI WEB FESTIVAL 2027">
+    <div class="fc" data-poster="SAIWF_2027_Digital_Poster.png" data-title="SEOUL AI WEB FESTIVAL 2027" onclick="window.location.href='/saiwf_digital_poster.html'" style="cursor:pointer;">
       <div class="fcity">SEOUL</div>
       <div class="fnm">SEOUL AI WEB FESTIVAL</div>
       <span class="ftm">상표 등록 완료</span>
@@ -1269,7 +1262,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
         <span class="fc-arrow">→</span>
       </div>
     </div>
-    <div class="fc" data-poster="NYAIWF_2026_Art_Poster.png" data-title="NEW YORK AI WEB FESTIVAL 2026">
+    <div class="fc" data-poster="NYAIWF_2026_Art_Poster.png" data-title="NEW YORK AI WEB FESTIVAL 2026" onclick="window.location.href='/nyaiwf_art_poster.html'" style="cursor:pointer;">
       <div class="fcity">NEW YORK</div>
       <div class="fnm">NEW YORK AI WEB FESTIVAL</div>
       <span class="ftm" style="background:rgba(240,150,10,.15);border-color:rgba(240,150,10,.4);color:#F0A030;">🔄 상표 등록 진행 중</span>
@@ -1540,16 +1533,17 @@ document.querySelectorAll('.wc,.hs,.pl-item,.pi,.biz-card,.fc,.sc,.bc-b,.vp,.fsc
 
 <!-- Wallet choice modal -->
 <div id="walletModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(1,12,26,.88);backdrop-filter:blur(12px);align-items:center;justify-content:center;">
-  <div style="background:linear-gradient(135deg,rgba(6,33,63,.95),rgba(10,58,107,.8));border:1px solid rgba(37,150,232,.3);border-radius:20px;padding:2.5rem;max-width:480px;width:90%;text-align:center;">
+  <div style="position:relative;background:linear-gradient(135deg,rgba(6,33,63,.95),rgba(10,58,107,.8));border:1px solid rgba(37,150,232,.3);border-radius:20px;padding:2.5rem;max-width:480px;width:90%;text-align:center;">
+    <button onclick="closeWalletModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;line-height:1;">×</button>
     <div style="font-family:'Orbitron',sans-serif;font-size:.7rem;letter-spacing:.2em;color:rgba(64,180,245,.7);margin-bottom:.8rem;">K-AI WALLET</div>
     <h3 style="font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.5rem;">언어를 선택하세요</h3>
     <p style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:2rem;">Select your language / 언어 선택</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <button onclick="window.open('USAI_Wallet_v7_KCulture.html','_blank');closeWalletModal;"
+      <button onclick="window.location.href='/USAI_Wallet_Brochure_2026_v9_KR.html';closeWalletModal();"
         style="padding:.85rem 2rem;border-radius:50px;background:linear-gradient(135deg,#1278D0,#40B4F5);color:#fff;font-weight:700;font-size:.85rem;border:none;cursor:pointer;letter-spacing:.05em;">
         한국어 버전
       </button>
-      <button onclick="window.open('USAI_Wallet_v6_EN1_IRIS_TX.html','_blank');closeWalletModal;"
+      <button onclick="window.location.href='/USAI_Wallet_Brochure_2026_v9_EN.html';closeWalletModal();"
         style="padding:.85rem 2rem;border-radius:50px;background:linear-gradient(135deg,#0E9E8A,#1EC9B7);color:#fff;font-weight:700;font-size:.85rem;border:none;cursor:pointer;letter-spacing:.05em;">
         English Version
       </button>
@@ -1563,7 +1557,7 @@ document.querySelectorAll('.wc,.hs,.pl-item,.pi,.biz-card,.fc,.sc,.bc-b,.vp,.fsc
 <script>
 function showWalletChoice(){document.getElementById('walletModal').style.display='flex';}
 function closeWalletModal(){document.getElementById('walletModal').style.display='none';}
-document.getElementById('walletModal').addEventListener('click',function(e){if(e.target===this)closeWalletModal;});
+document.getElementById('walletModal').addEventListener('click',function(e){if(e.target===this)closeWalletModal();});
 
 /* WALLET VIEWER - full-screen iframe with X */
 function openWalletViewer(url){
@@ -1578,7 +1572,7 @@ function closeWalletViewer(){
 }
 document.addEventListener('keydown',function(e){
   if(e.key === 'Escape' && document.getElementById('walletViewer').style.display === 'flex'){
-    closeWalletViewer;
+    closeWalletViewer();
   }
 });
 </script>
@@ -1591,7 +1585,7 @@ document.addEventListener('keydown',function(e){
       <div style="width:8px;height:8px;border-radius:50%;background:#F0C95A;box-shadow:0 0 12px #F0C95A;"></div>
       <span style="font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:2px;color:#F0C95A;font-weight:700;">$USAI WALLET</span>
     </div>
-    <button onclick="closeWalletViewer" style="background:rgba(240,201,90,.12);border:1.5px solid rgba(240,201,90,.45);color:#F0C95A;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:Arial,sans-serif;" 
+    <button onclick="closeWalletViewer()" style="background:rgba(240,201,90,.12);border:1.5px solid rgba(240,201,90,.45);color:#F0C95A;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:Arial,sans-serif;" 
       onmouseover="this.style.background='rgba(240,201,90,.25)';this.style.transform='scale(1.08)';" 
       onmouseout="this.style.background='rgba(240,201,90,.12)';this.style.transform='scale(1)';"
       title="닫기 (ESC)">✕</button>
