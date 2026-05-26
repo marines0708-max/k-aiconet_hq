@@ -332,9 +332,27 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
     <li><a href="#group" data-en="Group Structure">Group Structure</a></li>
     <li><a href="#contact" class="nav-cta" data-en="Contact">Contact</a></li>
   </ul>
+
+  <div style="display:flex;align-items:center;gap:6px;margin-left:8px;padding-left:10px;border-left:1px solid rgba(255,255,255,.08);">
+    <a href="/USAI_Wallet_Brochure_2026_v9_EN.html" title="Brochure EN" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.22);border-radius:7px;text-decoration:none;">
+      <svg width="13" height="16" viewBox="0 0 40 50" fill="none"><rect x="1" y="1" width="38" height="48" rx="5" fill="none" stroke="#40B4F5" stroke-width="1.8"/><path d="M26 1 L39 14 L26 14 Z" fill="rgba(0,200,255,.15)" stroke="#40B4F5" stroke-width="1"/><line x1="7" y1="22" x2="33" y2="22" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="30" x2="33" y2="30" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="38" x2="24" y2="38" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span style="font-family:'Orbitron',sans-serif;font-size:.55rem;color:#40B4F5;font-weight:700;">EN</span>
+    </a>
+    <a href="/USAI_Wallet_Brochure_2026_v9_KR.html" title="브로셔 KR" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(200,168,75,.07);border:1px solid rgba(200,168,75,.22);border-radius:7px;text-decoration:none;">
+      <svg width="13" height="16" viewBox="0 0 40 50" fill="none"><rect x="1" y="1" width="38" height="48" rx="5" fill="none" stroke="#C8A84B" stroke-width="1.8"/><path d="M26 1 L39 14 L26 14 Z" fill="rgba(200,168,75,.15)" stroke="#C8A84B" stroke-width="1"/><line x1="7" y1="22" x2="33" y2="22" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="30" x2="33" y2="30" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="38" x2="24" y2="38" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span style="font-family:'Orbitron',sans-serif;font-size:.55rem;color:#F5D06E;font-weight:700;">KR</span>
+    </a>
+  </div>
 </nav>
 <!-- Language Toggle -->
-<a id="lang-switch" href="k-aiconet-busan-FINAL.html">🌐 KR</a>
+<a id="lang-switch" href="/k-aiconet-busan-FINAL.html" style="
+      display:inline-flex;align-items:center;gap:6px;
+      font-family:'Orbitron',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;
+      padding:7px 16px;border-radius:20px;
+      background:rgba(155,109,255,.1);border:1px solid rgba(155,109,255,.3);
+      color:#B08FFF;text-decoration:none;transition:all .25s;">
+      <span style="font-size:.75rem;">🇰🇷</span> KOR · 한국어
+    </a>
 
 <!-- HERO -->
 <section id="hero">
@@ -1545,7 +1563,7 @@ document.querySelectorAll('.wc,.hs,.pl-item,.pi,.biz-card,.fc,.sc,.bc-b,.vp,.fsc
 <script>
 function showWalletChoice(){document.getElementById('walletModal').style.display='flex';}
 function closeWalletModal(){document.getElementById('walletModal').style.display='none';}
-document.getElementById('walletModal').addEventListener('click',function(e){if(e.target===this)closeWalletModal;});
+document.getElementById('walletModal').addEventListener('click',function(e){if(e.target===this)closeWalletModal();});
 
 /* WALLET VIEWER - full-screen iframe with X */
 function openWalletViewer(url){
@@ -1560,7 +1578,7 @@ function closeWalletViewer(){
 }
 document.addEventListener('keydown',function(e){
   if(e.key === 'Escape' && document.getElementById('walletViewer').style.display === 'flex'){
-    closeWalletViewer;
+    closeWalletViewer();
   }
 });
 </script>
@@ -1601,7 +1619,7 @@ document.addEventListener('keydown',function(e){
 </div>
 
 <script>
-(function{
+(function(){
   var modal = document.getElementById('poster-modal');
   var img = document.getElementById('pm-img');
   var dl = document.getElementById('pm-download');
@@ -1610,25 +1628,25 @@ document.addEventListener('keydown',function(e){
   function open(src, title){
     img.src = src; img.alt = title || '';
     dl.href = src;
-    dl.setAttribute('download', src.split('/').pop);
+    dl.setAttribute('download', src.split('/').pop());
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function close(){
     modal.classList.remove('open');
     document.body.style.overflow = '';
-    setTimeout(function{ img.src=''; }, 200);
+    setTimeout(function(){ img.src=''; }, 200);
   }
 
   document.querySelectorAll('.fc[data-poster]').forEach(function(card){
-    card.addEventListener('click', function{
+    card.addEventListener('click', function(){
       open(card.dataset.poster, card.dataset.title);
     });
     card.setAttribute('role','button');
     card.setAttribute('tabindex','0');
     card.addEventListener('keydown', function(e){
       if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault;
+        e.preventDefault();
         open(card.dataset.poster, card.dataset.title);
       }
     });
@@ -1638,7 +1656,7 @@ document.addEventListener('keydown',function(e){
     el.addEventListener('click', close);
   });
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && modal.classList.contains('open')) close;
+    if(e.key === 'Escape' && modal.classList.contains('open')) close();
   });
 });
 </script>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>K-AI CONET — Global AI Trade & Finance Platform</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -16,7 +16,7 @@
   --border:rgba(0,200,255,.1);--border2:rgba(0,200,255,.05);
 }
 html{scroll-behavior:smooth;background:var(--bg);}
-body{font-family:'Noto Sans KR','Inter',sans-serif;color:var(--text);overflow-x:hidden;background:var(--bg);}
+body{font-family:'Inter',sans-serif;color:var(--text);overflow-x:hidden;background:var(--bg);}
 
 /* ── ANIMATIONS ── */
 @keyframes rotateSphere{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
@@ -279,8 +279,8 @@ nav{
 .tag-live{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
 
 .hero-h1{
-  font-family:'Noto Sans KR','Inter',sans-serif;
-  font-size:clamp(44px,5.8vw,82px);
+  font-family:'Inter',sans-serif;
+  font-size:clamp(52px,6.5vw,92px);
   font-weight:900;line-height:1.0;
   margin-bottom:18px;
   animation:fadeUp .6s .1s ease both;
@@ -555,8 +555,8 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
     <div class="nav-wordmark"><span style="color:var(--cyan);">K</span><span style="color:rgba(230,195,80,.7);">-</span>AI CONET</div>
   </div>
 <div class="nav-langs">
-    <a href="/index_en.html" class="lang-pill">EN</a>
-    <a href="#" class="lang-pill active">KR</a>
+    <a href="#" class="lang-pill active">EN</a>
+    <a href="index_kr.html" class="lang-pill">KR</a>
     <a href="index_es.html" class="lang-pill">ES</a>
     <a href="index_hi.html" class="lang-pill">HI</a>
     <a href="index_ar.html" class="lang-pill">AR</a>
@@ -564,13 +564,13 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
     <a href="index_zh.html" class="lang-pill">ZH</a>
   </div>
   <div class="nav-links">
-    <a href="#platform" onclick="sc(event,'platform')">플랫폼</a>
-    <a href="#vmatch" onclick="sc(event,'vmatch')">V-매치</a>
-    <a href="#wallet" onclick="sc(event,'wallet')">월렛</a>
-    <a href="#vision" onclick="sc(event,'vision')">비전</a>
-    <a href="#compliance" onclick="sc(event,'compliance')">컴플라이언스</a>
+    <a href="#platform" onclick="sc(event,'platform')">Platform</a>
+    <a href="#vmatch" onclick="sc(event,'vmatch')">V-Match</a>
+    <a href="#wallet" onclick="sc(event,'wallet')">Wallet</a>
+    <a href="#vision" onclick="sc(event,'vision')">Vision</a>
+    <a href="#compliance" onclick="sc(event,'compliance')">Compliance</a>
   </div>
-  <a href="#contact" class="nav-cta" onclick="sc(event,'contact')">앱 출시</a>
+  <a href="#contact" class="nav-cta" onclick="sc(event,'contact')">Launch App</a>
 
   <div style="display:flex;align-items:center;gap:6px;margin-left:12px;padding-left:12px;border-left:1px solid rgba(255,255,255,.1);">
     <a href="/index_en.html" style="font-family:'Orbitron',sans-serif;font-size:.55rem;letter-spacing:.1em;padding:5px 10px;border-radius:7px;background:rgba(37,150,232,.1);border:1px solid rgba(37,150,232,.25);color:#40B4F5;text-decoration:none;">🗽 NY INC</a>
@@ -589,24 +589,24 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-left">
-    <div class="hero-tag"><div class="tag-live"></div>ALL IS ONE · K-AI CONET 그룹 · 2026</div>
+    <div class="hero-tag"><div class="tag-live"></div>ALL IS ONE · K-AI CONET GROUP · 2026</div>
     <h1 class="hero-h1">
-      <span class="l1">글로벌 무역.</span>
-      <span class="l2">AI 금융.</span>
-      <span class="l3">하나의 월렛. 하나의 플랫폼.</span>
+      <span class="l1">Global Trade.</span>
+      <span class="l2">AI Finance.</span>
+      <span class="l3">One Wallet. One Platform.</span>
     </h1>
     <p class="hero-sub">
-      K-AI CONET은 한국 K-컬처 공급업체와 <strong style="color:rgba(224,238,255,.75);">54개국</strong> 글로벌 바이어를 6-벡터 AI 매칭, 블록체인 에스크로 결제, 미국 연방급 컴플라이언스로 하나의 통합 생태계 안에서 연결합니다.
+      K-AI CONET connects Korean K-Culture suppliers with global buyers across <strong style="color:rgba(224,238,255,.75);">54 countries</strong> through 6-Vector AI matching, blockchain escrow settlement, and U.S. federal-grade compliance — all in one unified ecosystem.
     </p>
     <div class="hero-btns">
-      <a href="#platform" class="btn-p" onclick="sc(event,'platform')">플랫폼 살펴보기 →</a>
-      <a href="#contact" class="btn-s" onclick="sc(event,'contact')">문의하기</a>
+      <a href="#platform" class="btn-p" onclick="sc(event,'platform')">Explore Platform →</a>
+      <a href="#contact" class="btn-s" onclick="sc(event,'contact')">Contact Us</a>
     </div>
     <div class="msb-strip">
       <div class="msb-dot"></div>
-      <span class="msb-t">FinCEN 등록 MSB ·</span>
+      <span class="msb-t">FinCEN Registered MSB ·</span>
       <span class="msb-id">MRX26-00005630</span>
-      <span class="msb-t">· 활성</span>
+      <span class="msb-t">· Active</span>
     </div>
   </div>
 
@@ -705,16 +705,16 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 
       <!-- Info cards (overlay) -->
       <div class="planet-card" style="top:5%;right:2%;animation-delay:.3s;">
-        <div class="pc-label">V-매치 AI</div>
-        <div class="pc-val" style="color:var(--green);">0.3초 매칭</div>
+        <div class="pc-label">V-MATCH AI</div>
+        <div class="pc-val" style="color:var(--green);">0.3s Match</div>
       </div>
       <div class="planet-card" style="bottom:8%;left:0%;animation-delay:.6s;">
-        <div class="pc-label">핀센 MSB</div>
+        <div class="pc-label">FINCEN MSB</div>
         <div class="pc-val" style="color:var(--cyan);font-size:9px;">MRX26-00005630</div>
       </div>
       <div class="planet-card" style="top:40%;right:-2%;animation-delay:.9s;">
-        <div class="pc-label">네트워크</div>
-        <div class="pc-val" style="color:var(--purple);">54개국</div>
+        <div class="pc-label">NETWORK</div>
+        <div class="pc-val" style="color:var(--purple);">54 Nations</div>
       </div>
     </div>
   </div>
@@ -722,10 +722,10 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 
 <!-- METRICS -->
 <div class="metrics">
-  <div class="m"><div class="m-val">54</div><div class="m-lbl">진출 국가</div></div>
-  <div class="m"><div class="m-val">0.3s</div><div class="m-lbl">AI 매칭 속도</div></div>
-  <div class="m"><div class="m-val">3</div><div class="m-lbl">특허 출원</div></div>
-  <div class="m"><div class="m-val">$33T</div><div class="m-lbl">목표 시장</div></div>
+  <div class="m"><div class="m-val">54</div><div class="m-lbl">Countries</div></div>
+  <div class="m"><div class="m-val">0.3s</div><div class="m-lbl">AI Match Speed</div></div>
+  <div class="m"><div class="m-val">3</div><div class="m-lbl">Patents Filed</div></div>
+  <div class="m"><div class="m-val">$33T</div><div class="m-lbl">Target Market</div></div>
 </div>
 
 <!-- TICKER -->
@@ -736,20 +736,20 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
     <span class="tick">FINCEN MSB<em>MRX26-00005630</em></span>
     <span class="tick">USAI WALLET<em>USPTO KAIC-2026-001</em></span>
     <span class="tick">WYOMING LLC<em>CHEYENNE · WY · USA</em></span>
-    <span class="tick">54개국<em>글로벌 네트워크</em></span>
-    <span class="tick">블록체인 에스크로<em>~12초 정산</em></span>
-    <span class="tick">AML/KYC<em>BSA 준수</em></span>
-    <span class="tick">ALL IS ONE<em>K-AI CONET 그룹</em></span>
+    <span class="tick">54 COUNTRIES<em>GLOBAL NETWORK</em></span>
+    <span class="tick">BLOCKCHAIN ESCROW<em>~12s SETTLEMENT</em></span>
+    <span class="tick">AML/KYC<em>BSA COMPLIANT</em></span>
+    <span class="tick">ALL IS ONE<em>K-AI CONET GROUP</em></span>
     <span class="tick">142 W 57TH ST<em>11TH FL · NEW YORK · NY 10019</em></span>
     <!-- duplicate -->
     <span class="tick">V-MATCH AI ENGINE<em>KIPO 10-2026-0079885</em></span>
     <span class="tick">FINCEN MSB<em>MRX26-00005630</em></span>
     <span class="tick">USAI WALLET<em>USPTO KAIC-2026-001</em></span>
     <span class="tick">WYOMING LLC<em>CHEYENNE · WY · USA</em></span>
-    <span class="tick">54개국<em>글로벌 네트워크</em></span>
-    <span class="tick">블록체인 에스크로<em>~12초 정산</em></span>
-    <span class="tick">AML/KYC<em>BSA 준수</em></span>
-    <span class="tick">ALL IS ONE<em>K-AI CONET 그룹</em></span>
+    <span class="tick">54 COUNTRIES<em>GLOBAL NETWORK</em></span>
+    <span class="tick">BLOCKCHAIN ESCROW<em>~12s SETTLEMENT</em></span>
+    <span class="tick">AML/KYC<em>BSA COMPLIANT</em></span>
+    <span class="tick">ALL IS ONE<em>K-AI CONET GROUP</em></span>
     <span class="tick">142 W 57TH ST<em>11TH FL · NEW YORK · NY 10019</em></span>
   </div>
 </div>
@@ -757,10 +757,10 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 <!-- PLATFORM -->
 <section id="platform">
 <div class="section">
-  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// 핵심 플랫폼</div></div>
-  <h2 class="sec-h2">글로벌 무역 인텔리전스의<br><em>세 가지 핵심 기둥</em></h2>
+  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// Core Platform</div></div>
+  <h2 class="sec-h2">Three Pillars of<br><em>Global Trade Intelligence</em></h2>
   <div class="rule"></div>
-  <p class="sec-lead">K-AI CONET WYOMING LLC가 미국 주체 역할을 맡아 — AI 매칭, 블록체인 정산, 컴플라이언스를 통해 한국 공급업체가 전 세계 모든 바이어와 거래할 수 있도록 지원합니다.</p>
+  <p class="sec-lead">K-AI CONET WYOMING LLC acts as U.S. Principal — AI matching, blockchain settlement, and compliance so Korean suppliers can reach any buyer in the world.</p>
 </div>
 <div class="plat-grid">
   <div class="p-card" onclick="openM('vmatch')">
@@ -780,10 +780,10 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
         <line x1="7.8" y1="18.2" x2="4.9" y2="21.1" stroke="#00C8FF" stroke-width=".7"/>
       </svg>
     </div>
-    <h3>V-Match AI 엔진</h3>
-    <p>6-벡터 AI가 산업 적합성, 거래 조건, 재무 리스크, 지리, 규제 준수, 문화적 정합성을 동시에 분석하여 54개국에서 0.3초 안에 최적의 매칭을 제공합니다.</p>
+    <h3>V-Match AI Engine</h3>
+    <p>6-Vector AI simultaneously analyzes industry fit, trade terms, financial risk, geography, regulatory compliance, and cultural alignment — delivering optimal matches across 54 nations in 0.3 seconds.</p>
     <div class="p-tags"><span class="p-tag">RAG Architecture</span><span class="p-tag">KIPO 10-2026-0079885</span><span class="p-tag">0.3s Response</span></div>
-    <div class="p-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width=".8"/><line x1="5" y1="2.5" x2="5" y2="7.5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/><line x1="2.5" y1="5" x2="7.5" y2="5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/></svg> 클릭하여 자세히 보기</div>
+    <div class="p-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width=".8"/><line x1="5" y1="2.5" x2="5" y2="7.5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/><line x1="2.5" y1="5" x2="7.5" y2="5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/></svg> Click to learn more</div>
   </div>
   <div class="p-card" onclick="openM('escrow')">
     <div class="p-num">02 / 03</div>
@@ -801,9 +801,9 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
       </svg>
     </div>
     <h3>Blockchain Escrow & Settlement</h3>
-    <p>스마트 컨트랙트 에스크로가 미국 CBP 통관 확인을 블록체인 오라클로 실시간 검증할 때까지 대금을 보관. 약 12초 자동 정산. 은행 불필요. 거래 상대방 리스크 제로.</p>
+    <p>Smart contract escrow holds payment until U.S. CBP customs clearance is confirmed by real-time blockchain oracle. Automatic settlement in ~12 seconds. No banks. Zero counterparty risk.</p>
     <div class="p-tags"><span class="p-tag">CBP Oracle API</span><span class="p-tag">~12s Settlement</span><span class="p-tag">Auto-Execute</span></div>
-    <div class="p-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width=".8"/><line x1="5" y1="2.5" x2="5" y2="7.5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/><line x1="2.5" y1="5" x2="7.5" y2="5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/></svg> 클릭하여 자세히 보기</div>
+    <div class="p-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width=".8"/><line x1="5" y1="2.5" x2="5" y2="7.5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/><line x1="2.5" y1="5" x2="7.5" y2="5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/></svg> Click to learn more</div>
   </div>
   <div class="p-card" onclick="openM('trade')">
     <div class="p-num">03 / 03</div>
@@ -818,10 +818,10 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
         <path d="M19 8L16 13L19 18" stroke="#9B6DFF" stroke-width=".7" stroke-linecap="round"/>
       </svg>
     </div>
-    <h3>미국 무역 컴플라이언스</h3>
-    <p>미국 수입자 대리인(IOR)으로서 K-AI CONET WYOMING LLC가 통관 서류, 관세 준수, e-B/L NFT 발행, 국경 간 요건을 미국 연방법에 따라 전담 관리합니다.</p>
+    <h3>U.S. Trade Compliance</h3>
+    <p>As U.S. Importer of Record, K-AI CONET WYOMING LLC manages all customs documentation, tariff compliance, e-B/L NFT issuance, and cross-border requirements under U.S. federal law.</p>
     <div class="p-tags"><span class="p-tag">IOR · CBP API</span><span class="p-tag">FinCEN MSB</span><span class="p-tag">e-B/L NFT</span></div>
-    <div class="p-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width=".8"/><line x1="5" y1="2.5" x2="5" y2="7.5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/><line x1="2.5" y1="5" x2="7.5" y2="5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/></svg> 클릭하여 자세히 보기</div>
+    <div class="p-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width=".8"/><line x1="5" y1="2.5" x2="5" y2="7.5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/><line x1="2.5" y1="5" x2="7.5" y2="5" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/></svg> Click to learn more</div>
   </div>
 </div>
 </section>
@@ -843,21 +843,21 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
       <div class="vm-node" style="bottom:-6px;left:50%;transform:translateX(-50%);">V_k</div>
       <div class="vm-node" style="bottom:20%;left:-6px;">V_f</div>
       <div class="vm-node" style="top:20%;left:-6px;">V_t</div>
-      <div class="vm-score">매칭 점수 · 96.2%</div>
+      <div class="vm-score">MATCH SCORE · 96.2%</div>
     </div>
   </div>
   <div class="vm-info">
-    <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// AI 엔진</div></div>
-    <h2 class="sec-h2">V-Match: 6-벡터<br><em>AI 매칭 시스템</em></h2>
+    <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// AI Engine</div></div>
+    <h2 class="sec-h2">V-Match: 6-Vector<br><em>AI Matching System</em></h2>
     <div class="rule"></div>
-    <p style="font-size:13.5px;color:var(--muted);line-height:1.9;margin-bottom:20px;font-weight:300;">특허 출원 중인 AI 엔진이 6개 차원에서 0.3초 만에 동시에 적합성을 계산합니다. 특허청(KIPO) 특허번호 10-2026-0079885.</p>
+    <p style="font-size:13.5px;color:var(--muted);line-height:1.9;margin-bottom:20px;font-weight:300;">Patent-pending AI engine computing compatibility across 6 dimensions simultaneously in 0.3 seconds. KIPO Patent 10-2026-0079885.</p>
     <div class="vm-bars">
-      <div class="vm-row"><span class="vm-lbl">V_i 산업</span><div class="vm-track"><div class="vm-fill" style="width:92%;background:linear-gradient(90deg,#00C8FF,#1A6FFF);"></div></div><span class="vm-pct">92%</span></div>
-      <div class="vm-row"><span class="vm-lbl">V_t 무역</span><div class="vm-track"><div class="vm-fill" style="width:88%;background:linear-gradient(90deg,#00FF9D,#00C8FF);"></div></div><span class="vm-pct">88%</span></div>
-      <div class="vm-row"><span class="vm-lbl">V_g 지역</span><div class="vm-track"><div class="vm-fill" style="width:95%;background:linear-gradient(90deg,#FFD700,#FF9500);"></div></div><span class="vm-pct">95%</span></div>
-      <div class="vm-row"><span class="vm-lbl">V_c 규제</span><div class="vm-track"><div class="vm-fill" style="width:100%;background:linear-gradient(90deg,#9B6DFF,#00C8FF);"></div></div><span class="vm-pct">100%</span></div>
-      <div class="vm-row"><span class="vm-lbl">V_f 금융</span><div class="vm-track"><div class="vm-fill" style="width:85%;background:linear-gradient(90deg,#00C8FF,#9B6DFF);"></div></div><span class="vm-pct">85%</span></div>
-      <div class="vm-row"><span class="vm-lbl">V_k 문화</span><div class="vm-track"><div class="vm-fill" style="width:91%;background:linear-gradient(90deg,#FF6464,#FF9500);"></div></div><span class="vm-pct">91%</span></div>
+      <div class="vm-row"><span class="vm-lbl">V_i Industry</span><div class="vm-track"><div class="vm-fill" style="width:92%;background:linear-gradient(90deg,#00C8FF,#1A6FFF);"></div></div><span class="vm-pct">92%</span></div>
+      <div class="vm-row"><span class="vm-lbl">V_t Trade</span><div class="vm-track"><div class="vm-fill" style="width:88%;background:linear-gradient(90deg,#00FF9D,#00C8FF);"></div></div><span class="vm-pct">88%</span></div>
+      <div class="vm-row"><span class="vm-lbl">V_g Geo</span><div class="vm-track"><div class="vm-fill" style="width:95%;background:linear-gradient(90deg,#FFD700,#FF9500);"></div></div><span class="vm-pct">95%</span></div>
+      <div class="vm-row"><span class="vm-lbl">V_c Comply</span><div class="vm-track"><div class="vm-fill" style="width:100%;background:linear-gradient(90deg,#9B6DFF,#00C8FF);"></div></div><span class="vm-pct">100%</span></div>
+      <div class="vm-row"><span class="vm-lbl">V_f Finance</span><div class="vm-track"><div class="vm-fill" style="width:85%;background:linear-gradient(90deg,#00C8FF,#9B6DFF);"></div></div><span class="vm-pct">85%</span></div>
+      <div class="vm-row"><span class="vm-lbl">V_k Culture</span><div class="vm-track"><div class="vm-fill" style="width:91%;background:linear-gradient(90deg,#FF6464,#FF9500);"></div></div><span class="vm-pct">91%</span></div>
     </div>
     <div class="vm-formula">S = Σ(w_i × cos(V_A_i, V_B_i)) / Σw_i</div>
   </div>
@@ -868,10 +868,10 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 <!-- WALLET -->
 <section id="wallet">
 <div class="wallet-section">
-  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// USAI 월렛</div></div>
-  <h2 class="sec-h2">ALL IS ONE<br><em>멀티체인 월렛</em></h2>
+  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// USAI Wallet</div></div>
+  <h2 class="sec-h2">ALL IS ONE<br><em>Multi-Chain Wallet</em></h2>
   <div class="rule"></div>
-  <p class="sec-lead">하나의 월렛. 모든 자산. 모든 체인. $USAI 토큰 기반 정산과 Soulbound Token을 통한 온체인 KYC/AML 컴플라이언스.</p>
+  <p class="sec-lead">One wallet. Every asset. Every chain. $USAI token-powered settlement with on-chain KYC/AML compliance via Soulbound Token.</p>
   <div class="w-grid">
     <div class="w-card">
       <div class="w-icon">
@@ -882,7 +882,7 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
           <line x1="11" y1="2.5" x2="11" y2="19.5" stroke="#00C8FF" stroke-width=".7"/>
         </svg>
       </div>
-      <div><h4>멀티체인 단일 주소</h4><p>하나의 주소로 이더리움 ERC-20, 솔라나 SPL, 비트코인을 동시에 관리하며 크로스체인 원자적 스왑을 지원합니다.</p></div>
+      <div><h4>Multi-Chain Single Address</h4><p>One address manages Ethereum ERC-20, Solana SPL, and Bitcoin simultaneously with cross-chain atomic swaps.</p></div>
     </div>
     <div class="w-card">
       <div class="w-icon">
@@ -893,7 +893,7 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
           <circle cx="16.25" cy="13.25" r=".8" fill="#00FF9D"/>
         </svg>
       </div>
-      <div><h4>$USAI 토큰</h4><p>50% 수수료 할인, 가스비 대납, 에스크로 정산을 위한 네이티브 유틸리티 토큰. 단계적 발행 $USAI. 특허청 특허번호 10-2026-0079874.</p></div>
+      <div><h4>$USAI Token</h4><p>Native utility token for 50% fee discount, gas sponsorship, escrow settlement. Phased issuance — $USAI. KIPO patent 10-2026-0079874.</p></div>
     </div>
     <div class="w-card">
       <div class="w-icon">
@@ -904,7 +904,7 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
           <path d="M7.5 13.5C5 15 3.5 17 3.5 19h15c0-2-1.5-4-4-5.5" stroke="#9B6DFF" stroke-width="1"/>
         </svg>
       </div>
-      <div><h4>온체인 KYC/AML</h4><p>Soulbound Token을 통한 홍채 생체인증. BSA/FinCEN 준수. 한 번 인증 — 모든 거래에서 영구 유효.</p></div>
+      <div><h4>On-Chain KYC/AML</h4><p>Iris biometric authentication via Soulbound Token. BSA/FinCEN compliant. Verified once — valid forever across all transactions.</p></div>
     </div>
     <div class="w-card">
       <div class="w-icon">
@@ -917,17 +917,17 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
           <path d="M19 14.5V16.5L17 16.5" stroke="#FFD700" stroke-width=".8" stroke-linecap="round"/>
         </svg>
       </div>
-      <div><h4>IRIS TX — 글로벌 송금</h4><p>블록체인으로 두바이, 싱가포르, 뉴욕, 나이로비에 즉시 국경 간 정산. SWIFT 지연 없음. 실시간 정산.</p></div>
+      <div><h4>IRIS TX — Global Remittance</h4><p>Instant cross-border settlement to Dubai, Singapore, New York, Nairobi via blockchain. No SWIFT delays. Real-time settlement.</p></div>
     </div>
   </div>
   <div class="usai-bar">
-    <div class="ub-block"><div class="ub-lbl">지원 체인</div><div class="ub-chain"><span class="chain-tag">Ξ ETH</span><span class="chain-tag">◎ SOL</span><span class="chain-tag">₿ BTC</span></div></div>
+    <div class="ub-block"><div class="ub-lbl">Supported Chains</div><div class="ub-chain"><span class="chain-tag">Ξ ETH</span><span class="chain-tag">◎ SOL</span><span class="chain-tag">₿ BTC</span></div></div>
     <div class="ub-divider"></div>
-    <div class="ub-block"><div class="ub-lbl">네이티브 토큰</div><div class="ub-token">$USAI</div></div>
+    <div class="ub-block"><div class="ub-lbl">Native Token</div><div class="ub-token">$USAI</div></div>
     <div class="ub-divider"></div>
-    <div class="ub-block"><div class="ub-lbl">USPTO 특허</div><div class="ub-val">KAIC-2026-001</div></div>
+    <div class="ub-block"><div class="ub-lbl">USPTO Patent</div><div class="ub-val">KAIC-2026-001</div></div>
     <div class="ub-divider"></div>
-    <div class="ub-block"><div class="ub-lbl">Status</div><div class="ub-val" style="color:var(--green);font-size:12px;font-weight:600;">프로토타입 완성 ✓</div></div>
+    <div class="ub-block"><div class="ub-lbl">Status</div><div class="ub-val" style="color:var(--green);font-size:12px;font-weight:600;">Prototype Ready ✓</div></div>
   </div>
 </div>
 </section>
@@ -936,34 +936,34 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 <section id="compliance">
 <div class="comply-bg">
 <div class="comply-inner">
-  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// 규제 준수 현황</div></div>
-  <h2 class="sec-h2">완전한 컴플라이언스,<br><em>연방 등록 완료</em></h2>
+  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// Regulatory Standing</div></div>
+  <h2 class="sec-h2">Fully Compliant,<br><em>Federally Registered</em></h2>
   <div class="rule"></div>
-  <p class="sec-lead" style="margin-bottom:0;">미국 연방 컴플라이언스, 한미 양국 특허 보호, 3개 법인 투명 거버넌스 위에 구축되었습니다. 카드를 클릭하면 세부 정보를 확인할 수 있습니다.</p>
+  <p class="sec-lead" style="margin-bottom:0;">Built on U.S. federal compliance, dual-country patent protection, and transparent governance across three jurisdictions. Click any card for details.</p>
   <div class="c-grid">
     <div class="c-card" onclick="openM('wyoming')">
       <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="11" width="20" height="11" rx="1.5" stroke="#00C8FF" stroke-width="1"/><path d="M1 11 L12 3 L23 11" stroke="#00C8FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><line x1="1" y1="22" x2="23" y2="22" stroke="#00C8FF" stroke-width="1.2" stroke-linecap="round"/><rect x="9" y="14" width="6" height="8" rx=".5" stroke="#00C8FF" stroke-width=".8"/></svg></div>
       <div class="c-val">K-AI CONET WYOMING LLC</div>
       <div class="c-sub">Cheyenne, Wyoming · USA</div>
-      <span class="c-badge bg-g">활성 ✓</span>
+      <span class="c-badge bg-g">ACTIVE ✓</span>
     </div>
     <div class="c-card" onclick="openM('fincen')">
       <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.5 9L23 9L17 14L19.5 21L12 17L4.5 21L7 14L1 9L8.5 9Z" stroke="#00FF9D" stroke-width="1" stroke-linejoin="round"/><circle cx="12" cy="12.5" r="2.5" fill="rgba(0,255,157,.15)" stroke="#00FF9D" stroke-width=".8"/></svg></div>
       <div class="c-val">FinCEN MSB</div>
       <div class="c-sub">MRX26-00005630</div>
-      <span class="c-badge bg-g">등록 완료 ✓</span>
+      <span class="c-badge bg-g">REGISTERED ✓</span>
     </div>
     <div class="c-card" onclick="openM('aml')">
       <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2" stroke="#00C8FF" stroke-width="1"/><line x1="7" y1="8" x2="17" y2="8" stroke="#00C8FF" stroke-width=".9"/><line x1="7" y1="12" x2="17" y2="12" stroke="#00C8FF" stroke-width=".9"/><line x1="7" y1="16" x2="13" y2="16" stroke="#00C8FF" stroke-width=".9"/><circle cx="19" cy="19" r="4" fill="rgba(0,255,157,.1)" stroke="#00FF9D" stroke-width=".8"/><path d="M17.5 19L18.5 20L20.5 18" stroke="#00FF9D" stroke-width=".9" stroke-linecap="round"/></svg></div>
       <div class="c-val">AML / KYC</div>
       <div class="c-sub">POLICY v1.0 · 2026</div>
-      <span class="c-badge bg-g">준수 ✓</span>
+      <span class="c-badge bg-g">COMPLIANT ✓</span>
     </div>
     <div class="c-card" onclick="openM('patent')">
       <div class="c-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="12" y1="3" x2="12" y2="21" stroke="#9B6DFF" stroke-width="1.2" stroke-linecap="round"/><line x1="5" y1="7" x2="19" y2="7" stroke="#9B6DFF" stroke-width="1.2" stroke-linecap="round"/><path d="M5 7L3.2 13.5Q3.2 17 5 17Q6.8 17 7.2 13.5Z" stroke="#9B6DFF" stroke-width="1" fill="rgba(155,109,255,.1)"/><path d="M19 7L17.2 13.5Q17.2 17 19 17Q20.8 17 21.2 13.5Z" stroke="#9B6DFF" stroke-width="1" fill="rgba(155,109,255,.1)"/><line x1="9" y1="21" x2="15" y2="21" stroke="#9B6DFF" stroke-width="1.2" stroke-linecap="round"/></svg></div>
       <div class="c-val">3 PATENTS</div>
       <div class="c-sub">USPTO + KIPO FILED</div>
-      <span class="c-badge bg-p">출원 중 ✓</span>
+      <span class="c-badge bg-p">PENDING ✓</span>
     </div>
   </div>
 </div>
@@ -973,8 +973,8 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 <!-- STRUCTURE -->
 <section>
 <div class="struct-section">
-  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// 법인 구조</div></div>
-  <h2 class="sec-h2">3개 법인,<br><em>하나의 생태계</em></h2>
+  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// Corporate Structure</div></div>
+  <h2 class="sec-h2">Three Entities,<br><em>One Ecosystem</em></h2>
   <div class="rule"></div>
   <div class="struct-grid">
     <div class="s-card main" onclick="openM('wyoming')">
@@ -983,10 +983,10 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
       </div>
       <div class="s-name">K-AI CONET WYOMING LLC</div>
       <div class="s-desc">Global Principal · IP & Patents · FinCEN MSB · $USAI Issuer · U.S. Importer of Record</div>
-      <div class="s-row"><span class="k">주소</span><span class="v">1621 Central Ave, Cheyenne WY</span></div>
-      <div class="s-row"><span class="k">비즈니스</span><span class="v">142 W 57th St, 11th Fl, NY 10019</span></div>
+      <div class="s-row"><span class="k">Address</span><span class="v">1621 Central Ave, Cheyenne WY</span></div>
+      <div class="s-row"><span class="k">Business</span><span class="v">142 W 57th St, 11th Fl, NY 10019</span></div>
       <div class="s-row"><span class="k">FinCEN</span><span class="v g">MRX26-00005630 ✓</span></div>
-      <div class="s-row"><span class="k">주 세금</span><span class="v g">없음 ✓</span></div>
+      <div class="s-row"><span class="k">State Tax</span><span class="v g">NONE ✓</span></div>
     </div>
     <div class="s-card" onclick="openM('newyork')">
       <div class="s-flag-icon">
@@ -994,8 +994,8 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
       </div>
       <div class="s-name">K-AI CONET INC</div>
       <div class="s-desc">New York, USA · Sales & Marketing · AI Web Festival · U.S. Operations</div>
-      <div class="s-row"><span class="k">주(州)</span><span class="v">New York, USA</span></div>
-      <div class="s-row"><span class="k">주소</span><span class="v">142 W 57th St, 11th Fl, NY</span></div>
+      <div class="s-row"><span class="k">State</span><span class="v">New York, USA</span></div>
+      <div class="s-row"><span class="k">Address</span><span class="v">142 W 57th St, 11th Fl, NY</span></div>
     </div>
     <div class="s-card" onclick="openM('korea')">
       <div class="s-flag-icon">
@@ -1003,8 +1003,8 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
       </div>
       <div class="s-name">K-AI CONET Co., Ltd.</div>
       <div class="s-desc">Busan, Korea · Technology R&D · Product Development</div>
-      <div class="s-row"><span class="k">법인등기번호</span><span class="v">146223</span></div>
-      <div class="s-row"><span class="k">주소</span><span class="v">111-1 Jesok-ro, Saha-gu, Busan, Park Village B-501</span></div>
+      <div class="s-row"><span class="k">Corporate Reg. No.</span><span class="v">146223</span></div>
+      <div class="s-row"><span class="k">Address</span><span class="v">111-1 Jesok-ro, Saha-gu, Busan, Park Village B-501</span></div>
     </div>
   </div>
 </div>
@@ -1014,33 +1014,33 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 <section id="vision">
 <div class="rm-bg">
 <div class="rm-inner">
-  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// 로드맵 2026–2028</div></div>
-  <h2 class="sec-h2">글로벌 금융의<br><em>미래를 만들다</em></h2>
+  <div class="sec-eyebrow"><div class="sec-line"></div><div class="sec-label">// Roadmap 2026–2028</div></div>
+  <h2 class="sec-h2">Building the Future<br><em>of Global Finance</em></h2>
   <div class="rule"></div>
   <div class="rm-grid">
     <div class="rm-card now" onclick="openM('rm1')">
-      <div class="rm-q">2026년 2분기 · 현재</div>
-      <div class="rm-title">기반 구축 완료</div>
-      <div class="rm-desc">3법인 구조 · FinCEN MSB 등록(MRX26-00005630) · 특허 3건 출원 · USAI 월렛 프로토타입 · kaiconetwyoming.com 운영 중</div>
-      <span class="rm-badge" style="background:rgba(0,255,157,.07);border:1px solid rgba(0,255,157,.2);color:var(--green);">완료 ✓</span>
+      <div class="rm-q">Q2 2026 · NOW</div>
+      <div class="rm-title">Foundation Complete</div>
+      <div class="rm-desc">3-entity structure · FinCEN MSB registered (MRX26-00005630) · 3 patents filed · USAI Wallet prototype · kaiconetwyoming.com live</div>
+      <span class="rm-badge" style="background:rgba(0,255,157,.07);border:1px solid rgba(0,255,157,.2);color:var(--green);">COMPLETE ✓</span>
     </div>
     <div class="rm-card soon" onclick="openM('rm2')">
-      <div class="rm-q">2026년 3~4분기</div>
+      <div class="rm-q">Q3–Q4 2026</div>
       <div class="rm-title">Platform Launch & Seed</div>
-      <div class="rm-desc">$USAI 스마트 컨트랙트 배포 · V-Match AI 공개 베타 · V-Match 수수료 수익 · 서울 AI 웹 페스티벌 · 앱스토어 출시</div>
-      <span class="rm-badge" style="background:rgba(0,200,255,.06);border:1px solid rgba(0,200,255,.18);color:var(--cyan);">진행 중 →</span>
+      <div class="rm-desc">$USAI smart contract deployment · V-Match AI public beta · Revenue-First Model · Seoul AI Web Festival · App Store</div>
+      <span class="rm-badge" style="background:rgba(0,200,255,.06);border:1px solid rgba(0,200,255,.18);color:var(--cyan);">IN PROGRESS →</span>
     </div>
     <div class="rm-card future">
-      <div class="rm-q">2027년</div>
-      <div class="rm-title">글로벌 확장</div>
+      <div class="rm-q">2027</div>
+      <div class="rm-title">Global Expansion</div>
       <div class="rm-desc">CBP Oracle live · e-B/L NFT issuance · 100 countries · Series A · Google Play & App Store global release</div>
-      <span class="rm-badge" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:var(--hint);">계획됨</span>
+      <span class="rm-badge" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:var(--hint);">PLANNED</span>
     </div>
     <div class="rm-card future">
-      <div class="rm-q">2028년 · 비전</div>
-      <div class="rm-title">나스닥 IPO</div>
+      <div class="rm-q">2028 · VISION</div>
+      <div class="rm-title">NASDAQ IPO</div>
       <div class="rm-desc">Global M&A or NASDAQ listing. Wyoming LLC holding structure maximizes exit valuation for all investors.</div>
-      <span class="rm-badge" style="background:rgba(200,168,75,.06);border:1px solid rgba(200,168,75,.15);color:var(--gold2);">비전</span>
+      <span class="rm-badge" style="background:rgba(200,168,75,.06);border:1px solid rgba(200,168,75,.15);color:var(--gold2);">VISION</span>
     </div>
   </div>
 </div>
@@ -1051,52 +1051,52 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 <section id="contact">
 <div class="contact-section">
   <div class="contact-inner">
-    <div class="sec-eyebrow" style="justify-content:center;margin-bottom:12px;"><div class="sec-line"></div><div class="sec-label">// 문의</div><div class="sec-line"></div></div>
-    <h2 class="c-h">ALL IS ONE.<br><em>미래에 합류하세요.</em></h2>
-    <p class="c-sub">글로벌 바이어, 한국 공급업체, 전략적 투자자 — 무역을 앞으로 나아가게 하는 모든 대화를 환영합니다.</p>
+    <div class="sec-eyebrow" style="justify-content:center;margin-bottom:12px;"><div class="sec-line"></div><div class="sec-label">// Contact</div><div class="sec-line"></div></div>
+    <h2 class="c-h">ALL IS ONE.<br><em>Join the Future.</em></h2>
+    <p class="c-sub">Global buyers, Korean suppliers, strategic investors — every conversation that moves trade forward is welcome.</p>
     <div class="c-msb">
       <div class="msb-dot"></div>
-      <span class="msb-t">FinCEN 등록 MSB ·</span>
+      <span class="msb-t">FinCEN Registered MSB ·</span>
       <span class="msb-id">MRX26-00005630</span>
       <span class="msb-t">· Wyoming LLC · Cheyenne, WY</span>
     </div>
     <div class="cg">
-      <div class="cc"><div class="cc-l">이메일</div><div class="cc-v">ceo@k-aiconet.com</div></div>
-      <div class="cc"><div class="cc-l">전화</div><div class="cc-v">+1 332-254-9709</div></div>
-      <div class="cc"><div class="cc-l">주소</div><div class="cc-v">142 W 57th St, 11th Floor, New York, NY 10019</div></div>
+      <div class="cc"><div class="cc-l">Email</div><div class="cc-v">ceo@k-aiconet.com</div></div>
+      <div class="cc"><div class="cc-l">Phone</div><div class="cc-v">+1 332-254-9709</div></div>
+      <div class="cc"><div class="cc-l">Address</div><div class="cc-v">142 W 57th St, 11th Floor, New York, NY 10019</div></div>
     </div>
-    <a href="mailto:ceo@k-aiconet.com" class="btn-p" style="display:inline-block;">얼리 액세스 신청 →</a>
+    <a href="mailto:ceo@k-aiconet.com" class="btn-p" style="display:inline-block;">Get Early Access →</a>
   </div>
 </div>
 </section>
 
 <!-- FOOTER -->
 
-  <!-- ══ 비전 + 입법 환경 ══ -->
+  <!-- ══ VISION + REGULATION ══ -->
   <section style="padding:80px 0 60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;">
     <div style="border-left:3px solid #C8A84B;padding-left:22px;margin-bottom:44px;">
-      <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;letter-spacing:.18em;color:#C8A84B;margin-bottom:10px;">창업자 비전 · FOUNDER'S VISION</div>
-      <h2 style="font-size:1.3rem;font-weight:900;color:#fff;line-height:1.4;margin-bottom:16px;">"거북선 그림 한 장으로 세계 조선업을 일군<br>정주영 회장처럼 — 설계도 하나로 시작합니다."</h2>
+      <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;letter-spacing:.18em;color:#C8A84B;margin-bottom:10px;">FOUNDER'S VISION</div>
+      <h2 style="font-size:1.3rem;font-weight:900;color:#fff;line-height:1.4;margin-bottom:16px;">"Like Chung Ju-yung, who secured a loan for a shipyard<br>that didn't yet exist — armed only with a Turtle Ship on a banknote."</h2>
       <p style="font-size:.84rem;color:rgba(255,255,255,.65);line-height:1.85;">
-        1971년 정주영 회장은 지폐에 그려진 거북선 그림 하나를 들고 영국 바클레이즈 은행의 문을 두드렸습니다. "500년 된 조상의 설계도가 있습니다." 그 한 마디로 현대중공업을 세웠습니다. K-AI CONET은 그 정신으로 시작합니다. AI 기술과 블록체인 설계도 하나로 글로벌 무역 결제 인프라를 구축합니다. <strong style="color:#C8A84B;">시장이 진정한 투자자다.</strong>
+        In 1971, Hyundai's founder walked into Barclays Bank with nothing but a banknote bearing Korea's 16th-century Turtle Ship. He secured the loan that launched Hyundai Heavy Industries. K-AI CONET begins with that same audacity — one blueprint, one global vision. <strong style="color:#C8A84B;">The market is the true investor.</strong>
       </p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
       <div style="background:rgba(0,200,255,.05);border:1px solid rgba(0,200,255,.12);border-radius:12px;padding:18px;">
         <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;color:#00D4FF;letter-spacing:.12em;margin-bottom:7px;">GENIUS ACT</div>
-        <div style="font-size:.76rem;color:rgba(255,255,255,.75);line-height:1.7;">미국 스테이블코인 규제 프레임워크. $USAI는 이 법률 체계 내에서 발행됩니다.</div>
+        <div style="font-size:.76rem;color:rgba(255,255,255,.75);line-height:1.7;">U.S. stablecoin framework. $USAI designed for full compliance.</div>
       </div>
       <div style="background:rgba(155,109,255,.05);border:1px solid rgba(155,109,255,.15);border-radius:12px;padding:18px;">
         <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;color:#9B6DFF;letter-spacing:.12em;margin-bottom:7px;">CLARITY ACT</div>
-        <div style="font-size:.76rem;color:rgba(255,255,255,.75);line-height:1.7;">$USAI를 유틸리티 코인으로 법적 분류. 증권이 아님을 명확히 합니다.</div>
+        <div style="font-size:.76rem;color:rgba(255,255,255,.75);line-height:1.7;">Defines $USAI as a utility token — not a security.</div>
       </div>
       <div style="background:rgba(200,168,75,.05);border:1px solid rgba(200,168,75,.18);border-radius:12px;padding:18px;">
         <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;color:#C8A84B;letter-spacing:.12em;margin-bottom:7px;">ARMA</div>
-        <div style="font-size:.76rem;color:rgba(255,255,255,.75);line-height:1.7;">미국 전략 비트코인 비축법. 기존 보유 BTC 20년 보관. 강제 매입 없음.</div>
+        <div style="font-size:.76rem;color:rgba(255,255,255,.75);line-height:1.7;">U.S. Strategic Bitcoin Reserve — existing holdings, 20-year hold. No forced purchases.</div>
       </div>
     </div>
   </section>
-  <!-- ══ /비전 + 입법 환경 ══ -->
+  <!-- ══ /VISION + REGULATION ══ -->
 
 
   <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.07);">
@@ -1110,11 +1110,11 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
   </div>
 <footer>
   <div class="f-logo">K-AI CONET GROUP</div>
-  <div class="f-copy">© 2026 K-AI CONET 그룹 · ALL IS ONE · 뉴욕, 미국</div>
+  <div class="f-copy">© 2026 K-AI CONET GROUP · ALL IS ONE · New York, USA</div>
   <div class="f-links">
-    <a href="#">개인정보처리방침</a>
-    <a href="#">이용약관</a>
-    <a href="#">AML 정책</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">AML Policy</a>
     <a href="/kaiconetwyoming-FINAL.html" target="_blank" style="color:var(--cyan);border:1px solid rgba(0,200,255,.3);padding:2px 8px;border-radius:3px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;">⚡ WYOMING LLC</a>
   </div>
 </footer>
@@ -1125,52 +1125,52 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 
   <div class="mc" id="mc-vmatch" style="display:none;">
     <div class="modal-bar"></div>
-    <div class="modal-hdr"><div><div class="modal-tag">KIPO Patent · 10-2026-0079885</div><div class="modal-title">V-Match AI 엔진</div><div class="modal-sub">6-벡터 지능형 매칭 · 0.3초 응답 · 54개국</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
+    <div class="modal-hdr"><div><div class="modal-tag">KIPO Patent · 10-2026-0079885</div><div class="modal-title">V-Match AI Engine</div><div class="modal-sub">6-Vector Intelligent Matching · 0.3 Second Response · 54 Countries</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
       <div class="m-stats">
-        <div class="m-stat"><div class="m-stat-v" style="color:var(--cyan);">0.3s</div><div class="m-stat-l">매칭 속도</div></div>
-        <div class="m-stat"><div class="m-stat-v" style="color:var(--green);">54</div><div class="m-stat-l">국가 수</div></div>
-        <div class="m-stat"><div class="m-stat-v" style="color:var(--gold2);">96.2%</div><div class="m-stat-l">정확도</div></div>
+        <div class="m-stat"><div class="m-stat-v" style="color:var(--cyan);">0.3s</div><div class="m-stat-l">Match Speed</div></div>
+        <div class="m-stat"><div class="m-stat-v" style="color:var(--green);">54</div><div class="m-stat-l">Countries</div></div>
+        <div class="m-stat"><div class="m-stat-v" style="color:var(--gold2);">96.2%</div><div class="m-stat-l">Accuracy</div></div>
       </div>
-      <div class="m-label">작동 방식</div>
+      <div class="m-label">How It Works</div>
       <div class="m-steps">
-        <div class="m-step"><div class="m-num">01</div><div><h4>음성 또는 텍스트 입력</h4><p>"나이지리아에 K-Food 수출" — AI가 NLP를 이용해 0.05초 만에 의도, 제품 카테고리, 대상 지역을 분석합니다.</p></div></div>
-        <div class="m-step"><div class="m-num">02</div><div><h4>6-벡터 병렬 분석</h4><p>산업(V_i) · 무역(V_t) · 금융(V_f) · 지역(V_g) · 규제(V_c) · 문화(V_k) — RAG 기반 AI 엔진이 모두 동시에 계산합니다.</p></div></div>
-        <div class="m-step"><div class="m-num">03</div><div><h4>최적 매칭 + 자동 계약</h4><p>매칭 점수, 리스크 등급, 권장 계약 조건이 포함된 최적 바이어-공급업체 쌍 제공. 매칭 확인 시 자동 dNFT 발행.</p></div></div>
+        <div class="m-step"><div class="m-num">01</div><div><h4>Voice or Text Input</h4><p>"Export K-Food to Nigeria" — AI parses intent, product category, and target region in 0.05 seconds using NLP.</p></div></div>
+        <div class="m-step"><div class="m-num">02</div><div><h4>6-Vector Parallel Analysis</h4><p>Industry (V_i) · Trade (V_t) · Finance (V_f) · Geo (V_g) · Compliance (V_c) · Culture (V_k) — all computed simultaneously via RAG-based AI engine.</p></div></div>
+        <div class="m-step"><div class="m-num">03</div><div><h4>Optimal Match + Auto Contract</h4><p>Best buyer-supplier pair surfaced with match score, risk rating, and recommended contract terms. Auto-dNFT issuance on match confirmation.</p></div></div>
       </div>
       <div class="m-row"><span class="k">KIPO Patent</span><span class="v">10-2026-0079885</span></div>
-      <div class="m-row"><span class="k">아키텍처</span><span class="v">RAG + 6-Vector Cosine Similarity</span></div>
-      <div class="m-row"><span class="k">Status</span><span class="v g">특허 출원 · 적극 개발 중 ✓</span></div>
+      <div class="m-row"><span class="k">Architecture</span><span class="v">RAG + 6-Vector Cosine Similarity</span></div>
+      <div class="m-row"><span class="k">Status</span><span class="v g">Patent Filed · Active Development ✓</span></div>
     </div>
   </div>
 
   <div class="mc" id="mc-escrow" style="display:none;">
     <div class="modal-bar"></div>
-    <div class="modal-hdr"><div><div class="modal-tag">Smart Contract · CBP Oracle</div><div class="modal-title">블록체인 에스크로 정산</div><div class="modal-sub">제로 트러스트 자동 대금 지급 · ~12초 vs SWIFT 3~5일</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
+    <div class="modal-hdr"><div><div class="modal-tag">Smart Contract · CBP Oracle</div><div class="modal-title">Blockchain Escrow Settlement</div><div class="modal-sub">Zero-Trust Automatic Payment Release · ~12 Seconds vs SWIFT 3–5 Days</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
       <div class="m-stats">
-        <div class="m-stat"><div class="m-stat-v" style="color:var(--green);">~12s</div><div class="m-stat-l">정산 시간</div></div>
-        <div class="m-stat"><div class="m-stat-v" style="color:var(--cyan);">0%</div><div class="m-stat-l">거래상대방 리스크</div></div>
-        <div class="m-stat"><div class="m-stat-v" style="color:var(--gold2);">100%</div><div class="m-stat-l">자동 실행률</div></div>
+        <div class="m-stat"><div class="m-stat-v" style="color:var(--green);">~12s</div><div class="m-stat-l">Settlement</div></div>
+        <div class="m-stat"><div class="m-stat-v" style="color:var(--cyan);">0%</div><div class="m-stat-l">Counterparty Risk</div></div>
+        <div class="m-stat"><div class="m-stat-v" style="color:var(--gold2);">100%</div><div class="m-stat-l">Auto-Executed</div></div>
       </div>
-      <div class="m-label">정산 흐름</div>
+      <div class="m-label">Settlement Flow</div>
       <div class="m-steps">
-        <div class="m-step"><div class="m-num">01</div><div><h4>에스크로 잠금</h4><p>바이어가 $USAI를 스마트 컨트랙트에 예치. 암호학적으로 잠금 — 조건 충족 전까지 어느 당사자도 일방적으로 자금 인출 불가.</p></div></div>
-        <div class="m-step"><div class="m-num">02</div><div><h4>CBP 오라클 검증</h4><p>DHS CBP API가 실시간 통관 확인 정보를 블록체인 오라클에 직접 전송합니다. 수동 승인 불필요.</p></div></div>
-        <div class="m-step"><div class="m-num">03</div><div><h4>약 12초 내 자동 지급</h4><p>CBP 신호 수신 시 스마트 컨트랙트 자동 실행. 공급업체는 수 초 내에 대금 수령. 기존 SWIFT 송금: 영업일 3~5일 소요.</p></div></div>
+        <div class="m-step"><div class="m-num">01</div><div><h4>Escrow Lock</h4><p>Buyer deposits $USAI into smart contract. Cryptographically locked — neither party can access funds unilaterally until conditions are met.</p></div></div>
+        <div class="m-step"><div class="m-num">02</div><div><h4>CBP Oracle Verification</h4><p>DHS CBP API feeds real-time customs clearance confirmation directly to blockchain oracle. No manual approval needed.</p></div></div>
+        <div class="m-step"><div class="m-num">03</div><div><h4>Automatic Release in ~12 Seconds</h4><p>Smart contract self-executes upon CBP signal. Supplier receives payment in seconds. Traditional SWIFT wire: 3–5 business days.</p></div></div>
       </div>
     </div>
   </div>
 
   <div class="mc" id="mc-trade" style="display:none;">
     <div class="modal-bar"></div>
-    <div class="modal-hdr"><div><div class="modal-tag">U.S. Federal · Wyoming Law</div><div class="modal-title">미국 무역 컴플라이언스</div><div class="modal-sub">플랫폼-주체 모델 · 미국 수입자 대리인</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
+    <div class="modal-hdr"><div><div class="modal-tag">U.S. Federal · Wyoming Law</div><div class="modal-title">U.S. Trade Compliance</div><div class="modal-sub">Platform-as-Principal · U.S. Importer of Record Model</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
-      <div class="m-label">담당 업무</div>
+      <div class="m-label">What We Handle</div>
       <div class="m-steps">
-        <div class="m-step"><div class="m-num">01</div><div><h4>미국 수입자 대리인(IOR)</h4><p>와이오밍 LLC가 법적 미국 수입자 역할 수행. 한국 공급업체는 출하만 — 미국 컴플라이언스 및 규제 책임은 당사가 전담합니다.</p></div></div>
-        <div class="m-step"><div class="m-num">02</div><div><h4>CBP 세관 연동</h4><p>미국 세관국경보호국과 직접 API 연동. 실시간 관세 계산, HTS 코드 검증, 자동 e-B/L NFT 생성.</p></div></div>
-        <div class="m-step"><div class="m-num">03</div><div><h4>FinCEN AML/KYC 준수</h4><p>등록 MSB(MRX26-00005630). 완전한 AML/KYC 정책, OFAC 스크리닝, CTR/SAR 보고 기능. BSA 준수.</p></div></div>
+        <div class="m-step"><div class="m-num">01</div><div><h4>U.S. Importer of Record (IOR)</h4><p>Wyoming LLC acts as legal U.S. importer. Korean suppliers ship — we own all U.S. compliance responsibility and regulatory exposure.</p></div></div>
+        <div class="m-step"><div class="m-num">02</div><div><h4>CBP Customs Integration</h4><p>Direct API with U.S. Customs and Border Protection. Real-time tariff calculation, HTS code verification, and automated e-B/L NFT generation.</p></div></div>
+        <div class="m-step"><div class="m-num">03</div><div><h4>FinCEN AML/KYC Compliance</h4><p>Registered MSB (MRX26-00005630). Full AML/KYC policy, OFAC screening, CTR/SAR reporting capability. BSA compliant.</p></div></div>
       </div>
     </div>
   </div>
@@ -1179,53 +1179,53 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
     <div class="modal-bar"></div>
     <div class="modal-hdr"><div><div class="modal-tag">Established April 12, 2026</div><div class="modal-title">K-AI CONET WYOMING LLC</div><div class="modal-sub">U.S. Principal Entity · Global IP & Patent Holding</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
-      <div class="m-row"><span class="k">주(州)</span><span class="v">Wyoming, USA</span></div>
+      <div class="m-row"><span class="k">State</span><span class="v">Wyoming, USA</span></div>
       <div class="m-row"><span class="k">Registered Address</span><span class="v">1621 Central Ave, Cheyenne WY 82001</span></div>
       <div class="m-row"><span class="k">Business Address</span><span class="v">142 W 57th St, 11th Fl, New York NY 10019</span></div>
-      <div class="m-row"><span class="k">대표 / CEO</span><span class="v">IL KANG</span></div>
+      <div class="m-row"><span class="k">Manager / CEO</span><span class="v">IL KANG</span></div>
       <div class="m-row"><span class="k">FinCEN MSB</span><span class="v g">MRX26-00005630 ✓</span></div>
-      <div class="m-row"><span class="k">State Income Tax</span><span class="v g">없음 ✓</span></div>
-      <div class="m-row"><span class="k">디지털자산법</span><span class="v g">DASA 보호 ✓</span></div>
-      <div class="m-row"><span class="k">MSB 라이선스</span><span class="v g">와이오밍주 불필요 ✓</span></div>
+      <div class="m-row"><span class="k">State Income Tax</span><span class="v g">NONE ✓</span></div>
+      <div class="m-row"><span class="k">Digital Asset Law</span><span class="v g">DASA PROTECTED ✓</span></div>
+      <div class="m-row"><span class="k">MSB License</span><span class="v g">NOT REQUIRED IN WYOMING ✓</span></div>
     </div>
   </div>
 
   <div class="mc" id="mc-fincen" style="display:none;">
     <div class="modal-bar"></div>
-    <div class="modal-hdr"><div><div class="modal-tag">U.S. Department of Treasury</div><div class="modal-title">FinCEN MSB 등록</div><div class="modal-sub">금융 서비스 사업자 · 연방 등록 · 2026년 5월 19일</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
+    <div class="modal-hdr"><div><div class="modal-tag">U.S. Department of Treasury</div><div class="modal-title">FinCEN MSB Registration</div><div class="modal-sub">Money Services Business · Federally Registered · May 19, 2026</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
-      <div class="m-row"><span class="k">추적 ID</span><span class="v g">MRX26-00005630</span></div>
-      <div class="m-row"><span class="k">신청 유형</span><span class="v">RMSBX</span></div>
-      <div class="m-row"><span class="k">등록일</span><span class="v">May 19, 2026</span></div>
-      <div class="m-row"><span class="k">신청 법인</span><span class="v">K-AI CONET WYOMING LLC</span></div>
-      <div class="m-row"><span class="k">서비스</span><span class="v">가상화폐 교환업 · 자금 송금업</span></div>
-      <div class="m-row"><span class="k">법적 근거</span><span class="v">31 U.S.C. §§ 5311–5336 (BSA)</span></div>
-      <div class="m-row"><span class="k">Status</span><span class="v g">활성 ✓</span></div>
+      <div class="m-row"><span class="k">Tracking ID</span><span class="v g">MRX26-00005630</span></div>
+      <div class="m-row"><span class="k">Submission Type</span><span class="v">RMSBX</span></div>
+      <div class="m-row"><span class="k">Registration Date</span><span class="v">May 19, 2026</span></div>
+      <div class="m-row"><span class="k">Filing Entity</span><span class="v">K-AI CONET WYOMING LLC</span></div>
+      <div class="m-row"><span class="k">Services</span><span class="v">Virtual Currency Exchanger · Money Transmitter</span></div>
+      <div class="m-row"><span class="k">Legal Authority</span><span class="v">31 U.S.C. §§ 5311–5336 (BSA)</span></div>
+      <div class="m-row"><span class="k">Status</span><span class="v g">ACTIVE ✓</span></div>
     </div>
   </div>
 
   <div class="mc" id="mc-aml" style="display:none;">
     <div class="modal-bar"></div>
-    <div class="modal-hdr"><div><div class="modal-tag">Version 1.0 · May 2026</div><div class="modal-title">AML / KYC 정책</div><div class="modal-sub">Anti-Money Laundering & Know Your Customer Compliance Program</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
+    <div class="modal-hdr"><div><div class="modal-tag">Version 1.0 · May 2026</div><div class="modal-title">AML / KYC Policy</div><div class="modal-sub">Anti-Money Laundering & Know Your Customer Compliance Program</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
-      <div class="m-label">10대 핵심 정책 조항</div>
+      <div class="m-label">10 Core Policy Articles</div>
       <div class="m-steps">
-        <div class="m-step"><div class="m-num">①</div><div><h4>법적 근거</h4><p>BSA · FinCEN Regulations · USA PATRIOT Act · OFAC · 18 U.S.C. § 1956</p></div></div>
-        <div class="m-step"><div class="m-num">②</div><div><h4>KYC — 고객 신원확인</h4><p>Individual & entity verification · Iris biometric · Source of funds · Wallet address screening</p></div></div>
-        <div class="m-step"><div class="m-num">③</div><div><h4>Transaction Monitoring & Reporting</h4><p>CTR(1만 달러 이상) · SAR(2천 달러 이상) · 실시간 OFAC SDN 스크리닝 · 자동 알림</p></div></div>
-        <div class="m-step"><div class="m-num">④</div><div><h4>5년 기록 보존</h4><p>전체 KYC 서류 · 거래 기록 · CTR/SAR 보고서 · 블록체인 해시 검증</p></div></div>
+        <div class="m-step"><div class="m-num">①</div><div><h4>Legal Basis</h4><p>BSA · FinCEN Regulations · USA PATRIOT Act · OFAC · 18 U.S.C. § 1956</p></div></div>
+        <div class="m-step"><div class="m-num">②</div><div><h4>KYC — Customer Identification</h4><p>Individual & entity verification · Iris biometric · Source of funds · Wallet address screening</p></div></div>
+        <div class="m-step"><div class="m-num">③</div><div><h4>Transaction Monitoring & Reporting</h4><p>CTR ($10,000+) · SAR ($2,000+) · Real-time OFAC SDN screening · Auto-alerts</p></div></div>
+        <div class="m-step"><div class="m-num">④</div><div><h4>5-Year Record Retention</h4><p>All KYC docs · Transaction records · CTR/SAR filings · Blockchain hash verification</p></div></div>
       </div>
     </div>
   </div>
 
   <div class="mc" id="mc-patent" style="display:none;">
     <div class="modal-bar"></div>
-    <div class="modal-hdr"><div><div class="modal-tag">USPTO + KIPO · 2026</div><div class="modal-title">특허 3건 출원</div><div class="modal-sub">한미 양국 지식재산권 보호</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
+    <div class="modal-hdr"><div><div class="modal-tag">USPTO + KIPO · 2026</div><div class="modal-title">3 Patents Filed</div><div class="modal-sub">Dual-Country Intellectual Property Protection</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
       <div class="m-steps">
-        <div class="m-step"><div class="m-num">🇺🇸</div><div><h4>USPTO — K-AI 월렛 임시 특허</h4><p>Docket KAIC-2026-001 · Delivered April 22, 2026<br>Nonprovisional Deadline: April 16, 2027<br>AI-Powered Multi-Chain Blockchain Wallet System</p></div></div>
-        <div class="m-step"><div class="m-num">🇰🇷</div><div><h4>특허청(KIPO) — K-AI 월렛</h4><p>Application No. 10-2026-0079874 · Filed May 4, 2026<br>Customer No. 4-2026-032211-8</p></div></div>
-        <div class="m-step"><div class="m-num">🇰🇷</div><div><h4>특허청(KIPO) — V-Match AI 엔진</h4><p>Application No. 10-2026-0079885 · Filed May 4, 2026<br>Blockchain-Integrated Multi-Vector AI Matching System</p></div></div>
+        <div class="m-step"><div class="m-num">🇺🇸</div><div><h4>USPTO — K-AI Wallet Provisional</h4><p>Docket KAIC-2026-001 · Delivered April 22, 2026<br>Nonprovisional Deadline: April 16, 2027<br>AI-Powered Multi-Chain Blockchain Wallet System</p></div></div>
+        <div class="m-step"><div class="m-num">🇰🇷</div><div><h4>KIPO — K-AI Wallet</h4><p>Application No. 10-2026-0079874 · Filed May 4, 2026<br>Customer No. 4-2026-032211-8</p></div></div>
+        <div class="m-step"><div class="m-num">🇰🇷</div><div><h4>KIPO — V-Match AI Engine</h4><p>Application No. 10-2026-0079885 · Filed May 4, 2026<br>Blockchain-Integrated Multi-Vector AI Matching System</p></div></div>
       </div>
     </div>
   </div>
@@ -1234,10 +1234,10 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
     <div class="modal-bar"></div>
     <div class="modal-hdr"><div><div class="modal-tag">Incorporated April 2, 2026</div><div class="modal-title">K-AI CONET INC</div><div class="modal-sub">New York · U.S. Sales & Marketing · AI Web Festival</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
-      <div class="m-row"><span class="k">주(州)</span><span class="v">New York, USA</span></div>
-      <div class="m-row"><span class="k">주소</span><span class="v">142 W 57th St, 11th Fl, New York NY 10019</span></div>
-      <div class="m-row"><span class="k">역할</span><span class="v">영업 · 마케팅 · AI 웹 페스티벌 · 이벤트</span></div>
-      <div class="m-row"><span class="k">은행</span><span class="v g">머큐리 뱅크 · 계좌 활성 ✓</span></div>
+      <div class="m-row"><span class="k">State</span><span class="v">New York, USA</span></div>
+      <div class="m-row"><span class="k">Address</span><span class="v">142 W 57th St, 11th Fl, New York NY 10019</span></div>
+      <div class="m-row"><span class="k">Focus</span><span class="v">Sales · Marketing · AI Web Festival · Events</span></div>
+      <div class="m-row"><span class="k">Banking</span><span class="v g">Mercury Bank · Account Active ✓</span></div>
     </div>
   </div>
 
@@ -1245,9 +1245,9 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
     <div class="modal-bar"></div>
     <div class="modal-hdr"><div><div class="modal-tag">Renamed May 4, 2026</div><div class="modal-title">K-AI CONET Co., Ltd.</div><div class="modal-sub">Busan, Korea · Technology R&D · Product Development</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
-      <div class="m-row"><span class="k">법인등기번호</span><span class="v">146223</span></div>
-      <div class="m-row"><span class="k">주소</span><span class="v">111-1 Jesok-ro, Saha-gu, Busan, Park Village B-501, Republic of Korea</span></div>
-      <div class="m-row"><span class="k">역할</span><span class="v">Technology R&D · Product Development</span></div>
+      <div class="m-row"><span class="k">Corporate Registration No.</span><span class="v">146223</span></div>
+      <div class="m-row"><span class="k">Address</span><span class="v">111-1 Jesok-ro, Saha-gu, Busan, Park Village B-501, Republic of Korea</span></div>
+      <div class="m-row"><span class="k">Focus</span><span class="v">Technology R&D · Product Development</span></div>
       <div class="m-row"><span class="k">KIPO Patent 1</span><span class="v g">10-2026-0079874 (K-AI Wallet) ✓</span></div>
       <div class="m-row"><span class="k">KIPO Patent 2</span><span class="v g">10-2026-0079885 (V-Match AI) ✓</span></div>
     </div>
@@ -1255,7 +1255,7 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
 
   <div class="mc" id="mc-rm1" style="display:none;">
     <div class="modal-bar"></div>
-    <div class="modal-hdr"><div><div class="modal-tag">Q2 2026 · Complete</div><div class="modal-title">기반 구축 완료</div><div class="modal-sub">법적, 특허, 컴플라이언스 기반 전체 구축 완료</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
+    <div class="modal-hdr"><div><div class="modal-tag">Q2 2026 · Complete</div><div class="modal-title">Foundation Complete</div><div class="modal-sub">All legal, patent, and compliance foundations established</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
       <div class="m-row"><span class="k">Wyoming LLC</span><span class="v g">Registered ✓</span></div>
       <div class="m-row"><span class="k">New York INC</span><span class="v g">Incorporated ✓</span></div>
@@ -1263,20 +1263,20 @@ footer{background:#020508;border-top:1px solid rgba(0,200,255,.05);padding:22px 
       <div class="m-row"><span class="k">FinCEN MSB</span><span class="v g">MRX26-00005630 ✓</span></div>
       <div class="m-row"><span class="k">KIPO Patents</span><span class="v g">2 Filed ✓</span></div>
       <div class="m-row"><span class="k">USPTO Patent</span><span class="v g">KAIC-2026-001 ✓</span></div>
-      <div class="m-row"><span class="k">AML/KYC 정책</span><span class="v g">v1.0 완료 ✓</span></div>
-      <div class="m-row"><span class="k">웹사이트</span><span class="v g">kaiconetwyoming.com 운영 중 ✓</span></div>
-      <div class="m-row"><span class="k">USAI 월렛</span><span class="v g">프로토타입 완성 ✓</span></div>
+      <div class="m-row"><span class="k">AML/KYC Policy</span><span class="v g">v1.0 Complete ✓</span></div>
+      <div class="m-row"><span class="k">Website</span><span class="v g">kaiconetwyoming.com Live ✓</span></div>
+      <div class="m-row"><span class="k">USAI Wallet</span><span class="v g">Prototype Ready ✓</span></div>
     </div>
   </div>
 
   <div class="mc" id="mc-rm2" style="display:none;">
     <div class="modal-bar"></div>
-    <div class="modal-hdr"><div><div class="modal-tag">Q3–Q4 2026 · In Progress</div><div class="modal-title">Platform Launch</div><div class="modal-sub">공개 베타, 토큰 배포, V-Match 수수료 수익 런칭</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
+    <div class="modal-hdr"><div><div class="modal-tag">Q3–Q4 2026 · In Progress</div><div class="modal-title">Platform Launch & V-Match Revenue</div><div class="modal-sub">Public beta, token deployment, and V-Match commission revenue launch</div></div><button class="modal-close" onclick="closeModalBtn()">✕</button></div>
     <div class="modal-bdy">
       <div class="m-steps">
-        <div class="m-step"><div class="m-num">→</div><div><h4>$USAI 스마트 컨트랙트 배포</h4><p>폴리곤 메인넷 배포, Slither 보안 감사 → Cyfrin 감사 → 보안 배지 취득.</p></div></div>
-        <div class="m-step"><div class="m-num">→</div><div><h4>V-Match AI 공개 베타</h4><p>B2B matching platform targeting Korean exhibition industry (13,000+ companies). NaverPay & Stripe integration.</p></div></div>
-        <div class="m-step"><div class="m-num">→</div><div><h4>V-Match 수수료 수익</h4><p>V-Match AI 매칭 수수료 및 $USAI 무역 결제 수수료 기반 수익 구조로 운영됩니다.</p></div></div>
+        <div class="m-step"><div class="m-num">→</div><div><h4>$USAI Smart Contract Deployment</h4><p>Polygon mainnet deployment with Slither security audit → Cyfrin audit → security badge acquisition.</p></div></div>
+        <div class="m-step"><div class="m-num">→</div><div><h4>V-Match AI Public Beta</h4><p>B2B matching platform targeting Korean exhibition industry (13,000+ companies). NaverPay & Stripe integration.</p></div></div>
+        <div class="m-step"><div class="m-num">→</div><div><h4>Revenue-First Model</h4><p>Revenue generated through V-Match AI matching fees and $USAI trade settlement commissions.</p></div></div>
       </div>
     </div>
   </div>

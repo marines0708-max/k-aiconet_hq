@@ -1243,9 +1243,9 @@ function closeModal(e){
   if(e && e.target===document.getElementById('modal-overlay')){ closeModalBtn(); }
 }
 function closeModal(e){
-  if(e.target===document.getElementById('modal-overlay')) closeModalBtn;
+  if(e.target===document.getElementById('modal-overlay')) closeModalBtn();
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModalBtn;});
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModalBtn();});
 
 </script>
 </body>
