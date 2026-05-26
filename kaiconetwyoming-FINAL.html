@@ -744,8 +744,8 @@ footer{
       <div class="rm">
         <div class="rm-dot upcoming"></div>
         <div class="rm-q">Q3–Q4 2026</div>
-        <div class="rm-title">Platform Launch & Seed Round</div>
-        <div class="rm-desc">$USAI token smart contract deployment, V-Match AI public beta, Seed $5M fundraising, Seoul AI Web Festival.</div>
+        <div class="rm-title">Platform Launch</div>
+        <div class="rm-desc">$USAI token smart contract deployment, V-Match AI public beta, commission revenue launch, Seoul AI Web Festival.</div>
       </div>
       <div class="rm">
         <div class="rm-dot upcoming"></div>
@@ -816,7 +816,7 @@ footer{
         <div class="modal-title">V-Match AI Engine</div>
         <div class="modal-sub">6-Vector Intelligent Buyer-Supplier Matching System</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <button class="modal-close" onclick="closeModalBtn">✕</button>
     </div>
     <div class="modal-body">
       <!-- Diagram -->
@@ -898,7 +898,7 @@ footer{
         <div class="modal-title">Blockchain Escrow Settlement</div>
         <div class="modal-sub">Zero-Trust Automatic Payment Release System</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <button class="modal-close" onclick="closeModalBtn">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-diagram">
@@ -979,7 +979,7 @@ footer{
         <div class="modal-title">Global Trade Compliance</div>
         <div class="modal-sub">Platform-as-Principal · U.S. Importer of Record</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <button class="modal-close" onclick="closeModalBtn">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-diagram">
@@ -1034,7 +1034,7 @@ footer{
         <div class="modal-title">K-AI CONET WYOMING LLC</div>
         <div class="modal-sub">U.S. Principal Entity · Global IP & Patent Holding</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <button class="modal-close" onclick="closeModalBtn">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-flow" style="margin-bottom:20px;">
@@ -1063,7 +1063,7 @@ footer{
         <div class="modal-title">FinCEN MSB Registration</div>
         <div class="modal-sub">Money Services Business · Federally Registered</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <button class="modal-close" onclick="closeModalBtn">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-diagram">
@@ -1102,7 +1102,7 @@ footer{
         <div class="modal-title">AML / KYC Policy</div>
         <div class="modal-sub">Anti-Money Laundering & Know Your Customer Compliance Program</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <button class="modal-close" onclick="closeModalBtn">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-sec-label" style="color:rgba(139,115,85,.6);">10 Core Policy Articles</div>
@@ -1141,7 +1141,7 @@ footer{
         <div class="modal-title">3 Patents Filed</div>
         <div class="modal-sub">Dual-Country Intellectual Property Protection</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <button class="modal-close" onclick="closeModalBtn">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-flow" style="margin-bottom:20px;">
@@ -1237,9 +1237,9 @@ function closeModalBtn(){
   document.body.style.overflow='';
 }
 function closeModal(e){
-  if(e.target===document.getElementById('modal-overlay')) closeModalBtn();
+  if(e.target===document.getElementById('modal-overlay')) closeModalBtn;
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModalBtn();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModalBtn;});
 
 </script>
 </body>
