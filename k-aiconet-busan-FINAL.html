@@ -46,8 +46,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a{font-size:11.5px;color:var(--mu);text-decoration:none;letter-spacing:.5px;transition:color .2s;font-weight:500;}
 .nav-links a:hover{color:var(--foam);}
 .nav-cta{padding:7px 18px;background:linear-gradient(135deg,var(--bright),var(--foam));border-radius:50px;color:#fff!important;font-weight:700!important;font-size:11px!important;letter-spacing:.8px;}
-/* EN Link Button */
-#lang-switch{position:fixed;top:14px;left:38%;z-index:9999;padding:6px 16px;border-radius:50px;background:rgba(6,22,52,.88);border:1.5px solid rgba(37,150,232,.45);color:rgba(141,212,245,.9);font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;cursor:pointer;text-decoration:none;backdrop-filter:blur(10px);box-shadow:0 4px 20px rgba(0,0,0,.35);transition:all .25s;}
+/* 언어 전환 버튼 (nav 인라인) */
+#lang-switch{display:inline-block;padding:5px 14px;border-radius:50px;background:rgba(6,22,52,.88);border:1.5px solid rgba(37,150,232,.45);color:rgba(141,212,245,.9);font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;cursor:pointer;text-decoration:none;backdrop-filter:blur(10px);box-shadow:0 2px 12px rgba(0,0,0,.3);transition:all .25s;margin-right:20px;white-space:nowrap;}
 #lang-switch:hover{background:linear-gradient(135deg,var(--bright),var(--foam));color:#fff;border-color:transparent;}
 
 /* HERO */
@@ -316,6 +316,8 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
 
 @keyframes seaWave{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @keyframes winFlk{0%,100%{opacity:.75;}48%{opacity:.3;}}
+#lang-switch{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;background:rgba(37,150,232,.12);border:1.5px solid rgba(37,150,232,.38);color:rgba(64,180,245,.9);font-family:'Orbitron',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;cursor:pointer;text-decoration:none;transition:all .25s;flex-shrink:0;white-space:nowrap;}
+#lang-switch:hover{background:rgba(37,150,232,.25);border-color:rgba(64,180,245,.65);color:#fff;}
 </style>
 </head>
 <body>
@@ -323,53 +325,27 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo"><span class="ndot"></span>K-AI <span>CONET</span></a>
+  <a id="lang-switch" href="/k-aiconet-busan-EN.html">🌐 ENG · English</a>
   <ul class="nav-links">
-    <li><a href="#what" data-kr="무엇을 하나요" data-en="What We Do">무엇을 하나요</a></li>
-    <li><a href="#how" data-kr="플랫폼" data-en="Platform">플랫폼</a></li>
-    <li><a href="#port" data-kr="부산 물류" data-en="Busan Logistics">부산 물류</a></li>
-    <li><a href="#biz" data-kr="사업 분야" data-en="Business">사업 분야</a></li>
-    <li><a href="#festival" data-kr="페스티벌" data-en="Festival">페스티벌</a></li>
-    <li><a href="#group" data-kr="그룹 구조" data-en="Group Structure">그룹 구조</a></li>
-    <li style="margin-left:8px;display:flex;gap:6px;align-items:center;">
-    <a href="/USAI_Wallet_Brochure_2026_v9_KR.html" title="브로셔 한국어" style="display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.3);border-radius:8px;text-decoration:none;transition:all .2s;">
-      <svg width="16" height="20" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="38" height="48" rx="6" fill="rgba(200,168,75,.1)" stroke="#C8A84B" stroke-width="1.5"/>
-        <path d="M26 1 L39 14 L26 14 Z" fill="rgba(200,168,75,.2)" stroke="#C8A84B" stroke-width="1"/>
-        <line x1="7" y1="22" x2="33" y2="22" stroke="#F5D06E" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="7" y1="29" x2="33" y2="29" stroke="#F5D06E" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="7" y1="36" x2="25" y2="36" stroke="#F5D06E" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="6" y="8" width="14" height="8" rx="2" fill="rgba(200,168,75,.2)" stroke="#C8A84B" stroke-width="0.8"/>
-        <text x="13" y="15" text-anchor="middle" font-family="Arial" font-size="5" font-weight="700" fill="#F5D06E">KR</text>
-      </svg>
-      <span style="font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;color:#F5D06E;letter-spacing:.06em;">브로셔</span>
-    </a>
-    <a href="/USAI_Wallet_Brochure_2026_v9_EN.html" title="Brochure English" style="display:inline-flex;align-items:center;gap:5px;padding:4px 10px;background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.25);border-radius:8px;text-decoration:none;transition:all .2s;">
-      <svg width="16" height="20" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="1" width="38" height="48" rx="6" fill="rgba(0,200,255,.07)" stroke="#40B4F5" stroke-width="1.5"/>
-        <path d="M26 1 L39 14 L26 14 Z" fill="rgba(0,200,255,.15)" stroke="#40B4F5" stroke-width="1"/>
-        <line x1="7" y1="22" x2="33" y2="22" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="7" y1="29" x2="33" y2="29" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="7" y1="36" x2="25" y2="36" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="6" y="8" width="14" height="8" rx="2" fill="rgba(0,200,255,.12)" stroke="#40B4F5" stroke-width="0.8"/>
-        <text x="13" y="15" text-anchor="middle" font-family="Arial" font-size="5" font-weight="700" fill="#40B4F5">EN</text>
-      </svg>
-      <span style="font-family:'Orbitron',sans-serif;font-size:.62rem;font-weight:700;color:#40B4F5;letter-spacing:.06em;">Brochure</span>
-    </a>
-  </li>
-    <li><a href="#contact" class="nav-cta" data-kr="문의" data-en="Contact">문의</a></li>
-  
-  
+    <li><a href="#what" data-kr="무엇을 하나요">무엇을 하나요</a></li>
+    <li><a href="#how" data-kr="플랫폼">플랫폼</a></li>
+    <li><a href="#port" data-kr="부산 물류">부산 물류</a></li>
+    <li><a href="#biz" data-kr="사업 분야">사업 분야</a></li>
+    <li><a href="#festival" data-kr="페스티벌">페스티벌</a></li>
+    <li><a href="#group" data-kr="그룹 구조">그룹 구조</a></li>
+    <li><a href="#contact" class="nav-cta" data-kr="문의">문의</a></li>
   </ul>
-</nav>
-<!-- EN Version Link -->
-<a id="lang-switch" href="/k-aiconet-busan-EN.html" style="
-      display:inline-flex;align-items:center;gap:6px;
-      font-family:'Orbitron',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;
-      padding:7px 16px;border-radius:20px;
-      background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.28);
-      color:#40B4F5;text-decoration:none;transition:all .25s;">
-      <span style="font-size:.75rem;">🌐</span> ENG · English
+  <div style="display:flex;align-items:center;gap:6px;padding-left:10px;border-left:1px solid rgba(255,255,255,.08);">
+    <a href="/USAI_Wallet_Brochure_2026_v9_KR.html" title="브로셔 KR" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(200,168,75,.07);border:1px solid rgba(200,168,75,.22);border-radius:7px;text-decoration:none;">
+      <svg width="13" height="16" viewBox="0 0 40 50" fill="none"><rect x="1" y="1" width="38" height="48" rx="5" fill="none" stroke="#C8A84B" stroke-width="1.8"/><path d="M26 1 L39 14 L26 14 Z" fill="rgba(200,168,75,.15)" stroke="#C8A84B" stroke-width="1"/><line x1="7" y1="22" x2="33" y2="22" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="30" x2="33" y2="30" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="38" x2="24" y2="38" stroke="#C8A84B" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span style="font-family:'Orbitron',sans-serif;font-size:.55rem;color:#F5D06E;font-weight:700;">KR</span>
     </a>
+    <a href="/USAI_Wallet_Brochure_2026_v9_EN.html" title="Brochure EN" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.22);border-radius:7px;text-decoration:none;">
+      <svg width="13" height="16" viewBox="0 0 40 50" fill="none"><rect x="1" y="1" width="38" height="48" rx="5" fill="none" stroke="#40B4F5" stroke-width="1.8"/><path d="M26 1 L39 14 L26 14 Z" fill="rgba(0,200,255,.15)" stroke="#40B4F5" stroke-width="1"/><line x1="7" y1="22" x2="33" y2="22" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="30" x2="33" y2="30" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="38" x2="24" y2="38" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span style="font-family:'Orbitron',sans-serif;font-size:.55rem;color:#40B4F5;font-weight:700;">EN</span>
+    </a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section id="hero">
@@ -971,7 +947,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
     <p class="ss" style="margin:0 auto;" data-kr="AI·블록체인·Web3 기술로 글로벌 무역·결제·K-컬쳐를 하나로 연결하는 AI 플랫폼 기업입니다" data-en="An AI platform company connecting global trade, payments, and K-Culture through AI, blockchain, and Web3 technology">AI·블록체인·Web3 기술로 글로벌 무역·결제·K-컬쳐를 하나로 연결하는 AI 플랫폼 기업입니다</p>
   </div>
   <div class="what-grid">
-    <div class="wc b" style="cursor:pointer;" onclick="openWalletViewer('/USAI_Wallet_Brochure_2026_v9_EN.html')" title="V-Match AI Engine — English Wallet 열기">
+    <div class="wc b">
       <div class="wi b">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><circle cx="6" cy="15" r="4" fill="#2596E8"/><circle cx="24" cy="7" r="4" fill="#40B4F5"/><circle cx="24" cy="23" r="4" fill="#40B4F5"/><line x1="10" y1="13.2" x2="20" y2="8.8" stroke="#2596E8" stroke-width="1.4"/><line x1="10" y1="16.8" x2="20" y2="21.2" stroke="#2596E8" stroke-width="1.4"/><circle cx="15" cy="15" r="2.5" fill="rgba(37,150,232,.35)" stroke="#40B4F5" stroke-width=".9"/></svg>
       </div>
@@ -979,7 +955,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
       <div class="wd">한국 공급자(셀러)와 전 세계 바이어를 <strong style="color:#fff;">AI가 자동으로 최적 매칭</strong>합니다. 업종·규모·지역·신용도를 6개 벡터로 분석, 기존에 수개월 걸리던 해외 바이어 발굴을 AI가 즉시 처리합니다.</div>
       <div class="wtags"><span class="wtag tb">6-Vector AI 분석</span><span class="wtag tb">B2B 자동 매칭</span><span class="wtag tb">KIPO 특허출원</span></div>
     </div>
-    <div class="wc t" style="cursor:pointer;" onclick="openWalletViewer('/USAI_Wallet_Brochure_2026_v9_KR.html')" title="K-AI Wallet 한국어 버전 열기">
+    <div class="wc t">
       <div class="wi t">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect x="9" y="3" width="12" height="22" rx="3" stroke="#1EC9B7" stroke-width="1.4"/><rect x="11" y="7" width="8" height="6" rx="1" fill="rgba(30,201,183,.22)" stroke="#1EC9B7" stroke-width=".7"/><circle cx="15" cy="20" r="2" fill="#1EC9B7"/><path d="M12 11 L13.5 12.5 L18 8" stroke="#1EC9B7" stroke-width="1.2" stroke-linecap="round"/><circle cx="4" cy="15" r="3" stroke="#1EC9B7" stroke-width=".9" fill="none"/><circle cx="26" cy="15" r="3" stroke="#1EC9B7" stroke-width=".9" fill="none"/><line x1="7" y1="15" x2="9" y2="15" stroke="#1EC9B7" stroke-width=".9"/><line x1="21" y1="15" x2="23" y2="15" stroke="#1EC9B7" stroke-width=".9"/></svg>
       </div>
@@ -987,7 +963,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
       <div class="wd">무역 대금을 <strong style="color:#fff;">블록체인 기반으로 안전하게 결제</strong>하는 멀티체인 지갑입니다. 이더리움·폴리곤 등 다양한 체인 지원, 환전 수수료 절감, 실시간 국제 송금, $USAI 토큰으로 수수료 할인.</div>
       <div class="wtags"><span class="wtag tt">멀티체인 결제</span><span class="wtag tt">스마트 컨트랙트</span><span class="wtag tt">USPTO 특허출원</span></div>
     </div>
-    <div class="wc g" style="cursor:pointer;" onclick="openWalletViewer('/USAI_Wallet_Brochure_2026_v9_KR.html')" title="K-컬쳐 브로셔 열기">
+    <div class="wc g">
       <div class="wi g">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="11" stroke="#C8970A" stroke-width="1.4" fill="rgba(200,151,10,.06)"/><path d="M15 5.5 C15 5.5 19.5 9.5 19.5 15 C19.5 20.5 15 24.5 15 24.5 C15 24.5 10.5 20.5 10.5 15 C10.5 9.5 15 5.5 15 5.5Z" stroke="#F0C95A" stroke-width="1" fill="none"/><line x1="4" y1="15" x2="26" y2="15" stroke="#C8970A" stroke-width="1"/><path d="M6 10.5 L24 10.5" stroke="#C8970A" stroke-width=".6" opacity=".4"/><path d="M6 19.5 L24 19.5" stroke="#C8970A" stroke-width=".6" opacity=".4"/><circle cx="15" cy="15" r="2.2" fill="#F0C95A"/></svg>
       </div>
@@ -1283,7 +1259,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
     <p class="ss" style="margin:0 auto;">부산 법인이 한국 운영 총괄 · 정관 Chapter 8 (Articles 38–40)</p>
   </div>
   <div class="fest-2col">
-    <div class="fc" data-poster="SAIWF_2027_Digital_Poster.png" data-title="SEOUL AI WEB FESTIVAL 2027" onclick="window.location.href='/saiwf_digital_poster.html'" style="cursor:pointer;">
+    <div class="fc" data-poster="SAIWF_2027_Digital_Poster.png" data-title="SEOUL AI WEB FESTIVAL 2027">
       <div class="fcity">SEOUL</div>
       <div class="fnm">SEOUL AI WEB FESTIVAL</div>
       <span class="ftm">상표 등록 완료</span>
@@ -1294,7 +1270,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
         <span class="fc-arrow">→</span>
       </div>
     </div>
-    <div class="fc" data-poster="NYAIWF_2026_Art_Poster.png" data-title="NEW YORK AI WEB FESTIVAL 2026" onclick="window.location.href='/nyaiwf_art_poster.html'" style="cursor:pointer;">
+    <div class="fc" data-poster="NYAIWF_2026_Art_Poster.png" data-title="NEW YORK AI WEB FESTIVAL 2026">
       <div class="fcity">NEW YORK</div>
       <div class="fnm">NEW YORK AI WEB FESTIVAL</div>
       <span class="ftm" style="background:rgba(240,150,10,.15);border-color:rgba(240,150,10,.4);color:#F0A030;">🔄 상표 등록 진행 중</span>
@@ -1360,7 +1336,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
 
       <!-- Wyoming LLC -->
-      <div style="padding:1.8rem 2.8rem 2rem;border-right:1px solid rgba(37,150,232,.1);position:relative;overflow:hidden;cursor:pointer;" onclick="openWalletViewer('kaiconetwyoming-FINAL.html')">
+      <div style="padding:1.8rem 2.8rem 2rem;border-right:1px solid rgba(37,150,232,.1);position:relative;overflow:hidden;cursor:pointer;" onclick="window.open('/kaiconetwyoming-FINAL.html','_blank')">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--mist),transparent);opacity:.4;"></div>
         <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
           <div style="width:42px;height:42px;border-radius:12px;background:rgba(141,212,245,.08);border:1px solid rgba(141,212,245,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -1389,12 +1365,12 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
         <div style="display:flex;gap:.4rem;flex-wrap:wrap;">
           <span class="pwb pwb-s">K-AI Wallet USPTO</span>
           <span class="pwb pwb-t">$USAI 발행처</span>
-          <span class="pwb pwb-b">Original ID: 2026-001948696</span>
+          <span class="pwb pwb-b">EIN 35-2958028</span>
         </div>
       </div>
 
       <!-- New York INC -->
-      <div style="padding:1.8rem 2.8rem 2rem;position:relative;overflow:hidden;cursor:pointer;" onclick="window.open('https://k-aiconet.com','_blank')">
+      <div style="padding:1.8rem 2.8rem 2rem;position:relative;overflow:hidden;cursor:pointer;" onclick="window.open('/k-aiconet-newyork-FINAL.html','_blank')">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--foam),transparent);opacity:.4;"></div>
         <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
           <div style="width:42px;height:42px;border-radius:12px;background:rgba(37,150,232,.1);border:1px solid rgba(37,150,232,.28);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -1421,7 +1397,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
         </div>
         <div style="display:flex;gap:.4rem;flex-wrap:wrap;">
           <span class="pwb pwb-b">NY AI Web Festival</span>
-          <span class="pwb pwb-b">DOS ID: 7877356</span>
+          <span class="pwb pwb-b">EIN 35-2958214</span>
           <span class="pwb pwb-b">k-aiconet.com ↗</span>
         </div>
       </div>
@@ -1463,7 +1439,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
       </div>
       <div class="sc-nm">주식회사<br>케이에이아이코넷</div>
       <div class="sc-role">한국 개발·물류·페스티벌 총괄</div>
-      <div class="sc-desc">사업자등록번호: 692-86-02873 · 법인등기번호: 146223<br>미국 모법인(K-AI CONET GROUP)과 연계된 한국 개발·물류·AI Web Festival 총괄 자회사</div>
+      <div class="sc-desc">B-402F, Park Village, 111-1 Jeseok-ro, Saha-gu, Busan, Republic of Korea<br>AI Development · Busan Port Logistics · K-Culture Trade · Seoul AI Web Festival</div>
     </div>
     <!-- NY INC -->
     <div class="sc">
@@ -1526,12 +1502,12 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
   <div class="cbox">
     <svg width="54" height="54" viewBox="0 0 54 54" fill="none" style="margin:0 auto 1rem;display:block;"><circle cx="27" cy="27" r="25" stroke="#2596E8" stroke-width="1.2" fill="rgba(37,150,232,.07)"/><circle cx="27" cy="21" r="7.5" stroke="#40B4F5" stroke-width="1.2" fill="rgba(37,150,232,.1)"/><path d="M14 43 C14 35 40 35 40 43" stroke="#40B4F5" stroke-width="1.2" stroke-linecap="round"/></svg>
     <h3 style="font-family:'Orbitron',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.28rem;">IL KANG (강일)</h3>
-    <div style="font-size:.73rem;color:var(--foam);letter-spacing:.08em;margin-bottom:.5rem;">대표이사 · K-AI CONET GROUP</div>
+    <div style="font-size:.73rem;color:var(--foam);letter-spacing:.08em;margin-bottom:.5rem;">Founder &amp; CEO · K-AI CONET Co.,Ltd</div>
     <div class="cdiv"></div>
     <div class="crows">
       <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="3" width="15" height="11" rx="2" stroke="#40B4F5" stroke-width="1"/><path d="M1 5 L8.5 9.5 L16 5" stroke="#40B4F5" stroke-width="1"/></svg><strong>ceo@k-aiconet.com</strong></div>
       <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="4" y="1" width="9" height="15" rx="2" stroke="#40B4F5" stroke-width="1"/><circle cx="8.5" cy="13" r="1" fill="#40B4F5"/></svg><span>+1 332-254-9709 &nbsp;|&nbsp; +82 10-4353-2505</span></div>
-      <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1.5 C4.5 1.5 1.5 4.5 1.5 8.5 C1.5 13.5 8.5 16 8.5 16 C8.5 16 15.5 13.5 15.5 8.5 C15.5 4.5 12.5 1.5 8.5 1.5Z" stroke="#40B4F5" stroke-width="1"/><circle cx="8.5" cy="8" r="2.2" stroke="#40B4F5" stroke-width=".8"/></svg></div>
+
       <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1.5 C4.5 1.5 1.5 4.5 1.5 8.5 C1.5 13.5 8.5 16 8.5 16 C8.5 16 15.5 13.5 15.5 8.5 C15.5 4.5 12.5 1.5 8.5 1.5Z" stroke="#40B4F5" stroke-width="1"/><circle cx="8.5" cy="8" r="2.2" stroke="#40B4F5" stroke-width=".8"/></svg><span>142 West 57th St, 11F, New York, NY 10019</span></div>
       <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="3" width="15" height="11" rx="2" stroke="#40B4F5" stroke-width="1"/><line x1="4" y1="7" x2="13" y2="7" stroke="#40B4F5" stroke-width=".9"/><line x1="4" y1="10" x2="9" y2="10" stroke="#40B4F5" stroke-width=".9"/></svg><span>K-AI CONET Co., Ltd. · Busan, Korea</span></div>
     </div>
@@ -1550,7 +1526,7 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
     <a href="/nyaiwf_art_poster.html" style="font-size:.7rem;color:rgba(64,180,245,.7);text-decoration:none;">🗽 NY AI Web Fest</a>
     <a href="/saiwf_digital_poster.html" style="font-size:.7rem;color:rgba(64,180,245,.7);text-decoration:none;">🌏 Seoul AI Web Fest</a>
   </div>
-  <div>K-AI CONET Co.,Ltd · B-402F, Park Village, 111-1 Jeseok-ro, Saha-gu, Busan, Republic of Korea</div>
+  <div>K-AI CONET Co.,Ltd · New York, NY · Busan, Korea</div>
   <div>© 2026 K-AI CONET Co.,Ltd — Subsidiary of K-AI CONET Group USA · <a href="mailto:ceo@k-aiconet.com">ceo@k-aiconet.com</a></div>
 </footer>
 
@@ -1565,17 +1541,16 @@ document.querySelectorAll('.wc,.hs,.pl-item,.pi,.biz-card,.fc,.sc,.bc-b,.vp,.fsc
 
 <!-- Wallet choice modal -->
 <div id="walletModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(1,12,26,.88);backdrop-filter:blur(12px);align-items:center;justify-content:center;">
-  <div style="position:relative;background:linear-gradient(135deg,rgba(6,33,63,.95),rgba(10,58,107,.8));border:1px solid rgba(37,150,232,.3);border-radius:20px;padding:2.5rem;max-width:480px;width:90%;text-align:center;">
-    <button onclick="closeWalletModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;line-height:1;">×</button>
+  <div style="background:linear-gradient(135deg,rgba(6,33,63,.95),rgba(10,58,107,.8));border:1px solid rgba(37,150,232,.3);border-radius:20px;padding:2.5rem;max-width:480px;width:90%;text-align:center;">
     <div style="font-family:'Orbitron',sans-serif;font-size:.7rem;letter-spacing:.2em;color:rgba(64,180,245,.7);margin-bottom:.8rem;">K-AI WALLET</div>
     <h3 style="font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.5rem;">언어를 선택하세요</h3>
     <p style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:2rem;">Select your language / 언어 선택</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <button onclick="window.location.href='/USAI_Wallet_Brochure_2026_v9_KR.html';closeWalletModal();"
+      <button onclick="window.open('USAI_Wallet_v7_KCulture.html','_blank');closeWalletModal;"
         style="padding:.85rem 2rem;border-radius:50px;background:linear-gradient(135deg,#1278D0,#40B4F5);color:#fff;font-weight:700;font-size:.85rem;border:none;cursor:pointer;letter-spacing:.05em;">
         한국어 버전
       </button>
-      <button onclick="window.location.href='/USAI_Wallet_Brochure_2026_v9_EN.html';closeWalletModal();"
+      <button onclick="window.open('USAI_Wallet_v6_EN1_IRIS_TX.html','_blank');closeWalletModal;"
         style="padding:.85rem 2rem;border-radius:50px;background:linear-gradient(135deg,#0E9E8A,#1EC9B7);color:#fff;font-weight:700;font-size:.85rem;border:none;cursor:pointer;letter-spacing:.05em;">
         English Version
       </button>
@@ -1589,7 +1564,7 @@ document.querySelectorAll('.wc,.hs,.pl-item,.pi,.biz-card,.fc,.sc,.bc-b,.vp,.fsc
 <script>
 function showWalletChoice(){document.getElementById('walletModal').style.display='flex';}
 function closeWalletModal(){document.getElementById('walletModal').style.display='none';}
-document.getElementById('walletModal').addEventListener('click',function(e){if(e.target===this)closeWalletModal();});
+document.getElementById('walletModal').addEventListener('click',function(e){if(e.target===this)closeWalletModal;});
 
 /* WALLET VIEWER - full-screen iframe with X */
 function openWalletViewer(url){
@@ -1604,7 +1579,7 @@ function closeWalletViewer(){
 }
 document.addEventListener('keydown',function(e){
   if(e.key === 'Escape' && document.getElementById('walletViewer').style.display === 'flex'){
-    closeWalletViewer();
+    closeWalletViewer;
   }
 });
 </script>
@@ -1617,7 +1592,7 @@ document.addEventListener('keydown',function(e){
       <div style="width:8px;height:8px;border-radius:50%;background:#F0C95A;box-shadow:0 0 12px #F0C95A;"></div>
       <span style="font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:2px;color:#F0C95A;font-weight:700;">$USAI WALLET</span>
     </div>
-    <button onclick="closeWalletViewer()" style="background:rgba(240,201,90,.12);border:1.5px solid rgba(240,201,90,.45);color:#F0C95A;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:Arial,sans-serif;" 
+    <button onclick="closeWalletViewer" style="background:rgba(240,201,90,.12);border:1.5px solid rgba(240,201,90,.45);color:#F0C95A;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:Arial,sans-serif;" 
       onmouseover="this.style.background='rgba(240,201,90,.25)';this.style.transform='scale(1.08)';" 
       onmouseout="this.style.background='rgba(240,201,90,.12)';this.style.transform='scale(1)';"
       title="닫기 (ESC)">✕</button>
@@ -1680,7 +1655,7 @@ document.addEventListener('keydown',function(e){
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && modal.classList.contains('open')) close();
   });
-});
+}());
 </script>
 </body>
 </html>

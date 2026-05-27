@@ -459,8 +459,7 @@ footer{
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="nav-cta">Get in Touch</a>
-    <a href="https://www.k-aiconet.com" style="font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:.12em;padding:7px 16px;border-radius:8px;background:rgba(200,168,75,.12);border:1px solid rgba(200,168,75,.3);color:#F5D06E;text-decoration:none;margin-left:12px;">← K-AI CONET 홈</a>
-</nav>
+  </nav>
 
   <!-- Hero Body -->
   <div class="hero-body">
@@ -806,7 +805,7 @@ footer{
 
 
 <!-- ══════════════════════ MODALS ══════════════════════ -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)" onclick="closeModal(event)" onclick="closeModal(event)">
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
 <div class="modal-box" id="modal-box">
 
   <!-- ── V-MATCH AI ── -->
@@ -817,7 +816,7 @@ footer{
         <div class="modal-title">V-Match AI Engine</div>
         <div class="modal-sub">6-Vector Intelligent Buyer-Supplier Matching System</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()" onclick="closeModalBtn">✕</button>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
     </div>
     <div class="modal-body">
       <!-- Diagram -->
@@ -899,7 +898,7 @@ footer{
         <div class="modal-title">Blockchain Escrow Settlement</div>
         <div class="modal-sub">Zero-Trust Automatic Payment Release System</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()" onclick="closeModalBtn">✕</button>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-diagram">
@@ -980,7 +979,7 @@ footer{
         <div class="modal-title">Global Trade Compliance</div>
         <div class="modal-sub">Platform-as-Principal · U.S. Importer of Record</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()" onclick="closeModalBtn">✕</button>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-diagram">
@@ -1035,7 +1034,7 @@ footer{
         <div class="modal-title">K-AI CONET WYOMING LLC</div>
         <div class="modal-sub">U.S. Principal Entity · Global IP & Patent Holding</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()" onclick="closeModalBtn">✕</button>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-flow" style="margin-bottom:20px;">
@@ -1064,7 +1063,7 @@ footer{
         <div class="modal-title">FinCEN MSB Registration</div>
         <div class="modal-sub">Money Services Business · Federally Registered</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()" onclick="closeModalBtn">✕</button>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-diagram">
@@ -1103,7 +1102,7 @@ footer{
         <div class="modal-title">AML / KYC Policy</div>
         <div class="modal-sub">Anti-Money Laundering & Know Your Customer Compliance Program</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()" onclick="closeModalBtn">✕</button>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-sec-label" style="color:rgba(139,115,85,.6);">10 Core Policy Articles</div>
@@ -1142,7 +1141,7 @@ footer{
         <div class="modal-title">3 Patents Filed</div>
         <div class="modal-sub">Dual-Country Intellectual Property Protection</div>
       </div>
-      <button class="modal-close" onclick="closeModalBtn()" onclick="closeModalBtn">✕</button>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
     </div>
     <div class="modal-body">
       <div class="modal-flow" style="margin-bottom:20px;">
@@ -1234,13 +1233,8 @@ function openModal(id){
   }
 }
 function closeModalBtn(){
-  var ov = document.getElementById('modal-overlay');
-  if(ov){ ov.classList.remove('open'); }
-  document.querySelectorAll('.modal-content').forEach(function(el){el.style.display='none';});
+  document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow='';
-}
-function closeModal(e){
-  if(e && e.target===document.getElementById('modal-overlay')){ closeModalBtn(); }
 }
 function closeModal(e){
   if(e.target===document.getElementById('modal-overlay')) closeModalBtn();
