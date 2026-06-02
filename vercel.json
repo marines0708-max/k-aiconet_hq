@@ -2,12 +2,12 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/kaiconetwyoming.html",
+      "destination": "/kaiconetwyoming-FINAL.html",
       "has": [{"type": "host", "value": "kaiconetwyoming.com"}]
     },
     {
       "source": "/",
-      "destination": "/kaiconetwyoming.html",
+      "destination": "/kaiconetwyoming-FINAL.html",
       "has": [{"type": "host", "value": "www.kaiconetwyoming.com"}]
     }
   ]
