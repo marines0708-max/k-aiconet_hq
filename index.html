@@ -1060,11 +1060,9 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
         <circle cx="34" cy="24" r="5" fill="rgba(200,151,10,.7)"/>
         <circle cx="48" cy="24" r="5" fill="rgba(30,201,183,.7)"/>
         <text x="70" y="29" font-family="'Orbitron',monospace" font-size="10" fill="rgba(64,180,245,.8)" font-weight="700">K-AI CONET · TRADE DASHBOARD</text>
-        <!-- Live indicator -->
-        <circle cx="418" cy="24" r="4" fill="#1EC9B7">
-          <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
-        </circle>
-        <text x="410" y="28" font-family="monospace" font-size="7" fill="#1EC9B7" text-anchor="end">LIVE</text>
+        <!-- Demo indicator -->
+        <circle cx="418" cy="24" r="4" fill="rgba(150,160,180,.55)"/>
+        <text x="410" y="28" font-family="monospace" font-size="7" fill="rgba(180,190,210,.8)" text-anchor="end">DEMO</text>
 
         <!-- STATS ROW -->
         <rect x="12" y="60" width="96" height="62" rx="8" fill="rgba(37,150,232,.08)" stroke="rgba(37,150,232,.2)" stroke-width="1"/>
@@ -1083,9 +1081,9 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
         <text x="232" y="114" font-family="monospace" font-size="6.5" fill="#F0C95A">Global</text>
 
         <rect x="324" y="60" width="104" height="62" rx="8" fill="rgba(37,150,232,.06)" stroke="rgba(37,150,232,.15)" stroke-width="1"/>
-        <text x="336" y="78" font-family="monospace" font-size="7.5" fill="rgba(64,180,245,.6)">$USAI PRICE</text>
-        <text x="336" y="100" font-family="'Orbitron',monospace" font-size="18" fill="#40B4F5" font-weight="700">$0.48</text>
-        <text x="336" y="114" font-family="monospace" font-size="6.5" fill="#1EC9B7">↑ +3.2%</text>
+        <text x="336" y="78" font-family="monospace" font-size="7.5" fill="rgba(64,180,245,.6)">ESCROW DEALS</text>
+        <text x="336" y="100" font-family="'Orbitron',monospace" font-size="18" fill="#40B4F5" font-weight="700">214</text>
+        <text x="336" y="114" font-family="monospace" font-size="6.5" fill="#1EC9B7">↑</text>/text>
 
         <!-- CHART AREA -->
         <rect x="12" y="132" width="270" height="140" rx="8" fill="rgba(6,33,63,.5)" stroke="rgba(37,150,232,.12)" stroke-width="1"/>
@@ -1141,19 +1139,15 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
         <rect x="12" y="282" width="410" height="84" rx="8" fill="rgba(6,33,63,.5)" stroke="rgba(37,150,232,.12)" stroke-width="1"/>
         <text x="24" y="300" font-family="monospace" font-size="8" fill="rgba(64,180,245,.6)">V-MATCH AI · Real-time Trade Matching</text>
         <!-- Match items -->
-        <rect x="24" y="308" width="180" height="22" rx="4" fill="rgba(37,150,232,.1)" stroke="rgba(37,150,232,.15)" stroke-width=".8"/>
-        <circle cx="36" cy="319" r="5" fill="#2596E8"/>
-        <text x="46" y="322" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">Korea K-Beauty Supplier</text>
-        <text x="196" y="322" font-family="monospace" font-size="7" fill="#40B4F5" text-anchor="end">→ US Buyer Matched</text>
-        <rect x="220" y="308" width="186" height="22" rx="4" fill="rgba(30,201,183,.07)" stroke="rgba(30,201,183,.15)" stroke-width=".8"/>
-        <circle cx="232" cy="319" r="5" fill="#1EC9B7"/>
-        <text x="242" y="322" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">K-Drama Content Co.</text>
-        <text x="398" y="322" font-family="monospace" font-size="7" fill="#1EC9B7" text-anchor="end">→ Europe Distributor Matched</text>
-        <rect x="24" y="335" width="180" height="22" rx="4" fill="rgba(200,151,10,.06)" stroke="rgba(200,151,10,.12)" stroke-width=".8"/>
-        <circle cx="36" cy="346" r="5" fill="#F0C95A"/>
-        <text x="46" y="349" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">K-Food Manufacturer</text>
-        <text x="196" y="349" font-family="monospace" font-size="7" fill="#F0C95A" text-anchor="end">→ Middle East Buyer Matched</text>
-        <circle cx="406" cy="346" r="4" fill="rgba(30,201,183,.2)" stroke="#1EC9B7" stroke-width=".8"><animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle>
+        <rect x="24" y="306" width="386" height="18" rx="4" fill="rgba(37,150,232,.1)" stroke="rgba(37,150,232,.15)" stroke-width=".8"/>
+        <circle cx="36" cy="315" r="5" fill="#2596E8"/>
+        <text x="46" y="318" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">Korea K-Beauty Supplier → US Buyer Matched</text>
+        <rect x="24" y="326" width="386" height="18" rx="4" fill="rgba(30,201,183,.07)" stroke="rgba(30,201,183,.15)" stroke-width=".8"/>
+        <circle cx="36" cy="335" r="5" fill="#1EC9B7"/>
+        <text x="46" y="338" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">K-Drama Content Co. → Europe Distributor Matched</text>
+        <rect x="24" y="346" width="386" height="18" rx="4" fill="rgba(200,151,10,.06)" stroke="rgba(200,151,10,.12)" stroke-width=".8"/>
+        <circle cx="36" cy="355" r="5" fill="#F0C95A"/>
+        <text x="46" y="358" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">K-Food Manufacturer → Middle East Buyer Matched</text>
       </svg>
     </div>
   </div>
