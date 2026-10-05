@@ -316,6 +316,21 @@ footer a{color:rgba(37,150,232,.35);text-decoration:none;}
 
 @keyframes seaWave{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 @keyframes winFlk{0%,100%{opacity:.75;}48%{opacity:.3;}}
+
+/* MOBILE HERO FIX (2026-10-05) */
+@media(max-width:960px){
+  #hero{flex-direction:column;justify-content:flex-start;padding:110px 1.2rem 0;}
+  .hero-content{width:100%;max-width:100%;padding-bottom:0 !important;}
+  .eyebrow{max-width:100%;flex-wrap:wrap;justify-content:center;text-align:center;font-size:8px;letter-spacing:1.2px;line-height:1.7;padding:6px 14px;}
+  .stats-strip{flex-wrap:wrap;gap:1.4rem 2.4rem;padding:2.2rem 0 0;margin-bottom:380px;}
+}
+@media(max-width:480px){
+  .h-title{font-size:1.55rem;}
+  .h-sub{font-size:.9rem;}
+  .vp{font-size:.7rem;padding:6px 12px;}
+  .stats-strip .si{flex:0 0 40%;}
+  .sn{font-size:1.5rem;}
+}
 </style>
 </head>
 <body>
