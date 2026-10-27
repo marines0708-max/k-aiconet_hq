@@ -151,7 +151,7 @@ html[lang="ko"] .pp-h,html[lang="ja"] .pp-h,html[lang="zh"] .pp-h,html[lang="hi"
 .pp-chips span{font-size:12.5px;font-weight:700;color:#eaf0ff;padding:8px 14px;border-radius:999px;border:1px solid rgba(25,212,255,.4);background:rgba(10,30,90,.55);backdrop-filter:blur(6px)}
 .pp-chips span:nth-child(2){border-color:rgba(246,196,84,.55)}
 .pp-48{margin-top:10px;font-size:clamp(64px,13vw,150px);line-height:.95;font-weight:900;letter-spacing:-.03em;background:linear-gradient(180deg,#fff1c7 0%,#ffd98a 35%,#f6c454 65%,#c98a1f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 24px rgba(246,196,84,.28))}
-.pp-one{margin-top:14px;font-size:clamp(44px,7.5vw,96px);line-height:1;font-weight:900;letter-spacing:-.025em;background:linear-gradient(180deg,#fff1c7 0%,#ffd98a 35%,#f6c454 65%,#c98a1f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 24px rgba(246,196,84,.28))}
+.pp-one{margin-top:14px;white-space:nowrap;font-size:clamp(30px,5.6vw,76px);line-height:1;font-weight:900;letter-spacing:-.025em;background:linear-gradient(180deg,#fff1c7 0%,#ffd98a 35%,#f6c454 65%,#c98a1f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 24px rgba(246,196,84,.28))}
 .pp-sub{margin-top:14px;font-size:clamp(18px,2.4vw,30px);font-weight:800;color:#fff;line-height:1.25}
 .pp-sub2{margin-top:6px;font-size:clamp(14px,1.6vw,20px);font-weight:600;color:var(--cyan)}
 .pp-pill{margin-top:20px;display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;border:1px solid rgba(25,212,255,.55);background:linear-gradient(180deg,rgba(0,212,255,.22),rgba(0,140,220,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 30px rgba(0,160,255,.18);font-weight:700;color:#fff;font-size:clamp(14px,1.5vw,19px)}
@@ -160,6 +160,17 @@ html[lang="ko"] .pp-h,html[lang="ja"] .pp-h,html[lang="zh"] .pp-h,html[lang="hi"
 @media(max-width:759px){.pp-txt .eyebrow{font-size:10px;letter-spacing:.14em}}
 .pp-cta{justify-content:center;margin-top:22px}
 .pp-48{white-space:nowrap}
+.pp-row{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px}
+.pp-row .pp-pill{margin-top:0}
+.pp-foot{text-align:center;padding:26px 24px 0}
+.pp-foot .pp-one{margin:0}
+.pp-foot .pp-pill{margin-top:18px}
+.pp-rule{width:120px;height:1px;margin:0 auto 20px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.pp-tag{margin-top:12px;font-size:12px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan)}
+
+.pp-one-b{text-align:center;margin:30px 0 0}
+.pp-txt .pp-sub{margin-top:14px}
+@media(max-width:759px){.pp-one{font-size:6.9vw;letter-spacing:-.03em}}
 @media(max-width:759px){.pp-48{font-size:14vw}.pp-k{font-size:10px;letter-spacing:.2em;white-space:nowrap}.pp-k::before,.pp-k::after{display:none}}
 .pp-map{position:relative;z-index:1;margin-top:18px;padding:0 10px 18px}.pp-map img{width:100%;height:auto;display:block}
 .band-art{position:absolute;left:0;right:0;bottom:0;width:100%;height:260px;z-index:1}
@@ -228,16 +239,20 @@ html,body{overflow-x:hidden}
 <section class="band"><div class="wrap"><div class="pp"><div class="pp-in">
   <div class="pp-txt">
     <div class="eyebrow"><i></i><span class="ltr">All is One</span>&nbsp;·&nbsp;<span data-i="b_k"></span></div>
-    <h2 class="pp-one ltr">One World.<br>One Trade.</h2>
     <div class="pp-sub" data-i="b_h"></div>
     <div class="pp-sub2" data-i="b_s"></div>
-    <div class="pp-pill"><b class="ltr">48 HOURS</b><span data-i="b_pill"></span></div>
-    <div class="cta pp-cta">
+    <div class="pp-row">
+      <div class="pp-pill"><b class="ltr">48 HOURS</b><span data-i="b_pill"></span></div>
       <a class="btn primary" href="https://usai-wallet.vercel.app" data-i="b_login"></a>
       <a class="btn ghost" href="mailto:ceo@k-aiconet.com?subject=USAI%20Wallet%20access%20request" data-i="b_req"></a>
     </div>
   </div>
   <div class="card pp-mapcard"><div><div class="pp-map"><img src="world-map-1056.webp" srcset="world-map-1056.webp 1056w, world-map.webp 2035w" sizes="(min-width:1180px) 1100px, 100vw" alt="" loading="lazy"></div></div></div>
+  <div class="pp-foot">
+    <div class="pp-rule"></div>
+    <h2 class="pp-one pp-one-b ltr">One World. One Trade.</h2>
+    <div class="pp-tag ltr">USAI Wallet · K-AI CONET INC · New York</div>
+  </div>
 </div></div></div></section>
 
 <section class="s" id="what"><div class="wrap">
