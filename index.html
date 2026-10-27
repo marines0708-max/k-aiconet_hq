@@ -366,22 +366,24 @@ fo_k:"创始人",fo_t:"创始人兼CEO",fo_p1:"三十年来在建筑、内容与
 ct_k:"联系我们",ct_h:"欢迎联系。",ct_gen:"一般咨询",ct_trade:"贸易与合作",ct_app:"USAI Wallet",rights:"版权所有",pp:"隐私"}
 };
 const RTL=["ar"];
-function apply(l){
+function apply(l,save){
   const d=T[l]||T.en;
   document.querySelectorAll("[data-i]").forEach(el=>{const k=el.getAttribute("data-i");if(d[k]!=null)el.textContent=d[k];});
   document.documentElement.lang=l;document.documentElement.dir=RTL.includes(l)?"rtl":"ltr";
   document.getElementById("langCode").textContent=l.toUpperCase();
   document.querySelectorAll("#langList button").forEach(b=>b.classList.toggle("on",b.dataset.l===l));
-  try{localStorage.setItem("lang",l)}catch(e){}
+  if(save){try{localStorage.setItem("lang",l)}catch(e){}}
 }
 function detect(){
-  try{const s=localStorage.getItem("lang");if(s&&T[s])return s}catch(e){}
+  // 1) link parameter (?lang=ko)  2) visitor's own earlier choice  3) device language  4) English
   const q=new URLSearchParams(location.search).get("lang");if(q&&T[q])return q;
-  // English first for every new visitor (U.S. company). Other languages via the globe menu.
+  try{const s=localStorage.getItem("lang");if(s&&T[s])return s}catch(e){}
+  const prefs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||"en"]);
+  for(const p of prefs){const c=String(p).toLowerCase().split("-")[0];if(T[c])return c;}
   return "en";
 }
 const list=document.getElementById("langList");
-Object.keys(T).forEach(l=>{const li=document.createElement("li");const b=document.createElement("button");b.type="button";b.dataset.l=l;b.innerHTML="<i>"+l.toUpperCase()+"</i>"+LANGS[l];b.onclick=()=>{apply(l);box.classList.remove("open")};li.appendChild(b);list.appendChild(li)});
+Object.keys(T).forEach(l=>{const li=document.createElement("li");const b=document.createElement("button");b.type="button";b.dataset.l=l;b.innerHTML="<i>"+l.toUpperCase()+"</i>"+LANGS[l];b.onclick=()=>{apply(l,true);box.classList.remove("open")};li.appendChild(b);list.appendChild(li)});
 const box=document.getElementById("lang");
 box.querySelector("button").onclick=e=>{e.stopPropagation();box.classList.toggle("open")};
 document.addEventListener("click",()=>box.classList.remove("open"));
