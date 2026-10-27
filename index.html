@@ -376,7 +376,7 @@ function apply(l){
 function detect(){
   try{const s=localStorage.getItem("lang");if(s&&T[s])return s}catch(e){}
   const q=new URLSearchParams(location.search).get("lang");if(q&&T[q])return q;
-  for(const n of (navigator.languages||[navigator.language||"en"])){const b=(n||"").toLowerCase().split("-")[0];if(T[b])return b}
+  // English first for every new visitor (U.S. company). Other languages via the globe menu.
   return "en";
 }
 const list=document.getElementById("langList");
