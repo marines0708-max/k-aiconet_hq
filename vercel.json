@@ -1,14 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/kaiconetwyoming-FINAL.html",
-      "has": [{"type": "host", "value": "kaiconetwyoming.com"}]
-    },
-    {
-      "source": "/",
-      "destination": "/kaiconetwyoming-FINAL.html",
-      "has": [{"type": "host", "value": "www.kaiconetwyoming.com"}]
-    }
+    { "source": "/", "destination": "/index.html", "has": [{ "type": "host", "value": "kaiconetwyoming.com" }] },
+    { "source": "/", "destination": "/index.html", "has": [{ "type": "host", "value": "www.kaiconetwyoming.com" }] }
   ]
 }

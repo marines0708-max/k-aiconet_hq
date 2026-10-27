@@ -1,1149 +1,390 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>K-AI CONET Co.,Ltd | AI Trade & Blockchain Payment Platform</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K-AI CONET — USAI Wallet · 48-hour automatic trade payment</title>
+<meta name="description" content="K-AI CONET LLC (Wyoming, USA). USAI Wallet — trade payment automatically released to the seller 48 hours after shipment is verified. Bank transfer (T/T) as standard, optional blockchain settlement. USPTO patent-pending.">
+<meta property="og:title" content="K-AI CONET — USAI Wallet">
+<meta property="og:description" content="Get paid in 48 hours. Automatically. Global B2B trade platform by K-AI CONET LLC, Wyoming, USA.">
+<meta property="og:image" content="https://k-aiconet.com/brand/usai-coin-384.webp">
+<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
+@font-face{font-family:"Inter";src:url("brand/Inter-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
 :root{
-  --abyss:#010C1A;--deep:#041428;--mid:#062040;--pacific:#0A3A6B;
-  --bright:#1278D0;--hae:#2596E8;--foam:#40B4F5;--mist:#8DD4F5;
-  --gold:#C8970A;--gold-lt:#F0C95A;--teal:#1EC9B7;
-  --mu:rgba(255,255,255,.58);--hint:rgba(255,255,255,.32);
+  --cyan:#19d4ff; --gold:#f6c454; --gold2:#ffd98a; --ink:#f3f7ff; --muted:#aab8d8; --line:rgba(25,212,255,.22);
+  --card:rgba(14,40,110,.55);
 }
-html{scroll-behavior:smooth;}html,body{overflow-x:hidden;max-width:100%;}
-body{font-family:'Inter','Noto Sans KR',sans-serif;color:#fff;background:var(--abyss);overflow-x:hidden;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-@keyframes pulse{0%,100%{opacity:.15;}50%{opacity:.9;}}
-@keyframes drift{0%,100%{transform:translate(0,0);}33%{transform:translate(18px,-14px);}66%{transform:translate(-14px,10px);}}
-@keyframes blink{0%,100%{opacity:.2;}50%{opacity:1;}}
-@keyframes shimmer{0%{transform:translateX(-120%);}100%{transform:translateX(120%);}}
-@keyframes scanMove{0%{top:-2px;}100%{top:100%;}}
-@keyframes beamCW{
-  0%{transform:rotate(0deg);opacity:.85;}
-  22%{transform:rotate(80deg);opacity:.4;}
-  45%{transform:rotate(162deg);opacity:.05;}
-  50%{transform:rotate(180deg);opacity:0;}
-  55%{transform:rotate(198deg);opacity:.05;}
-  78%{transform:rotate(280deg);opacity:.4;}
-  100%{transform:rotate(360deg);opacity:.85;}
-}
-@keyframes lampGlow{0%,100%{opacity:1;r:14px;}50%{opacity:.5;r:10px;}}
-@keyframes shipFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
-@keyframes dataFlow{0%{stroke-dashoffset:60;}100%{stroke-dashoffset:0;}}
-@keyframes nodeFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
-@keyframes ringExpand{0%{opacity:.7;r:16px;}100%{opacity:0;r:36px;}}
-@keyframes gradShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 52px;background:rgba(1,12,26,.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(37,150,232,.1);}
-.nav-logo{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:#fff;letter-spacing:2px;text-decoration:none;display:flex;align-items:center;gap:8px;}
-.nav-logo span{color:var(--foam);}
-.ndot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 1.5s ease-in-out infinite;}
-.nav-links{display:flex;gap:24px;list-style:none;}
-.nav-links a{font-size:11.5px;color:var(--mu);text-decoration:none;letter-spacing:.5px;transition:color .2s;font-weight:500;}
-.nav-links a:hover{color:var(--foam);}
-.nav-cta{padding:7px 18px;background:linear-gradient(135deg,var(--bright),var(--foam));border-radius:50px;color:#fff!important;font-weight:700!important;font-size:11px!important;letter-spacing:.8px;}
-/* Language Toggle */
-#lang-switch{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;background:rgba(155,109,255,.12);border:1.5px solid rgba(155,109,255,.38);color:#C4A8FF;font-family:'Orbitron',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;cursor:pointer;text-decoration:none;transition:all .25s;flex-shrink:0;white-space:nowrap;}
-#lang-switch:hover{background:rgba(155,109,255,.25);border-color:rgba(155,109,255,.65);color:#fff;}
-
-/* HERO */
-#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 2rem 0;}
-.mesh{position:absolute;inset:0;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#040d2b}
+body{
+  font-family:Inter,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Arabic","Noto Sans Devanagari","Noto Sans JP","Noto Sans SC",sans-serif;
+  color:var(--ink); line-height:1.5; -webkit-font-smoothing:antialiased;
   background:
-    radial-gradient(ellipse 90% 60% at 15% 85%,rgba(18,120,208,.28) 0%,transparent 58%),
-    radial-gradient(ellipse 65% 55% at 85% 15%,rgba(30,201,183,.14) 0%,transparent 52%),
-    radial-gradient(ellipse 80% 70% at 50% 115%,rgba(10,58,107,.8) 0%,transparent 62%),
-    linear-gradient(162deg,#010C1A 0%,#031525 35%,#071E38 62%,#0A2848 100%);
+    radial-gradient(1200px 700px at 85% 0%, rgba(25,120,255,.35), transparent 60%),
+    radial-gradient(900px 600px at 10% 30%, rgba(0,212,255,.16), transparent 60%),
+    radial-gradient(1000px 600px at 90% 70%, rgba(25,120,255,.18), transparent 60%),
+    linear-gradient(170deg,#050f33 0%,#071d5a 30%,#040d2b 70%,#061540 100%);
+  position:relative;min-height:100vh;
 }
-.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}
-.o1{width:500px;height:500px;background:rgba(18,120,208,.16);top:5%;left:2%;animation:drift 20s ease-in-out infinite;}
-.o2{width:380px;height:380px;background:rgba(30,201,183,.09);top:15%;right:5%;animation:drift 26s ease-in-out infinite;animation-delay:-9s;}
-.o3{width:420px;height:420px;background:rgba(10,58,107,.22);bottom:15%;left:20%;animation:drift 22s ease-in-out infinite;animation-delay:-14s;}
-.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,150,232,.038) 1px,transparent 1px),linear-gradient(90deg,rgba(37,150,232,.038) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;}
-.scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(37,150,232,.25),rgba(64,180,245,.45),rgba(37,150,232,.25),transparent);animation:scanMove 7s linear infinite;pointer-events:none;}
-.stars{position:absolute;inset:0;pointer-events:none;}
-.star{position:absolute;background:#fff;border-radius:50%;animation:pulse ease-in-out infinite;}
-.scene-wrap{position:absolute;bottom:0;left:0;right:0;height:360px;pointer-events:none;z-index:2;}
-.hero-content{position:relative;z-index:5;max-width:940px;}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 20px;border:1px solid rgba(37,150,232,.28);border-radius:50px;font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2.5px;color:var(--foam);background:rgba(37,150,232,.06);margin-bottom:2rem;animation:fadeUp .8s ease;}
-.edot{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:blink 1.4s ease-in-out infinite;}
-.h-title{font-family:'Orbitron',sans-serif;font-size:clamp(2rem,5.5vw,4.6rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:1rem;animation:fadeUp 1s ease .1s both;}
-.h-title .c1{color:var(--foam);}
-.h-title .c2{
-  background:linear-gradient(135deg,var(--gold-lt),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.h-sub{font-size:clamp(.95rem,1.8vw,1.2rem);color:var(--mu);line-height:1.75;margin-bottom:1.8rem;animation:fadeUp 1s ease .2s both;font-weight:300;}
-.vpills{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:2rem;animation:fadeUp 1s ease .28s both;}
-.vp{display:inline-flex;align-items:center;gap:.45rem;padding:7px 15px;border-radius:8px;border:1px solid rgba(37,150,232,.18);background:rgba(6,33,63,.45);font-size:.76rem;color:#fff;font-weight:500;backdrop-filter:blur(10px);}
-.vp.g{border-color:rgba(200,151,10,.28);background:rgba(40,30,5,.35);}
-.vp.t{border-color:rgba(30,201,183,.28);background:rgba(5,42,36,.35);}
-.hbtns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s ease .36s both;}
-.btn-m{padding:.88rem 2.2rem;border-radius:50px;background:linear-gradient(135deg,var(--bright),var(--foam));color:#fff;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-decoration:none;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(18,120,208,.4);transition:all .3s;position:relative;overflow:hidden;}
-.btn-m::after{content:'';position:absolute;top:0;left:-120%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);animation:shimmer 2.8s ease-in-out infinite;}
-.btn-m:hover{transform:translateY(-2px);box-shadow:0 14px 42px rgba(18,120,208,.58);}
-.btn-g{padding:.88rem 2.2rem;border-radius:50px;border:1.5px solid rgba(200,151,10,.48);color:var(--gold-lt);font-weight:600;font-size:.85rem;text-decoration:none;background:transparent;cursor:pointer;transition:all .3s;}
-.btn-g:hover{background:rgba(200,151,10,.1);}
-.stats-strip{display:flex;gap:3.5rem;justify-content:center;padding:2.2rem 0 0;position:relative;z-index:5;animation:fadeUp 1s ease .44s both;}
-.si{text-align:center;}
-.sn{font-family:'Orbitron',sans-serif;font-size:1.9rem;font-weight:900;color:var(--foam);line-height:1;}
-.sl{font-size:.7rem;color:var(--hint);margin-top:.3rem;letter-spacing:.07em;}
+body::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 1px 1px, rgba(150,215,255,.12) 1px, transparent 1.6px) 0 0/28px 28px;
+  -webkit-mask-image:linear-gradient(#000,rgba(0,0,0,.35) 40%,rgba(0,0,0,.35));mask-image:linear-gradient(#000,rgba(0,0,0,.35) 40%,rgba(0,0,0,.35))}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{position:relative;z-index:1;width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+[dir=rtl] .ltr{direction:ltr}
 
-/* DIVIDER */
-.div{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(37,150,232,.2),rgba(200,151,10,.14),transparent);}
+/* nav */
+.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(5,15,51,.72);border-bottom:1px solid rgba(25,212,255,.12)}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em;font-size:15px}
+.brand img{width:34px;height:34px;border-radius:50%;box-shadow:0 0 18px rgba(246,196,84,.35)}
+.brand span{color:#fff}.brand span b{color:var(--cyan);font-weight:900}
+.links{display:none;gap:22px;margin-inline-start:auto;font-size:13.5px;font-weight:600;color:var(--muted)}
+.links a:hover{color:#fff}
+.navr{display:flex;align-items:center;gap:8px;margin-inline-start:auto}
+.links+.navr{margin-inline-start:0}
+@media(min-width:900px){.links{display:flex}}
+.btn{height:42px;padding:0 16px;border-radius:13px;font-size:13.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:filter .15s,transform .1s}
+.btn:active{transform:scale(.985)}
+.primary{color:#eaf0ff;background:linear-gradient(180deg,rgba(0,212,255,.5),rgba(0,140,220,.12));border-color:rgba(0,212,255,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -5px 10px rgba(0,0,0,.28),0 8px 24px rgba(0,160,255,.22)}
+.primary:hover{filter:brightness(1.06)}
+.ghost{color:var(--cyan);background:rgba(0,212,255,.04);border-color:rgba(0,212,255,.22)}
+.ghost:hover{background:rgba(0,212,255,.09);border-color:rgba(0,212,255,.36)}
+.lang{position:relative}
+.lang>button{height:36px;padding:0 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;color:#E9EEF6;background:linear-gradient(180deg,rgba(0,212,255,.5),rgba(0,140,220,.12));border:1px solid rgba(0,212,255,.75);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.lang ul{position:absolute;inset-inline-end:0;top:calc(100% + 6px);min-width:170px;list-style:none;background:#0a1d4d;border:1px solid rgba(25,212,255,.35);border-radius:14px;padding:4px;box-shadow:0 18px 40px -16px rgba(0,0,0,.8);display:none;direction:ltr}
+.lang.open ul{display:block}
+.lang li button{width:100%;display:flex;align-items:center;gap:10px;padding:8px 10px;border:0;background:none;color:var(--muted);font:inherit;font-size:13px;font-weight:600;border-radius:9px;cursor:pointer;text-align:left}
+.lang li button:hover{background:rgba(255,255,255,.08);color:#fff}
+.lang li button.on{color:#fff;background:linear-gradient(180deg,rgba(0,212,255,.35),rgba(0,140,220,.1))}
+.lang li button i{width:26px;font-style:normal;font-size:10px;font-weight:800;color:var(--cyan);letter-spacing:.06em}
 
-/* SECTION */
-section{padding:6rem 2rem;}
-.container{max-width:1080px;margin:0 auto;}
-.sl2{font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.25em;color:var(--foam);margin-bottom:.6rem;}
-.st{font-family:'Orbitron',sans-serif;font-size:clamp(1.55rem,3vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:.85rem;}
-.ss{font-size:.93rem;color:var(--mu);line-height:1.9;max-width:580px;margin-bottom:2.4rem;}
+/* hero */
+.hero{padding:48px 0 30px}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media(min-width:1024px){.hero{padding:70px 0 40px}.hero .wrap{grid-template-columns:1fr 1.1fr;gap:60px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.eyebrow i{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+h1{margin-top:14px;font-size:64px;line-height:1;font-weight:900;letter-spacing:-.02em;background:linear-gradient(90deg,#f6c454,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(min-width:1024px){h1{font-size:96px}}
+.sub{margin-top:14px;font-size:24px;font-weight:800;line-height:1.25;color:#fff}
+@media(min-width:1024px){.sub{font-size:30px}}
+.sub2{margin-top:6px;font-size:18px;font-weight:600;color:var(--cyan)}
+@media(min-width:1024px){.sub2{font-size:21px}}
+.small{margin-top:16px;font-size:14.5px;color:var(--muted);max-width:520px}
+.small b{color:var(--gold);font-weight:700}
+.cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.cta .btn{height:48px;padding:0 20px;font-size:14.5px}
+.status{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(25,212,255,.35);border-radius:999px;padding:7px 14px;background:rgba(25,212,255,.06)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.coinwrap{display:flex;justify-content:center}
+.coin{position:relative;width:min(100%,420px)}
+.coin img{width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6)) drop-shadow(0 0 40px rgba(246,196,84,.28))}
+.coin::before{content:"";position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(circle,rgba(246,196,84,.22),transparent 60%);filter:blur(12px);z-index:-1}
+@media(max-width:1023px){.coin{width:min(68%,300px)}.coinwrap{order:-1}}
 
-/* WHAT WE DO */
-#what{background:linear-gradient(180deg,var(--abyss) 0%,var(--deep) 100%);}
-.what-intro{text-align:center;margin-bottom:3.8rem;}
-.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-.wc{padding:2rem;border-radius:18px;border:1px solid rgba(37,150,232,.1);background:rgba(6,33,63,.28);position:relative;overflow:hidden;transition:all .4s;}
-.wc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:18px 18px 0 0;opacity:0;transition:opacity .3s;}
-.wc:hover{border-color:rgba(37,150,232,.38);transform:translateY(-7px);box-shadow:0 24px 56px rgba(0,0,0,.45);}
-.wc:hover::before{opacity:1;}
-.wc.b::before{background:linear-gradient(90deg,var(--bright),var(--foam));}
-.wc.t::before{background:linear-gradient(90deg,var(--teal),#7DFFD4);}
-.wc.g::before{background:linear-gradient(90deg,var(--gold),var(--gold-lt));}
-.wi{width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;border:1px solid;}
-.wi.b{background:rgba(37,150,232,.1);border-color:rgba(37,150,232,.22);}
-.wi.t{background:rgba(30,201,183,.09);border-color:rgba(30,201,183,.22);}
-.wi.g{background:rgba(200,151,10,.09);border-color:rgba(200,151,10,.22);}
-.wn{font-family:'Orbitron',sans-serif;font-size:.92rem;font-weight:700;color:#fff;margin-bottom:.6rem;line-height:1.35;}
-.wd{font-size:.82rem;color:var(--hint);line-height:1.82;margin-bottom:1rem;}
-.wtags{display:flex;flex-wrap:wrap;gap:.35rem;}
-.wtag{padding:3px 10px;border-radius:50px;font-size:.63rem;font-weight:600;letter-spacing:.05em;}
-.tb{background:rgba(37,150,232,.13);color:var(--foam);border:1px solid rgba(37,150,232,.22);}
-.tt{background:rgba(30,201,183,.1);color:var(--teal);border:1px solid rgba(30,201,183,.2);}
-.tg{background:rgba(200,151,10,.1);color:var(--gold-lt);border:1px solid rgba(200,151,10,.2);}
+/* map */
+.map{padding:10px 0 40px;overflow:hidden}
+.map img{width:100%;height:auto}
+@media(max-width:759px){.map img{width:150%;max-width:none;margin-inline-start:-25%}}
 
-/* HOW IT WORKS */
-#how{background:var(--deep);}
-.how-center{text-align:center;margin-bottom:3rem;}
-.how-flow{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr;align-items:center;gap:.4rem;margin-bottom:2.5rem;}
-.hs{padding:1.6rem 1rem;border-radius:14px;border:1px solid rgba(37,150,232,.13);background:rgba(6,33,63,.32);text-align:center;transition:all .35s;}
-.hs:hover{border-color:rgba(37,150,232,.42);transform:translateY(-5px);}
-.hi{width:44px;height:44px;margin:0 auto .75rem;display:block;}
-.hn{font-family:'Orbitron',sans-serif;font-size:.56rem;color:rgba(37,150,232,.48);letter-spacing:.15em;margin-bottom:.38rem;}
-.ht{font-size:.82rem;font-weight:600;color:#fff;margin-bottom:.22rem;}
-.hd{font-size:.7rem;color:var(--hint);line-height:1.62;}
-.harr{color:rgba(37,150,232,.32);font-size:1.1rem;text-align:center;}
-
-/* BLOCKCHAIN VIS — bright modern */
-.bc-panel{padding:2rem 2.2rem;border-radius:18px;border:1px solid rgba(37,150,232,.15);background:linear-gradient(135deg,rgba(6,33,63,.5),rgba(10,58,107,.2));position:relative;overflow:hidden;}
-.bc-panel::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(37,150,232,.08),transparent 70%);}
-.bc-header{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;}
-.bc-dot{width:8px;height:8px;border-radius:50%;}
-.bc-title{font-family:'Orbitron',sans-serif;font-size:.72rem;font-weight:700;color:var(--foam);letter-spacing:.18em;}
-.bc-chain{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:nowrap;}
-.bc-b{padding:.75rem 1.1rem;border-radius:10px;background:rgba(10,58,107,.7);border:1px solid rgba(37,150,232,.28);font-family:'Orbitron',sans-serif;font-size:.62rem;color:var(--foam);letter-spacing:.07em;text-align:center;line-height:1.5;transition:all .3s;position:relative;}
-.bc-b:hover{border-color:var(--foam);background:rgba(37,150,232,.18);transform:scale(1.05);}
-.bc-l{width:32px;height:2px;background:rgba(37,150,232,.25);flex-shrink:0;position:relative;overflow:hidden;}
-.bc-l::after{content:'';position:absolute;top:-2px;left:0;width:12px;height:6px;background:var(--foam);border-radius:3px;animation:dataFlow 1.8s linear infinite;}
-.bc-features{display:flex;justify-content:center;gap:2rem;margin-top:1.2rem;flex-wrap:wrap;}
-.bc-f{font-size:.7rem;color:rgba(37,150,232,.65);display:flex;align-items:center;gap:.35rem;}
-.bc-f::before{content:'✓';color:var(--teal);}
-
-/* PLATFORM VISUAL — bright new design */
-.plat-2col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-.plat-list{display:flex;flex-direction:column;gap:.85rem;}
-.pl-item{display:flex;align-items:center;gap:.95rem;padding:1.1rem 1.4rem;border-radius:12px;border:1px solid rgba(37,150,232,.1);background:rgba(6,33,63,.35);transition:all .3s;}
-.pl-item:hover{border-color:rgba(37,150,232,.38);}
-.pl-ico{width:38px;height:38px;flex-shrink:0;}
-.pl-t{font-weight:600;font-size:.87rem;color:#fff;margin-bottom:.16rem;}
-.pl-d{font-size:.73rem;color:var(--hint);line-height:1.6;}
-.pl-badge{margin-left:auto;flex-shrink:0;padding:3px 9px;border-radius:50px;font-size:.6rem;font-weight:700;}
-.bon{background:rgba(30,201,183,.12);color:var(--teal);border:1px solid rgba(30,201,183,.25);}
-.bdev{background:rgba(37,150,232,.1);color:var(--foam);border:1px solid rgba(37,150,232,.22);}
-.bplan{background:rgba(200,151,10,.09);color:var(--gold-lt);border:1px solid rgba(200,151,10,.22);}
-
-/* BRIGHT PLATFORM VISUAL */
-.plat-vis{border-radius:20px;overflow:hidden;border:1px solid rgba(37,150,232,.15);background:linear-gradient(145deg,#0A2548,#051830);}
-
-/* PORT */
-#port{background:linear-gradient(180deg,var(--deep),#041E38);}
-.port-2col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-.port-cards{display:flex;flex-direction:column;gap:.85rem;}
-.pi{display:flex;align-items:center;gap:.95rem;padding:1.1rem 1.4rem;border-radius:12px;border:1px solid rgba(37,150,232,.1);background:rgba(4,20,40,.42);transition:all .3s;}
-.pi:hover{border-color:rgba(37,150,232,.35);}
-.pi-ico{width:40px;height:40px;flex-shrink:0;}
-.pi-t{font-weight:600;font-size:.87rem;color:#fff;margin-bottom:.16rem;}
-.pi-d{font-size:.73rem;color:var(--hint);line-height:1.6;}
-.port-vis{border-radius:20px;border:1px solid rgba(37,150,232,.1);background:rgba(2,11,24,.7);overflow:hidden;}
-
-/* BUSINESS TYPES */
-#biz{background:#041E38;}
-.biz-intro{text-align:center;margin-bottom:3rem;}
-.biz-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
-.biz-card{padding:1.4rem;border-radius:14px;border:1px solid rgba(37,150,232,.1);background:rgba(6,33,63,.28);transition:all .35s;}
-.biz-card:hover{border-color:rgba(37,150,232,.35);transform:translateY(-4px);}
-.biz-ico{width:38px;height:38px;margin-bottom:.7rem;}
-.biz-t{font-weight:600;font-size:.82rem;color:#fff;margin-bottom:.3rem;}
-.biz-d{font-size:.72rem;color:var(--hint);line-height:1.65;}
-
-/* FESTIVAL */
-#festival{background:linear-gradient(180deg,#041E38,var(--deep));}
-.fest-2col{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:1.8rem;}
-.fc{padding:2.2rem;border-radius:16px;border:1px solid rgba(37,150,232,.13);background:rgba(4,14,28,.5);transition:all .35s;position:relative;overflow:hidden;}
-.fc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--bright),var(--foam),transparent);}
-.fc:hover{border-color:rgba(37,150,232,.38);transform:translateY(-4px);}
-.fcity{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:900;color:var(--foam);}
-.fnm{font-size:.75rem;color:var(--mu);letter-spacing:.1em;margin:.3rem 0 .8rem;}
-.ftm{display:inline-block;padding:3px 10px;background:rgba(30,201,183,.1);border:1px solid rgba(30,201,183,.28);border-radius:50px;font-size:.62rem;color:var(--teal);letter-spacing:.1em;margin-bottom:.9rem;}
-.fd{font-size:.79rem;color:var(--hint);line-height:1.78;}
-.fest-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
-.fsc{padding:1rem;border-radius:12px;background:rgba(6,33,63,.32);border:1px solid rgba(37,150,232,.09);text-align:center;}
-.fsn{font-family:'Orbitron',sans-serif;font-size:1.25rem;font-weight:700;color:var(--foam);}
-.fsl{font-size:.7rem;color:var(--hint);margin-top:.22rem;}
-
-/* FESTIVAL — Clickable Card + Modal Trigger */
-.fc{cursor:pointer;transition:all .35s,box-shadow .35s;}
-.fc:hover{border-color:rgba(37,150,232,.5);transform:translateY(-4px);box-shadow:0 12px 38px rgba(2,8,20,.55),0 0 0 1px rgba(37,150,232,.18);}
-.fc-view-link{margin-top:1.4rem;padding-top:1.1rem;border-top:1px dashed rgba(141,212,245,.18);display:inline-flex;align-items:center;gap:.55rem;font-family:'Orbitron',sans-serif;font-size:.66rem;letter-spacing:.18em;color:var(--foam);font-weight:700;transition:all .25s;width:100%;}
-.fc:hover .fc-view-link{color:#fff;}
-.fc-zoom-icon{width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
-.fc-zoom-icon svg{width:100%;height:100%;}
-.fc-arrow{margin-left:auto;font-size:.95rem;transition:transform .25s;}
-.fc:hover .fc-arrow{transform:translateX(4px);}
-
-/* POSTER MODAL */
-#poster-modal{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;}
-#poster-modal.open{display:flex;animation:pmFade .25s ease;}
-@keyframes pmFade{from{opacity:0;}to{opacity:1;}}
-.pm-backdrop{position:absolute;inset:0;background:rgba(1,6,16,.92);backdrop-filter:blur(14px);cursor:pointer;}
-.pm-inner{position:relative;max-width:min(720px,calc(100vw - 48px));max-height:calc(100vh - 48px);display:flex;flex-direction:column;align-items:center;gap:1rem;z-index:1;}
-.pm-img-wrap{position:relative;max-height:calc(100vh - 160px);display:flex;align-items:center;justify-content:center;border-radius:8px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 0 1px rgba(141,212,245,.15);}
-.pm-img-wrap img{max-width:100%;max-height:calc(100vh - 160px);display:block;}
-.pm-close{position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:50%;background:rgba(2,8,20,.7);border:1px solid rgba(141,212,245,.35);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;backdrop-filter:blur(6px);z-index:3;}
-.pm-close:hover{background:rgba(37,150,232,.25);border-color:var(--foam);}
-.pm-actions{display:flex;gap:.7rem;}
-.pm-btn{display:inline-flex;align-items:center;gap:.5rem;padding:9px 20px;border-radius:50px;font-family:'Orbitron',sans-serif;font-size:.65rem;letter-spacing:.18em;font-weight:700;cursor:pointer;text-decoration:none;transition:all .25s;}
-.pm-btn.primary{background:linear-gradient(135deg,var(--bright),var(--foam));color:#fff;border:1px solid transparent;}
-.pm-btn.primary:hover{filter:brightness(1.15);box-shadow:0 8px 24px rgba(37,150,232,.35);}
-.pm-btn.ghost{background:rgba(2,8,20,.55);color:var(--mist);border:1px solid rgba(141,212,245,.3);}
-.pm-btn.ghost:hover{border-color:var(--foam);color:#fff;}
-
-@media (max-width:760px){
-  .fest-2col{grid-template-columns:1fr;}
-  .pm-close{top:-44px;right:auto;left:50%;transform:translateX(-50%);}
-}
-
-/* GROUP STRUCTURE */
-#group{background:var(--deep);}
-.group-intro{text-align:center;margin-bottom:3rem;}
-/* Parent card */
-.parent-wrap{position:relative;margin-bottom:2rem;padding:0;border-radius:24px;background:linear-gradient(135deg,rgba(10,42,90,.65),rgba(4,18,42,.8));border:1px solid rgba(37,150,232,.28);overflow:hidden;}
-.parent-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bright),var(--foam),var(--teal),var(--gold));border-radius:24px 24px 0 0;z-index:2;}
-.pw-header{padding:2rem 2.8rem 1.4rem;border-bottom:1px solid rgba(37,150,232,.1);display:flex;align-items:center;gap:1.2rem;}
-.pw-header-icon{width:52px;height:52px;border-radius:14px;background:rgba(18,120,208,.15);border:1px solid rgba(37,150,232,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.pw-header-text{}
-.pw-meta .pw-name{font-family:'Orbitron',sans-serif;font-size:1.15rem;font-weight:900;color:#fff;margin-bottom:.3rem;letter-spacing:-.01em;}
-.pw-role{font-size:.75rem;color:var(--foam);letter-spacing:.08em;font-weight:600;}
-.pw-body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
-.pw-entity{padding:1.8rem 2.8rem;position:relative;}
-.pw-entity:first-child{border-right:1px solid rgba(37,150,232,.1);}
-.pw-entity-tag{display:inline-flex;align-items:center;gap:.45rem;padding:4px 12px;border-radius:50px;font-family:'Orbitron',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;margin-bottom:.9rem;}
-.pw-entity-tag.wy{background:rgba(141,212,245,.1);color:var(--mist);border:1px solid rgba(141,212,245,.22);}
-.pw-entity-tag.ny{background:rgba(37,150,232,.12);color:var(--foam);border:1px solid rgba(37,150,232,.26);}
-.pw-entity-name{font-family:'Orbitron',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.28rem;}
-.pw-entity-sub{font-size:.73rem;color:var(--foam);font-weight:600;margin-bottom:.7rem;opacity:.8;}
-.pw-entity-desc{font-size:.78rem;color:var(--hint);line-height:1.78;margin-bottom:1rem;}
-.pw-badges{display:flex;gap:.4rem;flex-wrap:wrap;}
-.pwb{padding:4px 12px;border-radius:50px;font-size:.62rem;font-weight:600;letter-spacing:.05em;}
-.pwb-b{background:rgba(37,150,232,.14);color:var(--foam);border:1px solid rgba(37,150,232,.24);}
-.pwb-t{background:rgba(30,201,183,.11);color:var(--teal);border:1px solid rgba(30,201,183,.2);}
-.pwb-g{background:rgba(200,151,10,.1);color:var(--gold-lt);border:1px solid rgba(200,151,10,.2);}
-.pwb-s{background:rgba(141,212,245,.08);color:var(--mist);border:1px solid rgba(141,212,245,.18);}
-.pw-desc{font-size:.79rem;color:var(--hint);line-height:1.72;}
-/* Connector */
-.org-tree{display:flex;flex-direction:column;align-items:center;margin-bottom:1.4rem;}
-.ot-vert{width:2px;height:28px;background:linear-gradient(180deg,rgba(37,150,232,.38),rgba(37,150,232,.1));}
-.ot-horiz{width:640px;max-width:100%;height:2px;background:rgba(37,150,232,.14);}
-.ot-legs{display:flex;width:640px;max-width:100%;justify-content:space-around;}
-.ot-leg{width:2px;height:22px;background:rgba(37,150,232,.14);}
-.sub-lbl{display:flex;align-items:center;gap:.75rem;margin-bottom:.95rem;font-family:'Orbitron',sans-serif;font-size:.6rem;letter-spacing:.18em;color:rgba(37,150,232,.38);}
-.sub-lbl::before,.sub-lbl::after{content:'';flex:1;height:1px;background:rgba(37,150,232,.1);}
-.sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
-.sc{padding:1.7rem;border-radius:14px;border:1px solid rgba(37,150,232,.1);background:rgba(2,11,24,.4);transition:all .38s;position:relative;overflow:hidden;}
-.sc:hover{border-color:rgba(37,150,232,.38);transform:translateY(-5px);}
-.sc.feat{border-color:rgba(200,151,10,.28);background:rgba(40,30,5,.15);}
-.sc.feat:hover{border-color:rgba(200,151,10,.55);}
-.sc-iw{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;border:1px solid;}
-.sc-iw.b{background:rgba(37,150,232,.1);border-color:rgba(37,150,232,.22);}
-.sc-iw.g{background:rgba(200,151,10,.09);border-color:rgba(200,151,10,.2);}
-.sc-iw.s{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);}
-.sc-nm{font-family:'Orbitron',sans-serif;font-size:.7rem;font-weight:700;color:#fff;margin-bottom:.2rem;line-height:1.4;}
-.sc.feat .sc-nm{color:var(--gold-lt);}
-.sc-role{font-size:.67rem;color:var(--foam);font-weight:600;letter-spacing:.04em;margin-bottom:.5rem;}
-.sc.feat .sc-role{color:var(--gold);}
-.sc-desc{font-size:.73rem;color:var(--hint);line-height:1.65;}
-
-/* CONTACT */
-#contact{background:var(--abyss);text-align:center;}
-.cbox{max-width:680px;margin:0 auto;padding:3rem;border-radius:24px;border:1px solid rgba(37,150,232,.14);background:rgba(6,33,63,.2);}
-.crows{display:flex;flex-direction:column;gap:.8rem;margin:1.5rem 0;}
-.cr{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.85rem;color:var(--mu);}
-.cr strong{color:#fff;}
-.cdiv{width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--foam),transparent);margin:1.2rem auto;}
-
-footer{padding:1.8rem 52px;border-top:1px solid rgba(37,150,232,.07);display:flex;align-items:center;justify-content:space-between;font-size:.68rem;color:rgba(255,255,255,.2);background:var(--abyss);}
-footer a{color:rgba(37,150,232,.35);text-decoration:none;}
-@media(max-width:960px){
-  nav{padding:1rem 1.4rem;}.nav-links{display:none;}
-  .what-grid,.how-flow,.biz-grid,.fest-2col,.sub-grid,.port-2col,.plat-2col{grid-template-columns:1fr;}
-  .how-flow{grid-template-columns:1fr;}.harr{display:none;}
-  .parent-wrap{grid-template-columns:1fr;}
-  footer{flex-direction:column;gap:.5rem;text-align:center;padding:1.4rem;}
-}
-
-@keyframes beamCW360{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-@keyframes beamFade{0%,100%{opacity:.85;}22%{opacity:.55;}45%{opacity:.04;}50%{opacity:0;}55%{opacity:.04;}78%{opacity:.55;}}
-
-@keyframes orbitBeam {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-@keyframes moonGlow { 0%,100%{filter:drop-shadow(0 0 6px rgba(200,220,255,.6));} 50%{filter:drop-shadow(0 0 14px rgba(200,220,255,.95));} }
-
-@keyframes seaWave{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-@keyframes winFlk{0%,100%{opacity:.75;}48%{opacity:.3;}}
-
-/* MOBILE HERO FIX (2026-10-05) */
-@media(max-width:960px){
-  #hero{flex-direction:column;justify-content:flex-start;padding:110px 1.2rem 0;}
-  .hero-content{width:100%;max-width:100%;padding-bottom:0 !important;}
-  .eyebrow{max-width:100%;flex-wrap:wrap;justify-content:center;text-align:center;font-size:8px;letter-spacing:1.2px;line-height:1.7;padding:6px 14px;}
-  .stats-strip{flex-wrap:wrap;gap:1.4rem 2.4rem;padding:2.2rem 0 0;margin-bottom:380px;}
-}
-@media(max-width:480px){
-  .h-title{font-size:1.55rem;}
-  .h-sub{font-size:.9rem;}
-  .vp{font-size:.7rem;padding:6px 12px;}
-  .stats-strip .si{flex:0 0 40%;}
-  .sn{font-size:1.5rem;}
-}
-
-/* ═══ USAI WALLET HERO (2026-10-20) ═══ */
-#hero{align-items:flex-start;padding:110px 2rem 3rem;min-height:auto;}
-.uh-wrap{position:relative;z-index:5;width:100%;max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:2.5rem 3rem;align-items:center;}
-.uh-text{animation:fadeUp 1s ease .1s both;text-align:left;}
-.uh-eyebrow{display:flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.3em;color:#ffcf6b;text-transform:uppercase;}
-.uh-diya{width:9px;height:9px;border-radius:50%;background:#ffb627;box-shadow:0 0 12px 4px rgba(255,170,40,.75);flex-shrink:0;}
-.uh-title{font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(3.6rem,8.2vw,7.4rem);line-height:.92;letter-spacing:-.035em;margin:1.4rem 0 1.3rem;}
-.uh-usai{display:block;background:linear-gradient(100deg,#7fe9ff 0%,#2fb6ff 38%,#3a6bff 75%,#8a7dff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 22px rgba(60,160,255,.4));}
-.uh-wallet{display:block;color:#fff;}
-.uh-tag{font-family:'Inter',sans-serif;font-weight:600;font-size:clamp(1.15rem,2.1vw,1.85rem);line-height:1.2;color:#eaf4ff;margin:0 0 1.4rem;}
-.uh-tag em{font-style:normal;color:#7fe0ff;}
-.uh-gold{color:#ffcf6b;text-shadow:0 0 28px rgba(255,178,31,.35);}
-.uh-sub{font-family:'Inter','Noto Sans KR',sans-serif;font-size:clamp(.9rem,1.1vw,1.05rem);line-height:1.6;color:#c8d6f2;margin:-.6rem 0 1.3rem;}
-.uh-sub b{color:#ffcf6b;font-weight:700;}
-.uh-chips{display:flex;flex-wrap:wrap;gap:.6rem;}
-.uh-chip{display:inline-flex;align-items:center;padding:.62rem 1rem;border-radius:14px;font-weight:600;font-size:.86rem;color:#e8f6ff;background:linear-gradient(140deg,rgba(120,200,255,.2),rgba(40,90,255,.1));border:1.5px solid rgba(150,215,255,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 8px 30px rgba(20,90,255,.22);backdrop-filter:blur(8px);white-space:nowrap;}
-.uh-chip b{color:#7fe0ff;font-weight:700;margin-right:.5rem;}
-.uh-map{position:relative;animation:fadeUp 1s ease .3s both;}
-.uh-map img{width:100%;height:auto;display:block;}
-.uh-card{position:absolute;right:2%;bottom:-6%;width:min(360px,70%);padding:.9rem 1.1rem;border-radius:18px;background:linear-gradient(150deg,rgba(130,205,255,.22),rgba(40,80,220,.14));border:1.5px solid rgba(160,220,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 20px 60px rgba(0,40,140,.55);backdrop-filter:blur(14px);}
-.uh-row{display:flex;align-items:center;gap:.75rem;font-size:.86rem;font-weight:600;color:#eaf6ff;}
-.uh-row + .uh-row{margin-top:.6rem;}
-.uh-row small{display:block;font-size:.7rem;color:#9fc0e8;font-weight:500;margin-top:1px;}
-.uh-dot{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:800;}
-.uh-dot.ok{background:rgba(70,220,180,.22);border:1.5px solid rgba(90,240,200,.7);color:#7dffd9;}
-.uh-dot.pay{background:rgba(255,200,80,.2);border:1.5px solid rgba(255,205,90,.8);color:#ffd36b;}
-.uh-foot{grid-column:1/-1;text-align:left;margin-top:2.2rem;padding-top:1.4rem;border-top:1.5px solid rgba(130,200,255,.3);animation:fadeUp 1s ease .45s both;}
-.uh-by{font-size:.68rem;letter-spacing:.24em;color:#9fb8dd;font-weight:500;}
-.uh-name{margin-top:.3rem;font-size:1.3rem;font-weight:700;}
-.uh-name span{color:#9fb8dd;font-weight:500;font-size:.95rem;margin-left:.6rem;}
-.uh-co{margin-top:.15rem;font-size:1.05rem;font-weight:700;letter-spacing:.06em;color:#ffc94d;text-shadow:0 0 18px rgba(255,190,60,.4);}
-.uh-sub{margin-top:.25rem;font-size:.82rem;color:#b9cdeb;}
-@media(max-width:960px){
-  #hero{padding:96px 1.2rem 2.4rem;}
-  .uh-wrap{grid-template-columns:1fr;gap:1.6rem;}
-  .uh-text{text-align:left;}
-  .uh-title{font-size:clamp(3.2rem,16vw,4.6rem);}
-  .uh-chips{gap:.45rem;}
-  .uh-chip{font-size:.78rem;padding:.5rem .8rem;white-space:normal;}
-  .uh-map{margin-top:.4rem;}
-  .uh-card{position:static;width:100%;margin-top:.9rem;}
-  .uh-foot{margin-top:1.4rem;}
-}
+/* sections */
+section.s{padding:64px 0}
+.h2{font-size:12px;font-weight:800;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.h3{margin-top:10px;font-size:32px;font-weight:900;line-height:1.15;letter-spacing:-.01em}
+@media(min-width:1024px){.h3{font-size:40px}}
+.lead{margin-top:14px;font-size:17px;color:var(--muted);max-width:720px}
+.grid{display:grid;gap:14px;margin-top:28px}
+@media(min-width:760px){.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c2{grid-template-columns:repeat(2,1fr)}}
+.card{position:relative;border-radius:22px;padding:2px;background:linear-gradient(160deg,rgba(25,212,255,.45),rgba(246,196,84,.3) 50%,rgba(25,212,255,.1))}
+.card>div{border-radius:20px;padding:24px;height:100%;background:radial-gradient(120% 50% at 50% 0%,rgba(120,200,255,.14),transparent 55%),linear-gradient(170deg,rgba(14,40,110,.9),rgba(6,18,58,.96))}
+.num{font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--cyan)}
+.card h4{margin-top:10px;font-size:19px;font-weight:800;color:#fff}
+.card p{margin-top:8px;font-size:14.5px;color:var(--muted)}
+.card .big{font-size:34px;font-weight:900;color:var(--gold);line-height:1;margin-top:8px}
+.proof{display:flex;gap:14px;align-items:flex-start}
+.proof i{flex:0 0 36px;height:36px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:900}
+.ok{background:rgba(31,196,140,.18);color:#4ff0b8;border:1px solid rgba(31,196,140,.5)}
+.usd{background:rgba(246,196,84,.14);color:var(--gold);border:1px solid rgba(246,196,84,.5)}
+.proof strong{display:block;font-size:16px;color:#fff}.proof span{font-size:13.5px;color:var(--muted)}
+.ent{display:flex;flex-direction:column;gap:6px}
+.ent .tag{font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--cyan);text-transform:uppercase}
+.ent h4{margin-top:0}
+.ent address{font-style:normal;font-size:13.5px;color:var(--muted);line-height:1.55}
+.ent .role{font-size:13.5px;color:#fff;font-weight:600}
+.founder{display:grid;gap:22px;align-items:center}
+@media(min-width:900px){.founder{grid-template-columns:260px 1fr}}
+.founder .ph{border-radius:22px;aspect-ratio:1/1;background:linear-gradient(160deg,rgba(25,212,255,.25),rgba(246,196,84,.18));display:grid;place-items:center;font-size:72px;font-weight:900;color:rgba(255,255,255,.75)}
+.founder p{margin-top:10px;font-size:16px;color:var(--muted)}
+.founder .name{font-size:26px;font-weight:900;color:#fff}.founder .title{font-size:13px;font-weight:800;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+.contact .grid a{color:var(--cyan);font-weight:700}
+footer{position:relative;z-index:1;border-top:1px solid rgba(25,212,255,.12);padding:28px 0 40px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+footer b{background:linear-gradient(90deg,#f6c454,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+footer .usa{display:inline-block;margin-inline-start:8px;padding:2px 10px;border-radius:999px;border:1px solid rgba(25,212,255,.45);color:var(--cyan);font-weight:800;font-size:11px;letter-spacing:.14em}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo"><span class="ndot"></span>K-AI <span>CONET</span></a>
-  <a id="lang-switch" href="/k-aiconet-busan-FINAL.html">🇰🇷 KOR · 한국어</a>
-  <ul class="nav-links">
-    <li><a href="#what" data-en="What We Do">What We Do</a></li>
-    <li><a href="#how" data-en="Platform">Platform</a></li>
-    <li><a href="#port" data-en="Busan Logistics">Busan Logistics</a></li>
-    <li><a href="#biz" data-en="Business">Business</a></li>
-    <li><a href="#festival" data-en="Festival">Festival</a></li>
-    <li><a href="#group" data-en="Group Structure">Group Structure</a></li>
-    <li><a href="#contact" class="nav-cta" data-en="Contact">Contact</a></li>
-  </ul>
-
-  <div style="display:flex;align-items:center;gap:6px;margin-left:8px;padding-left:10px;border-left:1px solid rgba(255,255,255,.08);">
-    <a href="/USAI_Wallet_Brochure_2026_v9_EN.html" title="Brochure EN" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.22);border-radius:7px;text-decoration:none;">
-      <svg width="13" height="16" viewBox="0 0 40 50" fill="none"><rect x="1" y="1" width="38" height="48" rx="5" fill="none" stroke="#40B4F5" stroke-width="1.8"/><path d="M26 1 L39 14 L26 14 Z" fill="rgba(0,200,255,.15)" stroke="#40B4F5" stroke-width="1"/><line x1="7" y1="22" x2="33" y2="22" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="30" x2="33" y2="30" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="38" x2="24" y2="38" stroke="#40B4F5" stroke-width="1.5" stroke-linecap="round"/></svg>
-      <span style="font-family:'Orbitron',sans-serif;font-size:.55rem;color:#40B4F5;font-weight:700;">EN</span>
-    </a>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="#top"><img src="brand/usai-coin-192.webp" alt=""><span>K-AI <b>CONET</b></span></a>
+  <div class="links">
+    <a href="#what" data-i="nav_what"></a>
+    <a href="#how" data-i="nav_how"></a>
+    <a href="#wallet" data-i="nav_wallet"></a>
+    <a href="#company" data-i="nav_company"></a>
+    <a href="#contact" data-i="nav_contact"></a>
   </div>
-</nav>
-<!-- Language Toggle -->
-
-
-<!-- HERO -->
-<section id="hero">
-<div class="mesh"></div>
-<div class="o1 orb"></div><div class="o2 orb"></div><div class="o3 orb"></div>
-<div class="hgrid"></div>
-<div class="stars" id="stars"></div>
-<div class="uh-wrap">
-  <div class="uh-text">
-    <div class="uh-eyebrow"><span class="uh-diya"></span>GLOBAL B2B TRADE PLATFORM &nbsp;·&nbsp; USPTO PATENT PENDING</div>
-    <h1 class="uh-title"><span class="uh-usai">USAI</span><span class="uh-wallet">Wallet</span></h1>
-    <p class="uh-tag"><span class="uh-gold">48-Hour</span> Automatic Trade Payment<br><em>with optional blockchain settlement.</em></p>
-    <p class="uh-sub">Bank transfer (T/T) as standard · Paid only when the goods ship<br><b>USPTO patent-pending world-first</b></p>
-    <div class="uh-chips">
-      <span class="uh-chip"><b>01</b>AI buyer–seller matching</span>
-      <span class="uh-chip"><b>02</b>Customs &amp; shipping verified</span>
-      <span class="uh-chip"><b>03</b>Automatic settlement</span>
+  <div class="navr">
+    <div class="lang" id="lang">
+      <button type="button" aria-haspopup="listbox" aria-expanded="false">🌐 <span id="langCode">EN</span></button>
+      <ul role="listbox" id="langList"></ul>
     </div>
-    <div class="hbtns" style="justify-content:flex-start;margin-top:1.6rem;">
-      <a href="https://usai-wallet.vercel.app" target="_blank" rel="noopener" class="btn-m">Open USAI Wallet</a>
-      <a href="#what" class="btn-g">What We Do</a>
-    </div>
+    <a class="btn primary" href="https://usai-wallet.vercel.app" data-i="login"></a>
   </div>
-  <div class="uh-map">
-    <img src="usai-world-map.webp" alt="USAI Wallet global trade route map — Cheyenne, New York, Reno, Delhi, Mumbai, Chennai, Seoul, Incheon, Busan" loading="eager" decoding="async">
-    <div class="uh-card">
-      <div class="uh-row"><span class="uh-dot ok">✓</span><div>Shipment departed port<small>B/L matched with carrier record</small></div></div>
-      <div class="uh-row"><span class="uh-dot pay">$</span><div>Auto-paid to seller in 48h<small>No manual approval needed</small></div></div>
-    </div>
-  </div>
-  <div class="uh-foot">
-    <div class="uh-by">BUILT BY</div>
-    <div class="uh-name">IL KANG <span>Founder &amp; CEO</span></div>
-    <div class="uh-co">K-AI CONET WYOMING LLC</div>
-    <div class="uh-sub">K-AI CONET INC (New York) &nbsp;·&nbsp; K-AI CONET Co., Ltd. (Busan, Korea)</div>
-  </div>
-</div>
-</section>
+</div></nav>
 
-<div class="div"></div>
-
-<!-- WHAT WE DO -->
-<section id="what">
-<div class="container">
-  <div class="what-intro">
-    <div class="sl2">What We Do</div>
-    <h2 class="st" data-en="What Does K-AI CONET Do?">What Does K-AI CONET Do?</h2>
-    <p class="ss" style="margin:0 auto;" data-en="An AI platform company connecting global trade, payments, and K-Culture through AI, blockchain, and Web3 technology">An AI platform company connecting global trade, payments, and K-Culture through AI, blockchain, and Web3 technology</p>
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <div class="eyebrow"><i></i><span data-i="eyebrow"></span></div>
+    <h1 data-i="h1"></h1>
+    <div class="sub" data-i="sub"></div>
+    <div class="sub2" data-i="sub2"></div>
+    <p class="small"><span data-i="small"></span> · <b data-i="smallAccent"></b></p>
+    <div class="cta">
+      <a class="btn primary" href="https://usai-wallet.vercel.app" data-i="login"></a>
+      <a class="btn ghost" href="mailto:ceo@k-aiconet.com?subject=USAI%20Wallet%20access%20request" data-i="request"></a>
+    </div>
+    <div><span class="status"><i></i><span data-i="status"></span></span></div>
   </div>
-  <div class="what-grid">
-    <div class="wc b" style="cursor:pointer;" title="V-Match AI Engine — Open">
-      <div class="wi b">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><circle cx="6" cy="15" r="4" fill="#2596E8"/><circle cx="24" cy="7" r="4" fill="#40B4F5"/><circle cx="24" cy="23" r="4" fill="#40B4F5"/><line x1="10" y1="13.2" x2="20" y2="8.8" stroke="#2596E8" stroke-width="1.4"/><line x1="10" y1="16.8" x2="20" y2="21.2" stroke="#2596E8" stroke-width="1.4"/><circle cx="15" cy="15" r="2.5" fill="rgba(37,150,232,.35)" stroke="#40B4F5" stroke-width=".9"/></svg>
-      </div>
-      <div class="wn">V-Match AI Engine<br>Global Trade Matching</div>
-      <div class="wd">Automatically matches Korean suppliers with global buyers using AI. 6-vector analysis covering industry, scale, region, and credit rating — reducing months of buyer discovery to instant results.</div>
-      <div class="wtags"><span class="wtag tb">6-Vector AI Analysis</span><span class="wtag tb">B2B Auto Matching</span><span class="wtag tb">KIPO Patent Filed</span></div>
-    </div>
-    <div class="wc t" style="cursor:pointer;">
-      <div class="wi t">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect x="9" y="3" width="12" height="22" rx="3" stroke="#1EC9B7" stroke-width="1.4"/><rect x="11" y="7" width="8" height="6" rx="1" fill="rgba(30,201,183,.22)" stroke="#1EC9B7" stroke-width=".7"/><circle cx="15" cy="20" r="2" fill="#1EC9B7"/><path d="M12 11 L13.5 12.5 L18 8" stroke="#1EC9B7" stroke-width="1.2" stroke-linecap="round"/><circle cx="4" cy="15" r="3" stroke="#1EC9B7" stroke-width=".9" fill="none"/><circle cx="26" cy="15" r="3" stroke="#1EC9B7" stroke-width=".9" fill="none"/><line x1="7" y1="15" x2="9" y2="15" stroke="#1EC9B7" stroke-width=".9"/><line x1="21" y1="15" x2="23" y2="15" stroke="#1EC9B7" stroke-width=".9"/></svg>
-      </div>
-      <div class="wn">K-AI Wallet<br>Blockchain Payment System</div>
-      <div class="wd">A multi-chain wallet for <strong style="color:#fff;">secure blockchain-based trade payments</strong>. Supports Ethereum, Polygon, and more — reducing FX fees, enabling real-time international remittance, and $USAI fee discounts.</div>
-      <div class="wtags"><span class="wtag tt">Multi-chain Payment</span><span class="wtag tt">Smart Contract</span><span class="wtag tt">USPTO Patent Filed</span></div>
-    </div>
-    <div class="wc g">
-      <div class="wi g">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="11" stroke="#C8970A" stroke-width="1.4" fill="rgba(200,151,10,.06)"/><path d="M15 5.5 C15 5.5 19.5 9.5 19.5 15 C19.5 20.5 15 24.5 15 24.5 C15 24.5 10.5 20.5 10.5 15 C10.5 9.5 15 5.5 15 5.5Z" stroke="#F0C95A" stroke-width="1" fill="none"/><line x1="4" y1="15" x2="26" y2="15" stroke="#C8970A" stroke-width="1"/><path d="M6 10.5 L24 10.5" stroke="#C8970A" stroke-width=".6" opacity=".4"/><path d="M6 19.5 L24 19.5" stroke="#C8970A" stroke-width=".6" opacity=".4"/><circle cx="15" cy="15" r="2.2" fill="#F0C95A"/></svg>
-      </div>
-      <div class="wn">K-Culture Global Trade<br>Export Platform</div>
-      <div class="wd">Exports Korean content and products — K-Drama, K-Beauty, K-Food — to global markets. Busan port shipping → V-Match AI buyer matching → K-AI Wallet payment, all in one stop.</div>
-      <div class="wtags"><span class="wtag tg">K-Culture Export</span><span class="wtag tg">Busan Port Logistics</span><span class="wtag tg">One-Stop Trade</span></div>
-    </div>
-  </div>
-</div>
-</section>
+  <div class="coinwrap"><div class="coin"><img src="brand/usai-coin-384.webp" alt="USAI coin" width="384" height="384" fetchpriority="high"></div></div>
+</div></header>
 
-<div class="div"></div>
+<div class="map"><div class="wrap"><img src="brand/world-map-1056.webp" srcset="brand/world-map-1056.webp 1056w, brand/world-map.webp 2035w" sizes="(min-width:1180px) 1140px, 100vw" alt="" loading="lazy"></div></div>
 
-<!-- PLATFORM + HOW IT WORKS -->
-<section id="how">
-<div class="container">
-  <div class="how-center">
-    <div class="sl2">Platform</div>
-    <h2 class="st" data-en="How Does It Work?">How Does It Work?</h2>
-    <p class="ss" style="margin:0 auto;" data-en="From seller registration to global blockchain payment — One-Stop AI Trade Platform">From seller registration to global blockchain payment — One-Stop AI Trade Platform</p>
+<section class="s" id="what"><div class="wrap">
+  <div class="h2" data-i="what_k"></div>
+  <h2 class="h3" data-i="what_h"></h2>
+  <p class="lead" data-i="what_p"></p>
+  <div class="grid c3">
+    <div class="card"><div><div class="num">01</div><h4 data-i="w1_h"></h4><p data-i="w1_p"></p></div></div>
+    <div class="card"><div><div class="num">02</div><h4 data-i="w2_h"></h4><p data-i="w2_p"></p></div></div>
+    <div class="card"><div><div class="num">03</div><h4 data-i="w3_h"></h4><p data-i="w3_p"></p></div></div>
   </div>
-  <div class="how-flow">
-    <div class="hs">
-      <svg class="hi" viewBox="0 0 44 44" fill="none"><rect x="6" y="6" width="32" height="32" rx="6" stroke="#2596E8" stroke-width="1.4" fill="rgba(37,150,232,.07)"/><circle cx="22" cy="18" r="5" stroke="#40B4F5" stroke-width="1.2"/><path d="M13 34 C13 28 31 28 31 34" stroke="#40B4F5" stroke-width="1.2" stroke-linecap="round"/></svg>
-      <div class="hn">STEP 01</div><div class="ht">Seller & Buyer Registration</div><div class="hd">Register as a Korean supplier or global buyer</div>
-    </div>
-    <div class="harr">→</div>
-    <div class="hs">
-      <svg class="hi" viewBox="0 0 44 44" fill="none"><circle cx="12" cy="22" r="5" fill="#2596E8"/><circle cx="32" cy="13" r="5" fill="#40B4F5"/><circle cx="32" cy="31" r="5" fill="#40B4F5"/><line x1="17" y1="20" x2="27" y2="15" stroke="#2596E8" stroke-width="1.4"/><line x1="17" y1="24" x2="27" y2="29" stroke="#2596E8" stroke-width="1.4"/><circle cx="22" cy="22" r="3" fill="rgba(37,150,232,.28)" stroke="#40B4F5" stroke-width=".9"/></svg>
-      <div class="hn">STEP 02</div><div class="ht">V-Match AI Matching</div><div class="hd">6-Vector AI automatically connects optimal partners</div>
-    </div>
-    <div class="harr">→</div>
-    <div class="hs">
-      <svg class="hi" viewBox="0 0 44 44" fill="none"><rect x="10" y="8" width="24" height="28" rx="4" stroke="#1EC9B7" stroke-width="1.4" fill="rgba(30,201,183,.07)"/><rect x="14" y="14" width="16" height="8" rx="1" fill="rgba(30,201,183,.15)" stroke="#1EC9B7" stroke-width=".7"/><circle cx="22" cy="28" r="3" fill="#1EC9B7" opacity=".8"/><path d="M17 19 L19 21 L25 15" stroke="#1EC9B7" stroke-width="1.3" stroke-linecap="round"/></svg>
-      <div class="hn">STEP 03</div><div class="ht">Contract & Shipping</div><div class="hd">Contract signing, customs clearance & Busan port shipping</div>
-    </div>
-    <div class="harr">→</div>
-    <div class="hs">
-      <svg class="hi" viewBox="0 0 44 44" fill="none"><rect x="12" y="6" width="20" height="32" rx="4" stroke="#40B4F5" stroke-width="1.4" fill="rgba(37,150,232,.07)"/><rect x="15" y="11" width="14" height="9" rx="1.5" fill="rgba(37,150,232,.18)" stroke="#40B4F5" stroke-width=".7"/><circle cx="8" cy="22" r="3.5" stroke="#40B4F5" stroke-width="1" fill="none"/><circle cx="36" cy="22" r="3.5" stroke="#40B4F5" stroke-width="1" fill="none"/><line x1="11.5" y1="22" x2="15" y2="22" stroke="#40B4F5" stroke-width="1"/><line x1="29" y1="22" x2="32.5" y2="22" stroke="#40B4F5" stroke-width="1"/><circle cx="22" cy="30" r="2" fill="#40B4F5"/></svg>
-      <div class="hn">STEP 04</div><div class="ht">Blockchain Payment</div><div class="hd">Secure international transfer via K-AI Wallet</div>
+</div></section>
+
+<section class="s" id="how"><div class="wrap">
+  <div class="h2" data-i="how_k"></div>
+  <h2 class="h3" data-i="how_h"></h2>
+  <p class="lead" data-i="how_p"></p>
+  <div class="grid c2">
+    <div class="card"><div class="proof"><i class="ok">✓</i><div><strong data-i="p1"></strong><span data-i="p1s"></span></div></div></div>
+    <div class="card"><div class="proof"><i class="usd">$</i><div><strong data-i="p2"></strong><span data-i="p2s"></span></div></div></div>
+  </div>
+  <div class="grid c3">
+    <div class="card"><div><div class="num" data-i="step"></div><div class="big">1</div><h4 data-i="s1_h"></h4><p data-i="s1_p"></p></div></div>
+    <div class="card"><div><div class="num" data-i="step"></div><div class="big">2</div><h4 data-i="s2_h"></h4><p data-i="s2_p"></p></div></div>
+    <div class="card"><div><div class="num" data-i="step"></div><div class="big">3</div><h4 data-i="s3_h"></h4><p data-i="s3_p"></p></div></div>
+  </div>
+</div></section>
+
+<section class="s" id="wallet"><div class="wrap">
+  <div class="h2">USAI Wallet</div>
+  <h2 class="h3" data-i="wal_h"></h2>
+  <p class="lead" data-i="wal_p"></p>
+  <div class="grid c3">
+    <div class="card"><div><h4 data-i="f1_h"></h4><p data-i="f1_p"></p></div></div>
+    <div class="card"><div><h4 data-i="f2_h"></h4><p data-i="f2_p"></p></div></div>
+    <div class="card"><div><h4 data-i="f3_h"></h4><p data-i="f3_p"></p></div></div>
+  </div>
+  <div class="cta">
+    <a class="btn primary" href="https://usai-wallet.vercel.app" data-i="login"></a>
+    <a class="btn ghost" href="mailto:ceo@k-aiconet.com?subject=USAI%20Wallet%20access%20request" data-i="request"></a>
+  </div>
+  <p class="small" style="margin-top:12px" data-i="wal_note"></p>
+</div></section>
+
+<section class="s" id="company"><div class="wrap">
+  <div class="h2" data-i="co_k"></div>
+  <h2 class="h3" data-i="co_h"></h2>
+  <p class="lead" data-i="co_p"></p>
+  <div class="grid c3">
+    <div class="card"><div class="ent"><div class="tag" data-i="hq"></div><h4>K-AI CONET WYOMING LLC</h4><div class="role" data-i="hq_role"></div><address class="ltr">1621 Central Ave<br>Cheyenne, WY 82001, USA</address><div class="role ltr" style="color:var(--gold)">FinCEN MSB · MRX26-00005630</div></div></div>
+    <div class="card"><div class="ent"><div class="tag" data-i="ny"></div><h4>K-AI CONET INC</h4><div class="role" data-i="ny_role"></div><address class="ltr">418 Broadway, STE N<br>Albany, NY 12207, USA</address></div></div>
+    <div class="card"><div class="ent"><div class="tag" data-i="bs"></div><h4>K-AI CONET Co., Ltd.</h4><div class="role" data-i="bs_role"></div><address class="ltr">111-1 Jeseok-ro, Saha-gu<br>Busan, Republic of Korea</address></div></div>
+  </div>
+  <div class="grid c2">
+    <div class="card"><div><h4 data-i="ip_h"></h4><p data-i="ip_p"></p></div></div>
+    <div class="card"><div><h4 data-i="cp_h"></h4><p data-i="cp_p"></p></div></div>
+  </div>
+</div></section>
+
+<section class="s" id="founder"><div class="wrap">
+  <div class="h2" data-i="fo_k"></div>
+  <div class="founder" style="margin-top:18px">
+    <div class="ph">IK</div>
+    <div>
+      <div class="title" data-i="fo_t"></div>
+      <div class="name">IL KANG</div>
+      <p data-i="fo_p1"></p>
+      <p data-i="fo_p2"></p>
     </div>
   </div>
+</div></section>
 
-  <!-- PLATFORM VISUAL — bright modern fintech dashboard -->
-  <div class="plat-2col">
-    <div class="plat-list">
-      <div class="pl-item">
-        <svg class="pl-ico" viewBox="0 0 38 38" fill="none"><rect x="4" y="4" width="30" height="30" rx="5" stroke="#2596E8" stroke-width="1.4" fill="rgba(37,150,232,.07)"/><circle cx="19" cy="14" r="4" stroke="#40B4F5" stroke-width="1.2"/><path d="M11 28 C11 23 27 23 27 28" stroke="#40B4F5" stroke-width="1.2" stroke-linecap="round"/></svg>
-        <div><div class="pl-t">V-Match AI Engine</div><div class="pl-d">6-Vector Global Trade Matching · USPTO Patent Pending</div></div>
-        <span class="pl-badge bdev">In Development</span>
-      </div>
-      <div class="pl-item">
-        <svg class="pl-ico" viewBox="0 0 38 38" fill="none"><rect x="10" y="5" width="18" height="28" rx="3" stroke="#2596E8" stroke-width="1.4" fill="rgba(37,150,232,.07)"/><rect x="13" y="9" width="12" height="8" rx="1" fill="rgba(37,150,232,.15)" stroke="#40B4F5" stroke-width=".7"/><circle cx="19" cy="25" r="2.2" stroke="#40B4F5" stroke-width="1.1"/><path d="M15 14 L17 16 L23 10" stroke="#40B4F5" stroke-width="1.2" stroke-linecap="round"/></svg>
-        <div><div class="pl-t">K-AI Wallet</div><div class="pl-d">Multi-chain Blockchain Payment Wallet · USPTO KAIC-2026-001</div></div>
-        <span class="pl-badge bdev">In Development</span>
-      </div>
-      <div class="pl-item">
-        <svg class="pl-ico" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="12" stroke="#2596E8" stroke-width="1.4" fill="rgba(37,150,232,.07)"/><path d="M13 19 C13 13 25 13 25 19 C25 25 13 25 13 19" stroke="#40B4F5" stroke-width="1.1" fill="none"/><circle cx="19" cy="19" r="2.5" fill="#2596E8"/></svg>
-        <div><div class="pl-t">K-AI CONET Platform</div><div class="pl-d">MetaMask Integration · Global Trade Portal</div></div>
-        <span class="pl-badge bon">Live</span>
-      </div>
-      <div class="pl-item">
-        <svg class="pl-ico" viewBox="0 0 38 38" fill="none"><circle cx="10" cy="19" r="4" stroke="#F0C95A" stroke-width="1.2" fill="rgba(200,151,10,.1)"/><circle cx="28" cy="19" r="4" stroke="#F0C95A" stroke-width="1.2" fill="rgba(200,151,10,.1)"/><line x1="14" y1="19" x2="24" y2="19" stroke="#C8970A" stroke-width="1.2" stroke-dasharray="2 2"/><text x="19" y="23" font-size="7" fill="#F0C95A" text-anchor="middle" font-family="monospace" font-weight="bold">$USAI</text></svg>
-        <div><div class="pl-t">$USAI Token</div><div class="pl-d">Platform Utility Token · Fee Discount</div></div>
-        <span class="pl-badge bplan">Roadmap</span>
-      </div>
-    </div>
-
-    <!-- BRIGHT FINTECH DASHBOARD VISUAL -->
-    <div class="plat-vis">
-      <svg viewBox="0 0 440 380" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
-        <defs>
-          <linearGradient id="dbg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0D2E55"/>
-            <stop offset="100%" stop-color="#051526"/>
-          </linearGradient>
-          <linearGradient id="barG1" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stop-color="#1278D0"/>
-            <stop offset="100%" stop-color="#40B4F5"/>
-          </linearGradient>
-          <linearGradient id="barG2" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stop-color="#0E9E8A"/>
-            <stop offset="100%" stop-color="#1EC9B7"/>
-          </linearGradient>
-          <linearGradient id="barG3" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stop-color="#9A6A00"/>
-            <stop offset="100%" stop-color="#F0C95A"/>
-          </linearGradient>
-          <filter id="glow2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <rect width="440" height="380" fill="url(#dbg)"/>
-        <!-- header bar -->
-        <rect x="0" y="0" width="440" height="48" fill="rgba(18,120,208,.12)"/>
-        <line x1="0" y1="48" x2="440" y2="48" stroke="rgba(37,150,232,.2)" stroke-width="1"/>
-        <!-- Header dots -->
-        <circle cx="20" cy="24" r="5" fill="rgba(232,93,58,.7)"/>
-        <circle cx="34" cy="24" r="5" fill="rgba(200,151,10,.7)"/>
-        <circle cx="48" cy="24" r="5" fill="rgba(30,201,183,.7)"/>
-        <text x="70" y="29" font-family="'Orbitron',monospace" font-size="10" fill="rgba(64,180,245,.8)" font-weight="700">K-AI CONET · TRADE DASHBOARD</text>
-        <!-- Demo indicator -->
-        <circle cx="418" cy="24" r="4" fill="rgba(150,160,180,.55)"/>
-        <text x="410" y="28" font-family="monospace" font-size="7" fill="rgba(180,190,210,.8)" text-anchor="end">DEMO</text>
-
-        <!-- STATS ROW -->
-        <rect x="12" y="60" width="96" height="62" rx="8" fill="rgba(37,150,232,.08)" stroke="rgba(37,150,232,.2)" stroke-width="1"/>
-        <text x="24" y="78" font-family="monospace" font-size="7.5" fill="rgba(64,180,245,.6)">AI MATCHES</text>
-        <text x="24" y="100" font-family="'Orbitron',monospace" font-size="18" fill="#40B4F5" font-weight="700">1,248</text>
-        <text x="24" y="114" font-family="monospace" font-size="6.5" fill="#1EC9B7">↑ +12.4%</text>
-
-        <rect x="116" y="60" width="96" height="62" rx="8" fill="rgba(30,201,183,.06)" stroke="rgba(30,201,183,.18)" stroke-width="1"/>
-        <text x="128" y="78" font-family="monospace" font-size="7.5" fill="rgba(30,201,183,.6)">TX VOLUME</text>
-        <text x="128" y="100" font-family="'Orbitron',monospace" font-size="18" fill="#1EC9B7" font-weight="700">$4.2M</text>
-        <text x="128" y="114" font-family="monospace" font-size="6.5" fill="#1EC9B7">↑ +8.7%</text>
-
-        <rect x="220" y="60" width="96" height="62" rx="8" fill="rgba(200,151,10,.06)" stroke="rgba(200,151,10,.18)" stroke-width="1"/>
-        <text x="232" y="78" font-family="monospace" font-size="7.5" fill="rgba(240,201,90,.6)">COUNTRIES</text>
-        <text x="232" y="100" font-family="'Orbitron',monospace" font-size="18" fill="#F0C95A" font-weight="700">38</text>
-        <text x="232" y="114" font-family="monospace" font-size="6.5" fill="#F0C95A">Global</text>
-
-        <rect x="324" y="60" width="104" height="62" rx="8" fill="rgba(37,150,232,.06)" stroke="rgba(37,150,232,.15)" stroke-width="1"/>
-        <text x="336" y="78" font-family="monospace" font-size="7.5" fill="rgba(64,180,245,.6)">ESCROW DEALS</text>
-        <text x="336" y="100" font-family="'Orbitron',monospace" font-size="18" fill="#40B4F5" font-weight="700">214</text>
-        <text x="336" y="114" font-family="monospace" font-size="6.5" fill="#1EC9B7">↑</text>/text>
-
-        <!-- CHART AREA -->
-        <rect x="12" y="132" width="270" height="140" rx="8" fill="rgba(6,33,63,.5)" stroke="rgba(37,150,232,.12)" stroke-width="1"/>
-        <text x="24" y="150" font-family="monospace" font-size="8" fill="rgba(64,180,245,.6)">Trade Volume (Monthly)</text>
-        <!-- Chart bars -->
-        <rect x="32" y="224" width="22" height="38" rx="3" fill="url(#barG1)" opacity=".7"/>
-        <rect x="60" y="214" width="22" height="48" rx="3" fill="url(#barG1)" opacity=".8"/>
-        <rect x="88" y="205" width="22" height="57" rx="3" fill="url(#barG1)" opacity=".9"/>
-        <rect x="116" y="196" width="22" height="66" rx="3" fill="url(#barG1)"/>
-        <rect x="144" y="184" width="22" height="78" rx="3" fill="url(#barG1)"/>
-        <rect x="172" y="175" width="22" height="87" rx="3" fill="url(#barG1)"/>
-        <rect x="200" y="162" width="22" height="100" rx="3" fill="url(#barG1)"/>
-        <rect x="228" y="152" width="22" height="110" rx="3" fill="url(#barG1)"/>
-        <!-- trend line -->
-        <path d="M43 220 C71 210 99 200 127 190 C155 178 183 168 211 155 C225 150 238 146 249 144" stroke="rgba(64,180,245,.6)" stroke-width="1.5" fill="none" stroke-dasharray="3 2"/>
-        <!-- X axis labels -->
-        <text x="43" y="272" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">Jan</text>
-        <text x="71" y="272" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">Feb</text>
-        <text x="99" y="272" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">Mar</text>
-        <text x="127" y="272" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">Apr</text>
-        <text x="155" y="272" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">May</text>
-        <text x="183" y="272" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">Jun</text>
-        <text x="211" y="272" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">Jul</text>
-        <text x="239" y="272" font-family="monospace" font-size="6" fill="rgba(255,255,255,.3)" text-anchor="middle">Aug</text>
-
-        <!-- BLOCKCHAIN FLOW panel -->
-        <rect x="292" y="132" width="136" height="140" rx="8" fill="rgba(6,33,63,.5)" stroke="rgba(37,150,232,.12)" stroke-width="1"/>
-        <text x="304" y="150" font-family="monospace" font-size="7.5" fill="rgba(64,180,245,.6)">CHAIN STATUS</text>
-        <!-- chain nodes -->
-        <circle cx="320" cy="175" r="12" fill="rgba(37,150,232,.2)" stroke="#2596E8" stroke-width="1.2" filter="url(#glow2)"/>
-        <text x="320" y="179" font-family="monospace" font-size="6.5" fill="#40B4F5" text-anchor="middle" font-weight="bold">ETH</text>
-        <circle cx="360" cy="175" r="12" fill="rgba(30,201,183,.15)" stroke="#1EC9B7" stroke-width="1.2" filter="url(#glow2)"/>
-        <text x="360" y="179" font-family="monospace" font-size="5.5" fill="#1EC9B7" text-anchor="middle" font-weight="bold">MATIC</text>
-        <circle cx="400" cy="175" r="12" fill="rgba(200,151,10,.15)" stroke="#C8970A" stroke-width="1.2" filter="url(#glow2)"/>
-        <text x="400" y="179" font-family="monospace" font-size="5.5" fill="#F0C95A" text-anchor="middle" font-weight="bold">USAI</text>
-        <line x1="332" y1="175" x2="348" y2="175" stroke="rgba(37,150,232,.4)" stroke-width="1.2" stroke-dasharray="2 2"/>
-        <line x1="372" y1="175" x2="388" y2="175" stroke="rgba(30,201,183,.4)" stroke-width="1.2" stroke-dasharray="2 2"/>
-        <!-- TX list -->
-        <rect x="304" y="198" width="116" height="16" rx="3" fill="rgba(37,150,232,.1)"/>
-        <circle cx="312" cy="206" r="3" fill="#1EC9B7"/>
-        <text x="320" y="209" font-family="monospace" font-size="6.5" fill="rgba(255,255,255,.6)">0x4f2a…8b3c</text>
-        <text x="402" y="209" font-family="monospace" font-size="6" fill="#1EC9B7" text-anchor="end">✓</text>
-        <rect x="304" y="218" width="116" height="16" rx="3" fill="rgba(37,150,232,.07)"/>
-        <circle cx="312" cy="226" r="3" fill="#1EC9B7"/>
-        <text x="320" y="229" font-family="monospace" font-size="6.5" fill="rgba(255,255,255,.6)">0x9e1d…2f7a</text>
-        <text x="402" y="229" font-family="monospace" font-size="6" fill="#1EC9B7" text-anchor="end">✓</text>
-        <rect x="304" y="238" width="116" height="16" rx="3" fill="rgba(37,150,232,.05)"/>
-        <circle cx="312" cy="246" r="3" fill="#F0C95A"><animate attributeName="opacity" values="1;0.2;1" dur="1s" repeatCount="indefinite"/></circle>
-        <text x="320" y="249" font-family="monospace" font-size="6.5" fill="rgba(255,255,255,.5)">0x7c3e…5d1b</text>
-        <text x="402" y="249" font-family="monospace" font-size="6" fill="#F0C95A" text-anchor="end">pending</text>
-
-        <!-- AI MATCHING panel -->
-        <rect x="12" y="282" width="410" height="84" rx="8" fill="rgba(6,33,63,.5)" stroke="rgba(37,150,232,.12)" stroke-width="1"/>
-        <text x="24" y="300" font-family="monospace" font-size="8" fill="rgba(64,180,245,.6)">V-MATCH AI · Real-time Trade Matching</text>
-        <!-- Match items -->
-        <rect x="24" y="306" width="386" height="18" rx="4" fill="rgba(37,150,232,.1)" stroke="rgba(37,150,232,.15)" stroke-width=".8"/>
-        <circle cx="36" cy="315" r="5" fill="#2596E8"/>
-        <text x="46" y="318" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">Korea K-Beauty Supplier → US Buyer Matched</text>
-        <rect x="24" y="326" width="386" height="18" rx="4" fill="rgba(30,201,183,.07)" stroke="rgba(30,201,183,.15)" stroke-width=".8"/>
-        <circle cx="36" cy="335" r="5" fill="#1EC9B7"/>
-        <text x="46" y="338" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">K-Drama Content Co. → Europe Distributor Matched</text>
-        <rect x="24" y="346" width="386" height="18" rx="4" fill="rgba(200,151,10,.06)" stroke="rgba(200,151,10,.12)" stroke-width=".8"/>
-        <circle cx="36" cy="355" r="5" fill="#F0C95A"/>
-        <text x="46" y="358" font-family="monospace" font-size="7" fill="rgba(255,255,255,.7)">K-Food Manufacturer → Middle East Buyer Matched</text>
-      </svg>
-    </div>
+<section class="s contact" id="contact"><div class="wrap">
+  <div class="h2" data-i="ct_k"></div>
+  <h2 class="h3" data-i="ct_h"></h2>
+  <div class="grid c3">
+    <div class="card"><div><h4 data-i="ct_gen"></h4><p><a href="mailto:ceo@k-aiconet.com">ceo@k-aiconet.com</a></p></div></div>
+    <div class="card"><div><h4 data-i="ct_trade"></h4><p><a href="mailto:trade@k-aiconet.com">trade@k-aiconet.com</a></p></div></div>
+    <div class="card"><div><h4 data-i="ct_app"></h4><p><a href="https://usai-wallet.vercel.app">usai-wallet.vercel.app</a></p></div></div>
   </div>
+</div></section>
 
-  <!-- Blockchain flow -->
-  <div class="bc-panel" style="margin-top:2rem;">
-    <div class="bc-header">
-      <div class="bc-dot" style="background:#1EC9B7;"></div>
-      <div class="bc-dot" style="background:#F0C95A;animation:blink 1.8s ease-in-out infinite;"></div>
-      <div class="bc-dot" style="background:#2596E8;animation:blink 2.2s ease-in-out infinite;"></div>
-      <div class="bc-title">BLOCKCHAIN PAYMENT FLOW · K-AI WALLET</div>
-    </div>
-    <div class="bc-chain">
-      <div class="bc-b">Seller<br><span style="font-size:.55rem;color:rgba(64,180,245,.5);">SELLER</span></div>
-      <div class="bc-l"></div>
-      <div class="bc-b">K-AI<br>WALLET</div>
-      <div class="bc-l"></div>
-      <div class="bc-b">SMART<br>CONTRACT</div>
-      <div class="bc-l"></div>
-      <div class="bc-b">ETH/MATIC<br>CHAIN</div>
-      <div class="bc-l"></div>
-      <div class="bc-b">$USAI<br>TOKEN</div>
-      <div class="bc-l"></div>
-      <div class="bc-b">Buyer<br><span style="font-size:.55rem;color:rgba(64,180,245,.5);">BUYER</span></div>
-    </div>
-    <div class="bc-features">
-      <span class="bc-f">Ethereum · Polygon · EVM Compatible</span>
-      <span class="bc-f">Real-time International Transfer</span>
-      <span class="bc-f">Smart Contract Escrow</span>
-      <span class="bc-f">MetaMask Integration</span>
-      <span class="bc-f">Minimal FX Fees</span>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="div"></div>
-
-<!-- BUSINESS TYPES — from registration -->
-<section id="biz">
-<div class="container">
-  <div class="biz-intro">
-    <div class="sl2">Business Categories</div>
-    <h2 class="st" data-en="Registered Business Areas">Registered Business Areas</h2>
-    <p class="ss" style="margin:0 auto;">18 registered business categories — AI, blockchain, Web3, trade, content, real estate and more</p>
-  </div>
-  <div class="biz-grid">
-    <div class="biz-card">
-      <svg class="biz-ico" viewBox="0 0 38 38" fill="none"><rect x="4" y="4" width="30" height="30" rx="5" stroke="#2596E8" stroke-width="1.3" fill="rgba(37,150,232,.07)"/><path d="M12 18L10 21L12 24" stroke="#40B4F5" stroke-width="1.6" stroke-linecap="round"/><path d="M26 18L28 21L26 24" stroke="#40B4F5" stroke-width="1.6" stroke-linecap="round"/><path d="M17 13L21 29" stroke="#2596E8" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <div class="biz-t">Software Development & Supply</div>
-      <div class="biz-d">AI platform, app & web software development and supply</div>
-    </div>
-    <div class="biz-card">
-      <svg class="biz-ico" viewBox="0 0 38 38" fill="none"><circle cx="10" cy="19" r="4" stroke="#1EC9B7" stroke-width="1.3" fill="rgba(30,201,183,.08)"/><circle cx="28" cy="10" r="4" stroke="#1EC9B7" stroke-width="1.3" fill="rgba(30,201,183,.08)"/><circle cx="28" cy="28" r="4" stroke="#1EC9B7" stroke-width="1.3" fill="rgba(30,201,183,.08)"/><line x1="14" y1="17.2" x2="24" y2="11.8" stroke="#1EC9B7" stroke-width="1.2"/><line x1="14" y1="20.8" x2="24" y2="26.2" stroke="#1EC9B7" stroke-width="1.2"/></svg>
-      <div class="biz-t">AI & Blockchain Technology Services</div>
-      <div class="biz-d">V-Match AI, K-AI Wallet, Web3 platform services</div>
-    </div>
-    <div class="biz-card">
-      <svg class="biz-ico" viewBox="0 0 38 38" fill="none"><rect x="5" y="10" width="28" height="20" rx="3" stroke="#C8970A" stroke-width="1.3" fill="rgba(200,151,10,.07)"/><line x1="5" y1="16" x2="33" y2="16" stroke="#F0C95A" stroke-width=".8"/><rect x="9" y="19" width="6" height="5" rx=".5" fill="rgba(200,151,10,.35)"/><rect x="17" y="19" width="6" height="5" rx=".5" fill="rgba(37,150,232,.35)"/><rect x="25" y="19" width="5" height="5" rx=".5" fill="rgba(30,201,183,.35)"/></svg>
-      <div class="biz-t">NFT & Digital Asset Trading</div>
-      <div class="biz-d">K-AI ART NFT, digital content asset issuance & trading</div>
-    </div>
-    <div class="biz-card">
-      <svg class="biz-ico" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="13" stroke="#2596E8" stroke-width="1.3" fill="rgba(37,150,232,.06)"/><path d="M19 8 C19 8 24.5 12.5 24.5 19 C24.5 25.5 19 30 19 30 C19 30 13.5 25.5 13.5 19 C13.5 12.5 19 8 19 8Z" stroke="#40B4F5" stroke-width=".9" fill="none"/><line x1="6" y1="19" x2="32" y2="19" stroke="#2596E8" stroke-width=".9"/><line x1="8" y1="14" x2="30" y2="14" stroke="#40B4F5" stroke-width=".5" opacity=".4"/><line x1="8" y1="24" x2="30" y2="24" stroke="#40B4F5" stroke-width=".5" opacity=".4"/></svg>
-      <div class="biz-t">Import/Export & International Trade</div>
-      <div class="biz-d">K-Culture products & AI device global trade</div>
-    </div>
-    <div class="biz-card">
-      <svg class="biz-ico" viewBox="0 0 38 38" fill="none"><path d="M6 28 L32 28 L34 32 L4 32Z" stroke="#1EC9B7" stroke-width="1.2" fill="rgba(30,201,183,.07)"/><rect x="8" y="18" width="22" height="11" rx="1" stroke="#1EC9B7" stroke-width="1" fill="rgba(30,201,183,.05)"/><rect x="11" y="13" width="8" height="7" stroke="#1EC9B7" stroke-width=".9" fill="rgba(30,201,183,.05)"/><line x1="19" y1="7" x2="19" y2="15" stroke="#1EC9B7" stroke-width="1.4"/><line x1="13" y1="10" x2="25" y2="10" stroke="#1EC9B7" stroke-width="1"/><rect x="12" y="20" width="4" height="4" rx=".5" fill="rgba(30,201,183,.4)"/><rect x="18" y="20" width="4" height="4" rx=".5" fill="rgba(200,151,10,.4)"/></svg>
-      <div class="biz-t">Logistics, Warehousing & Customs</div>
-      <div class="biz-d">Busan port container shipping, bonded warehouse, customs brokerage</div>
-    </div>
-    <div class="biz-card">
-      <svg class="biz-ico" viewBox="0 0 38 38" fill="none"><rect x="5" y="6" width="28" height="20" rx="2" stroke="#C8970A" stroke-width="1.2" fill="rgba(200,151,10,.07)"/><polygon points="14,11 14,21 24,16" fill="rgba(200,151,10,.3)" stroke="#F0C95A" stroke-width=".9"/><path d="M9 30 L10 34 L28 34 L29 30" stroke="#C8970A" stroke-width="1" fill="none"/></svg>
-      <div class="biz-t">Digital Content & Media</div>
-      <div class="biz-d">K-Drama & film global distribution, licensing</div>
-    </div>
-    <div class="biz-card">
-      <svg class="biz-ico" viewBox="0 0 38 38" fill="none"><rect x="6" y="8" width="26" height="22" rx="3" stroke="#2596E8" stroke-width="1.2" fill="rgba(37,150,232,.07)"/><line x1="6" y1="15" x2="32" y2="15" stroke="#40B4F5" stroke-width=".8"/><circle cx="12" cy="11.5" r="1.5" fill="#40B4F5"/><circle cx="17" cy="11.5" r="1.5" fill="#40B4F5"/><rect x="10" y="19" width="6" height="5" rx="1" fill="rgba(37,150,232,.25)"/><rect x="18" y="19" width="10" height="2.5" rx=".5" fill="rgba(37,150,232,.2)"/><rect x="18" y="23" width="8" height="2.5" rx=".5" fill="rgba(37,150,232,.15)"/></svg>
-      <div class="biz-t">IT Consulting & System Integration</div>
-      <div class="biz-d">Enterprise digital transformation, AI & Web3 consulting</div>
-    </div>
-    <div class="biz-card">
-      <svg class="biz-ico" viewBox="0 0 38 38" fill="none"><polygon points="19,4 23,14 34,14 25.5,20.5 28.5,31 19,24.5 9.5,31 12.5,20.5 4,14 15,14" stroke="#F0C95A" stroke-width="1.2" fill="rgba(200,151,10,.07)"/><circle cx="19" cy="18" r="3.5" fill="rgba(200,151,10,.25)" stroke="#F0C95A" stroke-width=".8"/></svg>
-      <div class="biz-t">Seoul/NY AI Web Festival</div>
-      <div class="biz-d">Global AI & digital content festival operations (TM registered)</div>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="div"></div>
-
-<!-- FESTIVAL -->
-<section id="festival">
-<div class="container">
-  <div style="text-align:center;margin-bottom:2.8rem;">
-    <div class="sl2">AI Web Festival</div>
-    <h2 class="st" data-en="Seoul &amp; New York AI Web Festival">Seoul &amp; New York AI Web Festival</h2>
-    <p class="ss" style="margin:0 auto;">Operated by K-AI CONET Co.,Ltd (Busan) · Articles of Incorporation Chapter 8 (Articles 38–40)</p>
-  </div>
-  <div class="fest-2col">
-    <div class="fc" data-poster="SAIWF_2027_Digital_Poster.png" data-title="SEOUL AI WEB FESTIVAL 2027">
-      <div class="fcity">SEOUL</div>
-      <div class="fnm">SEOUL AI WEB FESTIVAL</div>
-      <span class="ftm">Trademark Registered</span>
-      <div class="fd">Korea's premier AI & digital content festival. Creator, investor, and enterprise B2B networking. Global partnerships via V-Match AI matching. Operated by K-AI CONET Co.,Ltd (Busan).</div>
-      <div class="fc-view-link">
-        <span class="fc-zoom-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
-        VIEW POSTER · MAY 2027
-        <span class="fc-arrow">→</span>
-      </div>
-    </div>
-    <div class="fc" data-poster="NYAIWF_2026_Art_Poster.png" data-title="NEW YORK AI WEB FESTIVAL 2026">
-      <div class="fcity">NEW YORK</div>
-      <div class="fnm">NEW YORK AI WEB FESTIVAL</div>
-      <span class="ftm" style="background:rgba(240,150,10,.15);border-color:rgba(240,150,10,.4);color:#F0A030;">🔄 Trademark Pending</span>
-      <div class="fd">Hosted by K-AI CONET INC (New York). Global AI innovation project pitching & investment attraction. Simultaneous Seoul↔New York events. US K-Culture buyer network connection.</div>
-      <div class="fc-view-link">
-        <span class="fc-zoom-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></span>
-        VIEW POSTER · OCT 2026
-        <span class="fc-arrow">→</span>
-      </div>
-    </div>
-  </div>
-  <div class="fest-stats">
-    <div class="fsc"><div class="fsn">2</div><div class="fsl">Global Host Cities</div></div>
-    <div class="fsc"><div class="fsn">TM</div><div class="fsl">Dual Trademark Registered</div></div>
-    <div class="fsc"><div class="fsn">Ch.8</div><div class="fsl">Dedicated Charter Chapter</div></div>
-  </div>
-</div>
-</section>
-
-<div class="div"></div>
-
-<!-- GROUP STRUCTURE -->
-<section id="group">
-<div class="container">
-  <div class="group-intro">
-    <div class="sl2">Corporate Structure</div>
-    <h2 class="st" data-en="K-AI CONET Global Corporate Structure">K-AI CONET Global Corporate Structure</h2>
-    <p class="ss" style="margin:0 auto;">Global tri-entity structure: US parent companies + Korean subsidiary</p>
-  </div>
-
-  <!-- USA PARENT — redesigned -->
-  <div class="parent-wrap">
-    <!-- Top header bar -->
-    <div style="padding:2rem 2.8rem 1.5rem;border-bottom:1px solid rgba(37,150,232,.12);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:1.1rem;">
-        <!-- Globe icon (no flag) -->
-        <div style="width:54px;height:54px;border-radius:16px;background:rgba(18,120,208,.14);border:1px solid rgba(37,150,232,.32);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-            <circle cx="15" cy="15" r="12" stroke="rgba(64,180,245,.65)" stroke-width="1.2" fill="rgba(37,150,232,.07)"/>
-            <path d="M15 3 C15 3 19.5 8 19.5 15 C19.5 22 15 27 15 27 C15 27 10.5 22 10.5 15 C10.5 8 15 3 15 3Z" stroke="#40B4F5" stroke-width=".9" fill="none"/>
-            <line x1="3" y1="15" x2="27" y2="15" stroke="rgba(64,180,245,.5)" stroke-width=".9"/>
-            <path d="M5 10 L25 10" stroke="rgba(64,180,245,.28)" stroke-width=".6"/>
-            <path d="M5 20 L25 20" stroke="rgba(64,180,245,.28)" stroke-width=".6"/>
-            <circle cx="22" cy="8" r="4" fill="rgba(200,151,10,.35)" stroke="#C8970A" stroke-width=".9"/>
-            <text x="22" y="10.5" font-family="monospace" font-size="4" fill="#F0C95A" text-anchor="middle" font-weight="bold">IP</text>
-          </svg>
-        </div>
-        <div>
-          <div style="font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:.3rem;letter-spacing:-.01em;">K-AI CONET GROUP <span style="color:rgba(64,180,245,.7);font-size:.75rem;font-weight:600;letter-spacing:.06em;">— US Parent Entities</span></div>
-          <div style="font-size:.74rem;color:var(--foam);letter-spacing:.07em;font-weight:600;">Global Revenue Hub · Patent IP · Marketing · AI Web Festival New York</div>
-        </div>
-      </div>
-      <!-- Right: animated orbit badges -->
-      <div style="display:flex;gap:.45rem;flex-wrap:wrap;">
-        <span class="pwb pwb-b">USPTO Patent Holder</span>
-        <span class="pwb pwb-t">$USAI Token Issuance</span>
-        <span class="pwb pwb-g">NY AI Web Festival</span>
-        <span class="pwb pwb-b">Global Revenue Hub</span>
-      </div>
-    </div>
-
-    <!-- Two entity cards side by side -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
-
-      <!-- Wyoming LLC -->
-      <div style="padding:1.8rem 2.8rem 2rem;border-right:1px solid rgba(37,150,232,.1);position:relative;overflow:hidden;cursor:pointer;" onclick="window.open('/kaiconetwyoming-FINAL.html','_blank')">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--mist),transparent);opacity:.4;"></div>
-        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
-          <div style="width:42px;height:42px;border-radius:12px;background:rgba(141,212,245,.08);border:1px solid rgba(141,212,245,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <rect x="3" y="7" width="16" height="12" rx="2.5" stroke="rgba(141,212,245,.6)" stroke-width="1" fill="rgba(141,212,245,.05)"/>
-              <circle cx="11" cy="13" r="3.5" stroke="rgba(141,212,245,.55)" stroke-width=".9" fill="rgba(141,212,245,.08)"/>
-              <circle cx="11" cy="13" r="1.5" stroke="rgba(141,212,245,.5)" stroke-width=".8" fill="rgba(141,212,245,.12)"/>
-              <line x1="11" y1="9.5" x2="11" y2="11.5" stroke="rgba(141,212,245,.5)" stroke-width=".8"/>
-              <line x1="11" y1="14.5" x2="11" y2="16.5" stroke="rgba(141,212,245,.5)" stroke-width=".8"/>
-              <line x1="7.5" y1="13" x2="9.5" y2="13" stroke="rgba(141,212,245,.5)" stroke-width=".8"/>
-              <line x1="12.5" y1="13" x2="14.5" y2="13" stroke="rgba(141,212,245,.5)" stroke-width=".8"/>
-              <path d="M1 7 L3.5 3.5 L6 7" stroke="rgba(141,212,245,.22)" stroke-width=".6" fill="none"/>
-              <path d="M3 7 L6.5 2 L10 7" stroke="rgba(141,212,245,.18)" stroke-width=".6" fill="none"/>
-            </svg>
-          </div>
-          <div>
-            <div style="font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:800;color:var(--mist);letter-spacing:.04em;">WYOMING LLC</div>
-            <div style="font-size:.68rem;color:rgba(141,212,245,.6);margin-top:.1rem;">Core Revenue Hub · IP Holding Entity</div>
-          </div>
-        </div>
-        <div style="font-size:.8rem;color:var(--hint);line-height:1.82;margin-bottom:1.1rem;">
-          K-AI Wallet <strong style="color:rgba(255,255,255,.75);">USPTO Patent</strong> holding entity.<br>
-          <strong style="color:rgba(255,255,255,.75);">$USAI Token</strong> issuance — phased issuance total supply.<br>
-          Global revenue consolidation and IP license management.
-        </div>
-        <div style="display:flex;gap:.4rem;flex-wrap:wrap;">
-          <span class="pwb pwb-s">K-AI Wallet USPTO</span>
-          <span class="pwb pwb-t">$USAI Issuer</span>
-          
-        </div>
-      </div>
-
-      <!-- New York INC -->
-      <div style="padding:1.8rem 2.8rem 2rem;position:relative;overflow:hidden;cursor:pointer;" onclick="window.open('/k-aiconet-newyork-FINAL.html','_blank')">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--foam),transparent);opacity:.4;"></div>
-        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
-          <div style="width:42px;height:42px;border-radius:12px;background:rgba(37,150,232,.1);border:1px solid rgba(37,150,232,.28);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              <line x1="1" y1="19" x2="21" y2="19" stroke="rgba(37,150,232,.4)" stroke-width=".8"/>
-              <rect x="1" y="13" width="3" height="6" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/>
-              <rect x="5" y="10" width="3" height="9" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/>
-              <rect x="9" y="6" width="2.5" height="13" fill="rgba(37,150,232,.22)" stroke="#40B4F5" stroke-width=".6"/>
-              <rect x="12.5" y="10" width="3" height="9" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/>
-              <rect x="17" y="8" width="2.5" height="11" fill="rgba(37,150,232,.18)" stroke="#2596E8" stroke-width=".6"/>
-              <line x1="10.25" y1="3" x2="10.25" y2="6" stroke="#40B4F5" stroke-width=".8"/>
-              <circle cx="10.25" cy="2.5" r="1.2" fill="#40B4F5"><animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
-            </svg>
-          </div>
-          <div>
-            <div style="font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:800;color:var(--foam);letter-spacing:.04em;">NEW YORK INC ↗</div>
-            <div style="font-size:.68rem;color:rgba(37,150,232,.65);margin-top:.1rem;">Marketing · Launch · Festival</div>
-          </div>
-        </div>
-        <div style="font-size:.8rem;color:var(--hint);line-height:1.82;margin-bottom:1.1rem;">
-          Global product launch & <strong style="color:rgba(255,255,255,.75);">marketing management.</strong><br>
-          <strong style="color:rgba(255,255,255,.75);">New York AI Web Festival</strong> planning & operations.<br>
-          142 W 57th St, 11F, New York, NY 10019.
-        </div>
-        <div style="display:flex;gap:.4rem;flex-wrap:wrap;">
-          <span class="pwb pwb-b">NY AI Web Festival</span>
-          
-          <span class="pwb pwb-b">k-aiconet.com ↗</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Connector tree -->
-  <div class="org-tree">
-    <div class="ot-vert"></div>
-    <div class="ot-horiz"></div>
-    <div class="ot-legs">
-      <div class="ot-leg"></div>
-      <div class="ot-leg"></div>
-      <div class="ot-leg"></div>
-    </div>
-  </div>
-
-  <div class="sub-lbl">Korean Subsidiary &amp; US Entities</div>
-  <div class="sub-grid">
-    <!-- Busan -->
-    <div class="sc feat">
-      <div class="sc-iw g">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <!-- Busan: lighthouse + ship + port -->
-          <path d="M3 22 L22 22 L24 26 L1 26Z" stroke="#C8970A" stroke-width=".9" fill="rgba(200,151,10,.1)"/>
-          <rect x="5" y="14" width="12" height="9" rx=".5" stroke="#C8970A" stroke-width=".8" fill="rgba(200,151,10,.06)"/>
-          <rect x="7" y="10" width="4" height="6" stroke="#F0C95A" stroke-width=".7" fill="rgba(200,151,10,.06)"/>
-          <!-- Lighthouse -->
-          <rect x="22" y="6" width="5" height="17" rx="1" stroke="#C8970A" stroke-width=".8" fill="rgba(200,151,10,.08)"/>
-          <rect x="21" y="4" width="7" height="4" rx=".5" stroke="#F0C95A" stroke-width=".7" fill="rgba(200,151,10,.1)"/>
-          <circle cx="24.5" cy="3" r="1.8" fill="#F0C95A"><animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/></circle>
-          <!-- beacon beam tiny -->
-          <line x1="24.5" y1="4.8" x2="16" y2="12" stroke="rgba(240,201,90,.3)" stroke-width=".7"><animate attributeName="opacity" values=".8;.05;.8" dur="2s" repeatCount="indefinite"/></line>
-          <!-- containers -->
-          <rect x="6" y="16" width="4" height="3" rx=".3" fill="rgba(200,151,10,.4)"/>
-          <rect x="11" y="16" width="4" height="3" rx=".3" fill="rgba(37,150,232,.4)"/>
-        </svg>
-      </div>
-      <div class="sc-nm">Korean Corp.<br>K-AI CONET Co.,Ltd</div>
-      <div class="sc-role">Korea development · Logistics · Festival operations</div>
-      <div class="sc-desc">사업자등록번호 692-86-02873<br>AI Development · Busan Port Logistics · K-Culture Trade · Seoul AI Web Festival</div>
-    </div>
-    <!-- NY INC -->
-    <div class="sc">
-      <div class="sc-iw b">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <!-- Manhattan skyline -->
-          <line x1="1" y1="26" x2="29" y2="26" stroke="rgba(37,150,232,.4)" stroke-width=".8"/>
-          <rect x="2" y="18" width="4" height="8" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/>
-          <rect x="7" y="14" width="4" height="12" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/>
-          <rect x="12" y="10" width="3" height="16" fill="rgba(37,150,232,.22)" stroke="#40B4F5" stroke-width=".6"/>
-          <rect x="16" y="14" width="4" height="12" fill="rgba(37,150,232,.15)" stroke="#2596E8" stroke-width=".6"/>
-          <rect x="21" y="11" width="3" height="15" fill="rgba(37,150,232,.18)" stroke="#2596E8" stroke-width=".6"/>
-          <rect x="25" y="17" width="3" height="9" fill="rgba(37,150,232,.12)" stroke="#2596E8" stroke-width=".6"/>
-          <line x1="13.5" y1="6" x2="13.5" y2="10" stroke="#40B4F5" stroke-width=".8"/>
-          <line x1="22.5" y1="8" x2="22.5" y2="11" stroke="#40B4F5" stroke-width=".7"/>
-          <circle cx="13.5" cy="5.5" r="1.3" fill="#40B4F5"><animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
-        </svg>
-      </div>
-      <div class="sc-nm">K-AI CONET<br>INC</div>
-      <div class="sc-role">Marketing · NY Festival · Product launch</div>
-      <div class="sc-desc">New York C-Corp<br>142 W 57th St, 11F, New York, NY 10019</div>
-    </div>
-    <!-- Wyoming -->
-    <div class="sc">
-      <div class="sc-iw s">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <!-- Patent vault / Wyoming mountains -->
-          <rect x="5" y="10" width="20" height="16" rx="3" stroke="rgba(141,212,245,.55)" stroke-width="1" fill="rgba(141,212,245,.05)"/>
-          <!-- vault door -->
-          <circle cx="15" cy="18" r="5" stroke="rgba(141,212,245,.5)" stroke-width=".9" fill="rgba(141,212,245,.08)"/>
-          <circle cx="15" cy="18" r="2.5" stroke="rgba(141,212,245,.5)" stroke-width=".8" fill="rgba(141,212,245,.12)"/>
-          <!-- handle -->
-          <line x1="15" y1="13" x2="15" y2="15.5" stroke="rgba(141,212,245,.5)" stroke-width=".9"/>
-          <line x1="15" y1="20.5" x2="15" y2="23" stroke="rgba(141,212,245,.5)" stroke-width=".9"/>
-          <line x1="10" y1="18" x2="12.5" y2="18" stroke="rgba(141,212,245,.5)" stroke-width=".9"/>
-          <line x1="17.5" y1="18" x2="20" y2="18" stroke="rgba(141,212,245,.5)" stroke-width=".9"/>
-          <!-- IP label -->
-          <text x="15" y="20.5" font-family="monospace" font-size="5.5" fill="rgba(141,212,245,.7)" text-anchor="middle" font-weight="bold">IP</text>
-          <!-- Mountains -->
-          <path d="M2 10 L5.5 5 L9 10" stroke="rgba(141,212,245,.28)" stroke-width=".7" fill="none"/>
-          <path d="M5 10 L9 3.5 L13 10" stroke="rgba(141,212,245,.22)" stroke-width=".7" fill="none"/>
-        </svg>
-      </div>
-      <div class="sc-nm">K-AI CONET<br>WYOMING LLC</div>
-      <div class="sc-role">Patent IP holding · Core revenue hub</div>
-      <div class="sc-desc">Wyoming LLC · Cheyenne<br>K-AI Wallet USPTO Patent · $USAI Token Issuance · Global Revenue Hub</div>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="div"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-<div class="container">
-  <div class="sl2" style="text-align:center;">Contact</div>
-  <h2 class="st" style="text-align:center;" data-en="Partnership · Investment · Trade Inquiry">Partnership · Investment · Trade Inquiry</h2>
-  <p class="ss" style="text-align:center;margin:0 auto 2.5rem;" data-en="We welcome partners to build the global AI trade platform together with K-AI CONET">We welcome partners to build the global AI trade platform together with K-AI CONET</p>
-  <div class="cbox">
-    <svg width="54" height="54" viewBox="0 0 54 54" fill="none" style="margin:0 auto 1rem;display:block;"><circle cx="27" cy="27" r="25" stroke="#2596E8" stroke-width="1.2" fill="rgba(37,150,232,.07)"/><circle cx="27" cy="21" r="7.5" stroke="#40B4F5" stroke-width="1.2" fill="rgba(37,150,232,.1)"/><path d="M14 43 C14 35 40 35 40 43" stroke="#40B4F5" stroke-width="1.2" stroke-linecap="round"/></svg>
-    <h3 style="font-family:'Orbitron',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.28rem;">IL KANG (IL KANG)</h3>
-    <div style="font-size:.73rem;color:var(--foam);letter-spacing:.08em;margin-bottom:.5rem;">Founder &amp; CEO · K-AI CONET Co.,Ltd</div>
-    <div class="cdiv"></div>
-    <div class="crows">
-      <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="3" width="15" height="11" rx="2" stroke="#40B4F5" stroke-width="1"/><path d="M1 5 L8.5 9.5 L16 5" stroke="#40B4F5" stroke-width="1"/></svg><strong>ceo@k-aiconet.com</strong></div>
-      <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="4" y="1" width="9" height="15" rx="2" stroke="#40B4F5" stroke-width="1"/><circle cx="8.5" cy="13" r="1" fill="#40B4F5"/></svg><span>+1 332-254-9709 &nbsp;|&nbsp; +82 10-4353-2505</span></div>
-      <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 1.5 C4.5 1.5 1.5 4.5 1.5 8.5 C1.5 13.5 8.5 16 8.5 16 C8.5 16 15.5 13.5 15.5 8.5 C15.5 4.5 12.5 1.5 8.5 1.5Z" stroke="#40B4F5" stroke-width="1"/><circle cx="8.5" cy="8" r="2.2" stroke="#40B4F5" stroke-width=".8"/></svg><span>142 West 57th St, 11F, New York, NY 10019</span></div>
-      <div class="cr"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="3" width="15" height="11" rx="2" stroke="#40B4F5" stroke-width="1"/><line x1="4" y1="7" x2="13" y2="7" stroke="#40B4F5" stroke-width=".9"/><line x1="4" y1="10" x2="9" y2="10" stroke="#40B4F5" stroke-width=".9"/></svg><span>K-AI CONET Co., Ltd. · Busan, Korea</span></div>
-    </div>
-    <div class="cdiv"></div>
-    <a href="mailto:ceo@k-aiconet.com" class="btn-m" style="display:inline-block;">Send Email Inquiry</a>
-  </div>
-</div>
-</section>
-
-<footer>
-  <div>K-AI CONET Co.,Ltd · New York, NY · Busan, Korea</div>
-  <div>© 2026 K-AI CONET Co.,Ltd — Subsidiary of K-AI CONET Group USA · <a href="mailto:ceo@k-aiconet.com">ceo@k-aiconet.com</a></div>
-</footer>
+<footer><div class="wrap">
+  <div><b>K-AI CONET WYOMING LLC</b><span class="usa">USA</span></div>
+  <div>© 2026 K-AI CONET LLC · <span data-i="rights"></span> · <span data-i="pp"></span></div>
+</div></footer>
 
 <script>
-// Stars
-const s=document.getElementById('stars');
-for(let i=0;i<130;i++){const e=document.createElement('div');e.className='star';const z=Math.random()*2.2+.3;e.style.cssText='width:'+z+'px;height:'+z+'px;top:'+Math.random()*65+'%;left:'+Math.random()*100+'%;animation-duration:'+(Math.random()*3+2)+'s;animation-delay:'+(Math.random()*5)+'s;';s.appendChild(e);}
-// Scroll reveal
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';}});},{threshold:.07});
-document.querySelectorAll('.wc,.hs,.pl-item,.pi,.biz-card,.fc,.sc,.bc-b,.vp,.fsc').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='all .55s ease';obs.observe(el);});
-</script>
+const LANGS={en:"English",ko:"한국어",es:"Español",hi:"हिन्दी",ar:"العربية",ja:"日本語",zh:"中文"};
+const T={
+en:{nav_what:"What we do",nav_how:"How it works",nav_wallet:"USAI Wallet",nav_company:"Company",nav_contact:"Contact",login:"Member log in",request:"Request access",
+eyebrow:"Global B2B Trade Platform",h1:"48 HOURS",sub:"Trade payment automatically released",sub2:"after shipment · with optional blockchain settlement",small:"Bank transfer (T/T) as standard · Paid only when the goods ship",smallAccent:"USPTO patent-pending world-first",status:"Members only · By invitation",
+what_k:"What we do",what_h:"We make international trade pay on time.",what_p:"K-AI CONET builds USAI Wallet, a B2B platform where exporters and importers meet, verify their shipping documents and get paid automatically — without a week of bank wires and “did the money arrive?” calls.",
+w1_h:"AI buyer–seller matching",w1_p:"Verified companies, matched by product, market and compliance profile.",w2_h:"Documents & shipment verified",w2_p:"Commercial invoice, packing list and bill of lading checked against the carrier record in one place.",w3_h:"Automatic settlement",w3_p:"Payment is locked when the deal is agreed and released to the seller 48 hours after the shipment is confirmed.",
+how_k:"How it works",how_h:"Paid only when the goods ship.",how_p:"The buyer’s payment is held under the contract, not by us. Once the shipment is confirmed, a 48-hour window gives both sides time to object — then the seller is paid automatically.",
+p1:"Shipment departed port",p1s:"B/L matched with carrier record",p2:"Auto-paid to seller in 48h",p2s:"No manual approval needed",step:"Step",
+s1_h:"Agree the deal",s1_p:"Match, chat and confirm the terms. The buyer’s payment is locked.",s2_h:"Ship & upload documents",s2_p:"C/I · P/L · B/L are uploaded and matched with the carrier.",s3_h:"Get paid in 48 hours",s3_p:"After the grace period the payment is released — by bank transfer (T/T) or on-chain.",
+wal_h:"One app for the whole trade.",wal_p:"From first contact to final payment — matching, chat with automatic translation, documents, shipment tracking and settlement — in the language of each party.",
+f1_h:"7 languages",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. Each side works in their own language; messages are translated automatically.",f2_h:"Bank transfer first",f2_p:"T/T is the standard. Blockchain settlement (USDC on Polygon) is optional for partners who want it.",f3_h:"We never hold your money",f3_p:"Funds sit under the contract until the shipment is confirmed. The company is not a custodian.",
+wal_note:"USAI Wallet is in private operation with invited partners in the US, Korea, India and the Middle East.",
+co_k:"Company",co_h:"A U.S. company with a Korean engineering base.",co_p:"K-AI CONET LLC is organized in Wyoming and registered with FinCEN as a Money Services Business. A New York corporation handles marketing and events; the Busan company builds the product.",
+hq:"Headquarters",hq_role:"Core operations · IP · USAI Wallet",ny:"New York office",ny_role:"Marketing · Events · Partnerships",bs:"Busan R&D",bs_role:"Product development",
+ip_h:"Intellectual property",ip_p:"U.S. utility patent application 19/729,125 — automatic trade settlement upon shipment verification. Patent-pending; Korean applications filed with KIPO.",cp_h:"Compliance",cp_p:"FinCEN-registered MSB (MRX26-00005630). Members are verified companies only; the platform does not take custody of client funds.",
+fo_k:"Founder",fo_t:"Founder & CEO",fo_p1:"Thirty years of building companies in construction, content and trade. Board Director of Seoul Web Fest (2015–2024); founder of the New York and Seoul AI Web Festivals.",fo_p2:"USAI Wallet began with a trade that failed at the payment step. The goal is simple: a seller who has shipped should be paid — on time, every time.",
+ct_k:"Contact",ct_h:"Talk to us.",ct_gen:"General",ct_trade:"Trade & partnerships",ct_app:"USAI Wallet",rights:"All rights reserved",pp:"Privacy"},
 
-<!-- Wallet choice modal -->
-<div id="walletModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(1,12,26,.88);backdrop-filter:blur(12px);align-items:center;justify-content:center;">
-  <div style="background:linear-gradient(135deg,rgba(6,33,63,.95),rgba(10,58,107,.8));border:1px solid rgba(37,150,232,.3);border-radius:20px;padding:2.5rem;max-width:480px;width:90%;text-align:center;">
-    <div style="font-family:'Orbitron',sans-serif;font-size:.7rem;letter-spacing:.2em;color:rgba(64,180,245,.7);margin-bottom:.8rem;">K-AI WALLET</div>
-    <h3 style="font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.5rem;">Select Language</h3>
-    <p style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:2rem;">Select your language / Language Selection</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <button onclick="window.open('USAI_Wallet_v7_KCulture.html','_blank');closeWalletModal;"
-        style="padding:.85rem 2rem;border-radius:50px;background:linear-gradient(135deg,#1278D0,#40B4F5);color:#fff;font-weight:700;font-size:.85rem;border:none;cursor:pointer;letter-spacing:.05em;">
-        Korean Version
-      </button>
-      <button onclick="window.open('USAI_Wallet_v6_EN1_IRIS_TX.html','_blank');closeWalletModal;"
-        style="padding:.85rem 2rem;border-radius:50px;background:linear-gradient(135deg,#0E9E8A,#1EC9B7);color:#fff;font-weight:700;font-size:.85rem;border:none;cursor:pointer;letter-spacing:.05em;">
-        English Version
-      </button>
-    </div>
-    <button onclick="closeWalletModal"
-      style="margin-top:1.5rem;background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.45);padding:.5rem 1.5rem;border-radius:50px;cursor:pointer;font-size:.78rem;">
-      Close
-    </button>
-  </div>
-</div>
-<script>
-function showWalletChoice(){document.getElementById('walletModal').style.display='flex';}
-function closeWalletModal(){document.getElementById('walletModal').style.display='none';}
-document.getElementById('walletModal').addEventListener('click',function(e){if(e.target===this)closeWalletModal();});
+ko:{nav_what:"하는 일",nav_how:"작동 방식",nav_wallet:"USAI Wallet",nav_company:"회사",nav_contact:"문의",login:"회원 로그인",request:"이용 문의",
+eyebrow:"글로벌 B2B 무역 플랫폼",h1:"48 HOURS",sub:"무역 대금, 선적 후 48시간 안에 자동 지급",sub2:"은행 송금이 기본 · 블록체인 정산은 선택",small:"T/T 은행 송금 표준 · 물건이 실려야만 지급",smallAccent:"USPTO 특허 출원 중 · 세계 최초(patent-pending)",status:"회원제 · 초청 전용",
+what_k:"하는 일",what_h:"무역 대금이 제때 들어오게 만듭니다.",what_p:"K-AI CONET은 USAI Wallet을 만듭니다. 수출자와 수입자가 만나고, 선적 서류를 확인하고, 자동으로 대금을 받는 B2B 플랫폼입니다 — 일주일 걸리는 송금과 “돈 들어왔어요?” 전화 없이.",
+w1_h:"AI 바이어–셀러 매칭",w1_p:"검증된 회사끼리, 품목·시장·규제 프로필로 연결합니다.",w2_h:"서류·선적 확인",w2_p:"상업송장·포장명세서·선하증권을 선사 기록과 한 곳에서 대조합니다.",w3_h:"자동 정산",w3_p:"계약 시 대금을 잠그고, 선적이 확인된 뒤 48시간이 지나면 셀러에게 지급합니다.",
+how_k:"작동 방식",how_h:"물건이 실려야만 지급됩니다.",how_p:"바이어의 대금은 우리가 아니라 계약이 보관합니다. 선적이 확인되면 48시간 동안 양쪽이 이의를 낼 수 있고, 그 뒤 셀러에게 자동 지급됩니다.",
+p1:"선적 출항 확인",p1s:"B/L을 선사 기록과 대조",p2:"48시간 뒤 셀러에게 자동 지급",p2s:"사람의 승인 불필요",step:"단계",
+s1_h:"거래 합의",s1_p:"매칭·채팅으로 조건을 확정하면 바이어 대금이 잠깁니다.",s2_h:"선적 · 서류 등록",s2_p:"C/I · P/L · B/L을 올리면 선사 기록과 대조됩니다.",s3_h:"48시간 뒤 지급",s3_p:"유예가 끝나면 은행 송금(T/T) 또는 온체인으로 지급됩니다.",
+wal_h:"거래 전체를 앱 하나로.",wal_p:"첫 연락부터 최종 지급까지 — 매칭, 자동 번역 채팅, 서류, 선적 추적, 정산 — 각자 자기 언어로.",
+f1_h:"7개 언어",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. 각자 자기 언어로 쓰고, 메시지는 자동 번역됩니다.",f2_h:"은행 송금이 기본",f2_p:"T/T가 표준입니다. 블록체인 정산(Polygon USDC)은 원하는 파트너만 선택합니다.",f3_h:"고객의 돈을 맡지 않습니다",f3_p:"대금은 선적이 확인될 때까지 계약 아래 있습니다. 회사는 수탁자가 아닙니다.",
+wal_note:"USAI Wallet은 미국·한국·인도·중동의 초청 파트너와 비공개로 운영 중입니다.",
+co_k:"회사",co_h:"미국 회사, 한국의 개발 거점.",co_p:"K-AI CONET LLC는 와이오밍 법인이며 FinCEN에 MSB로 등록되어 있습니다. 뉴욕 법인은 마케팅·행사를, 부산 법인은 제품 개발을 맡습니다.",
+hq:"본사",hq_role:"핵심 운영 · 지식재산 · USAI Wallet",ny:"뉴욕 사무소",ny_role:"마케팅 · 행사 · 제휴",bs:"부산 R&D",bs_role:"제품 개발",
+ip_h:"지식재산",ip_p:"미국 특허 출원 19/729,125 — 선적 확인 기반 무역 대금 자동 정산. 출원 중(patent-pending); 한국 특허청에도 출원.",cp_h:"규제 준수",cp_p:"FinCEN 등록 MSB(MRX26-00005630). 회원은 검증된 회사만이며, 플랫폼은 고객 자금을 수탁하지 않습니다.",
+fo_k:"창업자",fo_t:"창업자 · 대표",fo_p1:"건설·콘텐츠·무역에서 30년간 회사를 만들어 왔습니다. 서울 웹페스트 이사(2015–2024), 뉴욕·서울 AI 웹페스티벌 창립자.",fo_p2:"USAI Wallet은 대금 단계에서 무산된 한 건의 무역에서 시작됐습니다. 목표는 단순합니다 — 물건을 실은 셀러는 제때, 반드시 돈을 받아야 합니다.",
+ct_k:"문의",ct_h:"연락 주세요.",ct_gen:"일반 문의",ct_trade:"무역 · 제휴",ct_app:"USAI Wallet",rights:"All rights reserved",pp:"개인정보"},
 
-/* WALLET VIEWER - full-screen iframe with X */
-function openWalletViewer(url){
-  document.getElementById('walletViewerFrame').src = url;
-  document.getElementById('walletViewer').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
+es:{nav_what:"Qué hacemos",nav_how:"Cómo funciona",nav_wallet:"USAI Wallet",nav_company:"Empresa",nav_contact:"Contacto",login:"Acceso de miembros",request:"Solicitar acceso",
+eyebrow:"Plataforma global de comercio B2B",h1:"48 HORAS",sub:"Pago comercial liberado automáticamente",sub2:"tras el embarque · con liquidación blockchain opcional",small:"Transferencia bancaria (T/T) como estándar · Se paga solo cuando la mercancía se embarca",smallAccent:"Patente en trámite en la USPTO · primera en el mundo",status:"Solo miembros · Por invitación",
+what_k:"Qué hacemos",what_h:"Hacemos que el comercio internacional pague a tiempo.",what_p:"K-AI CONET desarrolla USAI Wallet, una plataforma B2B donde exportadores e importadores se encuentran, verifican sus documentos de embarque y cobran automáticamente — sin una semana de transferencias ni llamadas de “¿llegó el dinero?”.",
+w1_h:"Emparejamiento comprador–vendedor con IA",w1_p:"Empresas verificadas, emparejadas por producto, mercado y perfil de cumplimiento.",w2_h:"Documentos y embarque verificados",w2_p:"Factura comercial, lista de empaque y conocimiento de embarque cotejados con el registro de la naviera en un solo lugar.",w3_h:"Liquidación automática",w3_p:"El pago se bloquea al acordar la operación y se libera al vendedor 48 horas después de confirmarse el embarque.",
+how_k:"Cómo funciona",how_h:"Se paga solo cuando la mercancía se embarca.",how_p:"El pago del comprador queda bajo el contrato, no en nuestras manos. Confirmado el embarque, una ventana de 48 horas permite objetar a ambas partes — luego el vendedor cobra automáticamente.",
+p1:"Embarque zarpó del puerto",p1s:"B/L cotejado con el registro de la naviera",p2:"Pago automático al vendedor en 48 h",p2s:"Sin aprobación manual",step:"Paso",
+s1_h:"Acordar la operación",s1_p:"Emparejar, conversar y confirmar los términos. El pago del comprador queda bloqueado.",s2_h:"Embarcar y subir documentos",s2_p:"C/I · P/L · B/L se cargan y se cotejan con la naviera.",s3_h:"Cobrar en 48 horas",s3_p:"Tras el período de gracia se libera el pago — por transferencia bancaria (T/T) o en cadena.",
+wal_h:"Una sola app para toda la operación.",wal_p:"Del primer contacto al pago final — emparejamiento, chat con traducción automática, documentos, seguimiento del embarque y liquidación — en el idioma de cada parte.",
+f1_h:"7 idiomas",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. Cada parte trabaja en su idioma; los mensajes se traducen automáticamente.",f2_h:"Primero la transferencia bancaria",f2_p:"T/T es el estándar. La liquidación blockchain (USDC en Polygon) es opcional para quien la prefiera.",f3_h:"Nunca custodiamos su dinero",f3_p:"Los fondos permanecen bajo el contrato hasta confirmarse el embarque. La empresa no es custodio.",
+wal_note:"USAI Wallet opera de forma privada con socios invitados en EE. UU., Corea, India y Oriente Medio.",
+co_k:"Empresa",co_h:"Una empresa estadounidense con base de ingeniería en Corea.",co_p:"K-AI CONET LLC está constituida en Wyoming y registrada ante FinCEN como Money Services Business. Una sociedad de Nueva York se ocupa de marketing y eventos; la empresa de Busan desarrolla el producto.",
+hq:"Sede",hq_role:"Operaciones · Propiedad intelectual · USAI Wallet",ny:"Oficina de Nueva York",ny_role:"Marketing · Eventos · Alianzas",bs:"I+D Busan",bs_role:"Desarrollo de producto",
+ip_h:"Propiedad intelectual",ip_p:"Solicitud de patente de utilidad en EE. UU. 19/729,125 — liquidación comercial automática tras la verificación del embarque. En trámite; solicitudes coreanas presentadas ante la KIPO.",cp_h:"Cumplimiento",cp_p:"MSB registrada ante FinCEN (MRX26-00005630). Solo empresas verificadas; la plataforma no custodia fondos de clientes.",
+fo_k:"Fundador",fo_t:"Fundador y CEO",fo_p1:"Treinta años creando empresas en construcción, contenidos y comercio. Director del consejo de Seoul Web Fest (2015–2024); fundador de los AI Web Festivals de Nueva York y Seúl.",fo_p2:"USAI Wallet nació de una operación que fracasó en el paso del pago. El objetivo es simple: quien ya embarcó debe cobrar — a tiempo, siempre.",
+ct_k:"Contacto",ct_h:"Hablemos.",ct_gen:"General",ct_trade:"Comercio y alianzas",ct_app:"USAI Wallet",rights:"Todos los derechos reservados",pp:"Privacidad"},
+
+hi:{nav_what:"हम क्या करते हैं",nav_how:"कैसे काम करता है",nav_wallet:"USAI Wallet",nav_company:"कंपनी",nav_contact:"संपर्क",login:"सदस्य लॉग इन",request:"एक्सेस का अनुरोध",
+eyebrow:"ग्लोबल B2B ट्रेड प्लेटफ़ॉर्म",h1:"48 घंटे",sub:"व्यापार भुगतान स्वतः जारी",sub2:"शिपमेंट के बाद · वैकल्पिक ब्लॉकचेन सेटलमेंट के साथ",small:"बैंक ट्रांसफ़र (T/T) मानक · भुगतान तभी जब माल शिप हो",smallAccent:"USPTO पेटेंट-पेंडिंग · विश्व में पहला",status:"केवल सदस्य · आमंत्रण द्वारा",
+what_k:"हम क्या करते हैं",what_h:"हम अंतरराष्ट्रीय व्यापार का भुगतान समय पर कराते हैं।",what_p:"K-AI CONET बनाता है USAI Wallet — एक B2B प्लेटफ़ॉर्म जहाँ निर्यातक और आयातक मिलते हैं, शिपिंग दस्तावेज़ सत्यापित करते हैं और स्वतः भुगतान पाते हैं — हफ़्ते भर के बैंक वायर और “पैसा आया क्या?” वाले फ़ोन के बिना।",
+w1_h:"AI खरीदार–विक्रेता मैचिंग",w1_p:"सत्यापित कंपनियाँ — उत्पाद, बाज़ार और अनुपालन प्रोफ़ाइल के आधार पर जोड़ी जाती हैं।",w2_h:"दस्तावेज़ और शिपमेंट सत्यापित",w2_p:"कमर्शियल इनवॉइस, पैकिंग लिस्ट और बिल ऑफ लेडिंग — एक ही जगह कैरियर रिकॉर्ड से मिलान।",w3_h:"स्वचालित सेटलमेंट",w3_p:"सौदा तय होते ही भुगतान लॉक होता है और शिपमेंट की पुष्टि के 48 घंटे बाद विक्रेता को जारी होता है।",
+how_k:"कैसे काम करता है",how_h:"भुगतान तभी, जब माल शिप हो।",how_p:"खरीदार का भुगतान हमारे पास नहीं, अनुबंध के अधीन रहता है। शिपमेंट की पुष्टि के बाद 48 घंटे में दोनों पक्ष आपत्ति कर सकते हैं — फिर विक्रेता को स्वतः भुगतान।",
+p1:"शिपमेंट बंदरगाह से रवाना",p1s:"B/L का कैरियर रिकॉर्ड से मिलान",p2:"48 घंटे में विक्रेता को स्वतः भुगतान",p2s:"किसी मैनुअल मंज़ूरी की ज़रूरत नहीं",step:"चरण",
+s1_h:"सौदा तय करें",s1_p:"मैच, चैट और शर्तें पक्की करें। खरीदार का भुगतान लॉक हो जाता है।",s2_h:"शिप करें और दस्तावेज़ अपलोड करें",s2_p:"C/I · P/L · B/L अपलोड होते हैं और कैरियर से मिलान होता है।",s3_h:"48 घंटे में भुगतान पाएँ",s3_p:"ग्रेस अवधि के बाद भुगतान जारी — बैंक ट्रांसफ़र (T/T) या ऑन-चेन।",
+wal_h:"पूरे व्यापार के लिए एक ऐप।",wal_p:"पहले संपर्क से अंतिम भुगतान तक — मैचिंग, स्वतः अनुवाद वाली चैट, दस्तावेज़, शिपमेंट ट्रैकिंग और सेटलमेंट — हर पक्ष की अपनी भाषा में।",
+f1_h:"7 भाषाएँ",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. हर पक्ष अपनी भाषा में काम करता है; संदेश स्वतः अनुवादित होते हैं।",f2_h:"पहले बैंक ट्रांसफ़र",f2_p:"T/T मानक है। ब्लॉकचेन सेटलमेंट (Polygon पर USDC) चाहने वाले साझेदारों के लिए वैकल्पिक।",f3_h:"हम आपका पैसा कभी नहीं रखते",f3_p:"शिपमेंट की पुष्टि तक राशि अनुबंध के अधीन रहती है। कंपनी कस्टोडियन नहीं है।",
+wal_note:"USAI Wallet अमेरिका, कोरिया, भारत और मध्य-पूर्व के आमंत्रित साझेदारों के साथ निजी रूप से संचालित है।",
+co_k:"कंपनी",co_h:"कोरियाई इंजीनियरिंग आधार वाली एक अमेरिकी कंपनी।",co_p:"K-AI CONET LLC वायोमिंग में गठित है और FinCEN में Money Services Business के रूप में पंजीकृत है। न्यूयॉर्क की कंपनी मार्केटिंग और आयोजन देखती है; बुसान की कंपनी उत्पाद बनाती है।",
+hq:"मुख्यालय",hq_role:"मुख्य संचालन · IP · USAI Wallet",ny:"न्यूयॉर्क कार्यालय",ny_role:"मार्केटिंग · आयोजन · साझेदारी",bs:"बुसान R&D",bs_role:"उत्पाद विकास",
+ip_h:"बौद्धिक संपदा",ip_p:"अमेरिकी यूटिलिटी पेटेंट आवेदन 19/729,125 — शिपमेंट सत्यापन पर स्वचालित व्यापार सेटलमेंट। पेटेंट-पेंडिंग; KIPO में कोरियाई आवेदन दाख़िल।",cp_h:"अनुपालन",cp_p:"FinCEN-पंजीकृत MSB (MRX26-00005630)। केवल सत्यापित कंपनियाँ सदस्य; प्लेटफ़ॉर्म ग्राहक निधि की कस्टडी नहीं लेता।",
+fo_k:"संस्थापक",fo_t:"संस्थापक और CEO",fo_p1:"निर्माण, कंटेंट और व्यापार में तीस वर्षों से कंपनियाँ बनाते आए हैं। Seoul Web Fest के बोर्ड डायरेक्टर (2015–2024); न्यूयॉर्क और सियोल AI Web Festival के संस्थापक।",fo_p2:"USAI Wallet की शुरुआत उस व्यापार से हुई जो भुगतान के चरण पर विफल हुआ। लक्ष्य सरल है: जिस विक्रेता ने माल भेज दिया, उसे भुगतान मिले — समय पर, हर बार।",
+ct_k:"संपर्क",ct_h:"हमसे बात करें।",ct_gen:"सामान्य",ct_trade:"व्यापार और साझेदारी",ct_app:"USAI Wallet",rights:"सर्वाधिकार सुरक्षित",pp:"गोपनीयता"},
+
+ar:{nav_what:"ما نقوم به",nav_how:"كيف يعمل",nav_wallet:"USAI Wallet",nav_company:"الشركة",nav_contact:"اتصل بنا",login:"دخول الأعضاء",request:"طلب الوصول",
+eyebrow:"منصة عالمية للتجارة بين الشركات",h1:"48 ساعة",sub:"الإفراج التلقائي عن دفعة التجارة",sub2:"بعد الشحن · مع تسوية اختيارية عبر البلوكتشين",small:"التحويل البنكي (T/T) هو الأساس · لا يُدفع إلا عند شحن البضاعة",smallAccent:"براءة اختراع قيد التسجيل لدى USPTO · الأولى عالميًا",status:"للأعضاء فقط · بالدعوة",
+what_k:"ما نقوم به",what_h:"نجعل التجارة الدولية تدفع في موعدها.",what_p:"تطوّر K-AI CONET منصة USAI Wallet، وهي منصة B2B يلتقي فيها المصدّرون والمستوردون، ويتحققون من مستندات الشحن، ويحصلون على الدفع تلقائيًا — دون أسبوع من الحوالات البنكية ومكالمات «هل وصل المال؟».",
+w1_h:"مطابقة المشتري والبائع بالذكاء الاصطناعي",w1_p:"شركات موثّقة، تُطابق حسب المنتج والسوق وملف الامتثال.",w2_h:"التحقق من المستندات والشحنة",w2_p:"الفاتورة التجارية وقائمة التعبئة وبوليصة الشحن تُطابق مع سجل الناقل في مكان واحد.",w3_h:"تسوية تلقائية",w3_p:"يُحجز الدفع عند الاتفاق على الصفقة ويُفرج عنه للبائع بعد 48 ساعة من تأكيد الشحن.",
+how_k:"كيف يعمل",how_h:"لا يُدفع إلا عند شحن البضاعة.",how_p:"دفعة المشتري محفوظة بموجب العقد، لا لدينا. بعد تأكيد الشحن، تتيح نافذة 48 ساعة للطرفين الاعتراض — ثم يُدفع للبائع تلقائيًا.",
+p1:"غادرت الشحنة الميناء",p1s:"تمت مطابقة B/L مع سجل الناقل",p2:"دفع تلقائي للبائع خلال 48 ساعة",p2s:"لا حاجة لموافقة يدوية",step:"الخطوة",
+s1_h:"الاتفاق على الصفقة",s1_p:"مطابقة ومحادثة وتأكيد الشروط. تُحجز دفعة المشتري.",s2_h:"الشحن ورفع المستندات",s2_p:"تُرفع C/I · P/L · B/L وتُطابق مع الناقل.",s3_h:"استلام الدفع خلال 48 ساعة",s3_p:"بعد فترة السماح يُفرج عن الدفع — بالتحويل البنكي (T/T) أو على السلسلة.",
+wal_h:"تطبيق واحد للصفقة كاملة.",wal_p:"من أول اتصال حتى الدفع النهائي — المطابقة، والمحادثة مع ترجمة تلقائية، والمستندات، وتتبع الشحنة، والتسوية — بلغة كل طرف.",
+f1_h:"7 لغات",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. يعمل كل طرف بلغته؛ وتُترجم الرسائل تلقائيًا.",f2_h:"التحويل البنكي أولًا",f2_p:"T/T هو المعيار. التسوية عبر البلوكتشين (USDC على Polygon) اختيارية لمن يرغب.",f3_h:"لا نحتفظ بأموالكم أبدًا",f3_p:"تبقى الأموال بموجب العقد حتى تأكيد الشحن. الشركة ليست أمين حفظ.",
+wal_note:"تعمل USAI Wallet بشكل خاص مع شركاء مدعوين في الولايات المتحدة وكوريا والهند والشرق الأوسط.",
+co_k:"الشركة",co_h:"شركة أمريكية بقاعدة هندسية في كوريا.",co_p:"K-AI CONET LLC مؤسسة في ولاية وايومنغ ومسجلة لدى FinCEN كشركة خدمات مالية (MSB). شركة نيويورك تتولى التسويق والفعاليات؛ وشركة بوسان تطوّر المنتج.",
+hq:"المقر الرئيسي",hq_role:"العمليات الأساسية · الملكية الفكرية · USAI Wallet",ny:"مكتب نيويورك",ny_role:"التسويق · الفعاليات · الشراكات",bs:"البحث والتطوير — بوسان",bs_role:"تطوير المنتج",
+ip_h:"الملكية الفكرية",ip_p:"طلب براءة اختراع أمريكية رقم 19/729,125 — التسوية التجارية التلقائية عند التحقق من الشحن. قيد التسجيل؛ وطلبات كورية مودعة لدى KIPO.",cp_h:"الامتثال",cp_p:"MSB مسجلة لدى FinCEN (MRX26-00005630). الأعضاء شركات موثّقة فقط؛ ولا تحتفظ المنصة بأموال العملاء.",
+fo_k:"المؤسس",fo_t:"المؤسس والرئيس التنفيذي",fo_p1:"ثلاثون عامًا من بناء الشركات في البناء والمحتوى والتجارة. عضو مجلس إدارة Seoul Web Fest (2015–2024)؛ مؤسس مهرجاني الويب بالذكاء الاصطناعي في نيويورك وسيول.",fo_p2:"بدأت USAI Wallet من صفقة فشلت عند خطوة الدفع. الهدف بسيط: البائع الذي شحن بضاعته يجب أن يُدفع له — في الموعد، في كل مرة.",
+ct_k:"اتصل بنا",ct_h:"تحدث معنا.",ct_gen:"استفسارات عامة",ct_trade:"التجارة والشراكات",ct_app:"USAI Wallet",rights:"جميع الحقوق محفوظة",pp:"الخصوصية"},
+
+ja:{nav_what:"事業内容",nav_how:"仕組み",nav_wallet:"USAI Wallet",nav_company:"会社情報",nav_contact:"お問い合わせ",login:"会員ログイン",request:"利用のお問い合わせ",
+eyebrow:"グローバルB2B貿易プラットフォーム",h1:"48時間",sub:"貿易代金を船積み後に自動で支払い",sub2:"銀行送金が基本 · ブロックチェーン決済は任意",small:"銀行送金（T/T）が標準 · 貨物が船積みされた時だけ支払い",smallAccent:"USPTO特許出願中 · 世界初",status:"会員制 · 招待制",
+what_k:"事業内容",what_h:"国際貿易の代金を、期日どおりに。",what_p:"K-AI CONETはUSAI Walletを開発しています。輸出者と輸入者が出会い、船積書類を確認し、自動で代金を受け取るB2Bプラットフォームです — 1週間かかる送金や「入金されましたか？」の電話なしで。",
+w1_h:"AIによるバイヤー・セラーのマッチング",w1_p:"認証済み企業同士を、品目・市場・コンプライアンス情報で結びます。",w2_h:"書類と船積みの確認",w2_p:"コマーシャルインボイス・パッキングリスト・船荷証券を船社の記録と一か所で照合します。",w3_h:"自動決済",w3_p:"取引合意時に代金をロックし、船積み確認の48時間後にセラーへ支払います。",
+how_k:"仕組み",how_h:"貨物が船積みされた時だけ支払い。",how_p:"バイヤーの代金は当社ではなく契約が保管します。船積みが確認されると48時間の異議期間があり、その後セラーに自動で支払われます。",
+p1:"船積み出港を確認",p1s:"B/Lを船社記録と照合",p2:"48時間後にセラーへ自動支払い",p2s:"手動承認は不要",step:"ステップ",
+s1_h:"取引に合意",s1_p:"マッチング・チャットで条件を確定。バイヤーの代金がロックされます。",s2_h:"船積みと書類アップロード",s2_p:"C/I · P/L · B/Lをアップロードし、船社と照合します。",s3_h:"48時間後に受け取り",s3_p:"猶予期間の後、銀行送金（T/T）またはオンチェーンで支払われます。",
+wal_h:"取引のすべてを、ひとつのアプリで。",wal_p:"最初の連絡から最終支払いまで — マッチング、自動翻訳チャット、書類、船積み追跡、決済 — それぞれの言語で。",
+f1_h:"7言語対応",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. 各当事者が自分の言語で操作し、メッセージは自動翻訳されます。",f2_h:"銀行送金が基本",f2_p:"T/Tが標準です。ブロックチェーン決済（Polygon上のUSDC）は希望するパートナーのみ任意で利用できます。",f3_h:"お客様の資金を預かりません",f3_p:"資金は船積み確認まで契約の下に置かれます。当社はカストディアンではありません。",
+wal_note:"USAI Walletは米国・韓国・インド・中東の招待パートナーと非公開で運用中です。",
+co_k:"会社情報",co_h:"韓国に開発拠点を持つ米国企業。",co_p:"K-AI CONET LLCはワイオミング州で設立され、FinCENにMoney Services Businessとして登録されています。ニューヨーク法人がマーケティングとイベントを、釜山法人が製品開発を担当します。",
+hq:"本社",hq_role:"中核事業 · 知的財産 · USAI Wallet",ny:"ニューヨークオフィス",ny_role:"マーケティング · イベント · 提携",bs:"釜山R&D",bs_role:"製品開発",
+ip_h:"知的財産",ip_p:"米国特許出願 19/729,125 — 船積み確認に基づく貿易代金の自動決済。出願中。韓国特許庁（KIPO）にも出願。",cp_h:"コンプライアンス",cp_p:"FinCEN登録MSB（MRX26-00005630）。会員は認証済み企業のみ。プラットフォームは顧客資金を保管しません。",
+fo_k:"創業者",fo_t:"創業者 · CEO",fo_p1:"建設・コンテンツ・貿易の分野で30年にわたり会社を築いてきました。Seoul Web Fest理事（2015–2024）、ニューヨーク・ソウルAI Web Festival創設者。",fo_p2:"USAI Walletは、支払い段階で頓挫した一件の貿易から始まりました。目標は単純です — 船積みを終えたセラーは、期日どおり、必ず代金を受け取るべきだ。",
+ct_k:"お問い合わせ",ct_h:"お気軽にご連絡ください。",ct_gen:"一般",ct_trade:"貿易 · 提携",ct_app:"USAI Wallet",rights:"All rights reserved",pp:"プライバシー"},
+
+zh:{nav_what:"我们的业务",nav_how:"运作方式",nav_wallet:"USAI Wallet",nav_company:"公司",nav_contact:"联系我们",login:"会员登录",request:"申请访问",
+eyebrow:"全球B2B贸易平台",h1:"48小时",sub:"贸易货款在装运后自动放款",sub2:"电汇为基本方式 · 区块链结算可选",small:"银行电汇（T/T）为标准 · 货物装运后才付款",smallAccent:"USPTO专利申请中 · 全球首创",status:"仅限会员 · 邀请制",
+what_k:"我们的业务",what_h:"让国际贸易按时收款。",what_p:"K-AI CONET 开发 USAI Wallet——一个B2B平台：出口商与进口商在此匹配、核验装运单据并自动收款，无需等待一周的银行电汇，也不用再打电话问“钱到了吗？”。",
+w1_h:"AI 买卖家匹配",w1_p:"经认证的企业，按产品、市场与合规档案进行匹配。",w2_h:"单据与装运核验",w2_p:"商业发票、装箱单与提单在同一处与承运人记录核对。",w3_h:"自动结算",w3_p:"达成交易时锁定货款，装运确认48小时后放款给卖家。",
+how_k:"运作方式",how_h:"货物装运后才付款。",how_p:"买家的货款由合约托管，而非我们。装运确认后有48小时窗口供双方提出异议，之后自动付款给卖家。",
+p1:"船舶已离港",p1s:"提单与承运人记录已核对",p2:"48小时内自动付款给卖家",p2s:"无需人工审批",step:"步骤",
+s1_h:"达成交易",s1_p:"匹配、沟通并确认条款，买家货款即被锁定。",s2_h:"装运并上传单据",s2_p:"上传 C/I · P/L · B/L，并与承运人核对。",s3_h:"48小时内收款",s3_p:"宽限期结束后放款——通过银行电汇（T/T）或链上结算。",
+wal_h:"一个应用，完成整笔交易。",wal_p:"从首次联系到最终付款——匹配、自动翻译聊天、单据、货运跟踪与结算——各方使用自己的语言。",
+f1_h:"7种语言",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文。各方使用自己的语言操作，消息自动翻译。",f2_h:"银行电汇优先",f2_p:"T/T 为标准方式。区块链结算（Polygon 上的 USDC）为可选项，供有需要的合作伙伴使用。",f3_h:"我们绝不保管您的资金",f3_p:"资金在装运确认前由合约托管。公司不是托管人。",
+wal_note:"USAI Wallet 目前与美国、韩国、印度及中东的受邀合作伙伴以非公开方式运营。",
+co_k:"公司",co_h:"一家在韩国设有工程基地的美国公司。",co_p:"K-AI CONET LLC 在怀俄明州设立，并在 FinCEN 注册为货币服务企业（MSB）。纽约公司负责市场与活动；釜山公司负责产品开发。",
+hq:"总部",hq_role:"核心运营 · 知识产权 · USAI Wallet",ny:"纽约办公室",ny_role:"市场 · 活动 · 合作",bs:"釜山研发",bs_role:"产品开发",
+ip_h:"知识产权",ip_p:"美国实用专利申请 19/729,125——基于装运核验的贸易自动结算。专利申请中；已向韩国特许厅（KIPO）提交申请。",cp_h:"合规",cp_p:"FinCEN 注册 MSB（MRX26-00005630）。会员仅限经认证企业；平台不托管客户资金。",
+fo_k:"创始人",fo_t:"创始人兼CEO",fo_p1:"三十年来在建筑、内容与贸易领域创办企业。首尔网络节（Seoul Web Fest）董事（2015–2024）；纽约与首尔 AI Web Festival 创始人。",fo_p2:"USAI Wallet 源于一笔在付款环节失败的交易。目标很简单：已经发货的卖家，应当按时、每次都收到货款。",
+ct_k:"联系我们",ct_h:"欢迎联系。",ct_gen:"一般咨询",ct_trade:"贸易与合作",ct_app:"USAI Wallet",rights:"版权所有",pp:"隐私"}
+};
+const RTL=["ar"];
+function apply(l){
+  const d=T[l]||T.en;
+  document.querySelectorAll("[data-i]").forEach(el=>{const k=el.getAttribute("data-i");if(d[k]!=null)el.textContent=d[k];});
+  document.documentElement.lang=l;document.documentElement.dir=RTL.includes(l)?"rtl":"ltr";
+  document.getElementById("langCode").textContent=l.toUpperCase();
+  document.querySelectorAll("#langList button").forEach(b=>b.classList.toggle("on",b.dataset.l===l));
+  try{localStorage.setItem("lang",l)}catch(e){}
 }
-function closeWalletViewer(){
-  document.getElementById('walletViewer').style.display = 'none';
-  document.getElementById('walletViewerFrame').src = 'about:blank';
-  document.body.style.overflow = '';
+function detect(){
+  try{const s=localStorage.getItem("lang");if(s&&T[s])return s}catch(e){}
+  const q=new URLSearchParams(location.search).get("lang");if(q&&T[q])return q;
+  for(const n of (navigator.languages||[navigator.language||"en"])){const b=(n||"").toLowerCase().split("-")[0];if(T[b])return b}
+  return "en";
 }
-document.addEventListener('keydown',function(e){
-  if(e.key === 'Escape' && document.getElementById('walletViewer').style.display === 'flex'){
-    closeWalletViewer();
-  }
-});
-</script>
-
-
-<!-- WALLET VIEWER iframe with top X close -->
-<div id="walletViewer" style="display:none;position:fixed;inset:0;background:#010C1A;z-index:99999;flex-direction:column;">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(1,12,26,.98);border-bottom:1px solid rgba(240,201,90,.3);box-shadow:0 4px 24px rgba(0,0,0,.5);">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <div style="width:8px;height:8px;border-radius:50%;background:#F0C95A;box-shadow:0 0 12px #F0C95A;"></div>
-      <span style="font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:2px;color:#F0C95A;font-weight:700;">$USAI WALLET</span>
-    </div>
-    <button onclick="closeWalletViewer" style="background:rgba(240,201,90,.12);border:1.5px solid rgba(240,201,90,.45);color:#F0C95A;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:Arial,sans-serif;" 
-      onmouseover="this.style.background='rgba(240,201,90,.25)';this.style.transform='scale(1.08)';" 
-      onmouseout="this.style.background='rgba(240,201,90,.12)';this.style.transform='scale(1)';"
-      title="Close (ESC)">✕</button>
-  </div>
-  <iframe id="walletViewerFrame" src="about:blank" style="flex:1;width:100%;border:0;background:#010C1A;"></iframe>
-</div>
-
-<script>
-// EN version - no language switching needed
-</script>
-
-<!-- POSTER MODAL -->
-<div id="poster-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
-  <div class="pm-backdrop" data-pm-close></div>
-  <div class="pm-inner">
-    <button class="pm-close" data-pm-close type="button" aria-label="Close (ESC)">×</button>
-    <div class="pm-img-wrap">
-      <img id="pm-img" src="" alt="" />
-    </div>
-    <div class="pm-actions">
-      <a id="pm-download" href="" download class="pm-btn primary">↓ DOWNLOAD POSTER</a>
-      <button class="pm-btn ghost" data-pm-close type="button">CLOSE</button>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  var modal = document.getElementById('poster-modal');
-  var img = document.getElementById('pm-img');
-  var dl = document.getElementById('pm-download');
-  if(!modal) return;
-  function openPoster(src, title){
-    if(!img || !dl) return;
-    img.src = src;
-    img.alt = title || '';
-    dl.href = src;
-    dl.setAttribute('download', src.split('/').pop());
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closePoster(){
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(function(){ if(img) img.src=''; }, 200);
-  }
-  document.querySelectorAll('.fc[data-poster]').forEach(function(card){
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', function(){
-      var poster = card.getAttribute('data-poster');
-      var title = card.getAttribute('data-title');
-      if(poster) window.open('/'+poster.replace(/^\//,''), '_blank');
-    });
-  });
-  modal.querySelectorAll('[data-pm-close]').forEach(function(el){
-    el.addEventListener('click', closePoster);
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key==='Escape'){ closePoster(); }
-  });
-})();
+const list=document.getElementById("langList");
+Object.keys(T).forEach(l=>{const li=document.createElement("li");const b=document.createElement("button");b.type="button";b.dataset.l=l;b.innerHTML="<i>"+l.toUpperCase()+"</i>"+LANGS[l];b.onclick=()=>{apply(l);box.classList.remove("open")};li.appendChild(b);list.appendChild(li)});
+const box=document.getElementById("lang");
+box.querySelector("button").onclick=e=>{e.stopPropagation();box.classList.toggle("open")};
+document.addEventListener("click",()=>box.classList.remove("open"));
+apply(detect());
 </script>
 </body>
 </html>
