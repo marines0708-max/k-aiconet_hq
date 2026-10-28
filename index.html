@@ -129,6 +129,14 @@ footer .usa{display:inline-block;margin-inline-start:8px;padding:2px 10px;border
 .go-site:hover{border-color:var(--gold);color:var(--gold)}
 .here-badge{align-self:flex-start;display:inline-block;margin-top:12px;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#071a52;background:linear-gradient(90deg,#f6c454,#ffd98a);border-radius:999px;padding:4px 11px}
 </style>
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#071a52">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="K-AI CONET">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
 
@@ -391,6 +399,47 @@ const box=document.getElementById("lang");
 box.querySelector("button").onclick=e=>{e.stopPropagation();box.classList.toggle("open")};
 document.addEventListener("click",()=>box.classList.remove("open"));
 apply(detect());
+</script>
+<style>
+.pwa-btn{position:fixed;right:16px;bottom:16px;z-index:60;display:none;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;border:1px solid rgba(246,196,84,.7);background:linear-gradient(180deg,rgba(18,52,140,.96),rgba(6,18,58,.96));color:#fff;font:800 14px/1 Inter,system-ui,sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 24px rgba(25,212,255,.25);cursor:pointer}
+.pwa-btn img{width:22px;height:22px;border-radius:6px}
+.pwa-btn.show{display:inline-flex}
+.pwa-x{margin-inline-start:4px;opacity:.6;font-size:16px;line-height:1;padding:0 2px}
+.pwa-tip{position:fixed;left:16px;right:16px;bottom:76px;z-index:61;display:none;max-width:420px;margin-inline:auto;padding:16px 18px;border-radius:18px;border:1px solid rgba(25,212,255,.45);background:rgba(6,18,58,.98);color:#eaf0ff;font:600 14.5px/1.55 Inter,system-ui,sans-serif;box-shadow:0 20px 50px rgba(0,0,0,.55)}
+.pwa-tip b{color:#f6c454}
+.pwa-tip.show{display:block}
+</style>
+<button type="button" class="pwa-btn" id="pwaBtn"><img src="/app-icon-192.png" alt=""><span id="pwaLbl">Install app</span><span class="pwa-x" id="pwaX" aria-label="close">×</span></button>
+<div class="pwa-tip" id="pwaTip" role="dialog"></div>
+<script>
+(function(){
+  var L={
+    en:["Install app","On iPhone: tap the <b>Share</b> button at the bottom of Safari, then <b>Add to Home Screen</b>."],
+    ko:["앱 설치","아이폰: 사파리 아래쪽 <b>공유</b> 버튼을 누른 뒤 <b>홈 화면에 추가</b>를 누르세요."],
+    es:["Instalar app","En iPhone: toque <b>Compartir</b> en Safari y luego <b>Añadir a pantalla de inicio</b>."],
+    hi:["ऐप इंस्टॉल करें","iPhone पर: Safari में नीचे <b>Share</b> बटन दबाएँ, फिर <b>Add to Home Screen</b> चुनें।"],
+    ar:["تثبيت التطبيق","على iPhone: اضغط زر <b>المشاركة</b> أسفل Safari ثم <b>إضافة إلى الشاشة الرئيسية</b>."],
+    ja:["アプリをインストール","iPhone：Safari下部の<b>共有</b>ボタン →<b>ホーム画面に追加</b>をタップしてください。"],
+    zh:["安装应用","iPhone：点击 Safari 底部的<b>分享</b>按钮，然后选择<b>添加到主屏幕</b>。"]
+  };
+  function t(){var l=(document.documentElement.lang||"en").slice(0,2);return L[l]||L.en}
+  var btn=document.getElementById("pwaBtn"),lbl=document.getElementById("pwaLbl"),tip=document.getElementById("pwaTip"),x=document.getElementById("pwaX");
+  function paint(){lbl.textContent=t()[0];tip.innerHTML=t()[1]}
+  paint();new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+  var standalone=window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+  var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+  var hidden=false;try{hidden=(Date.now()-(+localStorage.getItem("pwaHide")||0))<7*864e5}catch(e){}
+  var deferred=null;
+  if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}
+  window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();deferred=e;if(!standalone&&!hidden)btn.classList.add("show")});
+  window.addEventListener("appinstalled",function(){btn.classList.remove("show");tip.classList.remove("show")});
+  if(ios&&!standalone&&!hidden)btn.classList.add("show");
+  btn.addEventListener("click",function(e){
+    if(e.target===x){btn.classList.remove("show");tip.classList.remove("show");try{localStorage.setItem("pwaHide",Date.now())}catch(_){}return}
+    if(deferred){deferred.prompt();deferred.userChoice.finally(function(){deferred=null;btn.classList.remove("show")})}
+    else{tip.classList.toggle("show")}
+  });
+})();
 </script>
 </body>
 </html>

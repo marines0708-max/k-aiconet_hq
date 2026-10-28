@@ -1,0 +1,20 @@
+{
+  "name": "K-AI CONET — USAI Wallet",
+  "short_name": "K-AI CONET",
+  "description": "Global B2B trade platform. Trade payment automatically released after shipment.",
+  "id": "/",
+  "start_url": "/?source=app",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#040d2b",
+  "theme_color": "#071a52",
+  "icons": [
+    { "src": "/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/app-icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "K-AI CONET INC — New York", "short_name": "New York", "url": "/newyork.html", "icons": [{ "src": "/app-icon-192.png", "sizes": "192x192" }] },
+    { "name": "K-AI CONET Co., Ltd. — Busan", "short_name": "Busan", "url": "/korea.html", "icons": [{ "src": "/app-icon-192.png", "sizes": "192x192" }] }
+  ]
+}
