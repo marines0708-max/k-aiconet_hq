@@ -125,6 +125,9 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(25,212,255,.12);pad
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
 footer b{background:linear-gradient(90deg,#f6c454,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
 footer .usa{display:inline-block;margin-inline-start:8px;padding:2px 10px;border-radius:999px;border:1px solid rgba(25,212,255,.45);color:var(--cyan);font-weight:800;font-size:11px;letter-spacing:.14em}
+.go-site{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;color:#fff;border:1px solid rgba(25,212,255,.55);background:linear-gradient(180deg,rgba(0,212,255,.22),rgba(0,140,220,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.go-site:hover{border-color:var(--gold);color:var(--gold)}
+.here-badge{align-self:flex-start;display:inline-block;margin-top:12px;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#071a52;background:linear-gradient(90deg,#f6c454,#ffd98a);border-radius:999px;padding:4px 11px}
 </style>
 </head>
 <body>
@@ -212,9 +215,9 @@ footer .usa{display:inline-block;margin-inline-start:8px;padding:2px 10px;border
   <h2 class="h3" data-i="co_h"></h2>
   <p class="lead" data-i="co_p"></p>
   <div class="grid c3">
-    <div class="card"><div class="ent"><div class="tag" data-i="hq"></div><h4>K-AI CONET WYOMING LLC</h4><div class="role" data-i="hq_role"></div><address class="ltr">1621 Central Ave<br>Cheyenne, WY 82001, USA</address><div class="role ltr" style="color:var(--gold)">FinCEN MSB · MRX26-00005630</div></div></div>
-    <div class="card"><div class="ent"><div class="tag" data-i="ny"></div><h4>K-AI CONET INC</h4><div class="role" data-i="ny_role"></div><address class="ltr">418 Broadway, STE N<br>Albany, NY 12207, USA</address><a class="v" href="newyork.html" data-i="visit" style="display:inline-block;margin-top:8px;font-size:13.5px;font-weight:800;color:var(--cyan)"></a></div></div>
-    <div class="card"><div class="ent"><div class="tag" data-i="bs"></div><h4>K-AI CONET Co., Ltd.</h4><div class="role" data-i="bs_role"></div><address class="ltr">111-1 Jeseok-ro, Saha-gu<br>Busan, Republic of Korea</address><a class="v" href="korea.html" data-i="visit" style="display:inline-block;margin-top:8px;font-size:13.5px;font-weight:800;color:var(--cyan)"></a></div></div>
+    <div class="card"><div class="ent"><div class="tag" data-i="hq"></div><h4>K-AI CONET WYOMING LLC</h4><div class="role" data-i="hq_role"></div><address class="ltr">1621 Central Ave<br>Cheyenne, WY 82001, USA</address><div class="role ltr" style="color:var(--gold)">FinCEN MSB · MRX26-00005630</div><span class="here-badge" data-i="here"></span></div></div>
+    <div class="card"><div class="ent"><div class="tag" data-i="ny"></div><h4>K-AI CONET INC</h4><div class="role" data-i="ny_role"></div><address class="ltr">418 Broadway, STE N<br>Albany, NY 12207, USA</address><a class="go-site" href="newyork.html"><span data-i="visit"></span> →</a></div></div>
+    <div class="card"><div class="ent"><div class="tag" data-i="bs"></div><h4>K-AI CONET Co., Ltd.</h4><div class="role" data-i="bs_role"></div><address class="ltr">111-1 Jeseok-ro, Saha-gu<br>Busan, Republic of Korea</address><a class="go-site" href="korea.html"><span data-i="visit"></span> →</a></div></div>
   </div>
   <div class="grid c2">
     <div class="card"><div><h4 data-i="ip_h"></h4><p data-i="ip_p"></p></div></div>
@@ -264,7 +267,7 @@ wal_h:"One app for the whole trade.",wal_p:"From first contact to final payment 
 f1_h:"7 languages",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. Each side works in their own language; messages are translated automatically.",f2_h:"Bank transfer first",f2_p:"T/T is the standard. Blockchain settlement (USDC on Polygon) is optional for partners who want it.",f3_h:"We never hold your money",f3_p:"Funds sit under the contract until the shipment is confirmed. The company is not a custodian.",
 wal_note:"USAI Wallet is in private operation with invited partners in the US, Korea, India and the Middle East.",
 co_k:"Company",co_h:"A U.S. company with a Korean engineering base.",co_p:"K-AI CONET LLC is organized in Wyoming and registered with FinCEN as a Money Services Business. A New York corporation handles marketing and events; the Busan company builds the product.",
-hq:"Headquarters",hq_role:"Core operations · IP · USAI Wallet",ny:"New York office",ny_role:"Marketing · Events · Partnerships",bs:"Busan R&D",bs_role:"Product development",visit:"Visit site",
+hq:"Headquarters",hq_role:"Core operations · IP · USAI Wallet",ny:"New York office",ny_role:"Marketing · Events · Partnerships",bs:"Busan R&D",bs_role:"Product development",visit:"Visit site",here:"You are here",
 ip_h:"Intellectual property",ip_p:"U.S. utility patent application 19/729,125 — automatic trade settlement upon shipment verification. Patent-pending; Korean applications filed with KIPO.",cp_h:"Compliance",cp_p:"FinCEN-registered MSB (MRX26-00005630). Members are verified companies only; the platform does not take custody of client funds.",
 fo_k:"Founder",fo_t:"Founder & CEO",fo_p1:"Thirty years of building companies in construction, content and trade. Board Director of Seoul Web Fest (2015–2024); founder of the New York and Seoul AI Web Festivals.",fo_p2:"USAI Wallet began with a trade that failed at the payment step. The goal is simple: a seller who has shipped should be paid — on time, every time.",
 ct_k:"Contact",ct_h:"Talk to us.",ct_gen:"General",ct_trade:"Trade & partnerships",ct_app:"USAI Wallet",rights:"All rights reserved",pp:"Privacy"},
@@ -280,7 +283,7 @@ wal_h:"거래 전체를 앱 하나로.",wal_p:"첫 연락부터 최종 지급까
 f1_h:"7개 언어",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. 각자 자기 언어로 쓰고, 메시지는 자동 번역됩니다.",f2_h:"은행 송금이 기본",f2_p:"T/T가 표준입니다. 블록체인 정산(Polygon USDC)은 원하는 파트너만 선택합니다.",f3_h:"고객의 돈을 맡지 않습니다",f3_p:"대금은 선적이 확인될 때까지 계약 아래 있습니다. 회사는 수탁자가 아닙니다.",
 wal_note:"USAI Wallet은 미국·한국·인도·중동의 초청 파트너와 비공개로 운영 중입니다.",
 co_k:"회사",co_h:"미국 회사, 한국의 개발 거점.",co_p:"K-AI CONET LLC는 와이오밍 법인이며 FinCEN에 MSB로 등록되어 있습니다. 뉴욕 법인은 마케팅·행사를, 부산 법인은 제품 개발을 맡습니다.",
-hq:"본사",hq_role:"핵심 운영 · 지식재산 · USAI Wallet",ny:"뉴욕 사무소",ny_role:"마케팅 · 행사 · 제휴",bs:"부산 R&D",bs_role:"제품 개발",visit:"사이트 보기",
+hq:"본사",hq_role:"핵심 운영 · 지식재산 · USAI Wallet",ny:"뉴욕 사무소",ny_role:"마케팅 · 행사 · 제휴",bs:"부산 R&D",bs_role:"제품 개발",visit:"사이트 보기",here:"현재 페이지",
 ip_h:"지식재산",ip_p:"미국 특허 출원 19/729,125 — 선적 확인 기반 무역 대금 자동 정산. 출원 중(patent-pending); 한국 특허청에도 출원.",cp_h:"규제 준수",cp_p:"FinCEN 등록 MSB(MRX26-00005630). 회원은 검증된 회사만이며, 플랫폼은 고객 자금을 수탁하지 않습니다.",
 fo_k:"창업자",fo_t:"창업자 · 대표",fo_p1:"건설·콘텐츠·무역에서 30년간 회사를 만들어 왔습니다. 서울 웹페스트 이사(2015–2024), 뉴욕·서울 AI 웹페스티벌 창립자.",fo_p2:"USAI Wallet은 대금 단계에서 무산된 한 건의 무역에서 시작됐습니다. 목표는 단순합니다 — 물건을 실은 셀러는 제때, 반드시 돈을 받아야 합니다.",
 ct_k:"문의",ct_h:"연락 주세요.",ct_gen:"일반 문의",ct_trade:"무역 · 제휴",ct_app:"USAI Wallet",rights:"All rights reserved",pp:"개인정보"},
@@ -296,7 +299,7 @@ wal_h:"Una sola app para toda la operación.",wal_p:"Del primer contacto al pago
 f1_h:"7 idiomas",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. Cada parte trabaja en su idioma; los mensajes se traducen automáticamente.",f2_h:"Primero la transferencia bancaria",f2_p:"T/T es el estándar. La liquidación blockchain (USDC en Polygon) es opcional para quien la prefiera.",f3_h:"Nunca custodiamos su dinero",f3_p:"Los fondos permanecen bajo el contrato hasta confirmarse el embarque. La empresa no es custodio.",
 wal_note:"USAI Wallet opera de forma privada con socios invitados en EE. UU., Corea, India y Oriente Medio.",
 co_k:"Empresa",co_h:"Una empresa estadounidense con base de ingeniería en Corea.",co_p:"K-AI CONET LLC está constituida en Wyoming y registrada ante FinCEN como Money Services Business. Una sociedad de Nueva York se ocupa de marketing y eventos; la empresa de Busan desarrolla el producto.",
-hq:"Sede",hq_role:"Operaciones · Propiedad intelectual · USAI Wallet",ny:"Oficina de Nueva York",ny_role:"Marketing · Eventos · Alianzas",bs:"I+D Busan",bs_role:"Desarrollo de producto",visit:"Visitar sitio",
+hq:"Sede",hq_role:"Operaciones · Propiedad intelectual · USAI Wallet",ny:"Oficina de Nueva York",ny_role:"Marketing · Eventos · Alianzas",bs:"I+D Busan",bs_role:"Desarrollo de producto",visit:"Visitar sitio",here:"Está aquí",
 ip_h:"Propiedad intelectual",ip_p:"Solicitud de patente de utilidad en EE. UU. 19/729,125 — liquidación comercial automática tras la verificación del embarque. En trámite; solicitudes coreanas presentadas ante la KIPO.",cp_h:"Cumplimiento",cp_p:"MSB registrada ante FinCEN (MRX26-00005630). Solo empresas verificadas; la plataforma no custodia fondos de clientes.",
 fo_k:"Fundador",fo_t:"Fundador y CEO",fo_p1:"Treinta años creando empresas en construcción, contenidos y comercio. Director del consejo de Seoul Web Fest (2015–2024); fundador de los AI Web Festivals de Nueva York y Seúl.",fo_p2:"USAI Wallet nació de una operación que fracasó en el paso del pago. El objetivo es simple: quien ya embarcó debe cobrar — a tiempo, siempre.",
 ct_k:"Contacto",ct_h:"Hablemos.",ct_gen:"General",ct_trade:"Comercio y alianzas",ct_app:"USAI Wallet",rights:"Todos los derechos reservados",pp:"Privacidad"},
@@ -312,7 +315,7 @@ wal_h:"पूरे व्यापार के लिए एक ऐप।",wal
 f1_h:"7 भाषाएँ",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. हर पक्ष अपनी भाषा में काम करता है; संदेश स्वतः अनुवादित होते हैं।",f2_h:"पहले बैंक ट्रांसफ़र",f2_p:"T/T मानक है। ब्लॉकचेन सेटलमेंट (Polygon पर USDC) चाहने वाले साझेदारों के लिए वैकल्पिक।",f3_h:"हम आपका पैसा कभी नहीं रखते",f3_p:"शिपमेंट की पुष्टि तक राशि अनुबंध के अधीन रहती है। कंपनी कस्टोडियन नहीं है।",
 wal_note:"USAI Wallet अमेरिका, कोरिया, भारत और मध्य-पूर्व के आमंत्रित साझेदारों के साथ निजी रूप से संचालित है।",
 co_k:"कंपनी",co_h:"कोरियाई इंजीनियरिंग आधार वाली एक अमेरिकी कंपनी।",co_p:"K-AI CONET LLC वायोमिंग में गठित है और FinCEN में Money Services Business के रूप में पंजीकृत है। न्यूयॉर्क की कंपनी मार्केटिंग और आयोजन देखती है; बुसान की कंपनी उत्पाद बनाती है।",
-hq:"मुख्यालय",hq_role:"मुख्य संचालन · IP · USAI Wallet",ny:"न्यूयॉर्क कार्यालय",ny_role:"मार्केटिंग · आयोजन · साझेदारी",bs:"बुसान R&D",bs_role:"उत्पाद विकास",visit:"साइट देखें",
+hq:"मुख्यालय",hq_role:"मुख्य संचालन · IP · USAI Wallet",ny:"न्यूयॉर्क कार्यालय",ny_role:"मार्केटिंग · आयोजन · साझेदारी",bs:"बुसान R&D",bs_role:"उत्पाद विकास",visit:"साइट देखें",here:"आप यहाँ हैं",
 ip_h:"बौद्धिक संपदा",ip_p:"अमेरिकी यूटिलिटी पेटेंट आवेदन 19/729,125 — शिपमेंट सत्यापन पर स्वचालित व्यापार सेटलमेंट। पेटेंट-पेंडिंग; KIPO में कोरियाई आवेदन दाख़िल।",cp_h:"अनुपालन",cp_p:"FinCEN-पंजीकृत MSB (MRX26-00005630)। केवल सत्यापित कंपनियाँ सदस्य; प्लेटफ़ॉर्म ग्राहक निधि की कस्टडी नहीं लेता।",
 fo_k:"संस्थापक",fo_t:"संस्थापक और CEO",fo_p1:"निर्माण, कंटेंट और व्यापार में तीस वर्षों से कंपनियाँ बनाते आए हैं। Seoul Web Fest के बोर्ड डायरेक्टर (2015–2024); न्यूयॉर्क और सियोल AI Web Festival के संस्थापक।",fo_p2:"USAI Wallet की शुरुआत उस व्यापार से हुई जो भुगतान के चरण पर विफल हुआ। लक्ष्य सरल है: जिस विक्रेता ने माल भेज दिया, उसे भुगतान मिले — समय पर, हर बार।",
 ct_k:"संपर्क",ct_h:"हमसे बात करें।",ct_gen:"सामान्य",ct_trade:"व्यापार और साझेदारी",ct_app:"USAI Wallet",rights:"सर्वाधिकार सुरक्षित",pp:"गोपनीयता"},
@@ -328,7 +331,7 @@ wal_h:"تطبيق واحد للصفقة كاملة.",wal_p:"من أول اتصا
 f1_h:"7 لغات",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. يعمل كل طرف بلغته؛ وتُترجم الرسائل تلقائيًا.",f2_h:"التحويل البنكي أولًا",f2_p:"T/T هو المعيار. التسوية عبر البلوكتشين (USDC على Polygon) اختيارية لمن يرغب.",f3_h:"لا نحتفظ بأموالكم أبدًا",f3_p:"تبقى الأموال بموجب العقد حتى تأكيد الشحن. الشركة ليست أمين حفظ.",
 wal_note:"تعمل USAI Wallet بشكل خاص مع شركاء مدعوين في الولايات المتحدة وكوريا والهند والشرق الأوسط.",
 co_k:"الشركة",co_h:"شركة أمريكية بقاعدة هندسية في كوريا.",co_p:"K-AI CONET LLC مؤسسة في ولاية وايومنغ ومسجلة لدى FinCEN كشركة خدمات مالية (MSB). شركة نيويورك تتولى التسويق والفعاليات؛ وشركة بوسان تطوّر المنتج.",
-hq:"المقر الرئيسي",hq_role:"العمليات الأساسية · الملكية الفكرية · USAI Wallet",ny:"مكتب نيويورك",ny_role:"التسويق · الفعاليات · الشراكات",bs:"البحث والتطوير — بوسان",bs_role:"تطوير المنتج",visit:"زيارة الموقع",
+hq:"المقر الرئيسي",hq_role:"العمليات الأساسية · الملكية الفكرية · USAI Wallet",ny:"مكتب نيويورك",ny_role:"التسويق · الفعاليات · الشراكات",bs:"البحث والتطوير — بوسان",bs_role:"تطوير المنتج",visit:"زيارة الموقع",here:"أنت هنا",
 ip_h:"الملكية الفكرية",ip_p:"طلب براءة اختراع أمريكية رقم 19/729,125 — التسوية التجارية التلقائية عند التحقق من الشحن. قيد التسجيل؛ وطلبات كورية مودعة لدى KIPO.",cp_h:"الامتثال",cp_p:"MSB مسجلة لدى FinCEN (MRX26-00005630). الأعضاء شركات موثّقة فقط؛ ولا تحتفظ المنصة بأموال العملاء.",
 fo_k:"المؤسس",fo_t:"المؤسس والرئيس التنفيذي",fo_p1:"ثلاثون عامًا من بناء الشركات في البناء والمحتوى والتجارة. عضو مجلس إدارة Seoul Web Fest (2015–2024)؛ مؤسس مهرجاني الويب بالذكاء الاصطناعي في نيويورك وسيول.",fo_p2:"بدأت USAI Wallet من صفقة فشلت عند خطوة الدفع. الهدف بسيط: البائع الذي شحن بضاعته يجب أن يُدفع له — في الموعد، في كل مرة.",
 ct_k:"اتصل بنا",ct_h:"تحدث معنا.",ct_gen:"استفسارات عامة",ct_trade:"التجارة والشراكات",ct_app:"USAI Wallet",rights:"جميع الحقوق محفوظة",pp:"الخصوصية"},
@@ -344,7 +347,7 @@ wal_h:"取引のすべてを、ひとつのアプリで。",wal_p:"最初の連�
 f1_h:"7言語対応",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文. 各当事者が自分の言語で操作し、メッセージは自動翻訳されます。",f2_h:"銀行送金が基本",f2_p:"T/Tが標準です。ブロックチェーン決済（Polygon上のUSDC）は希望するパートナーのみ任意で利用できます。",f3_h:"お客様の資金を預かりません",f3_p:"資金は船積み確認まで契約の下に置かれます。当社はカストディアンではありません。",
 wal_note:"USAI Walletは米国・韓国・インド・中東の招待パートナーと非公開で運用中です。",
 co_k:"会社情報",co_h:"韓国に開発拠点を持つ米国企業。",co_p:"K-AI CONET LLCはワイオミング州で設立され、FinCENにMoney Services Businessとして登録されています。ニューヨーク法人がマーケティングとイベントを、釜山法人が製品開発を担当します。",
-hq:"本社",hq_role:"中核事業 · 知的財産 · USAI Wallet",ny:"ニューヨークオフィス",ny_role:"マーケティング · イベント · 提携",bs:"釜山R&D",bs_role:"製品開発",visit:"サイトを見る",
+hq:"本社",hq_role:"中核事業 · 知的財産 · USAI Wallet",ny:"ニューヨークオフィス",ny_role:"マーケティング · イベント · 提携",bs:"釜山R&D",bs_role:"製品開発",visit:"サイトを見る",here:"現在のページ",
 ip_h:"知的財産",ip_p:"米国特許出願 19/729,125 — 船積み確認に基づく貿易代金の自動決済。出願中。韓国特許庁（KIPO）にも出願。",cp_h:"コンプライアンス",cp_p:"FinCEN登録MSB（MRX26-00005630）。会員は認証済み企業のみ。プラットフォームは顧客資金を保管しません。",
 fo_k:"創業者",fo_t:"創業者 · CEO",fo_p1:"建設・コンテンツ・貿易の分野で30年にわたり会社を築いてきました。Seoul Web Fest理事（2015–2024）、ニューヨーク・ソウルAI Web Festival創設者。",fo_p2:"USAI Walletは、支払い段階で頓挫した一件の貿易から始まりました。目標は単純です — 船積みを終えたセラーは、期日どおり、必ず代金を受け取るべきだ。",
 ct_k:"お問い合わせ",ct_h:"お気軽にご連絡ください。",ct_gen:"一般",ct_trade:"貿易 · 提携",ct_app:"USAI Wallet",rights:"All rights reserved",pp:"プライバシー"},
@@ -360,7 +363,7 @@ wal_h:"一个应用，完成整笔交易。",wal_p:"从首次联系到最终付�
 f1_h:"7种语言",f1_p:"English, 한국어, Español, हिन्दी, العربية, 日本語, 中文。各方使用自己的语言操作，消息自动翻译。",f2_h:"银行电汇优先",f2_p:"T/T 为标准方式。区块链结算（Polygon 上的 USDC）为可选项，供有需要的合作伙伴使用。",f3_h:"我们绝不保管您的资金",f3_p:"资金在装运确认前由合约托管。公司不是托管人。",
 wal_note:"USAI Wallet 目前与美国、韩国、印度及中东的受邀合作伙伴以非公开方式运营。",
 co_k:"公司",co_h:"一家在韩国设有工程基地的美国公司。",co_p:"K-AI CONET LLC 在怀俄明州设立，并在 FinCEN 注册为货币服务企业（MSB）。纽约公司负责市场与活动；釜山公司负责产品开发。",
-hq:"总部",hq_role:"核心运营 · 知识产权 · USAI Wallet",ny:"纽约办公室",ny_role:"市场 · 活动 · 合作",bs:"釜山研发",bs_role:"产品开发",visit:"访问网站",
+hq:"总部",hq_role:"核心运营 · 知识产权 · USAI Wallet",ny:"纽约办公室",ny_role:"市场 · 活动 · 合作",bs:"釜山研发",bs_role:"产品开发",visit:"访问网站",here:"当前页面",
 ip_h:"知识产权",ip_p:"美国实用专利申请 19/729,125——基于装运核验的贸易自动结算。专利申请中；已向韩国特许厅（KIPO）提交申请。",cp_h:"合规",cp_p:"FinCEN 注册 MSB（MRX26-00005630）。会员仅限经认证企业；平台不托管客户资金。",
 fo_k:"创始人",fo_t:"创始人兼CEO",fo_p1:"三十年来在建筑、内容与贸易领域创办企业。首尔网络节（Seoul Web Fest）董事（2015–2024）；纽约与首尔 AI Web Festival 创始人。",fo_p2:"USAI Wallet 源于一笔在付款环节失败的交易。目标很简单：已经发货的卖家，应当按时、每次都收到货款。",
 ct_k:"联系我们",ct_h:"欢迎联系。",ct_gen:"一般咨询",ct_trade:"贸易与合作",ct_app:"USAI Wallet",rights:"版权所有",pp:"隐私"}
