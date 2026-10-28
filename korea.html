@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K-AI CONET Korea — Busan</title>
+<meta name="description" content="K-AI CONET Co., Ltd. — the Korean company of K-AI CONET. Export trade brokerage from Busan, Korea and the development base of USAI Wallet.">
+<meta property="og:title" content="K-AI CONET Co., Ltd. — Busan, Korea">
+<meta property="og:description" content="Export brokerage · Industrial equipment · USAI Wallet R&D">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Inter";src:url("Inter-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --cyan:#19d4ff; --gold:#f6c454; --gold2:#ffd98a; --ink:#f3f7ff; --muted:#aab8d8; --line:rgba(25,212,255,.22);
+  --card:rgba(14,40,110,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#040d2b}
+body{
+  font-family:Inter,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Arabic","Noto Sans Devanagari","Noto Sans JP","Noto Sans SC",sans-serif;
+  color:var(--ink); line-height:1.5; -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(1200px 700px at 85% 0%, rgba(25,120,255,.35), transparent 60%),
+    radial-gradient(900px 600px at 10% 30%, rgba(0,212,255,.16), transparent 60%),
+    radial-gradient(1000px 600px at 90% 70%, rgba(25,120,255,.18), transparent 60%),
+    linear-gradient(170deg,#050f33 0%,#071d5a 30%,#040d2b 70%,#061540 100%);
+  position:relative;min-height:100vh;
+}
+body::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 1px 1px, rgba(150,215,255,.12) 1px, transparent 1.6px) 0 0/28px 28px;
+  -webkit-mask-image:linear-gradient(#000,rgba(0,0,0,.35) 40%,rgba(0,0,0,.35));mask-image:linear-gradient(#000,rgba(0,0,0,.35) 40%,rgba(0,0,0,.35))}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{position:relative;z-index:1;width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+[dir=rtl] .ltr{direction:ltr}
+html[lang="hi"] *,html[lang="ar"] *{letter-spacing:0!important}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(5,15,51,.72);border-bottom:1px solid rgba(25,212,255,.12)}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.02em;font-size:15px}
+.brand img{width:34px;height:34px;border-radius:50%;box-shadow:0 0 18px rgba(246,196,84,.35)}
+.brand span{color:#fff}.brand span b{color:var(--cyan);font-weight:900}
+.links{display:none;gap:22px;margin-inline-start:auto;font-size:13.5px;font-weight:600;color:var(--muted)}
+.links a:hover{color:#fff}
+.navr{display:flex;align-items:center;gap:8px;margin-inline-start:auto}
+.links+.navr{margin-inline-start:0}
+@media(min-width:900px){.links{display:flex}}
+.btn{height:42px;padding:0 16px;border-radius:13px;font-size:13.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:filter .15s,transform .1s}
+.btn:active{transform:scale(.985)}
+.primary{color:#eaf0ff;background:linear-gradient(180deg,rgba(0,212,255,.5),rgba(0,140,220,.12));border-color:rgba(0,212,255,.75);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -5px 10px rgba(0,0,0,.28),0 8px 24px rgba(0,160,255,.22)}
+.primary:hover{filter:brightness(1.06)}
+.ghost{color:var(--cyan);background:rgba(0,212,255,.04);border-color:rgba(0,212,255,.22)}
+.ghost:hover{background:rgba(0,212,255,.09);border-color:rgba(0,212,255,.36)}
+.lang{position:relative}
+.lang>button{height:36px;padding:0 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.06em;color:#E9EEF6;background:linear-gradient(180deg,rgba(0,212,255,.5),rgba(0,140,220,.12));border:1px solid rgba(0,212,255,.75);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.lang ul{position:absolute;inset-inline-end:0;top:calc(100% + 6px);min-width:170px;list-style:none;background:#0a1d4d;border:1px solid rgba(25,212,255,.35);border-radius:14px;padding:4px;box-shadow:0 18px 40px -16px rgba(0,0,0,.8);display:none;direction:ltr}
+.lang.open ul{display:block}
+.lang li button{width:100%;display:flex;align-items:center;gap:10px;padding:8px 10px;border:0;background:none;color:var(--muted);font:inherit;font-size:13px;font-weight:600;border-radius:9px;cursor:pointer;text-align:left}
+.lang li button:hover{background:rgba(255,255,255,.08);color:#fff}
+.lang li button.on{color:#fff;background:linear-gradient(180deg,rgba(0,212,255,.35),rgba(0,140,220,.1))}
+.lang li button i{width:26px;font-style:normal;font-size:10px;font-weight:800;color:var(--cyan);letter-spacing:.06em}
+
+/* hero */
+.hero{padding:48px 0 30px}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media(min-width:1024px){.hero{padding:70px 0 40px}.hero .wrap{grid-template-columns:1fr 1.1fr;gap:60px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.eyebrow i{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+h1{margin-top:14px;font-size:64px;line-height:1;font-weight:900;letter-spacing:-.02em;background:linear-gradient(90deg,#f6c454,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(min-width:1024px){h1{font-size:96px}}
+.sub{margin-top:14px;font-size:24px;font-weight:800;line-height:1.25;color:#fff}
+@media(min-width:1024px){.sub{font-size:30px}}
+.sub2{margin-top:6px;font-size:18px;font-weight:600;color:var(--cyan)}
+@media(min-width:1024px){.sub2{font-size:21px}}
+.small{margin-top:16px;font-size:14.5px;color:var(--muted);max-width:520px}
+.small b{color:var(--gold);font-weight:700}
+.cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.cta .btn{height:48px;padding:0 20px;font-size:14.5px}
+.status{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(25,212,255,.35);border-radius:999px;padding:7px 14px;background:rgba(25,212,255,.06)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.coinwrap{display:flex;justify-content:center}
+.coin{position:relative;width:min(100%,420px)}
+.coin img{width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6)) drop-shadow(0 0 40px rgba(246,196,84,.28))}
+.coin::before{content:"";position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(circle,rgba(246,196,84,.22),transparent 60%);filter:blur(12px);z-index:-1}
+@media(max-width:1023px){.coin{width:min(68%,300px)}.coinwrap{order:-1}}
+
+/* map */
+.map{padding:10px 0 40px;overflow:hidden}
+.map img{width:100%;height:auto}
+@media(max-width:759px){.map img{width:150%;max-width:none;margin-inline-start:-25%}}
+
+/* sections */
+section.s{padding:64px 0}
+.h2{font-size:12px;font-weight:800;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.h3{margin-top:10px;font-size:32px;font-weight:900;line-height:1.15;letter-spacing:-.01em}
+@media(min-width:1024px){.h3{font-size:40px}}
+.lead{margin-top:14px;font-size:17px;color:var(--muted);max-width:720px}
+.grid{display:grid;gap:14px;margin-top:28px}
+@media(min-width:760px){.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c2{grid-template-columns:repeat(2,1fr)}}
+.card{position:relative;border-radius:22px;padding:2px;background:linear-gradient(160deg,rgba(25,212,255,.45),rgba(246,196,84,.3) 50%,rgba(25,212,255,.1))}
+.card>div{border-radius:20px;padding:24px;height:100%;background:radial-gradient(120% 50% at 50% 0%,rgba(120,200,255,.14),transparent 55%),linear-gradient(170deg,rgba(14,40,110,.9),rgba(6,18,58,.96))}
+.num{font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--cyan)}
+.card h4{margin-top:10px;font-size:19px;font-weight:800;color:#fff}
+.card p{margin-top:8px;font-size:14.5px;color:var(--muted)}
+.card .big{font-size:34px;font-weight:900;color:var(--gold);line-height:1;margin-top:8px}
+.proof{display:flex;gap:14px;align-items:flex-start}
+.proof i{flex:0 0 36px;height:36px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:900}
+.ok{background:rgba(31,196,140,.18);color:#4ff0b8;border:1px solid rgba(31,196,140,.5)}
+.usd{background:rgba(246,196,84,.14);color:var(--gold);border:1px solid rgba(246,196,84,.5)}
+.proof strong{display:block;font-size:16px;color:#fff}.proof span{font-size:13.5px;color:var(--muted)}
+.ent{display:flex;flex-direction:column;gap:6px}
+.ent .tag{font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--cyan);text-transform:uppercase}
+.ent h4{margin-top:0}
+.ent address{font-style:normal;font-size:13.5px;color:var(--muted);line-height:1.55}
+.ent .role{font-size:13.5px;color:#fff;font-weight:600}
+.founder{display:grid;gap:22px;align-items:center}
+@media(min-width:900px){.founder{grid-template-columns:260px 1fr}}
+.founder .ph{border-radius:22px;aspect-ratio:1/1;background:linear-gradient(160deg,rgba(25,212,255,.25),rgba(246,196,84,.18));display:grid;place-items:center;font-size:72px;font-weight:900;color:rgba(255,255,255,.75)}
+.founder p{margin-top:10px;font-size:16px;color:var(--muted)}
+.founder .name{font-size:26px;font-weight:900;color:#fff}.founder .title{font-size:13px;font-weight:800;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+.contact .grid a{color:var(--cyan);font-weight:700}
+footer{position:relative;z-index:1;border-top:1px solid rgba(25,212,255,.12);padding:28px 0 40px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+footer b{background:linear-gradient(90deg,#f6c454,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+footer .usa{display:inline-block;margin-inline-start:8px;padding:2px 10px;border-radius:999px;border:1px solid rgba(25,212,255,.45);color:var(--cyan);font-weight:800;font-size:11px;letter-spacing:.14em}
+
+
+
+.bz-grid{display:grid;gap:16px;grid-template-columns:1fr;margin-top:26px}
+@media(min-width:640px){.bz-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.bz-grid.n6{grid-template-columns:repeat(3,1fr)}.bz-grid.n8{grid-template-columns:repeat(4,1fr)}}
+.bz>div{padding:22px!important;display:flex;flex-direction:column;gap:10px}
+.bz-ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,rgba(25,212,255,.22),rgba(10,30,90,.6));border:1px solid rgba(246,196,84,.45);box-shadow:0 0 24px rgba(25,212,255,.18),inset 0 1px 0 rgba(255,255,255,.18)}
+.bz-ico{width:36px;height:36px;filter:drop-shadow(0 0 4px rgba(25,212,255,.45))}
+.bz h4{margin:4px 0 0;font-size:17px}
+.bz p{margin:0;font-size:13.5px;line-height:1.55}
+.bz .n{font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--cyan)}
+.pp-one{font-size:clamp(28px,4.9vw,66px)!important}
+@media(max-width:759px){.pp-one{font-size:5.4vw!important}.pp-sub{font-size:19px!important}}
+
+
+.band{padding:0 0 30px;margin-top:-10px}
+.band .pp{background:none;padding:0;overflow:visible;border-radius:0}.band .pp-in{background:none;overflow:visible;border-radius:0}.band .pp-in::before{display:none}
+.pp-txt{padding:14px 24px 0}
+.pp-mapcard{margin:34px auto 0;max-width:1100px}
+.pp-mapcard>div{padding:14px!important;border-radius:20px}
+.pp-map{margin:0;padding:0;border-radius:14px;overflow:hidden}
+.pp{position:relative;border-radius:30px;overflow:hidden;padding:2px;background:linear-gradient(120deg,rgba(246,196,84,.7),rgba(25,212,255,.35) 45%,rgba(246,196,84,.55))}
+.pp-in{position:relative;border-radius:28px;overflow:hidden;min-height:0;background:radial-gradient(70% 60% at 50% 0%,rgba(40,110,255,.35),transparent 70%),linear-gradient(180deg,#06164a,#040d2b)}
+.pp-in::before{content:"";position:absolute;inset:14px;border:1px solid rgba(246,196,84,.28);border-radius:20px;pointer-events:none;z-index:2}
+.pp-meta{position:relative;z-index:3;display:flex;justify-content:space-between;gap:10px;padding:30px 36px 0;font-size:10.5px;font-weight:800;letter-spacing:.32em;color:rgba(246,196,84,.85);text-transform:uppercase}
+.pp-txt{position:relative;z-index:3;text-align:center;padding:34px 24px 0}
+.pp-k{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.34em;color:var(--cyan);text-transform:uppercase}
+.pp-k::before,.pp-k::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--cyan))}
+.pp-k::after{transform:scaleX(-1)}
+.pp-h{margin:10px auto 0;max-width:1000px;word-break:keep-all;text-wrap:balance;font-family:"Playfair Display",Georgia,"Times New Roman","Noto Serif KR","Noto Serif JP","Noto Serif SC",serif;font-style:italic;font-weight:700;font-size:clamp(24px,3.4vw,40px);line-height:1.05;letter-spacing:-.01em;background:linear-gradient(90deg,#ffe3a0,#f6c454 40%,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 40px rgba(246,196,84,.18)}
+html[lang="ko"] .pp-h,html[lang="ja"] .pp-h,html[lang="zh"] .pp-h,html[lang="hi"] .pp-h,html[lang="ar"] .pp-h{font-style:normal;font-family:inherit;font-weight:900;letter-spacing:-.02em}
+.pp-s{margin-top:14px;font-size:15px;font-weight:700;letter-spacing:.18em;color:#dbe6ff;text-transform:uppercase}
+.pp-chips{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.pp-chips span{font-size:12.5px;font-weight:700;color:#eaf0ff;padding:8px 14px;border-radius:999px;border:1px solid rgba(25,212,255,.4);background:rgba(10,30,90,.55);backdrop-filter:blur(6px)}
+.pp-chips span:nth-child(2){border-color:rgba(246,196,84,.55)}
+.pp-48{margin-top:10px;font-size:clamp(64px,13vw,150px);line-height:.95;font-weight:900;letter-spacing:-.03em;background:linear-gradient(180deg,#fff1c7 0%,#ffd98a 35%,#f6c454 65%,#c98a1f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 24px rgba(246,196,84,.28))}
+.pp-one{margin-top:14px;white-space:nowrap;font-size:clamp(30px,5.6vw,76px);line-height:1;font-weight:900;letter-spacing:-.025em;background:linear-gradient(180deg,#fff1c7 0%,#ffd98a 35%,#f6c454 65%,#c98a1f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 24px rgba(246,196,84,.28))}
+.pp-sub{margin-top:14px;font-size:clamp(18px,2.4vw,30px);font-weight:800;color:#fff;line-height:1.25}
+.pp-sub2{margin-top:6px;font-size:clamp(14px,1.6vw,20px);font-weight:600;color:var(--cyan)}
+.pp-pill{margin-top:20px;display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;border:1px solid rgba(25,212,255,.55);background:linear-gradient(180deg,rgba(0,212,255,.22),rgba(0,140,220,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 30px rgba(0,160,255,.18);font-weight:700;color:#fff;font-size:clamp(14px,1.5vw,19px)}
+.pp-pill b{font-weight:900;font-size:1.45em;background:linear-gradient(90deg,#f6c454,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pp-txt .eyebrow{justify-content:center;flex-wrap:wrap;text-align:center}
+@media(max-width:759px){.pp-txt .eyebrow{font-size:10px;letter-spacing:.14em}}
+.pp-cta{justify-content:center;margin-top:22px}
+.pp-48{white-space:nowrap}
+.band .pp-free{margin:10px 0 0;padding:0;border-radius:0;overflow:visible}
+.band .pp-free img{width:100%;height:auto;display:block}
+@media(max-width:759px){.band .pp-free{overflow:hidden}.band .pp-free img{width:150%;max-width:none;margin-inline-start:-25%}}
+.band .pp-after{padding-top:34px;padding-bottom:30px}
+/* variant L: everything left-aligned */
+.band .pp-txt{text-align:left;padding-left:0;padding-right:0}
+.band .pp-txt .eyebrow{justify-content:flex-start}
+.band .pp-row{justify-content:flex-start}
+.band .pp-mapcard{margin-left:0}
+.band .pp-foot{text-align:left;padding-left:0;padding-right:0}
+.band .pp-rule{margin-left:0}
+.band .pp-foot .pp-one-b{text-align:left}
+@media(max-width:759px){.band .pp-foot .pp-one-b{text-align:center}}
+.band .pp-foot{padding-top:22px}
+.band .pp-rule{margin-bottom:14px}
+.band .pp-foot .pp-one-b{margin:0;line-height:1.05}
+.band .pp-tag{margin-top:10px;font-size:clamp(15px,1.5vw,20px);letter-spacing:.22em;font-weight:800}
+.band{padding-bottom:0}
+.band + .s{padding-top:40px}
+@media(max-width:759px){.band .pp-txt,.band .pp-foot{text-align:center}.band .pp-txt .eyebrow,.band .pp-row{justify-content:center}.band .pp-rule{margin-left:auto}}
+
+.pp-row{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px}
+.pp-row .pp-pill{margin-top:0}
+.pp-foot{text-align:center;padding:26px 24px 0}
+.pp-foot .pp-one{margin:0}
+.pp-foot .pp-pill{margin-top:18px}
+.pp-rule{width:120px;height:1px;margin:0 auto 20px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.pp-tag{margin-top:12px;font-size:12px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan)}
+
+.pp-one-b{text-align:center;margin:30px 0 0}
+.pp-txt .pp-sub{margin-top:14px}
+@media(max-width:759px){.pp-one{font-size:6.9vw;letter-spacing:-.03em}}
+@media(max-width:759px){.pp-48{font-size:14vw}.pp-k{font-size:10px;letter-spacing:.2em;white-space:nowrap}.pp-k::before,.pp-k::after{display:none}}
+.pp-map{position:relative;z-index:1;margin-top:18px;padding:0 10px 18px}.pp-map img{width:100%;height:auto;display:block}
+.band-art{position:absolute;left:0;right:0;bottom:0;width:100%;height:260px;z-index:1}
+@media(max-width:759px){.pp-map{overflow:hidden}.pp-map img{width:150%;max-width:none;margin-inline-start:-25%}.pp-in{}.pp-meta{padding:26px 26px 0;font-size:9px;letter-spacing:.22em}.pp-meta span:last-child{display:none}.band-art{height:auto}.pp-s{font-size:12.5px;letter-spacing:.12em}}
+html,body{overflow-x:hidden}
+.brand{white-space:nowrap}
+.skyl{position:relative;width:min(100%,560px);margin:0 auto}
+.skyl svg{width:100%;height:auto;display:block;border-radius:28px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 60px rgba(25,120,255,.25)}
+.skyl::before{content:"";position:absolute;inset:-8%;background:radial-gradient(circle at 70% 20%,rgba(246,196,84,.18),transparent 55%);filter:blur(16px);z-index:-1}
+@media(max-width:1023px){.skyl{order:-1;width:min(100%,460px)}}
+.home{font-size:12.5px}
+.pill{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(246,196,84,.45);border-radius:999px;padding:5px 12px;background:rgba(246,196,84,.06)}
+.pill.cy{color:var(--cyan);border-color:rgba(25,212,255,.45);background:rgba(25,212,255,.06)}
+.poster{display:block}
+.poster>div{padding:16px!important;display:grid;gap:16px;grid-template-columns:120px 1fr;align-items:center}
+@media(min-width:1024px){.poster>div{grid-template-columns:170px 1fr}}
+.poster img{width:100%;height:auto;aspect-ratio:2064/2700;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px -16px rgba(0,0,0,.8)}
+.poster h4{margin-top:0}
+.poster .go{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:800;color:var(--cyan)}
+.poster:hover .go{text-decoration:underline}
+.stat .big{font-size:56px}
+.stat p{margin-top:10px}
+.here>div{background:radial-gradient(120% 60% at 50% 0%,rgba(246,196,84,.18),transparent 60%),linear-gradient(170deg,rgba(18,52,140,.95),rgba(6,18,58,.96))}
+.ent .badge{align-self:flex-start;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#071a52;background:linear-gradient(90deg,#f6c454,#ffd98a);border-radius:999px;padding:3px 10px;margin-top:6px}
+.ent a.v{margin-top:6px;font-size:13.5px;font-weight:800;color:var(--cyan)}
+.ent a.v:hover{text-decoration:underline}
+
+html,body{overflow-x:hidden}
+html[lang="ko"] body,html[lang="ja"] body,html[lang="zh"] body{word-break:keep-all;overflow-wrap:break-word}
+.lang button,.nav .btn{white-space:nowrap}
+.scene{direction:ltr}
+.brand{white-space:nowrap}
+.home{font-size:12.5px}
+.scene{position:relative;height:360px;margin-top:10px;overflow:hidden;border-top:1px solid rgba(25,212,255,.12);border-bottom:1px solid rgba(246,196,84,.18)}
+.scene::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(180deg,transparent,rgba(4,13,43,.85));pointer-events:none}
+@media(max-width:759px){.scene{height:45vw}}
+@keyframes moonGlow{0%,100%{filter:drop-shadow(0 0 6px rgba(200,220,255,.6))}50%{filter:drop-shadow(0 0 14px rgba(200,220,255,.95))}}
+@keyframes seaWave{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes orbitBeam{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.scene *{animation:none!important}}
+.chips{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.chips span{font-size:14px;font-weight:700;color:#eaf0ff;padding:9px 16px;border-radius:999px;border:1px solid rgba(25,212,255,.4);background:rgba(10,30,90,.55)}
+.chips span:nth-child(odd){border-color:rgba(246,196,84,.5)}
+.grid.c4{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:760px){.grid.c4{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.rdbox>div{background:radial-gradient(120% 60% at 50% 0%,rgba(246,196,84,.14),transparent 60%),linear-gradient(170deg,rgba(18,52,140,.95),rgba(6,18,58,.96));padding:30px!important}
+.rdrow{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.pill48{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border-radius:999px;border:1px solid rgba(25,212,255,.55);background:linear-gradient(180deg,rgba(0,212,255,.22),rgba(0,140,220,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 30px rgba(0,160,255,.18);font-weight:700;color:#fff;font-size:17px}
+.pill48 b{font-weight:900;font-size:1.45em;background:linear-gradient(90deg,#f6c454,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.here>div{background:radial-gradient(120% 60% at 50% 0%,rgba(246,196,84,.18),transparent 60%),linear-gradient(170deg,rgba(18,52,140,.95),rgba(6,18,58,.96))}
+.ent .badge{align-self:flex-start;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#071a52;background:linear-gradient(90deg,#f6c454,#ffd98a);border-radius:999px;padding:3px 10px;margin-top:6px}
+.ent a.v{margin-top:6px;font-size:13.5px;font-weight:800;color:var(--cyan)}
+.ent a.v:hover{text-decoration:underline}
+.biz{margin-top:14px;display:grid;gap:4px 18px;grid-template-columns:auto 1fr;font-size:12.5px;line-height:1.6;color:var(--muted)}
+.biz dt{color:#c9d6ff;font-weight:700;white-space:nowrap}
+.biz dd{margin:0}
+@media(min-width:760px){.biz{grid-template-columns:auto 1fr auto 1fr}}
+footer .wrap{flex-direction:column;align-items:flex-start;gap:10px}
+
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="#top"><img src="usai-coin-192.webp" alt=""><span>K-AI <b>CONET</b> <span style="color:var(--gold);font-weight:800;letter-spacing:.12em;font-size:11px">KOREA</span></span></a>
+  <div class="links">
+    <a href="#what" data-i="nav_what"></a>
+    <a href="#svc" data-i="nav_svc"></a>
+    <a href="#how" data-i="nav_how"></a>
+    <a href="#rd" data-i="nav_rd"></a>
+    <a href="#company" data-i="nav_company"></a>
+    <a href="#contact" data-i="nav_contact"></a>
+  </div>
+  <div class="navr">
+    <div class="lang" id="lang">
+      <button type="button" aria-haspopup="listbox" aria-expanded="false">🌐 <span id="langCode">EN</span></button>
+      <ul role="listbox" id="langList"></ul>
+    </div>
+    <a class="btn ghost home" href="https://k-aiconet.com" data-i="home"></a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top" style="padding-bottom:0"><div class="wrap">
+  <div>
+    <div class="eyebrow"><i></i><span data-i="eyebrow"></span></div>
+    <h1 data-i="h1"></h1>
+    <div class="sub" data-i="sub"></div>
+    <div class="sub2" data-i="sub2"></div>
+    <p class="small" data-i="small"></p>
+    <div class="cta">
+      <a class="btn primary" href="#svc" data-i="cta1"></a>
+      <a class="btn ghost" href="mailto:trade@k-aiconet.com?subject=Trade%20inquiry%20%E2%80%94%20K-AI%20CONET" data-i="cta2"></a>
+    </div>
+    <div><span class="status"><i></i><span data-i="status"></span></span></div>
+  </div>
+  <div class="coinwrap"><div class="coin"><img src="usai-coin-384.webp" alt="USAI coin" width="384" height="384" fetchpriority="high"></div></div>
+</div></header>
+
+<section class="band"><div class="wrap"><div class="pp"><div class="pp-in">
+  <div class="pp-map pp-free"><img src="world-map-1056.webp" srcset="world-map-1056.webp 1056w, world-map.webp 2035w" sizes="(min-width:1180px) 1140px, 100vw" alt="" loading="lazy"></div>
+  <div class="pp-foot">
+    <div class="pp-rule"></div>
+    <h2 class="pp-one pp-one-b ltr">Made in Korea. Sold Worldwide.</h2>
+    <div class="pp-tag" data-i="slog_tag"></div>
+  </div>
+  <div class="pp-txt pp-after">
+    <div class="eyebrow"><i></i><span class="ltr">All is One</span>&nbsp;·&nbsp;<span data-i="b_k"></span></div>
+    <div class="pp-sub" data-i="b_h"></div>
+    <div class="pp-sub2" data-i="b_s"></div>
+    <div class="pp-row">
+      <div class="pp-pill"><b class="ltr">48 HOURS</b><span data-i="b_pill"></span></div>
+      <a class="btn primary" href="mailto:trade@k-aiconet.com?subject=Trade%20inquiry%20%E2%80%94%20K-AI%20CONET" data-i="b_btn1"></a>
+      <a class="btn ghost" href="https://usai-wallet.vercel.app" data-i="b_btn2"></a>
+    </div>
+  </div>
+</div></div></div></section>
+
+<section class="s" id="what"><div class="wrap">
+  <div class="h2" data-i="what_k"></div>
+  <h2 class="h3" data-i="what_h"></h2>
+  <p class="lead" data-i="what_p"></p>
+  <div class="h2" style="margin-top:34px" data-i="mk_k"></div>
+  <div class="chips"><span data-i="m1"></span><span data-i="m2"></span><span data-i="m3"></span><span data-i="m4"></span><span data-i="m5"></span><span data-i="m6"></span></div>
+</div></section>
+
+<section class="s" id="biz"><div class="wrap">
+  <div class="h2" data-i="bz_k"></div>
+  <h2 class="h3" data-i="bz_h"></h2>
+  <div class="bz-grid n6"><div class="card bz"><div><div class="bz-ic"><svg class="bz-ico" viewBox="0 0 40 40" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="12" stroke="#19d4ff" stroke-width="1.6"/><ellipse cx="20" cy="20" rx="5.5" ry="12" stroke="#19d4ff" stroke-width="1.2"/><path d="M8 20h24M10 14h20M10 26h20" stroke="#19d4ff" stroke-width="1"/><path d="M27 6l5 3-5 3" stroke="#f6c454" stroke-width="1.6"/><path d="M13 34l-5-3 5-3" stroke="#f6c454" stroke-width="1.6"/></svg></div><span class="n">01</span><h4 data-i="bz0_h"></h4><p data-i="bz0_p"></p></div></div><div class="card bz"><div><div class="bz-ic"><svg class="bz-ico" viewBox="0 0 40 40" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 26h28l-4 7H10z" stroke="#19d4ff" stroke-width="1.6"/><rect x="11" y="19" width="6" height="7" stroke="#f6c454" stroke-width="1.3"/><rect x="17" y="19" width="6" height="7" stroke="#19d4ff" stroke-width="1.3"/><rect x="23" y="19" width="6" height="7" stroke="#f6c454" stroke-width="1.3"/><rect x="14" y="13" width="6" height="6" stroke="#19d4ff" stroke-width="1.3"/><rect x="20" y="13" width="6" height="6" stroke="#f6c454" stroke-width="1.3"/><path d="M4 36c3-1.5 5-1.5 8 0s5 1.5 8 0 5-1.5 8 0 5 1.5 8 0" stroke="#19d4ff" stroke-width="1"/></svg></div><span class="n">02</span><h4 data-i="bz1_h"></h4><p data-i="bz1_p"></p></div></div><div class="card bz"><div><div class="bz-ic"><svg class="bz-ico" viewBox="0 0 40 40" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 33V18l8 5v-5l8 5v-5l8 5V8h4v25z" stroke="#19d4ff" stroke-width="1.6"/><rect x="10" y="26" width="4" height="4" stroke="#f6c454" stroke-width="1.2"/><rect x="18" y="26" width="4" height="4" stroke="#f6c454" stroke-width="1.2"/><rect x="26" y="26" width="4" height="4" stroke="#f6c454" stroke-width="1.2"/><path d="M32 8c0-2 2-3 4-3" stroke="#f6c454" stroke-width="1.2"/></svg></div><span class="n">03</span><h4 data-i="bz2_h"></h4><p data-i="bz2_p"></p></div></div><div class="card bz"><div><div class="bz-ic"><svg class="bz-ico" viewBox="0 0 40 40" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="30" height="24" rx="4" stroke="#19d4ff" stroke-width="1.6"/><path d="M5 14h30" stroke="#19d4ff" stroke-width="1"/><path d="M15 19l-4 4 4 4M25 19l4 4-4 4" stroke="#f6c454" stroke-width="1.6"/><path d="M22 18l-4 10" stroke="#19d4ff" stroke-width="1.4"/></svg></div><span class="n">04</span><h4 data-i="bz3_h"></h4><p data-i="bz3_p"></p></div></div><div class="card bz"><div><div class="bz-ic"><svg class="bz-ico" viewBox="0 0 40 40" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="9" width="30" height="20" rx="3" stroke="#19d4ff" stroke-width="1.6"/><path d="M17 14v10l8-5z" stroke="#f6c454" stroke-width="1.5" fill="rgba(246,196,84,.15)"/><path d="M12 34h16" stroke="#19d4ff" stroke-width="1.4"/><path d="M20 29v5" stroke="#19d4ff" stroke-width="1.2"/></svg></div><span class="n">05</span><h4 data-i="bz4_h"></h4><p data-i="bz4_p"></p></div></div><div class="card bz"><div><div class="bz-ic"><svg class="bz-ico" viewBox="0 0 40 40" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5l4.2 8.6 9.4 1.4-6.8 6.6 1.6 9.4L20 26.6l-8.4 4.4 1.6-9.4L6.4 15l9.4-1.4z" stroke="#f6c454" stroke-width="1.6" fill="rgba(246,196,84,.12)"/><path d="M8 35h24" stroke="#19d4ff" stroke-width="1.4"/><circle cx="33" cy="7" r="1.6" fill="#19d4ff"/><circle cx="7" cy="8" r="1.2" fill="#19d4ff"/></svg></div><span class="n">06</span><h4 data-i="bz5_h"></h4><p data-i="bz5_p"></p></div></div></div>
+</div></section>
+
+<section class="s" id="svc"><div class="wrap">
+  <div class="h2" data-i="svc_k"></div>
+  <h2 class="h3" data-i="svc_h"></h2>
+  <p class="lead" data-i="svc_p"></p>
+  <div class="grid c3">
+    <div class="card"><div><div class="num">01</div><h4 data-i="s1_h"></h4><p data-i="s1_p"></p></div></div>
+    <div class="card"><div><div class="num">02</div><h4 data-i="s2_h"></h4><p data-i="s2_p"></p></div></div>
+    <div class="card"><div><div class="num">03</div><h4 data-i="s3_h"></h4><p data-i="s3_p"></p></div></div>
+  </div>
+</div></section>
+
+<section class="s" id="how"><div class="wrap">
+  <div class="h2" data-i="how_k"></div>
+  <h2 class="h3" data-i="how_h"></h2>
+  <div class="grid c4">
+    <div class="card"><div><div class="num">01</div><h4 data-i="p1_h"></h4><p data-i="p1_p"></p></div></div>
+    <div class="card"><div><div class="num">02</div><h4 data-i="p2_h"></h4><p data-i="p2_p"></p></div></div>
+    <div class="card"><div><div class="num">03</div><h4 data-i="p3_h"></h4><p data-i="p3_p"></p></div></div>
+    <div class="card"><div><div class="num">04</div><h4 data-i="p4_h"></h4><p data-i="p4_p"></p></div></div>
+  </div>
+</div></section>
+
+<section class="s" id="rd"><div class="wrap">
+  <div class="card rdbox"><div>
+    <div class="h2" data-i="rd_k"></div>
+    <h2 class="h3" data-i="rd_h"></h2>
+    <p class="lead" data-i="rd_p"></p>
+    <div class="rdrow">
+      <div class="pill48"><b class="ltr">48 HOURS</b><span data-i="rd_pill"></span></div>
+      <a class="btn primary" href="https://usai-wallet.vercel.app" data-i="rd_login"></a>
+      <a class="btn ghost" href="mailto:ceo@k-aiconet.com?subject=USAI%20Wallet%20access%20request" data-i="rd_req"></a>
+    </div>
+  </div></div>
+</div></section>
+
+<section class="s" id="company"><div class="wrap">
+  <div class="h2" data-i="co_k"></div>
+  <h2 class="h3" data-i="co_h"></h2>
+  <p class="lead" data-i="co_p"></p>
+  <div class="grid c3">
+    <div class="card"><div class="ent"><div class="tag" data-i="hq"></div><h4>K-AI CONET WYOMING LLC</h4><div class="role" data-i="hq_role"></div><address class="ltr">Cheyenne, Wyoming, USA</address><a class="v" href="https://k-aiconet.com" data-i="visit"></a></div></div>
+    <div class="card"><div class="ent"><div class="tag" data-i="ny"></div><h4>K-AI CONET INC</h4><div class="role" data-i="ny_role"></div><address class="ltr">New York, USA</address><a class="v" href="newyork.html" data-i="visit"></a></div></div>
+    <div class="card here"><div class="ent"><div class="tag" data-i="bs"></div><h4>K-AI CONET Co., Ltd.</h4><div class="role" data-i="bs_role"></div><address class="ltr">Busan, Republic of Korea</address><span class="badge" data-i="here"></span></div></div>
+  </div>
+</div></section>
+
+<section class="s contact" id="contact"><div class="wrap">
+  <div class="h2" data-i="ct_k"></div>
+  <h2 class="h3" data-i="ct_h"></h2>
+  <div class="grid c3">
+    <div class="card"><div><h4 data-i="ct_trade"></h4><p><a href="mailto:trade@k-aiconet.com">trade@k-aiconet.com</a></p></div></div>
+    <div class="card"><div><h4 data-i="ct_part"></h4><p><a href="mailto:ceo@k-aiconet.com">ceo@k-aiconet.com</a></p></div></div>
+    <div class="card"><div><h4 data-i="ct_phone"></h4><p class="ltr"><a href="tel:+821051664353">+82 10-5166-4353</a></p></div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><b>K-AI CONET Co., Ltd.</b><span class="usa">BUSAN · KOREA</span></div>
+  <dl class="biz">
+    <dt data-i="f_name"></dt><dd data-i="v_name"></dd>
+    <dt data-i="f_ceo"></dt><dd data-i="v_ceo"></dd>
+    <dt data-i="f_brn"></dt><dd class="ltr">692-86-02873</dd>
+    <dt data-i="f_trade"></dt><dd class="ltr">10812903</dd>
+    <dt data-i="f_addr_l"></dt><dd data-i="f_addr"></dd>
+    <dt data-i="f_fax"></dt><dd class="ltr">0504-234-4353</dd>
+    <dt data-i="f_mail"></dt><dd class="ltr">trade@k-aiconet.com</dd>
+  </dl>
+  <div>© 2026 K-AI CONET Co., Ltd. · <span data-i="rights"></span></div>
+</div></footer>
+
+
+<script>
+const LANGS={"en": "English", "ko": "한국어", "es": "Español", "hi": "हिन्दी", "ar": "العربية", "ja": "日本語", "zh": "中文"};
+const T={"en": {"slog_tag": "K-AI CONET Co., Ltd. · Busan, Korea", "b_k": "Export Trade Brokerage", "b_h": "Real buyers. Real products. Paid on time.", "b_s": "Buyer matching · Inspection & contract · Shipping with logistics partners", "b_pill": "to get paid", "b_btn1": "Trade inquiry", "b_btn2": "USAI Wallet log in", "nav_what": "What we do", "nav_svc": "Services", "nav_how": "How it works", "nav_rd": "USAI Wallet", "nav_company": "Company", "nav_contact": "Contact", "home": "Main site", "eyebrow": "K-AI CONET Co., Ltd. · Busan, Korea", "h1": "Busan.", "sub": "Korean products, delivered to the world's buyers.", "sub2": "Export brokerage · Industrial equipment · USAI Wallet R&D", "small": "The Korean company of K-AI CONET — export trade brokerage and the development base of USAI Wallet.", "cta1": "Our services", "cta2": "Trade inquiry", "status": "Registered trader in Korea · KITA No. 10812903", "what_k": "What we do", "what_h": "From Korean factories to buyers abroad.", "what_p": "We connect Korean manufacturers with buyers in India, the Middle East, Europe and Southeast Asia. We find the buyer, prepare the contract and documents, and coordinate inspection, packing and shipping with our logistics partners.", "svc_k": "Services", "svc_h": "What we export.", "svc_p": "We work on deals where a real buyer meets a real product — no lists, no guesswork.", "s1_h": "Industrial equipment & plant", "s1_p": "Used production lines and heavy machinery from Korean steel, automotive and shipbuilding sites — with on-site inspection, dismantling, packing and shipping support.", "s2_h": "K-Beauty & consumer goods", "s2_p": "Korean cosmetics and consumer brands, matched with distributors and retailers abroad.", "s3_h": "Industrial & medical products", "s3_p": "Korean-made devices and parts, introduced to buyers in fast-growing markets.", "mk_k": "Markets", "mk_h": "Where our buyers are.", "m1": "India", "m2": "Middle East", "m3": "Türkiye", "m4": "Europe", "m5": "Southeast Asia", "m6": "Latin America", "how_k": "How it works", "how_h": "Four steps, one contact.", "p1_h": "Inquiry", "p1_p": "Tell us the product, quantity and target market.", "p2_h": "Buyer matching", "p2_p": "We introduce verified buyers and share their requirements.", "p3_h": "Inspection & contract", "p3_p": "On-site inspection in Korea, price and terms agreed in writing.", "p4_h": "Shipping & payment", "p4_p": "Packing, shipping and documents handled with our logistics partners.", "rd_k": "R&D", "rd_h": "The development base of USAI Wallet.", "rd_p": "USAI Wallet — the B2B trade-payment platform operated by K-AI CONET LLC (Wyoming, USA) — is built in Busan. Exporters are matched with buyers, shipping documents are checked, and payment is released automatically after shipment.", "rd_pill": "to get paid", "rd_login": "Member log in", "rd_req": "Request access", "co_k": "Company", "co_h": "One company, three offices.", "co_p": "K-AI CONET operates from the United States with offices in New York and Busan.", "hq": "Headquarters", "hq_role": "USAI Wallet operator · Core IP", "ny": "New York", "ny_role": "Marketing · Events · K-Content", "bs": "Busan", "bs_role": "Export brokerage · R&D", "here": "You are here", "visit": "Visit site", "ct_k": "Contact", "ct_h": "Let's talk trade.", "ct_trade": "Trade inquiries", "ct_part": "Partnership", "ct_phone": "Phone", "f_name": "Company", "f_ceo": "CEO", "f_brn": "Business reg. no.", "f_trade": "Trader no. (KITA)", "f_addr_l": "Address", "f_addr": "B-501, 111-1 Jeseok-ro, Saha-gu, Busan, Republic of Korea", "f_fax": "Fax", "f_mail": "Email", "v_name": "K-AI CONET Co., Ltd.", "v_ceo": "IL KANG", "rights": "All rights reserved", "bz_k": "Business areas", "bz_h": "What we do, at a glance.", "bz0_h": "Import & Export Trade", "bz0_p": "Industrial equipment, K-Beauty and consumer goods for buyers in India, the Middle East, Europe and Southeast Asia.", "bz1_h": "Logistics & Shipping", "bz1_p": "Container and heavy-cargo shipping from Busan with our forwarding partners. Customs clearance through partner customs brokers.", "bz2_h": "Industrial Plant Export", "bz2_p": "Used production lines and heavy machinery from steel, automotive and shipbuilding sites — from on-site inspection to dismantling and shipping.", "bz3_h": "Software & AI Development", "bz3_p": "We build USAI Wallet, the B2B trade-payment platform, in Busan — contract and shipping records kept as digital certificates (dNFT).", "bz4_h": "Digital & K-Content", "bz4_p": "Global distribution and licensing for Korean web dramas and web films, plus digital art and NFT issuance.", "bz5_h": "AI Web Festival", "bz5_p": "An AI and digital-content festival connecting Seoul and New York."}, "ko": {"slog_tag": "주식회사 케이에이아이코넷 · 부산", "b_k": "수출 중개", "b_h": "실제 바이어, 실제 제품, 제때 들어오는 대금.", "b_s": "바이어 매칭 · 실사·계약 · 물류 파트너와 선적", "b_pill": "안에 지급", "b_btn1": "무역 문의", "b_btn2": "USAI Wallet 로그인", "nav_what": "하는 일", "nav_svc": "서비스", "nav_how": "진행 방식", "nav_rd": "USAI Wallet", "nav_company": "회사", "nav_contact": "문의", "home": "메인 사이트", "eyebrow": "주식회사 케이에이아이코넷 · 부산", "h1": "부산.", "sub": "한국의 좋은 제품을 세계의 바이어에게.", "sub2": "수출 중개 · 산업 설비 · USAI Wallet 개발", "small": "K-AI CONET의 한국 법인 — 무역·수출입 중개와 USAI Wallet 개발 거점입니다.", "cta1": "서비스 보기", "cta2": "무역 문의", "status": "무역업 등록 · 무역업고유번호 10812903", "what_k": "하는 일", "what_h": "한국 공장에서 해외 바이어까지.", "what_p": "한국 제조사와 인도·중동·유럽·동남아 바이어를 연결합니다. 바이어를 찾고, 계약과 서류를 준비하고, 물류 파트너와 함께 실사·포장·선적까지 챙깁니다.", "svc_k": "서비스", "svc_h": "이런 품목을 수출합니다.", "svc_p": "실제 바이어와 실제 제품이 만나는 거래만 진행합니다.", "s1_h": "산업 설비·플랜트", "s1_p": "국내 철강·자동차·조선 현장에서 나오는 중고 생산라인과 중장비 — 현장 실사, 해체, 포장, 선적까지 지원합니다.", "s2_h": "K-뷰티·소비재", "s2_p": "한국 화장품과 소비재 브랜드를 해외 유통사·소매업체와 연결합니다.", "s3_h": "산업·의료 제품", "s3_p": "한국산 기기와 부품을 성장하는 시장의 바이어에게 소개합니다.", "mk_k": "시장", "mk_h": "저희 바이어가 있는 곳.", "m1": "인도", "m2": "중동", "m3": "튀르키예", "m4": "유럽", "m5": "동남아시아", "m6": "중남미", "how_k": "진행 방식", "how_h": "네 단계, 한 창구.", "p1_h": "문의", "p1_p": "제품, 수량, 목표 시장을 알려 주십시오.", "p2_h": "바이어 매칭", "p2_p": "검증된 바이어를 소개하고 요구 사항을 전달합니다.", "p3_h": "실사·계약", "p3_p": "한국 현장 실사 후 가격과 조건을 서면으로 확정합니다.", "p4_h": "선적·대금", "p4_p": "물류 파트너와 함께 포장·선적·서류를 처리합니다.", "rd_k": "R&D", "rd_h": "USAI Wallet 개발 거점.", "rd_p": "미국 와이오밍 법인 K-AI CONET LLC가 운영하는 B2B 무역 결제 플랫폼 USAI Wallet을 부산에서 개발합니다. 수출자와 바이어를 연결하고, 선적 서류를 확인하고, 선적 후 대금이 자동으로 지급됩니다.", "rd_pill": "안에 지급", "rd_login": "회원 로그인", "rd_req": "이용 문의", "co_k": "회사", "co_h": "하나의 회사, 세 곳의 사무소.", "co_p": "K-AI CONET은 미국을 본사로 뉴욕과 부산에 사무소를 두고 있습니다.", "hq": "본사", "hq_role": "USAI Wallet 운영 · 핵심 IP", "ny": "뉴욕", "ny_role": "마케팅 · 행사 · K-콘텐츠", "bs": "부산", "bs_role": "수출 중개 · R&D", "here": "현재 페이지", "visit": "사이트 보기", "ct_k": "문의", "ct_h": "무역 이야기, 편하게 연락 주십시오.", "ct_trade": "무역 문의", "ct_part": "제휴 문의", "ct_phone": "전화", "f_name": "상호", "f_ceo": "대표이사", "f_brn": "사업자등록번호", "f_trade": "무역업고유번호", "f_addr_l": "주소", "f_addr": "부산광역시 사하구 제석로 111-1, B동 501호", "f_fax": "팩스", "f_mail": "이메일", "v_name": "주식회사 케이에이아이코넷 (K-AI CONET Co., Ltd.)", "v_ceo": "강일", "rights": "All rights reserved", "bz_k": "사업 분야", "bz_h": "저희가 하는 일, 한눈에.", "bz0_h": "수출입·국제무역", "bz0_p": "산업 설비·K-뷰티·소비재를 인도·중동·유럽·동남아 바이어에게 수출합니다.", "bz1_h": "물류·선적 연계", "bz1_p": "포워딩 파트너와 함께 부산항 컨테이너·중량물 선적을 연결합니다. 통관은 파트너 관세사를 통해 진행합니다.", "bz2_h": "산업 설비·플랜트 수출", "bz2_p": "철강·자동차·조선 현장의 중고 생산라인과 중장비 — 현장 실사부터 해체·선적까지.", "bz3_h": "소프트웨어·AI 개발", "bz3_p": "B2B 무역 결제 플랫폼 USAI Wallet을 부산에서 개발합니다 — 계약·선적 기록은 디지털 인증서(dNFT)로 남깁니다.", "bz4_h": "디지털 콘텐츠·K-콘텐츠", "bz4_p": "한국 웹드라마·웹무비의 해외 배급과 라이선스, 디지털 아트·NFT 발행.", "bz5_h": "AI 웹페스티벌", "bz5_p": "서울과 뉴욕을 잇는 AI·디지털 콘텐츠 페스티벌을 운영합니다."}, "es": {"slog_tag": "K-AI CONET Co., Ltd. · Busan, Corea", "b_k": "Intermediación de exportación", "b_h": "Compradores reales. Productos reales. Pago puntual.", "b_s": "Búsqueda de comprador · Inspección y contrato · Envío con socios logísticos", "b_pill": "para cobrar", "b_btn1": "Consulta comercial", "b_btn2": "Acceso a USAI Wallet", "nav_what": "Qué hacemos", "nav_svc": "Servicios", "nav_how": "Cómo funciona", "nav_rd": "USAI Wallet", "nav_company": "Empresa", "nav_contact": "Contacto", "home": "Sitio principal", "eyebrow": "K-AI CONET Co., Ltd. · Busan, Corea", "h1": "Busan.", "sub": "Productos coreanos para compradores de todo el mundo.", "sub2": "Intermediación de exportación · Equipos industriales · I+D de USAI Wallet", "small": "La empresa coreana de K-AI CONET — intermediación de comercio exterior y base de desarrollo de USAI Wallet.", "cta1": "Nuestros servicios", "cta2": "Consulta comercial", "status": "Exportador registrado en Corea · KITA n.º 10812903", "what_k": "Qué hacemos", "what_h": "De las fábricas coreanas a compradores en el extranjero.", "what_p": "Conectamos fabricantes coreanos con compradores en India, Oriente Medio, Europa y el Sudeste Asiático. Encontramos al comprador, preparamos el contrato y los documentos, y coordinamos la inspección, el embalaje y el envío con nuestros socios logísticos.", "svc_k": "Servicios", "svc_h": "Lo que exportamos.", "svc_p": "Trabajamos en operaciones donde un comprador real encuentra un producto real.", "s1_h": "Equipos industriales y plantas", "s1_p": "Líneas de producción usadas y maquinaria pesada de plantas siderúrgicas, automotrices y navieras de Corea, con apoyo en inspección, desmontaje, embalaje y envío.", "s2_h": "K-Beauty y bienes de consumo", "s2_p": "Cosméticos y marcas de consumo coreanas, conectados con distribuidores y minoristas en el extranjero.", "s3_h": "Productos industriales y médicos", "s3_p": "Equipos y piezas fabricados en Corea, presentados a compradores en mercados en crecimiento.", "mk_k": "Mercados", "mk_h": "Dónde están nuestros compradores.", "m1": "India", "m2": "Oriente Medio", "m3": "Turquía", "m4": "Europa", "m5": "Sudeste Asiático", "m6": "América Latina", "how_k": "Cómo funciona", "how_h": "Cuatro pasos, un solo contacto.", "p1_h": "Consulta", "p1_p": "Indíquenos el producto, la cantidad y el mercado objetivo.", "p2_h": "Búsqueda de comprador", "p2_p": "Presentamos compradores verificados y sus requisitos.", "p3_h": "Inspección y contrato", "p3_p": "Inspección en Corea; precio y condiciones acordados por escrito.", "p4_h": "Envío y pago", "p4_p": "Embalaje, envío y documentos gestionados con nuestros socios logísticos.", "rd_k": "I+D", "rd_h": "La base de desarrollo de USAI Wallet.", "rd_p": "USAI Wallet — la plataforma B2B de pagos comerciales operada por K-AI CONET LLC (Wyoming, EE. UU.) — se desarrolla en Busan. Conecta exportadores con compradores, verifica los documentos de embarque y libera el pago automáticamente tras el envío.", "rd_pill": "para cobrar", "rd_login": "Acceso de miembros", "rd_req": "Solicitar acceso", "co_k": "Empresa", "co_h": "Una empresa, tres oficinas.", "co_p": "K-AI CONET opera desde Estados Unidos con oficinas en Nueva York y Busan.", "hq": "Sede central", "hq_role": "Operador de USAI Wallet · PI principal", "ny": "Nueva York", "ny_role": "Marketing · Eventos · K-Content", "bs": "Busan", "bs_role": "Intermediación de exportación · I+D", "here": "Está aquí", "visit": "Visitar sitio", "ct_k": "Contacto", "ct_h": "Hablemos de comercio.", "ct_trade": "Consultas comerciales", "ct_part": "Alianzas", "ct_phone": "Teléfono", "f_name": "Empresa", "f_ceo": "Director ejecutivo", "f_brn": "N.º de registro mercantil", "f_trade": "N.º de comerciante (KITA)", "f_addr_l": "Dirección", "f_addr": "B-501, 111-1 Jeseok-ro, Saha-gu, Busan, República de Corea", "f_fax": "Fax", "f_mail": "Correo", "v_name": "K-AI CONET Co., Ltd.", "v_ceo": "IL KANG", "rights": "Todos los derechos reservados", "bz_k": "Áreas de negocio", "bz_h": "Lo que hacemos, de un vistazo.", "bz0_h": "Comercio exterior", "bz0_p": "Equipos industriales, K-Beauty y bienes de consumo para compradores en India, Oriente Medio, Europa y el Sudeste Asiático.", "bz1_h": "Logística y envío", "bz1_p": "Envío de contenedores y carga pesada desde Busan con nuestros socios transitarios. Despacho aduanero a través de agentes de aduanas asociados.", "bz2_h": "Exportación de plantas industriales", "bz2_p": "Líneas de producción usadas y maquinaria pesada de plantas siderúrgicas, automotrices y navieras — de la inspección al desmontaje y envío.", "bz3_h": "Desarrollo de software e IA", "bz3_p": "Desarrollamos en Busan USAI Wallet, la plataforma B2B de pagos comerciales — los registros de contrato y envío se guardan como certificados digitales (dNFT).", "bz4_h": "Contenido digital y K-Content", "bz4_p": "Distribución y licencias internacionales de webseries y webfilms coreanos, además de arte digital y emisión de NFT.", "bz5_h": "AI Web Festival", "bz5_p": "Un festival de IA y contenido digital que une Seúl y Nueva York."}, "hi": {"slog_tag": "K-AI CONET Co., Ltd. · बुसान, कोरिया", "b_k": "निर्यात ब्रोकरेज", "b_h": "असली खरीदार। असली उत्पाद। समय पर भुगतान।", "b_s": "खरीदार मिलान · निरीक्षण और अनुबंध · लॉजिस्टिक्स साझेदारों के साथ शिपिंग", "b_pill": "में भुगतान", "b_btn1": "व्यापार पूछताछ", "b_btn2": "USAI Wallet लॉग इन", "nav_what": "हम क्या करते हैं", "nav_svc": "सेवाएँ", "nav_how": "प्रक्रिया", "nav_rd": "USAI Wallet", "nav_company": "कंपनी", "nav_contact": "संपर्क", "home": "मुख्य साइट", "eyebrow": "K-AI CONET Co., Ltd. · बुसान, कोरिया", "h1": "बुसान.", "sub": "कोरियाई उत्पाद, दुनिया भर के खरीदारों तक।", "sub2": "निर्यात ब्रोकरेज · औद्योगिक उपकरण · USAI Wallet R&D", "small": "K-AI CONET की कोरियाई कंपनी — निर्यात व्यापार ब्रोकरेज और USAI Wallet का विकास केंद्र।", "cta1": "हमारी सेवाएँ", "cta2": "व्यापार पूछताछ", "status": "कोरिया में पंजीकृत व्यापारी · KITA नं. 10812903", "what_k": "हम क्या करते हैं", "what_h": "कोरियाई फ़ैक्टरियों से विदेशी खरीदारों तक।", "what_p": "हम कोरियाई निर्माताओं को भारत, मध्य पूर्व, यूरोप और दक्षिण-पूर्व एशिया के खरीदारों से जोड़ते हैं। हम खरीदार ढूँढते हैं, अनुबंध और दस्तावेज़ तैयार करते हैं, और अपने लॉजिस्टिक्स साझेदारों के साथ निरीक्षण, पैकिंग और शिपिंग का समन्वय करते हैं।", "svc_k": "सेवाएँ", "svc_h": "हम क्या निर्यात करते हैं।", "svc_p": "हम वही सौदे करते हैं जहाँ असली खरीदार असली उत्पाद से मिलता है।", "s1_h": "औद्योगिक उपकरण और प्लांट", "s1_p": "कोरिया के स्टील, ऑटोमोबाइल और जहाज़-निर्माण स्थलों से पुरानी उत्पादन लाइनें और भारी मशीनरी — साइट निरीक्षण, डिसमैंटलिंग, पैकिंग और शिपिंग सहायता के साथ।", "s2_h": "K-ब्यूटी और उपभोक्ता उत्पाद", "s2_p": "कोरियाई कॉस्मेटिक्स और उपभोक्ता ब्रांड, विदेशी वितरकों और खुदरा विक्रेताओं से जोड़े जाते हैं।", "s3_h": "औद्योगिक और चिकित्सा उत्पाद", "s3_p": "कोरिया में बने उपकरण और पुर्ज़े, तेज़ी से बढ़ते बाज़ारों के खरीदारों तक।", "mk_k": "बाज़ार", "mk_h": "हमारे खरीदार कहाँ हैं।", "m1": "भारत", "m2": "मध्य पूर्व", "m3": "तुर्किये", "m4": "यूरोप", "m5": "दक्षिण-पूर्व एशिया", "m6": "लैटिन अमेरिका", "how_k": "प्रक्रिया", "how_h": "चार चरण, एक संपर्क।", "p1_h": "पूछताछ", "p1_p": "उत्पाद, मात्रा और लक्षित बाज़ार बताइए।", "p2_h": "खरीदार मिलान", "p2_p": "हम सत्यापित खरीदारों और उनकी ज़रूरतों से परिचय कराते हैं।", "p3_h": "निरीक्षण और अनुबंध", "p3_p": "कोरिया में साइट निरीक्षण; कीमत और शर्तें लिखित में तय।", "p4_h": "शिपिंग और भुगतान", "p4_p": "पैकिंग, शिपिंग और दस्तावेज़ हमारे लॉजिस्टिक्स साझेदारों के साथ।", "rd_k": "R&D", "rd_h": "USAI Wallet का विकास केंद्र।", "rd_p": "USAI Wallet — K-AI CONET LLC (वायोमिंग, अमेरिका) द्वारा संचालित B2B व्यापार-भुगतान प्लेटफ़ॉर्म — बुसान में बनाया जाता है। यह निर्यातकों को खरीदारों से जोड़ता है, शिपिंग दस्तावेज़ जाँचता है और शिपमेंट के बाद भुगतान स्वतः जारी करता है।", "rd_pill": "में भुगतान", "rd_login": "सदस्य लॉग इन", "rd_req": "एक्सेस का अनुरोध", "co_k": "कंपनी", "co_h": "एक कंपनी, तीन कार्यालय।", "co_p": "K-AI CONET संयुक्त राज्य अमेरिका से संचालित होता है, न्यूयॉर्क और बुसान में कार्यालयों के साथ।", "hq": "मुख्यालय", "hq_role": "USAI Wallet संचालक · मुख्य IP", "ny": "न्यूयॉर्क", "ny_role": "मार्केटिंग · इवेंट · K-कंटेंट", "bs": "बुसान", "bs_role": "निर्यात ब्रोकरेज · R&D", "here": "आप यहाँ हैं", "visit": "साइट देखें", "ct_k": "संपर्क", "ct_h": "आइए व्यापार की बात करें।", "ct_trade": "व्यापार पूछताछ", "ct_part": "साझेदारी", "ct_phone": "फ़ोन", "f_name": "कंपनी", "f_ceo": "CEO", "f_brn": "व्यवसाय पंजीकरण सं.", "f_trade": "व्यापारी सं. (KITA)", "f_addr_l": "पता", "f_addr": "B-501, 111-1 Jeseok-ro, Saha-gu, Busan, Republic of Korea", "f_fax": "फ़ैक्स", "f_mail": "ईमेल", "v_name": "K-AI CONET Co., Ltd.", "v_ceo": "IL KANG", "rights": "सर्वाधिकार सुरक्षित", "bz_k": "व्यवसाय क्षेत्र", "bz_h": "हम क्या करते हैं, एक नज़र में।", "bz0_h": "आयात-निर्यात व्यापार", "bz0_p": "भारत, मध्य पूर्व, यूरोप और दक्षिण-पूर्व एशिया के खरीदारों के लिए औद्योगिक उपकरण, K-ब्यूटी और उपभोक्ता उत्पाद।", "bz1_h": "लॉजिस्टिक्स और शिपिंग", "bz1_p": "हमारे फ़ॉरवर्डिंग साझेदारों के साथ बुसान से कंटेनर और भारी माल की शिपिंग। कस्टम क्लीयरेंस साझेदार कस्टम ब्रोकरों के माध्यम से।", "bz2_h": "औद्योगिक प्लांट निर्यात", "bz2_p": "स्टील, ऑटोमोबाइल और जहाज़-निर्माण स्थलों से पुरानी उत्पादन लाइनें और भारी मशीनरी — साइट निरीक्षण से डिसमैंटलिंग और शिपिंग तक।", "bz3_h": "सॉफ़्टवेयर और AI विकास", "bz3_p": "हम बुसान में B2B व्यापार-भुगतान प्लेटफ़ॉर्म USAI Wallet बनाते हैं — अनुबंध और शिपिंग रिकॉर्ड डिजिटल प्रमाणपत्र (dNFT) के रूप में।", "bz4_h": "डिजिटल और K-कंटेंट", "bz4_p": "कोरियाई वेब ड्रामा और वेब फ़िल्मों का वैश्विक वितरण और लाइसेंसिंग, साथ ही डिजिटल आर्ट और NFT जारी करना।", "bz5_h": "AI वेब फ़ेस्टिवल", "bz5_p": "सियोल और न्यूयॉर्क को जोड़ने वाला AI और डिजिटल कंटेंट फ़ेस्टिवल।"}, "ar": {"slog_tag": "K-AI CONET Co., Ltd. · بوسان، كوريا", "b_k": "وساطة التصدير", "b_h": "مشترون حقيقيون. منتجات حقيقية. دفع في موعده.", "b_s": "مطابقة المشتري · الفحص والعقد · الشحن مع شركاء لوجستيين", "b_pill": "لاستلام الدفع", "b_btn1": "استفسار تجاري", "b_btn2": "دخول USAI Wallet", "nav_what": "ماذا نفعل", "nav_svc": "الخدمات", "nav_how": "آلية العمل", "nav_rd": "USAI Wallet", "nav_company": "الشركة", "nav_contact": "اتصل بنا", "home": "الموقع الرئيسي", "eyebrow": "K-AI CONET Co., Ltd. · بوسان، كوريا", "h1": "بوسان.", "sub": "منتجات كورية تصل إلى المشترين حول العالم.", "sub2": "وساطة تصدير · معدات صناعية · تطوير USAI Wallet", "small": "الشركة الكورية التابعة لـ K-AI CONET — وساطة التجارة الخارجية وقاعدة تطوير USAI Wallet.", "cta1": "خدماتنا", "cta2": "استفسار تجاري", "status": "تاجر مسجّل في كوريا · رقم KITA 10812903", "what_k": "ماذا نفعل", "what_h": "من المصانع الكورية إلى المشترين في الخارج.", "what_p": "نربط المصنّعين الكوريين بالمشترين في الهند والشرق الأوسط وأوروبا وجنوب شرق آسيا. نجد المشتري، ونُعدّ العقد والمستندات، وننسّق الفحص والتغليف والشحن مع شركائنا اللوجستيين.", "svc_k": "الخدمات", "svc_h": "ما الذي نصدّره.", "svc_p": "نعمل على صفقات يلتقي فيها مشترٍ حقيقي بمنتج حقيقي.", "s1_h": "المعدات الصناعية والمصانع", "s1_p": "خطوط إنتاج مستعملة وآلات ثقيلة من مواقع الصلب والسيارات وبناء السفن في كوريا — مع دعم الفحص الميداني والتفكيك والتغليف والشحن.", "s2_h": "مستحضرات التجميل الكورية والسلع الاستهلاكية", "s2_p": "علامات تجميل واستهلاك كورية نربطها بالموزعين وتجار التجزئة في الخارج.", "s3_h": "منتجات صناعية وطبية", "s3_p": "أجهزة وقطع غيار مصنوعة في كوريا نقدّمها للمشترين في الأسواق سريعة النمو.", "mk_k": "الأسواق", "mk_h": "أين يوجد مشترونا.", "m1": "الهند", "m2": "الشرق الأوسط", "m3": "تركيا", "m4": "أوروبا", "m5": "جنوب شرق آسيا", "m6": "أمريكا اللاتينية", "how_k": "آلية العمل", "how_h": "أربع خطوات، جهة اتصال واحدة.", "p1_h": "الاستفسار", "p1_p": "أخبرنا بالمنتج والكمية والسوق المستهدفة.", "p2_h": "مطابقة المشتري", "p2_p": "نقدّم مشترين موثّقين ونشارك متطلباتهم.", "p3_h": "الفحص والعقد", "p3_p": "فحص ميداني في كوريا، والاتفاق على السعر والشروط كتابيًا.", "p4_h": "الشحن والدفع", "p4_p": "التغليف والشحن والمستندات مع شركائنا اللوجستيين.", "rd_k": "البحث والتطوير", "rd_h": "قاعدة تطوير USAI Wallet.", "rd_p": "تُطوَّر USAI Wallet — منصة المدفوعات التجارية B2B التي تشغّلها K-AI CONET LLC (وايومنغ، الولايات المتحدة) — في بوسان. تربط المصدّرين بالمشترين، وتتحقق من مستندات الشحن، وتُطلق الدفع تلقائيًا بعد الشحن.", "rd_pill": "لاستلام الدفع", "rd_login": "دخول الأعضاء", "rd_req": "طلب الوصول", "co_k": "الشركة", "co_h": "شركة واحدة، ثلاثة مكاتب.", "co_p": "تعمل K-AI CONET من الولايات المتحدة ولها مكاتب في نيويورك وبوسان.", "hq": "المقر الرئيسي", "hq_role": "مشغّل USAI Wallet · الملكية الفكرية الأساسية", "ny": "نيويورك", "ny_role": "التسويق · الفعاليات · المحتوى الكوري", "bs": "بوسان", "bs_role": "وساطة التصدير · البحث والتطوير", "here": "أنت هنا", "visit": "زيارة الموقع", "ct_k": "اتصل بنا", "ct_h": "لنتحدث عن التجارة.", "ct_trade": "الاستفسارات التجارية", "ct_part": "الشراكات", "ct_phone": "الهاتف", "f_name": "الشركة", "f_ceo": "الرئيس التنفيذي", "f_brn": "رقم السجل التجاري", "f_trade": "رقم التاجر (KITA)", "f_addr_l": "العنوان", "f_addr": "B-501, 111-1 Jeseok-ro, Saha-gu, Busan, Republic of Korea", "f_fax": "الفاكس", "f_mail": "البريد الإلكتروني", "v_name": "K-AI CONET Co., Ltd.", "v_ceo": "IL KANG", "rights": "جميع الحقوق محفوظة", "bz_k": "مجالات العمل", "bz_h": "ما نقوم به، في لمحة.", "bz0_h": "الاستيراد والتصدير", "bz0_p": "معدات صناعية ومستحضرات تجميل كورية وسلع استهلاكية للمشترين في الهند والشرق الأوسط وأوروبا وجنوب شرق آسيا.", "bz1_h": "الخدمات اللوجستية والشحن", "bz1_p": "شحن الحاويات والبضائع الثقيلة من بوسان مع شركائنا في الشحن. التخليص الجمركي عبر وكلاء جمركيين شركاء.", "bz2_h": "تصدير المصانع الصناعية", "bz2_p": "خطوط إنتاج مستعملة وآلات ثقيلة من مواقع الصلب والسيارات وبناء السفن — من الفحص الميداني إلى التفكيك والشحن.", "bz3_h": "تطوير البرمجيات والذكاء الاصطناعي", "bz3_p": "نطوّر في بوسان منصة USAI Wallet للمدفوعات التجارية B2B — تُحفظ سجلات العقود والشحن كشهادات رقمية (dNFT).", "bz4_h": "المحتوى الرقمي والكوري", "bz4_p": "توزيع وترخيص عالمي للمسلسلات والأفلام الكورية على الويب، إضافة إلى الفن الرقمي وإصدار NFT.", "bz5_h": "مهرجان الويب للذكاء الاصطناعي", "bz5_p": "مهرجان للذكاء الاصطناعي والمحتوى الرقمي يربط سيول بنيويورك."}, "ja": {"slog_tag": "K-AI CONET Co., Ltd. · 韓国・釜山", "b_k": "輸出仲介", "b_h": "実在のバイヤー、実在の製品、期日どおりの入金。", "b_s": "バイヤーマッチング · 検査・契約 · 物流パートナーと出荷", "b_pill": "以内に入金", "b_btn1": "貿易のお問い合わせ", "b_btn2": "USAI Wallet ログイン", "nav_what": "事業内容", "nav_svc": "サービス", "nav_how": "進め方", "nav_rd": "USAI Wallet", "nav_company": "会社", "nav_contact": "お問い合わせ", "home": "メインサイト", "eyebrow": "K-AI CONET Co., Ltd. · 韓国・釜山", "h1": "釜山.", "sub": "韓国の製品を、世界のバイヤーへ。", "sub2": "輸出仲介 · 産業設備 · USAI Wallet 開発", "small": "K-AI CONETの韓国法人 — 貿易・輸出入仲介とUSAI Walletの開発拠点です。", "cta1": "サービスを見る", "cta2": "貿易のお問い合わせ", "status": "韓国貿易業登録 · KITA番号 10812903", "what_k": "事業内容", "what_h": "韓国の工場から、海外のバイヤーへ。", "what_p": "韓国のメーカーとインド・中東・欧州・東南アジアのバイヤーをつなぎます。バイヤーを見つけ、契約と書類を整え、物流パートナーとともに検査・梱包・出荷まで調整します。", "svc_k": "サービス", "svc_h": "輸出している品目。", "svc_p": "実在するバイヤーと実在する製品が出会う取引だけを進めます。", "s1_h": "産業設備・プラント", "s1_p": "韓国の鉄鋼・自動車・造船の現場から出る中古生産ラインや重機 — 現地検査、解体、梱包、出荷までサポートします。", "s2_h": "Kビューティー・消費財", "s2_p": "韓国の化粧品・消費財ブランドを海外の流通業者・小売業者とつなぎます。", "s3_h": "産業・医療製品", "s3_p": "韓国製の機器や部品を、成長市場のバイヤーにご紹介します。", "mk_k": "市場", "mk_h": "バイヤーのいる地域。", "m1": "インド", "m2": "中東", "m3": "トルコ", "m4": "欧州", "m5": "東南アジア", "m6": "中南米", "how_k": "進め方", "how_h": "4つのステップ、窓口はひとつ。", "p1_h": "お問い合わせ", "p1_p": "製品、数量、対象市場をお知らせください。", "p2_h": "バイヤーマッチング", "p2_p": "確認済みのバイヤーをご紹介し、要望をお伝えします。", "p3_h": "検査・契約", "p3_p": "韓国での現地検査の後、価格と条件を書面で確定します。", "p4_h": "出荷・決済", "p4_p": "物流パートナーと梱包・出荷・書類を処理します。", "rd_k": "R&D", "rd_h": "USAI Walletの開発拠点。", "rd_p": "米国ワイオミング州のK-AI CONET LLCが運営するB2B貿易決済プラットフォームUSAI Walletは、釜山で開発されています。輸出者とバイヤーをつなぎ、船積書類を確認し、出荷後に代金が自動で支払われます。", "rd_pill": "以内に入金", "rd_login": "会員ログイン", "rd_req": "利用のお問い合わせ", "co_k": "会社", "co_h": "ひとつの会社、3つのオフィス。", "co_p": "K-AI CONETは米国を本社とし、ニューヨークと釜山にオフィスを置いています。", "hq": "本社", "hq_role": "USAI Wallet 運営 · コアIP", "ny": "ニューヨーク", "ny_role": "マーケティング · イベント · Kコンテンツ", "bs": "釜山", "bs_role": "輸出仲介 · R&D", "here": "現在のページ", "visit": "サイトを見る", "ct_k": "お問い合わせ", "ct_h": "貿易のご相談はお気軽に。", "ct_trade": "貿易のお問い合わせ", "ct_part": "提携のご相談", "ct_phone": "電話", "f_name": "商号", "f_ceo": "代表取締役", "f_brn": "事業者登録番号", "f_trade": "貿易業固有番号 (KITA)", "f_addr_l": "所在地", "f_addr": "B-501, 111-1 Jeseok-ro, Saha-gu, Busan, Republic of Korea", "f_fax": "FAX", "f_mail": "メール", "v_name": "K-AI CONET Co., Ltd.", "v_ceo": "IL KANG", "rights": "All rights reserved", "bz_k": "事業分野", "bz_h": "私たちの仕事を、ひと目で。", "bz0_h": "輸出入・国際貿易", "bz0_p": "産業設備・Kビューティー・消費財をインド・中東・欧州・東南アジアのバイヤーへ輸出します。", "bz1_h": "物流・出荷連携", "bz1_p": "フォワーディングパートナーと釜山港からのコンテナ・重量物出荷をつなぎます。通関はパートナーの通関業者を通じて行います。", "bz2_h": "産業設備・プラント輸出", "bz2_p": "鉄鋼・自動車・造船の現場から出る中古生産ラインや重機 — 現地検査から解体・出荷まで。", "bz3_h": "ソフトウェア・AI開発", "bz3_p": "B2B貿易決済プラットフォームUSAI Walletを釜山で開発 — 契約・出荷記録はデジタル証明書（dNFT）として残します。", "bz4_h": "デジタル・Kコンテンツ", "bz4_p": "韓国ウェブドラマ・ウェブ映画の海外配給とライセンス、デジタルアート・NFTの発行。", "bz5_h": "AIウェブフェスティバル", "bz5_p": "ソウルとニューヨークを結ぶAI・デジタルコンテンツのフェスティバルを運営します。"}, "zh": {"slog_tag": "K-AI CONET Co., Ltd. · 韩国釜山", "b_k": "出口中介", "b_h": "真实买家，真实产品，按时收款。", "b_s": "买家对接 · 验货与合同 · 与物流伙伴发运", "b_pill": "内到账", "b_btn1": "贸易咨询", "b_btn2": "USAI Wallet 登录", "nav_what": "业务", "nav_svc": "服务", "nav_how": "合作流程", "nav_rd": "USAI Wallet", "nav_company": "公司", "nav_contact": "联系", "home": "主站", "eyebrow": "K-AI CONET Co., Ltd. · 韩国釜山", "h1": "釜山.", "sub": "韩国好产品，送到全球买家手中。", "sub2": "出口中介 · 工业设备 · USAI Wallet 研发", "small": "K-AI CONET 的韩国公司 — 进出口贸易中介与 USAI Wallet 研发基地。", "cta1": "查看服务", "cta2": "贸易咨询", "status": "韩国注册贸易商 · KITA 编号 10812903", "what_k": "业务", "what_h": "从韩国工厂到海外买家。", "what_p": "我们连接韩国制造商与印度、中东、欧洲和东南亚的买家：寻找买家、准备合同和单据，并与物流伙伴协调验货、包装和发运。", "svc_k": "服务", "svc_h": "我们出口的品类。", "svc_p": "只做真实买家与真实产品相遇的交易。", "s1_h": "工业设备与成套设备", "s1_p": "来自韩国钢铁、汽车和造船现场的二手生产线与重型机械 — 提供现场验货、拆解、包装和发运支持。", "s2_h": "韩国美妆与消费品", "s2_p": "将韩国化妆品和消费品牌对接海外经销商和零售商。", "s3_h": "工业与医疗产品", "s3_p": "将韩国制造的设备和零部件介绍给快速增长市场的买家。", "mk_k": "市场", "mk_h": "我们的买家在哪里。", "m1": "印度", "m2": "中东", "m3": "土耳其", "m4": "欧洲", "m5": "东南亚", "m6": "拉丁美洲", "how_k": "合作流程", "how_h": "四个步骤，一个窗口。", "p1_h": "咨询", "p1_p": "告诉我们产品、数量和目标市场。", "p2_h": "买家对接", "p2_p": "介绍经过核实的买家并传达其需求。", "p3_h": "验货与合同", "p3_p": "在韩国现场验货，价格和条款以书面确定。", "p4_h": "发运与付款", "p4_p": "与物流伙伴一起处理包装、发运和单据。", "rd_k": "研发", "rd_h": "USAI Wallet 研发基地。", "rd_p": "USAI Wallet 是由美国怀俄明州 K-AI CONET LLC 运营的 B2B 贸易支付平台，在釜山研发。它连接出口商与买家，核验装运单据，并在发货后自动放款。", "rd_pill": "内到账", "rd_login": "会员登录", "rd_req": "申请使用", "co_k": "公司", "co_h": "一家公司，三个办公室。", "co_p": "K-AI CONET 总部位于美国，在纽约和釜山设有办公室。", "hq": "总部", "hq_role": "USAI Wallet 运营 · 核心知识产权", "ny": "纽约", "ny_role": "市场 · 活动 · 韩国内容", "bs": "釜山", "bs_role": "出口中介 · 研发", "here": "当前页面", "visit": "访问网站", "ct_k": "联系", "ct_h": "欢迎洽谈贸易。", "ct_trade": "贸易咨询", "ct_part": "合作洽谈", "ct_phone": "电话", "f_name": "公司名称", "f_ceo": "代表理事", "f_brn": "营业执照号", "f_trade": "贸易商编号 (KITA)", "f_addr_l": "地址", "f_addr": "B-501, 111-1 Jeseok-ro, Saha-gu, Busan, Republic of Korea", "f_fax": "传真", "f_mail": "邮箱", "v_name": "K-AI CONET Co., Ltd.", "v_ceo": "IL KANG", "rights": "版权所有", "bz_k": "业务领域", "bz_h": "我们的业务，一目了然。", "bz0_h": "进出口贸易", "bz0_p": "向印度、中东、欧洲和东南亚买家出口工业设备、韩国美妆和消费品。", "bz1_h": "物流与发运", "bz1_p": "与货代伙伴一起从釜山港发运集装箱和重型货物，清关通过合作报关行办理。", "bz2_h": "工业成套设备出口", "bz2_p": "来自钢铁、汽车和造船现场的二手生产线与重型机械 — 从现场验货到拆解发运。", "bz3_h": "软件与AI研发", "bz3_p": "在釜山研发B2B贸易支付平台USAI Wallet — 合同与发运记录以数字证书（dNFT）留存。", "bz4_h": "数字内容与韩国内容", "bz4_p": "韩国网剧、网络电影的海外发行与授权，以及数字艺术与NFT发行。", "bz5_h": "AI网络节", "bz5_p": "连接首尔与纽约的AI与数字内容节。"}};
+const RTL=["ar"];
+function apply(l,save){
+  const d=T[l]||T.en;
+  document.querySelectorAll("[data-i]").forEach(el=>{const k=el.getAttribute("data-i");el.textContent=d[k]!=null?d[k]:(T.en[k]||"");});
+  document.documentElement.lang=l;document.documentElement.dir=RTL.includes(l)?"rtl":"ltr";
+  document.getElementById("langCode").textContent=l.toUpperCase();
+  document.querySelectorAll("#langList button").forEach(b=>b.classList.toggle("on",b.dataset.l===l));
+  if(save){try{localStorage.setItem("lang",l)}catch(e){}}
+}
+function detect(){
+  const q=new URLSearchParams(location.search).get("lang");if(q&&T[q])return q;
+  try{const s=localStorage.getItem("lang");if(s&&T[s])return s}catch(e){}
+  const prefs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||"en"]);
+  for(const p of prefs){const c=String(p).toLowerCase().split("-")[0];if(T[c])return c;}
+  return "en";
+}
+const list=document.getElementById("langList");
+const box=document.getElementById("lang");
+Object.keys(T).forEach(l=>{const li=document.createElement("li");const b=document.createElement("button");b.type="button";b.dataset.l=l;b.innerHTML="<i>"+l.toUpperCase()+"</i>"+LANGS[l];b.onclick=()=>{apply(l,true);box.classList.remove("open")};li.appendChild(b);list.appendChild(li)});
+box.querySelector("button").onclick=e=>{e.stopPropagation();box.classList.toggle("open")};
+document.addEventListener("click",()=>box.classList.remove("open"));
+apply(detect());
+</script>
+
+</body>
+</html>
