@@ -160,6 +160,27 @@ html[lang="ko"] .pp-h,html[lang="ja"] .pp-h,html[lang="zh"] .pp-h,html[lang="hi"
 @media(max-width:759px){.pp-txt .eyebrow{font-size:10px;letter-spacing:.14em}}
 .pp-cta{justify-content:center;margin-top:22px}
 .pp-48{white-space:nowrap}
+.band .pp-free{margin:10px 0 0;padding:0;border-radius:0;overflow:visible}
+.band .pp-free img{width:100%;height:auto;display:block}
+@media(max-width:759px){.band .pp-free{overflow:hidden}.band .pp-free img{width:150%;max-width:none;margin-inline-start:-25%}}
+.band .pp-after{padding-top:34px;padding-bottom:30px}
+/* variant L: everything left-aligned */
+.band .pp-txt{text-align:left;padding-left:0;padding-right:0}
+.band .pp-txt .eyebrow{justify-content:flex-start}
+.band .pp-row{justify-content:flex-start}
+.band .pp-mapcard{margin-left:0}
+.band .pp-foot{text-align:left;padding-left:0;padding-right:0}
+.band .pp-rule{margin-left:0}
+.band .pp-foot .pp-one-b{text-align:left}
+@media(max-width:759px){.band .pp-foot .pp-one-b{text-align:center}}
+.band .pp-foot{padding-top:22px}
+.band .pp-rule{margin-bottom:14px}
+.band .pp-foot .pp-one-b{margin:0;line-height:1.05}
+.band .pp-tag{margin-top:10px;font-size:clamp(15px,1.5vw,20px);letter-spacing:.22em;font-weight:800}
+.band{padding-bottom:0}
+.band + .s{padding-top:40px}
+@media(max-width:759px){.band .pp-txt,.band .pp-foot{text-align:center}.band .pp-txt .eyebrow,.band .pp-row{justify-content:center}.band .pp-rule{margin-left:auto}}
+
 .pp-row{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px}
 .pp-row .pp-pill{margin-top:0}
 .pp-foot{text-align:center;padding:26px 24px 0}
@@ -237,7 +258,13 @@ html,body{overflow-x:hidden}
 </div></header>
 
 <section class="band"><div class="wrap"><div class="pp"><div class="pp-in">
-  <div class="pp-txt">
+  <div class="pp-map pp-free"><img src="world-map-1056.webp" srcset="world-map-1056.webp 1056w, world-map.webp 2035w" sizes="(min-width:1180px) 1140px, 100vw" alt="" loading="lazy"></div>
+  <div class="pp-foot">
+    <div class="pp-rule"></div>
+    <h2 class="pp-one pp-one-b ltr">One World. One Trade.</h2>
+    <div class="pp-tag ltr">USAI Wallet · K-AI CONET INC · New York</div>
+  </div>
+  <div class="pp-txt pp-after">
     <div class="eyebrow"><i></i><span class="ltr">All is One</span>&nbsp;·&nbsp;<span data-i="b_k"></span></div>
     <div class="pp-sub" data-i="b_h"></div>
     <div class="pp-sub2" data-i="b_s"></div>
@@ -246,12 +273,6 @@ html,body{overflow-x:hidden}
       <a class="btn primary" href="https://usai-wallet.vercel.app" data-i="b_login"></a>
       <a class="btn ghost" href="mailto:ceo@k-aiconet.com?subject=USAI%20Wallet%20access%20request" data-i="b_req"></a>
     </div>
-  </div>
-  <div class="card pp-mapcard"><div><div class="pp-map"><img src="world-map-1056.webp" srcset="world-map-1056.webp 1056w, world-map.webp 2035w" sizes="(min-width:1180px) 1100px, 100vw" alt="" loading="lazy"></div></div></div>
-  <div class="pp-foot">
-    <div class="pp-rule"></div>
-    <h2 class="pp-one pp-one-b ltr">One World. One Trade.</h2>
-    <div class="pp-tag ltr">USAI Wallet · K-AI CONET INC · New York</div>
   </div>
 </div></div></div></section>
 
