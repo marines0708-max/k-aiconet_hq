@@ -482,7 +482,7 @@ apply(detect());
   });
 })();
 </script>
-<!-- Background music: shared by index / newyork / korea. Off by default; once a visitor turns it on, it carries on to the other pages -->
+<!-- Background music: each page has its own track (main / New York / Korea). Off by default; once a visitor turns it on, it stays on across these pages -->
 <style>
 html{scrollbar-width:none;-ms-overflow-style:none}
 html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
@@ -499,12 +499,12 @@ footer{padding-bottom:84px}
 @media (prefers-reduced-motion:reduce){.bgm-btn.on .bars i,.bgm-btn.wait{animation:none}}
 </style>
 <button type="button" class="bgm-btn" id="bgmBtn" aria-label="Play music" aria-pressed="false"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span></button>
-<audio id="bgmAu" preload="none" loop></audio>
+<audio id="bgmAu" data-src="/bgm-korea.mp3" preload="none" loop></audio>
 <script>
 (function(){
-  var K="bgmState",SRC="/bgm-funk-groove.mp3",b=document.getElementById("bgmBtn"),a=document.getElementById("bgmAu");a.volume=.5;
+  var K="bgmState",b=document.getElementById("bgmBtn"),a=document.getElementById("bgmAu"),SRC=a.getAttribute("data-src");a.volume=.5;
   function load(){try{return JSON.parse(sessionStorage.getItem(K)||"{}")}catch(e){return{}}}
-  function save(on){try{sessionStorage.setItem(K,JSON.stringify({on:on,t:a.currentTime||0}))}catch(e){}}
+  function save(on){try{sessionStorage.setItem(K,JSON.stringify({on:on,t:a.currentTime||0,src:SRC}))}catch(e){}}
   function set(on){b.classList.toggle("on",on);b.classList.remove("wait");b.setAttribute("aria-pressed",on);b.setAttribute("aria-label",on?"Pause music":"Play music")}
   function start(t){if(!a.src)a.src=SRC;if(t){var go=function(){try{a.currentTime=t}catch(e){}};a.readyState>0?go():a.addEventListener("loadedmetadata",go,{once:true})}return a.play()}
   b.onclick=function(){if(a.paused){start().then(function(){set(true);save(true)}).catch(function(){set(false)})}else{a.pause();set(false);save(false)}};
@@ -512,7 +512,7 @@ footer{padding-bottom:84px}
   setInterval(function(){if(!a.paused)save(true)},2000);
   window.addEventListener("pagehide",function(){if(!a.paused)save(true)});
   var s=load();
-  if(s.on){start(s.t).then(function(){set(true)}).catch(function(){b.classList.add("wait");b.setAttribute("aria-label","Tap to continue music")})}
+  if(s.on){start(s.src===SRC?s.t:0).then(function(){set(true)}).catch(function(){b.classList.add("wait");b.setAttribute("aria-label","Tap to continue music")})}
 })();
 </script>
 </body>
