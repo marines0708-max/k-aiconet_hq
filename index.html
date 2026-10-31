@@ -76,6 +76,7 @@ h1{margin-top:14px;font-size:64px;line-height:1;font-weight:900;letter-spacing:-
 @media(min-width:1024px){.sub2{font-size:21px}}
 .small{margin-top:16px;font-size:14.5px;color:var(--muted);max-width:520px}
 .small b{color:var(--gold);font-weight:700}
+.small b.pat{display:block;margin-top:6px;text-wrap:balance}
 .cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
 .cta .btn{height:48px;padding:0 20px;font-size:14.5px}
 .status{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(25,212,255,.35);border-radius:999px;padding:7px 14px;background:rgba(25,212,255,.06)}
@@ -164,7 +165,7 @@ footer .usa{display:inline-block;margin-inline-start:8px;padding:2px 10px;border
     <h1 data-i="h1"></h1>
     <div class="sub" data-i="sub"></div>
     <div class="sub2" data-i="sub2"></div>
-    <p class="small"><span data-i="small"></span> · <b data-i="smallAccent"></b></p>
+    <p class="small"><span data-i="small"></span><b class="pat" data-i="smallAccent"></b></p>
     <div class="cta">
       <a class="btn primary" href="https://usai-wallet.vercel.app" data-i="login"></a>
       <a class="btn ghost" href="mailto:ceo@k-aiconet.com?subject=USAI%20Wallet%20access%20request" data-i="request"></a>
@@ -257,7 +258,7 @@ footer .usa{display:inline-block;margin-inline-start:8px;padding:2px 10px;border
 </div></section>
 
 <footer><div class="wrap">
-  <div><b>K-AI CONET WYOMING LLC</b><span class="usa">USA</span> <span class="ltr">· <a href="tel:+16465306234">+1 (646) 530-6234</a></span></div>
+  <div><b>K-AI CONET WYOMING LLC</b><span class="usa">USA</span> <span class="ltr" style="white-space:nowrap">· <a href="tel:+16465306234">+1 (646) 530-6234</a></span></div>
   <div>© 2026 K-AI CONET LLC · <span data-i="rights"></span> · <span data-i="pp"></span></div>
 </div></footer>
 
@@ -297,7 +298,7 @@ fo_k:"창업자",fo_t:"창업자 · 대표",fo_p1:"건설·콘텐츠·무역에�
 ct_k:"문의",ct_h:"연락 주세요.",ct_gen:"일반 문의",ct_trade:"무역 · 제휴",ct_app:"USAI Wallet",rights:"All rights reserved",pp:"개인정보"},
 
 es:{nav_what:"Qué hacemos",nav_how:"Cómo funciona",nav_wallet:"USAI Wallet",nav_company:"Empresa",nav_contact:"Contacto",login:"Acceso de miembros",request:"Solicitar acceso",
-eyebrow:"Plataforma global B2B",h1:"48 HORAS",sub:"Pago comercial liberado automáticamente",sub2:"tras el embarque · con liquidación blockchain opcional",small:"Transferencia bancaria (T/T) como estándar · Se paga solo cuando la mercancía se embarca",smallAccent:"Patente en trámite en la USPTO · primera en el mundo",status:"Solo miembros · Por invitación",
+eyebrow:"Plataforma global B2B",h1:"48 HORAS",sub:"Pago comercial liberado automáticamente",sub2:"tras el embarque · con liquidación blockchain opcional",small:"Transferencia bancaria (T/T) como estándar · Se paga solo cuando la mercancía se embarca",smallAccent:"Patente en trámite en la USPTO · primera en el mundo",status:"Solo miembros · Por invitación",
 what_k:"Qué hacemos",what_h:"Hacemos que el comercio internacional pague a tiempo.",what_p:"K-AI CONET desarrolla USAI Wallet, una plataforma B2B donde exportadores e importadores se encuentran, verifican sus documentos de embarque y cobran automáticamente — sin semanas de espera ni llamadas de “¿llegó el dinero?”.",
 w1_h:"Emparejamiento comprador–vendedor con IA",w1_p:"Empresas verificadas, emparejadas por producto, mercado y perfil de cumplimiento.",w2_h:"Documentos y embarque verificados",w2_p:"Factura comercial, lista de empaque y conocimiento de embarque cotejados con el registro de la naviera en un solo lugar.",w3_h:"Liquidación automática",w3_p:"El pago se bloquea al acordar la operación y se libera al vendedor 48 horas después de confirmarse el embarque.",
 how_k:"Cómo funciona",how_h:"Se paga solo cuando la mercancía se embarca.",how_p:"El pago del comprador queda bajo el contrato, no en nuestras manos. Confirmado el embarque, una ventana de 48 horas permite objetar a ambas partes — luego el vendedor cobra automáticamente.",
@@ -441,28 +442,39 @@ apply(detect());
   });
 })();
 </script>
-<!-- Background music: off by default, plays only when the visitor taps the button -->
+<!-- Background music: shared by index / newyork / korea. Off by default; once a visitor turns it on, it carries on to the other pages -->
 <style>
 html{scrollbar-width:none;-ms-overflow-style:none}
 html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
-.bgm-btn{position:fixed;left:16px;bottom:16px;z-index:60;width:48px;height:48px;border-radius:50%;border:1px solid rgba(246,196,84,.7);background:linear-gradient(180deg,rgba(18,52,140,.96),rgba(6,18,58,.96));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 24px rgba(25,212,255,.25);padding:0}
-.bgm-btn .bars{display:flex;align-items:flex-end;gap:3px;height:20px}
-.bgm-btn .bars i{width:3px;background:#f6c454;border-radius:2px;opacity:.85}
-.bgm-btn .bars i:nth-child(1){height:9px}.bgm-btn .bars i:nth-child(2){height:16px}.bgm-btn .bars i:nth-child(3){height:20px}.bgm-btn .bars i:nth-child(4){height:12px}.bgm-btn .bars i:nth-child(5){height:7px}
+footer{padding-bottom:84px}
+.bgm-btn{position:fixed;left:16px;bottom:16px;z-index:60;width:44px;height:44px;border-radius:50%;border:1px solid rgba(246,196,84,.7);background:linear-gradient(180deg,rgba(18,52,140,.96),rgba(6,18,58,.96));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 24px rgba(25,212,255,.25);padding:0}
+.bgm-btn .bars{display:flex;align-items:flex-end;gap:2.5px;height:16px}
+.bgm-btn .bars i{width:2.5px;background:#f6c454;border-radius:2px;opacity:.85}
+.bgm-btn .bars i:nth-child(1){height:7px}.bgm-btn .bars i:nth-child(2){height:13px}.bgm-btn .bars i:nth-child(3){height:16px}.bgm-btn .bars i:nth-child(4){height:10px}.bgm-btn .bars i:nth-child(5){height:6px}
 .bgm-btn.on .bars i{opacity:1;animation:bgmEq 1s ease-in-out infinite}
 .bgm-btn.on .bars i:nth-child(2){animation-delay:.2s}.bgm-btn.on .bars i:nth-child(3){animation-delay:.4s}.bgm-btn.on .bars i:nth-child(4){animation-delay:.6s}.bgm-btn.on .bars i:nth-child(5){animation-delay:.8s}
-@keyframes bgmEq{0%,100%{height:5px}50%{height:20px}}
-@media (prefers-reduced-motion:reduce){.bgm-btn.on .bars i{animation:none}}
+.bgm-btn.wait{animation:bgmPulse 1.6s ease-in-out infinite}
+@keyframes bgmEq{0%,100%{height:4px}50%{height:16px}}
+@keyframes bgmPulse{0%,100%{box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 0 rgba(246,196,84,.55)}50%{box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 9px rgba(246,196,84,0)}}
+@media (prefers-reduced-motion:reduce){.bgm-btn.on .bars i,.bgm-btn.wait{animation:none}}
 </style>
 <button type="button" class="bgm-btn" id="bgmBtn" aria-label="Play music" aria-pressed="false"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span></button>
-<audio id="bgmAu" src="/bgm-funk-groove.mp3" preload="none" loop></audio>
+<audio id="bgmAu" preload="none" loop></audio>
 <script>
 (function(){
-  var b=document.getElementById("bgmBtn"),a=document.getElementById("bgmAu");a.volume=.5;
-  function set(on){b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);b.setAttribute("aria-label",on?"Pause music":"Play music")}
-  b.onclick=function(){if(a.paused){a.play().then(function(){set(true)}).catch(function(){set(false)})}else{a.pause();set(false)}};
-  a.addEventListener("pause",function(){set(false)});a.addEventListener("play",function(){set(true)});
+  var K="bgmState",SRC="/bgm-funk-groove.mp3",b=document.getElementById("bgmBtn"),a=document.getElementById("bgmAu");a.volume=.5;
+  function load(){try{return JSON.parse(sessionStorage.getItem(K)||"{}")}catch(e){return{}}}
+  function save(on){try{sessionStorage.setItem(K,JSON.stringify({on:on,t:a.currentTime||0}))}catch(e){}}
+  function set(on){b.classList.toggle("on",on);b.classList.remove("wait");b.setAttribute("aria-pressed",on);b.setAttribute("aria-label",on?"Pause music":"Play music")}
+  function start(t){if(!a.src)a.src=SRC;if(t){var go=function(){try{a.currentTime=t}catch(e){}};a.readyState>0?go():a.addEventListener("loadedmetadata",go,{once:true})}return a.play()}
+  b.onclick=function(){if(a.paused){start().then(function(){set(true);save(true)}).catch(function(){set(false)})}else{a.pause();set(false);save(false)}};
+  a.addEventListener("play",function(){set(true)});
+  setInterval(function(){if(!a.paused)save(true)},2000);
+  window.addEventListener("pagehide",function(){if(!a.paused)save(true)});
+  var s=load();
+  if(s.on){start(s.t).then(function(){set(true)}).catch(function(){b.classList.add("wait");b.setAttribute("aria-label","Tap to continue music")})}
 })();
 </script>
 </body>
+
 </html>

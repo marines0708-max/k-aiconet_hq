@@ -482,5 +482,39 @@ apply(detect());
   });
 })();
 </script>
+<!-- Background music: shared by index / newyork / korea. Off by default; once a visitor turns it on, it carries on to the other pages -->
+<style>
+html{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
+footer{padding-bottom:84px}
+.bgm-btn{position:fixed;left:16px;bottom:16px;z-index:60;width:44px;height:44px;border-radius:50%;border:1px solid rgba(246,196,84,.7);background:linear-gradient(180deg,rgba(18,52,140,.96),rgba(6,18,58,.96));display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 24px rgba(25,212,255,.25);padding:0}
+.bgm-btn .bars{display:flex;align-items:flex-end;gap:2.5px;height:16px}
+.bgm-btn .bars i{width:2.5px;background:#f6c454;border-radius:2px;opacity:.85}
+.bgm-btn .bars i:nth-child(1){height:7px}.bgm-btn .bars i:nth-child(2){height:13px}.bgm-btn .bars i:nth-child(3){height:16px}.bgm-btn .bars i:nth-child(4){height:10px}.bgm-btn .bars i:nth-child(5){height:6px}
+.bgm-btn.on .bars i{opacity:1;animation:bgmEq 1s ease-in-out infinite}
+.bgm-btn.on .bars i:nth-child(2){animation-delay:.2s}.bgm-btn.on .bars i:nth-child(3){animation-delay:.4s}.bgm-btn.on .bars i:nth-child(4){animation-delay:.6s}.bgm-btn.on .bars i:nth-child(5){animation-delay:.8s}
+.bgm-btn.wait{animation:bgmPulse 1.6s ease-in-out infinite}
+@keyframes bgmEq{0%,100%{height:4px}50%{height:16px}}
+@keyframes bgmPulse{0%,100%{box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 0 rgba(246,196,84,.55)}50%{box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 9px rgba(246,196,84,0)}}
+@media (prefers-reduced-motion:reduce){.bgm-btn.on .bars i,.bgm-btn.wait{animation:none}}
+</style>
+<button type="button" class="bgm-btn" id="bgmBtn" aria-label="Play music" aria-pressed="false"><span class="bars"><i></i><i></i><i></i><i></i><i></i></span></button>
+<audio id="bgmAu" preload="none" loop></audio>
+<script>
+(function(){
+  var K="bgmState",SRC="/bgm-funk-groove.mp3",b=document.getElementById("bgmBtn"),a=document.getElementById("bgmAu");a.volume=.5;
+  function load(){try{return JSON.parse(sessionStorage.getItem(K)||"{}")}catch(e){return{}}}
+  function save(on){try{sessionStorage.setItem(K,JSON.stringify({on:on,t:a.currentTime||0}))}catch(e){}}
+  function set(on){b.classList.toggle("on",on);b.classList.remove("wait");b.setAttribute("aria-pressed",on);b.setAttribute("aria-label",on?"Pause music":"Play music")}
+  function start(t){if(!a.src)a.src=SRC;if(t){var go=function(){try{a.currentTime=t}catch(e){}};a.readyState>0?go():a.addEventListener("loadedmetadata",go,{once:true})}return a.play()}
+  b.onclick=function(){if(a.paused){start().then(function(){set(true);save(true)}).catch(function(){set(false)})}else{a.pause();set(false);save(false)}};
+  a.addEventListener("play",function(){set(true)});
+  setInterval(function(){if(!a.paused)save(true)},2000);
+  window.addEventListener("pagehide",function(){if(!a.paused)save(true)});
+  var s=load();
+  if(s.on){start(s.t).then(function(){set(true)}).catch(function(){b.classList.add("wait");b.setAttribute("aria-label","Tap to continue music")})}
+})();
+</script>
 </body>
+
 </html>
