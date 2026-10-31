@@ -430,6 +430,26 @@ apply(detect());
   });
 })();
 </script>
+<!-- Poster viewer: opens the poster on this page so the background music keeps playing -->
+<style>
+.pv{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;background:rgba(2,6,22,.92);padding:56px 12px 20px;overscroll-behavior:contain}
+.pv.show{display:flex}
+.pv img{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:10px;box-shadow:0 30px 70px rgba(0,0,0,.7)}
+.pv-x{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(246,196,84,.7);background:rgba(6,18,58,.96);color:#f6c454;font:700 22px/1 Inter,system-ui,sans-serif;cursor:pointer}
+</style>
+<div class="pv" id="pv" role="dialog" aria-modal="true" aria-label="Poster"><button type="button" class="pv-x" id="pvX" aria-label="Close">×</button><img id="pvImg" alt=""></div>
+<script>
+(function(){
+  var M={"nyaiwf_art_poster.html":"/nyaiwf-poster-lg.webp","saiwf_digital_poster.html":"/saiwf-poster-lg.webp"};
+  var v=document.getElementById("pv"),im=document.getElementById("pvImg");
+  function close(){v.classList.remove("show");document.documentElement.style.overflow="";if(location.hash==="#poster")history.back()}
+  document.querySelectorAll("a.poster").forEach(function(a){var src=M[a.getAttribute("href")];if(!src)return;
+    a.addEventListener("click",function(e){e.preventDefault();var t=a.querySelector("img");im.src=src;im.alt=t?t.alt:"";v.classList.add("show");document.documentElement.style.overflow="hidden";history.pushState(null,"","#poster")})});
+  v.addEventListener("click",function(e){if(e.target!==im)close()});
+  window.addEventListener("popstate",function(){if(v.classList.contains("show")){v.classList.remove("show");document.documentElement.style.overflow=""}});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&v.classList.contains("show"))close()});
+})();
+</script>
 <!-- Background music: each page has its own track (main / New York / Korea). Off by default; once a visitor turns it on, it stays on across these pages -->
 <style>
 html{scrollbar-width:none;-ms-overflow-style:none}
